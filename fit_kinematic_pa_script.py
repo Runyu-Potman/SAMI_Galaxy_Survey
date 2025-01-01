@@ -199,8 +199,8 @@ def fit_kinematic_pa(x, y, vel, dvel, debug=False, nsteps=361,
 
 ##############################################################################
 
-def galaxy_7969():
-    data = np.genfromtxt('stellar_velocity_quality_cut_7969.csv', delimiter = ',', skip_header = 1)
+def galaxy_CATID():
+    data = np.genfromtxt('stellar_velocity_quality_cut_CATID.csv', delimiter = ',', skip_header = 1)
     xbin = data[:, 0]
     ybin = data[:, 1]
     vel = data[:, 2]
@@ -217,5 +217,5 @@ def galaxy_7969():
 
 if __name__ == '__main__':
 
-    galaxy_7969()
+    galaxy_CATID()
 #
