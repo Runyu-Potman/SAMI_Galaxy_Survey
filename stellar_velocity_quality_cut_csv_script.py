@@ -15,13 +15,13 @@ import numpy as np
 import pandas as pd
 
 # open the stellar velocity fits file: velocity (PRIMARY), velocity error (VEL_ERR), S/N (SNR).
-vel_map = fits.open('7969_A_stellar-velocity_default_two-moment.fits')
+vel_map = fits.open('CATID_A_stellar-velocity_default_two-moment.fits')
 vel_data = vel_map[0].data # [0]: PRIMARY.
 vel_err_data = vel_map[1].data # [1]: VEL_ERR.
 vel_SNR_data = vel_map[4].data # [4]: SNR.
 
 # open the stellar velocity dispersion fits file: dispersion (PRIMARY), dispersion error (SIG_ERR), S/N (SNR).
-sig_map = fits.open('7969_A_stellar-velocity-dispersion_default_two-moment.fits')
+sig_map = fits.open('CATID_A_stellar-velocity-dispersion_default_two-moment.fits')
 sig_data = sig_map[0].data # [0]: PRIMARY.
 sig_err_data = sig_map[1].data # [1]: SIG_ERR.
 sig_SNR_data = sig_map[4].data # [4]: SNR.
@@ -71,14 +71,14 @@ for i in range(ny):
              print(f'{x[j] - 24}, {y[i] - 24}, {vel_data[i, j]}, {vel_err_data[i, j]}')
              data_to_save.append((x[j] - 24, y[i] - 24, vel_data[i, j], vel_err_data[i, j]))
 
-output_file = 'stellar_velocity_quality_cut_7969.csv'
+output_file = 'stellar_velocity_quality_cut_CATID.csv'
 with open(output_file, 'w') as f:
     f.write('x, y, vel, vel_err\n')
     for entry in data_to_save:
         f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}\n')
 
 # read the csv file.
-quality_cut_map = pd.read_csv('stellar_velocity_quality_cut_7969.csv')
+quality_cut_map = pd.read_csv('stellar_velocity_quality_cut_CATID.csv')
 
 # strip any leading whitespace from column names.
 quality_cut_map.columns = quality_cut_map.columns.str.strip()
@@ -108,7 +108,7 @@ plt.imshow(velocity_grid, origin = 'lower', aspect = 'auto', cmap = 'jet', inter
 plt.colorbar(label = 'km/s')
 
 # add labels, title and ticks.
-plt.title('Quality Cut Stellar Kinematic Map for Galaxy 7969')
+plt.title('Quality Cut Stellar Kinematic Map for Galaxy CATID')
 plt.xlabel('SPAXEL')
 plt.ylabel('SPAXEL')
 
