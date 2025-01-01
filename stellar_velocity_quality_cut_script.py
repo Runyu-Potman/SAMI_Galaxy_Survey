@@ -11,13 +11,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # open the stellar velocity fits file: velocity (PRIMARY), velocity error (VEL_ERR), S/N (SNR).
-vel_map = fits.open('7969_A_stellar-velocity_default_two-moment.fits')
+vel_map = fits.open('CATID_A_stellar-velocity_default_two-moment.fits')
 vel_data = vel_map[0].data # [0]: PRIMARY.
 vel_err_data = vel_map[1].data # [1]: VEL_ERR.
 vel_SNR_data = vel_map[4].data # [4]: SNR.
 
 # open the stellar velocity dispersion fits file: dispersion (PRIMARY), dispersion error (SIG_ERR), S/N (SNR).
-sig_map = fits.open('7969_A_stellar-velocity-dispersion_default_two-moment.fits')
+sig_map = fits.open('CATID_A_stellar-velocity-dispersion_default_two-moment.fits')
 sig_data = sig_map[0].data # [0]: PRIMARY.
 sig_err_data = sig_map[1].data # [1]: SIG_ERR.
 sig_SNR_data = sig_map[4].data # [4]: SNR.
@@ -65,7 +65,7 @@ plt.imshow(vel_data, origin = 'lower', aspect = 'auto', cmap = 'jet', interpolat
 plt.colorbar(label = 'km/s')
 
 # add labels and title.
-plt.title('Quality Cut Stellar Kinematic Map for Galaxy 7969')
+plt.title('Quality Cut Stellar Kinematic Map for Galaxy CATID')
 plt.xlabel('SPAXEL')
 plt.ylabel('SPAXEL')
 
