@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # separate core and outskirts regions.
-vel_map = pd.read_csv('stellar_velocity_quality_cut_galaxy.csv')
+vel_map = pd.read_csv('stellar_velocity_quality_cut_CATID.csv')
 
 # strip any leading whitespace from column names.
 vel_map.columns = vel_map.columns.str.strip()
@@ -48,11 +48,11 @@ outskirts_dataframe = pd.DataFrame({
 })
 
 # save the data to CSV files in preparation for position angle calculation.
-core_dataframe.to_csv('stellar_velocity_quality_cut_core_region_galaxy.csv', index = False)
-outskirts_dataframe.to_csv('stellar_velocity_quality_cut_outskirts_region_galaxy.csv', index = False)
+core_dataframe.to_csv('stellar_velocity_quality_cut_core_region_CATID.csv', index = False)
+outskirts_dataframe.to_csv('stellar_velocity_quality_cut_outskirts_region_CATID.csv', index = False)
 
 # read the csv file of core region.
-vel_map_core = pd.read_csv('stellar_velocity_quality_cut_core_region_galaxy.csv')
+vel_map_core = pd.read_csv('stellar_velocity_quality_cut_core_region_CATID.csv')
 
 # strip any leading whitespace from column names.
 vel_map_core.columns = vel_map_core.columns.str.strip()
@@ -69,7 +69,7 @@ for index, row in vel_map_core.iterrows():
     vel_core_grid[y_core_grid, x_core_grid] = row['vel']
 
 # read the csv file of outskirts region.
-vel_map_outskirts = pd.read_csv('stellar_velocity_quality_cut_outskirts_region_galaxy.csv')
+vel_map_outskirts = pd.read_csv('stellar_velocity_quality_cut_outskirts_region_CATID.csv')
 
 # strip any leading whitespace from column names.
 vel_map_outskirts.columns = vel_map_outskirts.columns.str.strip()
