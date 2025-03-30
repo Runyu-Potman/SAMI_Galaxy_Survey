@@ -95,7 +95,7 @@ def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin, vmax):
     sig_map.close()
 
 # example usage:
-quality_cut_stellar_velocity_map('CATID_A_stellar-velocity_default_two-moment.fits', 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits', vmin = -75, vmax = 75)
+#quality_cut_stellar_velocity_map('CATID_A_stellar-velocity_default_two-moment.fits', 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits', vmin = -75, vmax = 75)
 
 def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, vmin, vmax):
     '''
@@ -217,7 +217,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, vmin, vma
     sig_map.close()
 
 # example usage:
-quality_cut_stellar_velocity_map_csv('CATID_A_stellar-velocity_default_two-moment.fits', 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits', vmin = -75, vmax = 75)
+#quality_cut_stellar_velocity_map_csv('CATID_A_stellar-velocity_default_two-moment.fits', 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits', vmin = -75, vmax = 75)
 
 def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_dir):
     '''
@@ -337,14 +337,14 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
             sig_map.close()
 
 # example usage:
-cwd = os.getcwd()
+#cwd = os.getcwd()
 # ifs_velocity contains 3068 galaxy directories.
-vel_base_dir = os.path.join(cwd, 'ifs_velocity')
+#vel_base_dir = os.path.join(cwd, 'ifs_velocity')
 # ifs_velocity_dispersion contains 3068 galaxy directories.
-sig_base_dir = os.path.join(cwd, 'ifs_velocity_dispersion')
-output_dir = cwd
+#sig_base_dir = os.path.join(cwd, 'ifs_velocity_dispersion')
+#output_dir = cwd
 
-quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_dir)
+#quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_dir)
 
 
 
