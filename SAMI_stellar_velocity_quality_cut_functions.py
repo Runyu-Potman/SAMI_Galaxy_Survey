@@ -78,7 +78,7 @@ def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin = None, 
     plt.figure(figsize=(10, 8))
 
     plt.imshow(
-        vel_data, origin = 'lower', aspect = 'auto',
+        cleaned_vel_data, origin = 'lower', aspect = 'auto',
         cmap = 'jet', vmin = vmin, vmax = vmax
     )
 
