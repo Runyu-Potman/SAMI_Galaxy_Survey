@@ -72,7 +72,7 @@ def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin = None, 
     combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(sig_SNR_data))
 
     # apply the combined_mask to the stellar velocity map.
-    vel_data = np.ma.masked_array(vel_data, mask = combined_mask)
+    cleaned_vel_data = np.ma.masked_array(vel_data, mask = combined_mask)
 
     # plot the quality cut stellar velocity map.
     plt.figure(figsize=(10, 8))
