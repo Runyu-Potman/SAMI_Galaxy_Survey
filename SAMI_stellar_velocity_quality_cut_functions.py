@@ -19,7 +19,7 @@ import pandas as pd
 import os
 import glob
 
-def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin, vmax):
+def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin = None, vmax = None):
     '''
     Apply the quality cut criteria and make plot with x_axis and y_axis in pixel unit,
     note that the center of the galaxy is located at around (25, 25).
