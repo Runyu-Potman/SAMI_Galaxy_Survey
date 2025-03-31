@@ -94,7 +94,7 @@ def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin = None, 
     vel_map.close()
     sig_map.close()
 
-    return combined_mask
+    return combined_mask, cleaned_vel_data
 
 # example usage:
 #quality_cut_stellar_velocity_map('CATID_A_stellar-velocity_default_two-moment.fits', 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits', vmin = -75, vmax = 75)
