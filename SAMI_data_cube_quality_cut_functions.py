@@ -28,8 +28,8 @@ version_01: 01/04/2025
 # extract the combined mask based on the quality cut on the stellar velocity map.
 # those functions are stored in the directory: clone, which is within the ppxf directory.
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map
-vel_fits_file = '230776_A_stellar-velocity_default_two-moment.fits'
-sig_fits_path = '230776_A_stellar-velocity-dispersion_default_two-moment.fits'
+vel_fits_file = 'CATID_A_stellar-velocity_default_two-moment.fits'
+sig_fits_path = 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits'
 vmin = -75
 vmax = 75
 
@@ -182,7 +182,7 @@ def data_cube_clean_snr(fits_path, total_sn_threshold, wavelength_slice_index, p
     return cleaned_data_cube
 
 #-------------------------------------------------------------------------------
-fits_path = '230776_A_cube_blue.fits'
+fits_path = 'CATID_A_cube_blue.fits'
 #total_sn_threshold = 400
 #per_wave_sn_threshold = 10
 percentage = 0.1
@@ -263,7 +263,7 @@ for idx in range(1, len(spectrum_to_save) - 1):
 
 hdu = fits.PrimaryHDU(spectrum_to_save)
 hdulist = fits.HDUList([hdu])
-hdulist.writeto('coadded_spectrum_230776.fits', overwrite = True)
+hdulist.writeto('coadded_spectrum_CATID.fits', overwrite = True)
 
 plt.figure(figsize=(10, 6))
 plt.plot(np.arange(cleaned_data_cube.shape[0]), spectrum_to_save)
