@@ -18,7 +18,7 @@ value, exclude those pixels with a total flux value less than a specific percent
 
 2. Similarly, calculate the total flux and also the total noise. Then, we exclude those 
 pixels with a S/N smaller than a specific threshold. In terms of the noise, we choose the
-variance spectrum (will consider the covariance in a future version).
+square root of the variance spectrum (will consider the covariance in a future version).
 
 Note that for both methods, we do the cleaning after collapsing the wavelength dimension
 (we only focus on the total flux and the total noise). No need to do any cleaning at each
