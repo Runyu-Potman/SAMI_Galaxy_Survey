@@ -48,7 +48,7 @@ combined_mask, cleaned_vel_data = quality_cut_stellar_velocity_map(vel_fits_file
 def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, combined_mask = None):
     '''
     Clean the data cube by excluding pixels with a total flux value less than
-    a given percentage of the peak flux.
+    a given percentage of the peak total flux value.
 
     Parameters:
     - fits_path: str, path to the data cube fits file.
