@@ -132,7 +132,6 @@ def data_cube_clean_snr(fits_path, total_sn_threshold, wavelength_slice_index, c
     Parameters:
     - fits_path: str, path to the data cube fits file.
     - total_sn_threshold: float, minimum total S/N required for a pixel to be included.
-    - per_wave_sn_threshold: float, minimum S/N required per wavelength slice.
     - wavelength_slice_index: int, wavelength slice to visualize before clean and after cleaning.
     - combined_mask: 2D mask, the mask from other maps (e.g., stellar velocity maps).
 
