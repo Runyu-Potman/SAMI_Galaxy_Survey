@@ -124,7 +124,7 @@ def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, co
     return cleaned_data_cube
 
 #------------------------------------------------------------------------------
-def data_cube_clean_snr(fits_path, total_sn_threshold, wavelength_slice_index, combined_mask = None):
+def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength_slice_index, combined_mask = None):
     '''
     Compute total S/N for each pixel (integrated over wavelength) and exclude pixels with low total S/N value.
 
