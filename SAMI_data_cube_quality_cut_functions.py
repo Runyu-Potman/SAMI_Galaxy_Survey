@@ -232,7 +232,7 @@ def kdc_separation(x_center, y_center, a, b, pa):
 
     not_kdc = np.ma.masked_array(cleaned_vel_data, mask = ellipse_mask)
 
-    plt.imshow(not_kdc, cmap = 'jet')
+    plt.imshow(not_kdc, cmap = 'jet', origin = 'lower')
     plt.colorbar()
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
