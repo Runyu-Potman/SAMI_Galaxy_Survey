@@ -279,7 +279,7 @@ for idx in range(1, len(spectrum_to_save) - 1):
 
 hdu = fits.PrimaryHDU(spectrum_to_save)
 hdulist = fits.HDUList([hdu])
-hdulist.writeto('coadded_spectrum_CATID.fits', overwrite = True)
+hdulist.writeto('co-added_spectrum_CATID.fits', overwrite = True)
 
 plt.figure(figsize=(10, 6))
 plt.plot(np.arange(cleaned_data_cube.shape[0]), spectrum_to_save)
