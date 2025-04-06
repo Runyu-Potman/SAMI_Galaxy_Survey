@@ -126,7 +126,8 @@ def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, co
 #------------------------------------------------------------------------------
 def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength_slice_index, combined_mask = None):
     '''
-    Compute total S/N for each pixel (integrated over wavelength) and exclude pixels with low total S/N value.
+    Clean the data cube by excluding pixels with low S/N (mean flux / mean noise) in a specific emission-free
+    wavelength range, and exclude them across the whole cube.
 
     Parameters:
     - fits_path: str, path to the data cube fits file.
