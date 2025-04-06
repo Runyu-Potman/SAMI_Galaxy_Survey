@@ -149,10 +149,14 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     data_cube = np.ma.masked_invalid(data_cube)
     var = np.ma.masked_invalid(var)
 
-    total_flux = np.sum(data_cube, axis = 0)
-    total_noise = np.sqrt(np.sum(var, axis = 0))
-    total_sn = np.where(total_noise > 0, total_flux / total_noise, 0)
-    total_sn_mask = total_sn < total_sn_threshold
+    wavelength = header['CRVAL3'] + (np.arange(header['NAXIS3']) - header['CRPIX3']) * header['CDELT3']
+    redshift = header['Z_SPEC']
+    rest_wave = wavelength / (1 + redshift)
+    emission_free = (rest_wave >= emission_free_range[0]) & (rest_wave <= emission_free_range[1])
+
+    mean_flux = np.mean(data_cube[emission_free, :, :], axis = 0)
+    mean_noise = np.sqrt(np.mean(var[emission_free, :, :], axis = 0))
+    sn = np.where(mean_noise > 0, mean_flux / mean_noise, 0)
 
     # plot the total S/N map before masking.
     plt.imshow(total_sn, cmap = 'jet')
