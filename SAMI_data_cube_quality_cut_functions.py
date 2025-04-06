@@ -79,7 +79,7 @@ def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, co
     total_flux = np.sum(data_cube, axis = 0) * delta_lambda
     print('Shape of the total flux map:', total_flux.shape)
 
-    plt.imshow(total_flux, cmap = 'jet')
+    plt.imshow(total_flux, cmap = 'jet', origin = 'lower')
     plt.colorbar()
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
