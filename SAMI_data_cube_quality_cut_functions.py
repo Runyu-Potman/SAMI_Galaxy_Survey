@@ -13,7 +13,8 @@ When doing the quality cut, there are two different approaches:
 
 1. For each pixel in the spatial map, calculate the total flux (do the integration
 along the wavelength dimension), find the central pixel which has the peak flux
-value, exclude those pixels with a total flux value less than 1% of the peak.
+value, exclude those pixels with a total flux value less than a specific percentage
+(e.g., 1%) of the peak total flux value.
 
 2. Similarly, calculate the total flux and also the total noise. Then, we exclude those 
 pixels with a S/N smaller than a specific threshold. In terms of the noise, we choose the
