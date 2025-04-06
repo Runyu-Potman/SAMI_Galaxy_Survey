@@ -73,8 +73,8 @@ def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, co
     data_cube = np.ma.masked_invalid(data_cube)
 
     # axis = 0 corresponds to the wavelength dimension.
-    # calculate the total flux by integration along the wavelength dimension.
-    # after summation, total flux will have the shape 50*50.
+    # calculate the total flux by integrating along the wavelength dimension.
+    # after collapsing, total flux will have the shape 50*50.
     total_flux = np.sum(data_cube, axis = 0) * delta_lambda
     print('Shape of the total flux map:', total_flux.shape)
 
