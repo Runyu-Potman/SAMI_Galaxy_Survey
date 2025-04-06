@@ -159,8 +159,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     sn = np.where(mean_noise > 0, mean_flux / mean_noise, 0)
 
     # plot the total S/N map before masking.
-    plt.imshow(total_sn, cmap = 'jet')
-    plt.colorbar(label = 'total S/N')
+    plt.imshow(sn, cmap = 'jet', origin = 'lower')
+    plt.colorbar(label = 'S/N within the emission-free wavelength range')
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
     plt.title('total S/N map before any masking')
