@@ -114,7 +114,7 @@ def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, co
     plt.show()
 
     # the data cube after cleaning.
-    plt.imshow(cleaned_data_cube[wavelength_slice_index, :, :], cmap = 'jet')
+    plt.imshow(cleaned_data_cube[wavelength_slice_index, :, :], cmap = 'jet', origin = 'lower')
     plt.colorbar()
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
