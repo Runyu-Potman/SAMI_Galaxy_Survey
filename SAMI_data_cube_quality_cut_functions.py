@@ -166,8 +166,9 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     plt.title('S/N map before any masking')
     plt.show()
 
-    total_sn_mask = np.repeat(total_sn_mask[np.newaxis, :, :], data_cube.shape[0], axis = 0)
-    cleaned_data_cube = np.ma.masked_where(total_sn_mask, data_cube)
+    sn_mask = sn < sn_threshold
+    sn_mask = np.repeat(sn_mask[np.newaxis, :, :], data_cube.shape[0], axis = 0)
+    cleaned_data_cube = np.ma.masked_where(sn_mask, data_cube)
 
     if combined_mask is not None:
         combined_mask = np.repeat(combined_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis = 0)
