@@ -191,6 +191,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     return cleaned_data_cube
 
 #-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 fits_path = 'CATID_A_cube_blue.fits'
 sn_threshold = 10
 percentage = 0.01
