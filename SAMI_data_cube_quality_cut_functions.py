@@ -164,14 +164,6 @@ def data_cube_clean_snr(fits_path, total_sn_threshold, wavelength_slice_index, c
     total_sn_mask = np.repeat(total_sn_mask[np.newaxis, :, :], data_cube.shape[0], axis = 0)
     cleaned_data_cube = np.ma.masked_where(total_sn_mask, data_cube)
 
-    if per_wave_sn_threshold is not None:
-        # apply per_wavelength S/N mask.
-        # compute per_wavelength S/N for the remaining pixels.
-        noise = np.sqrt(var)
-        per_sn = np.where(noise > 0, cleaned_data_cube / noise, 0)
-        per_sn_mask = per_sn < per_wave_sn_threshold
-        cleaned_data_cube = np.ma.masked_where(per_sn_mask, cleaned_data_cube)
-
     if combined_mask is not None:
         combined_mask = np.repeat(combined_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis = 0)
         cleaned_data_cube = np.ma.masked_where(combined_mask, cleaned_data_cube)
