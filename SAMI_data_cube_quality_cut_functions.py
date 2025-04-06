@@ -250,6 +250,9 @@ a = 8
 b = 8
 pa = 90
 ellipse_mask = kdc_separation(x_center, y_center, a, b, pa)
+#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+
 ellipse_mask = np.repeat(ellipse_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis = 0)
 
 # mask = ellipse_mask leads to a not-kdc spectrum, mask = ~ellipse_mask leads to a kdc spectrum.
