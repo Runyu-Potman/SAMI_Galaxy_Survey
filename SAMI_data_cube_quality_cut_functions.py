@@ -20,9 +20,9 @@ value, exclude those pixels with a total flux value less than a specific percent
 pixels with a S/N smaller than a specific threshold. In terms of the noise, we choose the
 variance spectrum (will consider the covariance in a future version).
 
-we want to select those pixels which belong to the kdc region, and get the coadded spectrum.
-A function using ellipse mask to separate the kdc region is defined. Also the combined_mask, 
-which is defined when doing the quality cut for the stellar velocity map, should also be included. 
+Note that for both methods, we do the cleaning after collapsing the wavelength dimension
+(we only focus on the total flux and the total noise). No need to do any cleaning at each
+wavelength slice.
 
 version_01: 01/04/2025
 '''
