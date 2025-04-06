@@ -24,7 +24,13 @@ Note that for both methods, we do the cleaning after collapsing the wavelength d
 (we only focus on the total flux and the total noise). No need to do any cleaning at each
 wavelength slice.
 
-version_01: 01/04/2025
+In this script, we also show how to select those pixels which belong to the kdc region, and
+how to get the co-added spectrum. A function using ellipse mask to isolate the kdc region 
+is defined. Also the combined_mask, which is defined when doing the quality cut for the stellar 
+velocity map, should also be included. 
+
+version_01: 01/04/2025: initial version.
+version_02: 06/04/2025: 
 '''
 #-------------------------------------------------------------------------------------------
 # extract the combined mask based on the quality cut on the stellar velocity map.
