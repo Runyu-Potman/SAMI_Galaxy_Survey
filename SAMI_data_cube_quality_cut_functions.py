@@ -34,7 +34,6 @@ version_02: 06/04/2025:
 '''
 #-------------------------------------------------------------------------------------------
 # extract the combined mask based on the quality cut on the stellar velocity map.
-# those functions are stored in the directory: clone, which is within the ppxf directory.
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map
 vel_fits_file = 'CATID_A_stellar-velocity_default_two-moment.fits'
 sig_fits_path = 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits'
