@@ -163,7 +163,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     plt.colorbar(label = 'S/N within the emission-free wavelength range')
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
-    plt.title('total S/N map before any masking')
+    plt.title('S/N map before any masking')
     plt.show()
 
     total_sn_mask = np.repeat(total_sn_mask[np.newaxis, :, :], data_cube.shape[0], axis = 0)
