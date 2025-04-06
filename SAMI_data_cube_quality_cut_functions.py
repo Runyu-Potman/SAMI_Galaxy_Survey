@@ -41,7 +41,8 @@ sig_fits_path = 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits'
 vmin = -75
 vmax = 75
 
-combined_mask, cleaned_vel_data = quality_cut_stellar_velocity_map(vel_fits_file, sig_fits_path)
+combined_mask, cleaned_vel_data = quality_cut_stellar_velocity_map(vel_fits_file, sig_fits_path, vmin = vmin, vmax = vmax)
+#--------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------
 def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, combined_mask = None):
     '''
