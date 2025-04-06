@@ -144,6 +144,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     with fits.open(fits_path) as hdul:
         data_cube = hdul[0].data # flux data
         var = hdul[1].data # variance data
+        header = hdul[0].header
 
     data_cube = np.ma.masked_invalid(data_cube)
     var = np.ma.masked_invalid(var)
