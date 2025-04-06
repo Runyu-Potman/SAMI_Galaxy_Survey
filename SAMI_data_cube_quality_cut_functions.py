@@ -10,6 +10,7 @@ The y axis in the wavelength dimension is flux with the unit:
 10**(-16) erg/s/cm**2/angstrom/pixel.
 
 When doing the quality cut, there are two different approaches:
+
 1. For each pixel in the spatial map, calculate the total flux (do the integration
 along the wavelength dimension), find the central pixel which has the peak flux
 value, exclude those pixels with a total flux value less than 1% of the peak.
