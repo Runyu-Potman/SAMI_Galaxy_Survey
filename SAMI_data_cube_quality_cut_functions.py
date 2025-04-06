@@ -19,7 +19,7 @@ value, exclude those pixels with a total flux value less than a specific percent
 2. Calculate the mean flux and also the mean noise at a specific emission-free
 wavelength range. Then, we exclude those pixels with a S/N smaller than a specific threshold 
 across whole wavelength range. In terms of the noise, we choose the square root of the variance 
-spectrum (will consider the covariance in a future version).
+spectrum (will consider the covariance and the weight map in a future version).
 
 Note that for both methods, there is no need to do any cleaning at each wavelength slice 
 (e.g., for the first method, a pixel that contributes little to the total flux across all 
