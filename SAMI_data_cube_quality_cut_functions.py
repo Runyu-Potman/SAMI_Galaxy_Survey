@@ -99,6 +99,7 @@ def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, co
 
     cleaned_data_cube = np.ma.masked_where(mask, data_cube)
 
+    # combined_mask is some mask from other maps.
     if combined_mask is not None:
         combined_mask = np.repeat(combined_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis = 0)
         cleaned_data_cube = np.ma.masked_where(combined_mask, cleaned_data_cube)
