@@ -16,9 +16,10 @@ along the wavelength dimension), find the central pixel which has the peak flux
 value, exclude those pixels with a total flux value less than a specific percentage
 (e.g., 1%) of the peak total flux value.
 
-2. Similarly, calculate the total flux and also the total noise. Then, we exclude those 
-pixels with a S/N smaller than a specific threshold. In terms of the noise, we choose the
-square root of the variance spectrum (will consider the covariance in a future version).
+2. Calculate the mean flux and also the mean noise at a specific emission-free
+wavelength range. Then, we exclude those pixels with a S/N smaller than a specific threshold 
+across whole wavelength range. In terms of the noise, we choose the square root of the variance 
+spectrum (will consider the covariance in a future version).
 
 Note that for both methods, we do the cleaning after collapsing the wavelength dimension
 (we only focus on the total flux and the total noise). No need to do any cleaning at each
