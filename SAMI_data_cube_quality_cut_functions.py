@@ -4,8 +4,8 @@ import numpy as np
 
 #------------------------------------------------------------------------------------------
 '''
-First of all, we do the quality cut on the data cube. The size of the data 
-cube is 2048*50*50 (a spatial dimension: 50*50 and a wavelength dimension: 2048).
+First of all, we do the quality cut on the data cube. The size of the data cube 
+is 2048*50*50 (two spatial dimensions: 50*50 and a wavelength dimension: 2048).
 The y axis in the wavelength dimension is flux with the unit: 
 10**(-16) erg/s/cm**2/angstrom/pixel.
 
