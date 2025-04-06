@@ -105,8 +105,8 @@ def ppxf_pre(cube_fits, spectrum_fits):
 
     return goodpixels_nan, specNew, ln_lam, velscale, redshift
 #-----------------------------------------------------------------------------------
-cube_fits = '227266_A_cube_blue.fits'
-spectrum_fits = 'co-added_spectrum_227266.fits'
+cube_fits = 'CATID_A_cube_blue.fits'
+spectrum_fits = 'co-added_spectrum_CATID.fits'
 
 goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre(cube_fits, spectrum_fits)
 #------------------------------------------------------------------------------------
