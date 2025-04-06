@@ -174,7 +174,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
         combined_mask = np.repeat(combined_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis = 0)
         cleaned_data_cube = np.ma.masked_where(combined_mask, cleaned_data_cube)
 
-    plt.imshow(data_cube[wavelength_slice_index, :, :], cmap = 'jet')
+    plt.imshow(data_cube[wavelength_slice_index, :, :], cmap = 'jet', origin = 'lower')
     plt.colorbar()
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
