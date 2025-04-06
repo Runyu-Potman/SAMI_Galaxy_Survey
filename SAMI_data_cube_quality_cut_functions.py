@@ -197,9 +197,10 @@ percentage = 0.01
 wavelength_slice_index = 1024
 emission_free_range = (4600, 4800)
 combined_mask = combined_mask
-#cleaned_data_cube = data_cube_clean_snr(fits_path, total_sn_threshold, wavelength_slice_index, combined_mask)
-cleaned_data_cube = data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, combined_mask)
-#----------------------------------------------------------------------------------------
+cleaned_data_cube = data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength_slice_index, combined_mask)
+#cleaned_data_cube = data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, combined_mask)
+#-----------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------
 # we separate the kdc region.
 def kdc_separation(x_center, y_center, a, b, pa):
     '''
