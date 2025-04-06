@@ -192,9 +192,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
 
 #-------------------------------------------------------------------------------
 fits_path = 'CATID_A_cube_blue.fits'
-#total_sn_threshold = 400
-#per_wave_sn_threshold = 10
-percentage = 0.1
+sn_threshold = 10
+percentage = 0.01
 wavelength_slice_index = 1024
 emission_free_range = (4600, 4800)
 combined_mask = combined_mask
