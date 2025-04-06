@@ -32,7 +32,8 @@ is defined. Also the combined_mask, which is defined when doing the quality cut 
 velocity map, should also be included. 
 
 version_01: 01/04/2025: initial version.
-version_02: 06/04/2025: 
+version_02: 06/04/2025: modification on the data_cube_clean_snr function, we use mean flux and
+            mean noise to calculate the S/N in a specific emission-free wavelength range. 
 '''
 #-------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------
