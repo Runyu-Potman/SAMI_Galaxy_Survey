@@ -196,6 +196,7 @@ fits_path = 'CATID_A_cube_blue.fits'
 #per_wave_sn_threshold = 10
 percentage = 0.1
 wavelength_slice_index = 1024
+emission_free_range = (4600, 4800)
 combined_mask = combined_mask
 #cleaned_data_cube = data_cube_clean_snr(fits_path, total_sn_threshold, wavelength_slice_index, combined_mask)
 cleaned_data_cube = data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, combined_mask)
