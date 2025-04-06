@@ -21,10 +21,10 @@ wavelength range. Then, we exclude those pixels with a S/N smaller than a specif
 across whole wavelength range. In terms of the noise, we choose the square root of the variance 
 spectrum (will consider the covariance in a future version).
 
-Note that for both methods, we do the cleaning after collapsing the wavelength dimension
-(we only focus on the total flux and the total noise). No need to do any cleaning at each
-wavelength slice. A pixel that contributes little to the total flux across all wavelengths
-might not be important for our analysis, even if it has a high flux at specific wavelengths.
+Note that for both methods, there is no need to do any cleaning at each wavelength slice 
+(e.g., for the first method, a pixel that contributes little to the total flux across all 
+wavelengths might not be important for our analysis, even if it has a high flux at specific 
+wavelengths).
 
 In this script, we also show how to select those pixels which belong to the kdc region, and
 how to get the co-added spectrum. A function using ellipse mask to isolate the kdc region 
