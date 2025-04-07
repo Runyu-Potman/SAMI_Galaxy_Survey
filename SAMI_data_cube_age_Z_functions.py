@@ -222,7 +222,8 @@ def ppxf_pre_data_cube(spectrum_blue, blue_cube_fits, spectrum_red = None, red_c
     nan_mask_flux = np.isnan(specNew)
     specNew[nan_mask_flux] = 1e10
 
-    return ew
+    # the goodpixels_nan will be used to normalize the galaxy and do the pPXF fitting.
+    goodpixels_nan = np.where(specNew < 1e5)[0]
 
 lick_indices = {
     'HdeltaA': {'feature': (4083.50, 4122.25), 'blue': (4041.60, 4079.75), 'red': (4128.50, 4161.00)}}
