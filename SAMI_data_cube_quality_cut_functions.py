@@ -268,13 +268,13 @@ if __name__ == '__main__':
     # replace masked values with NaN for saving.
     spectrum_to_save = coadded_spectrum.filled(np.nan)
 
-# around NaN values, sometimes there will be some very small values.
-# for each NaN value (e.g., at index a), set the adjacent values (a-1 and a+1) to NaN as well.
-nan_indices = np.isnan(spectrum_to_save)
-for idx in range(1, len(spectrum_to_save) - 1):
-    if nan_indices[idx]:
-        spectrum_to_save[idx - 1] = np.nan
-        spectrum_to_save[idx + 1] = np.nan
+    # around NaN values, sometimes there will be some very small values.
+    # for each NaN value (e.g., at index a), set the adjacent values (a-1 and a+1) to NaN as well.
+    nan_indices = np.isnan(spectrum_to_save)
+    for idx in range(1, len(spectrum_to_save) - 1):
+        if nan_indices[idx]:
+            spectrum_to_save[idx - 1] = np.nan
+            spectrum_to_save[idx + 1] = np.nan
 
 hdu = fits.PrimaryHDU(spectrum_to_save)
 hdulist = fits.HDUList([hdu])
