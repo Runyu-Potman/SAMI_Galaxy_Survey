@@ -296,7 +296,7 @@ lam_range_gal = np.array([np.min(lam_gal), np.max(lam_gal)])
 
 # construct a set of Gaussian emission line templates.
 gas_templates, gas_names, line_wave = util.emission_lines(sps.ln_lam_temp, lam_range_gal,
-                                                          FWHM_gal, tie_balmer = 1)
+                                                          fwhm_gal, tie_balmer = 1)
 
 # combine the stellar and gaseous templates into a single array of templates.
 # during the pPXF fit they will be assigned a different kinematic component value.
