@@ -303,7 +303,7 @@ gas_templates, gas_names, line_wave = util.emission_lines(sps.ln_lam_temp, lam_r
 templates = np.column_stack([stars_templates, gas_templates])
 
 # starting guess for [v, sig] (km/s).
-# spectrum is de-redshifited --> starting guess is zero
+# spectrum is de-redshifted --> starting guess for vel is zero.
 start = [[0., 187.], [0., 187.], [0., 187.]]
 
 # consider two gas components, one for the Balmer and another for the forbidden lines.
