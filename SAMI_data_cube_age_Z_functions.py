@@ -203,9 +203,7 @@ def ppxf_pre_data_cube(spectrum_blue, blue_cube_fits, spectrum_red = None, red_c
         combined_wavelength = np.concatenate([blue_wavelength, gap_wavelength, red_wavelength])
         combined_flux = np.concatenate([spectrum_blue, gap_flux, red_flux])
 
-    # interpolate the continuum in the feature region.
-    blue_wave = np.mean(ln_lam[blue_mask])
-    red_wave = np.mean(ln_lam[red_mask])
+        rest_wavelength = combined_wavelength / (1 + redshift)
 
     # interpolate between the blue and red regions to get the continuum.
     cont_interp = np.interp(ln_lam[feature_mask], [blue_wave, red_wave], [blue_mean, red_mean])
