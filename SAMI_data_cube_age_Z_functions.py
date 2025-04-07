@@ -119,7 +119,7 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits):
 cube_fits = 'CATID_A_cube_blue.fits'
 spectrum_fits = 'co-added_spectrum_CATID.fits'
 
-goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre(cube_fits, spectrum_fits)
+goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_spectrum(cube_fits, spectrum_fits)
 #------------------------------------------------------------------------------------
 def compute_atom_index(ln_lam, flux, index_name):
     bands = lick_indices_log[index_name]
