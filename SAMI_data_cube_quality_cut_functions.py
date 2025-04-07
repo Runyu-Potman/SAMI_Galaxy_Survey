@@ -40,18 +40,7 @@ version_01: 01/04/2025: initial version.
 version_02: 06/04/2025: modification on the data_cube_clean_snr function, we use mean flux and
             mean noise to calculate the S/N in a specific emission-free wavelength range. 
 '''
-#-------------------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------------------
-# extract the combined mask based on the quality cut on the stellar velocity map.
-from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map
-vel_fits_file = 'CATID_A_stellar-velocity_default_two-moment.fits'
-sig_fits_path = 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits'
-vmin = -75
-vmax = 75
-
-combined_mask, cleaned_vel_data = quality_cut_stellar_velocity_map(vel_fits_file, sig_fits_path, vmin = vmin, vmax = vmax)
-#--------------------------------------------------------------------------------------------
-#--------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
 def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, combined_mask = None):
     '''
     Clean the data cube by excluding pixels with a total flux value less than
