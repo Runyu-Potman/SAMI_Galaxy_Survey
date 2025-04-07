@@ -28,6 +28,36 @@ version_01: 03/04/2025
 fwhm_blue = 2.65  # Å
 fwhm_red = 1.61 # Å
 c = 299792.458  # speed of light (km/s).
+#-------------------------------------------------------------------------------
+def plot_spectrum(wavelength, spectrum):
+    plt.figure(figsize = (10, 8))
+    plt.plot(wavelength, spectrum)
+    plt.xlabel('rest-frame wavelength (Å)')
+    plt.ylabel('flux')
+    plt.title('spectrum before log-rebin')
+    plt.show()
+#-------------------------------------------------------------------------------
+def decide_mdegree():
+
+    plt.figure(figsize = (25, 15))
+
+    # loop over mdegree values from 1 to 20.
+    for mdegree in range(1, 21):
+        # the first pPXF fit without regularization.
+        pp_unreg = ppxf(templates=templates, galaxy=galaxy, noise=noise, velscale=velscale,
+                        start=start, moments=moments, degree=-1, mdegree=mdegree, lam=lam_gal, lam_temp=sps.lam_temp,
+                        goodpixels=goodpixels_nan, regul=0, component=component,
+                        gas_component=gas_component, gas_names=gas_names, reddening=0, gas_reddening=0)
+
+        residual = galaxy - pp_unreg.bestfit
+        offset = mdegree / 8
+        plt.plot(residual[goodpixels_nan] + offset, label = f'mdegree = {mdegree}', alpha = 0.7)
+        plt.axhline(y = offset, color = 'k', linestyle = '--', linewidth = 0.5)
+
+    plt.xlabel('wavelength index')
+    plt.ylabel('residuals')
+    plt.legend(loc = 'upper right')
+    plt.show()
 #---------------------------------------------------------------------------------------------
 def bootstrap_residuals(model, resid, wild = True):
     """
