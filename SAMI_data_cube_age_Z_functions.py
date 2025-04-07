@@ -327,7 +327,9 @@ of the spectral features, the additive polynomials are excluded (degree = -1), a
 are used. This is only recommended for population, not for kinematic extraction, where additive polynomials are 
 always recommended.
 '''
-# make the fit to be regularized because this suppresses the noise makes it more representative of the underlying galaxy spectrum.
+
+decide_mdegree()
+
 print('Performing unregularized fit...')
 
 # the first pPXF fit without regularization.
