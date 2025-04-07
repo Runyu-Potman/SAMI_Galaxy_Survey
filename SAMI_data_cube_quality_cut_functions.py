@@ -4,6 +4,11 @@ import numpy as np
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map
 
 '''
+Three functions are defined in this script:
+1. data_cube_clean_percentage()
+2. data_cube_clean_snr()
+3. kdc_separation()
+
 First of all, we do the quality cut on the data cube. The size of the data cube 
 is 2048*50*50 (two spatial dimensions: 50*50 and a wavelength dimension: 2048).
 The y axis in the wavelength dimension is flux with the unit: 
