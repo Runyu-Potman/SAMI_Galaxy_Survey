@@ -355,6 +355,7 @@ pp_rescaled = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescale
 
 print(f'Unregularized reduced Chi^2 with rescaled noise spectrum: {pp_rescaled.chi2:.3f}')
 
+# make the fit to be regularized because this suppresses the noise makes it more representative of the underlying galaxy spectrum.
 # initial guess for regul and search parameters.
 # starting regularization guess value.
 regul = 10
