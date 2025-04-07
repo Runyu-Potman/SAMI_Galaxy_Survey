@@ -185,19 +185,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
 
     return cleaned_data_cube
 
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-fits_path = 'CATID_A_cube_blue.fits'
-sn_threshold = 10
-percentage = 0.01
-wavelength_slice_index = 1024
-emission_free_range = (4600, 4800) # https://doi.org/10.1111/j.1365-2966.2011.20109.x
-combined_mask = combined_mask
-cleaned_data_cube = data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength_slice_index, combined_mask)
-#cleaned_data_cube = data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, combined_mask)
-#-----------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------
-# we separate the kdc region.
+#-----------------------------------------------------------------------------------------------
 def kdc_separation(x_center, y_center, a, b, pa):
     '''
     Parameters:
