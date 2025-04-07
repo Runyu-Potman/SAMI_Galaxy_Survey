@@ -59,7 +59,11 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits):
     - spectrum_fits: str, path to the co-added spectrum fits file.
 
     Returns:
-    - goodpixels_nan, SpecNew, ln_lam, velscale, redshift
+    - goodpixels_nan: goodpixels which will be fitted in pPXF.
+    - SpecNew: log-rebinned co-added spectrum.
+    - ln_lam: log-resclaed wavelength range.
+    - velscale: velocity scale.
+    - redshift: redshift extracted from data cube.
     '''
 
     # open the data cube to construct the wavelength and extract redshift value.
