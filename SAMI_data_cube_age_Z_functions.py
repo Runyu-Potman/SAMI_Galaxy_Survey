@@ -158,11 +158,47 @@ spectrum_fits = 'co-added_spectrum_CATID.fits'
 
 goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_spectrum(cube_fits, spectrum_fits)
 #------------------------------------------------------------------------------------
-def compute_atom_index(ln_lam, flux, index_name):
-    bands = lick_indices_log[index_name]
-    feature_mask = (ln_lam >= bands['feature'][0]) & (ln_lam <= bands['feature'][1])
-    blue_mask = (ln_lam >= bands['blue'][0]) & (ln_lam <= bands['blue'][1])
-    red_mask = (ln_lam >= bands['red'][0]) & (ln_lam <= bands['red'][1])
+#------------------------------------------------------------------------------------
+fits_path = 'CATID_A_cube_blue.fits'
+sn_threshold = 10
+percentage = 0.01
+wavelength_slice_index = 1024
+emission_free_range = (4600, 4800) # https://doi.org/10.1111/j.1365-2966.2011.20109.x
+#cleaned_data_cube = data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength_slice_index)
+cleaned_data_cube = data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index)
+print(cleaned_data_cube.shape)
+
+#-----------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------
+def ppxf_pre_data_cube(spectrum_blue, blue_cube_fits, spectrum_red = None, red_cube_fits = None, plot = False):
+    # open the blue data cube to construct the blue wavelength and extract redshift value.
+    with fits.open(blue_cube_fits) as blue_hdul:
+        blue_header = blue_hdul[0].header
+        redshift = blue_header['Z_SPEC']
+
+    blue_wavelength = blue_header['CRVAL3'] + (np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3']) * blue_header['CDELT3']
+
+    if (spectrum_red is not None and red_cube_fits is None) or (spectrum_red is None and red_cube_fits is not None):
+        raise ValueError('spectrum_red and red_cube_fits must be provided together.')
+
+    if red_cube_fits is not None and spectrum_red is not None:
+        with fits.open(red_cube_fits) as red_hdul:
+            red_header = red_hdul[0].header
+
+        red_wavelength = red_header['CRVAL3'] + (np.arange(red_header['NAXIS3']) - red_header['CRPIX3']) * red_header['CDELT3']
+
+        # do the convolution to match the resolution of red to the resolution of the blue.
+        fwhm_conv = np.sqrt(fwhm_blue**2 - fwhm_red**2)
+        sig_conv = fwhm_conv / (2 * np.sqrt(2 * np.log(2)))
+        sig_conv = sig_conv / red_header['CDELT3']
+        red_flux = gaussian_filter1d(spectrum_red, sig_conv)
+
+        # introduce a gap between the blue wavelength range and the red wavelength range.
+        # set the flux value in this gap region to be NaN, which could be excluded by using the goodpixel keyword.
+        # use a smaller of the two CDELT3s (better spectral resolution).
+        cdelt3 = min(abs(blue_header['CDELT3']), abs(red_header['CDELT3']))
+        gap_wavelength = np.arange(blue_wavelength[-1] + cdelt3, red_wavelength[0], cdelt3)
+        gap_flux = np.full_like(gap_wavelength, np.nan)
 
     # calculate the continum by averaging the flux in the blue and red regions.
     blue_mean =np.mean(flux[blue_mask])
