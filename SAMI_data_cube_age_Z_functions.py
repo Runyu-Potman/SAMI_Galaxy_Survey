@@ -100,8 +100,7 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits):
     '''
 
     # open the data cube to construct the wavelength and extract redshift value.
-    blue_file = cube_fits
-    with fits.open(blue_file) as blue_hdul:
+    with fits.open(cube_fits) as blue_hdul:
         blue_header = blue_hdul[0].header
 
     # CRVAL3: coordinate value at reference point (Å).
