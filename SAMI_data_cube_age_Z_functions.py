@@ -227,15 +227,8 @@ def ppxf_pre_data_cube(spectrum_blue, blue_cube_fits, spectrum_red = None, red_c
 
     return goodpixels_nan, specNew, ln_lam, velscale, redshift
 
-# because galaxy is being log_rebinned, so we transfer the defined wavelength range for each lick indices from linear space into log space.
-lick_indices_log = {
-    index: {
-        'feature': np.sort(np.log(np.array(bands['feature']))),
-        'blue': np.sort(np.log(np.array(bands['blue']))),
-        'red': np.sort(np.log(np.array(bands['red'])))
-    }
-    for index, bands in lick_indices.items()
-}
+#-----------------------------------------------------------------------------------
+
 #--------------------------------------------------------------------------------------
 # normalize spectrum to avoid numerical issues.
 # note that this normalization factor should be multiplied back when calculating the ew for lick indices
