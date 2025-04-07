@@ -276,9 +276,9 @@ if __name__ == '__main__':
             spectrum_to_save[idx - 1] = np.nan
             spectrum_to_save[idx + 1] = np.nan
 
-hdu = fits.PrimaryHDU(spectrum_to_save)
-hdulist = fits.HDUList([hdu])
-hdulist.writeto('co-added_spectrum_CATID.fits', overwrite = True)
+    hdu = fits.PrimaryHDU(spectrum_to_save)
+    hdulist = fits.HDUList([hdu])
+    hdulist.writeto('co-added_spectrum_CATID.fits', overwrite=True)
 
 plt.figure(figsize=(10, 6))
 plt.plot(np.arange(cleaned_data_cube.shape[0]), spectrum_to_save)
