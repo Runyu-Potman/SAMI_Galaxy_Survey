@@ -12,7 +12,7 @@ import seaborn as sns
 #--------------------------------------------------------------------------------------------
 '''
 After using the code: SAMI_data_cube_quality_cut_functions.py, we could get a cleaned data cube, which
-will be used to generate co-added spectrum. With the spectrum, we could use pPXF to do the full spectrum 
+will be used to generate (co-added) spectrum. With the spectrum, we could use pPXF to do the full spectrum 
 fitting and estimate mean age and metallicity and corresponding standard deviation with the bootstrapping
 method. The Dn4000 and ew for HdeltaA are also estimated but a more accurate estimation will be provided
 in another script with a totally different pPXF method (the pPXF method used in this script is especially 
