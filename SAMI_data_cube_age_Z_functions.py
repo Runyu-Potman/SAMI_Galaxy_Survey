@@ -280,7 +280,7 @@ if not filename.is_file():
 # here we use the miles ssp model (see the code miles_ssp.py for more details).
 filename = 'miles_ssp_models_ch_padova.npz'
 
-# normalize the templates to mean=1 within the FWHM (wavelength range) of the V-band (5000 Å ~ 6000 Å).
+# normalize the templates to mean = 1 within the FWHM (wavelength range) of the V-band (5000 Å ~ 6000 Å).
 # in this way the weights returned by pPXF and mean values are light-weighted quantities.
 sps = lib.sps_lib(filename, velscale, FWHM_gal, norm_range = [5000, 5500])
 #sps = lib.sps_lib(filename, velscale, FWHM_gal, norm_range = [5070, 5950])
