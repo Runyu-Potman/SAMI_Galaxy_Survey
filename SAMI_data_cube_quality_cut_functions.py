@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map
 
-#------------------------------------------------------------------------------------------
 '''
 First of all, we do the quality cut on the data cube. The size of the data cube 
 is 2048*50*50 (two spatial dimensions: 50*50 and a wavelength dimension: 2048).
