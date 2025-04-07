@@ -260,10 +260,10 @@ if __name__ == '__main__':
     # co-adding the spectra.
     coadded_spectrum = np.ma.sum(cleaned_data_cube, axis=(1, 2))
 
-# average the co-added_spectrum by the number of valid pixels inside (or outside) the ellipse.
-#valid_pixels = np.ma.count(cleaned_data_cube, axis = (1, 2))
-#print('valid pixels:', valid_pixels)
-#coadded_spectrum = coadded_spectrum / valid_pixels
+    # average the co-added_spectrum by the number of valid pixels inside (or outside) the ellipse.
+    # valid_pixels = np.ma.count(cleaned_data_cube, axis = (1, 2))
+    # print('valid pixels:', valid_pixels)
+    # coadded_spectrum = coadded_spectrum / valid_pixels
 
 # replace masked values with NaN for saving.
 spectrum_to_save = coadded_spectrum.filled(np.nan)
