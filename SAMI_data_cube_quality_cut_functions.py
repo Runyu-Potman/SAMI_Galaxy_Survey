@@ -265,8 +265,8 @@ if __name__ == '__main__':
     # print('valid pixels:', valid_pixels)
     # coadded_spectrum = coadded_spectrum / valid_pixels
 
-# replace masked values with NaN for saving.
-spectrum_to_save = coadded_spectrum.filled(np.nan)
+    # replace masked values with NaN for saving.
+    spectrum_to_save = coadded_spectrum.filled(np.nan)
 
 # around NaN values, sometimes there will be some very small values.
 # for each NaN value (e.g., at index a), set the adjacent values (a-1 and a+1) to NaN as well.
