@@ -230,6 +230,9 @@ def ppxf_pre_data_cube(spectrum_blue, blue_cube_fits, spectrum_red = None, red_c
 #-----------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------
+#goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_data_cube()
+
+
 # normalize spectrum to avoid numerical issues.
 # note that this normalization factor should be multiplied back when calculating the ew for lick indices
 # and when generating the noise spectrum.
