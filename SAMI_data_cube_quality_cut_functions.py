@@ -1,6 +1,7 @@
 from astropy.io import fits
 import matplotlib.pyplot as plt
 import numpy as np
+from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map
 
 #------------------------------------------------------------------------------------------
 '''
