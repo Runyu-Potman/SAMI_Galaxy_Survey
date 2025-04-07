@@ -26,7 +26,7 @@ version_01: 03/04/2025
 FWHM_blue = 2.65  # Å
 c = 299792.458  # speed of light (km/s).
 #---------------------------------------------------------------------------------------------
-def bootstrap_residuals(model, resid, wild=True):
+def bootstrap_residuals(model, resid, wild = True):
     """
     https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Resampling_residuals
     https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Wild_bootstrap
