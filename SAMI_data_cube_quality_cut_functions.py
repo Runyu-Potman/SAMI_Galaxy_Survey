@@ -232,18 +232,27 @@ if __name__ == '__main__':
     vmin = -75
     vmax = 75
 
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-x_center = 25
-y_center = 25
-a = 8
-b = 8
-pa = 90
-ellipse_mask = kdc_separation(x_center, y_center, a, b, pa)
-#------------------------------------------------------------------------------
-#------------------------------------------------------------------------------
-
-ellipse_mask = np.repeat(ellipse_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis = 0)
+    combined_mask, cleaned_vel_data = quality_cut_stellar_velocity_map(vel_fits_file, sig_fits_path,
+                                                                       vmin=vmin, vmax=vmax)
+    # -------------------------------------------------------------------------------
+    fits_path = '230776_A_cube_blue.fits'
+    sn_threshold = 10
+    percentage = 0.01
+    wavelength_slice_index = 1024
+    emission_free_range = (4600, 4800)  # https://doi.org/10.1111/j.1365-2966.2011.20109.x
+    combined_mask = combined_mask
+    cleaned_data_cube = data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength_slice_index,
+                                            combined_mask)
+    # cleaned_data_cube = data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, combined_mask)
+    # -------------------------------------------------------------------------------
+    x_center = 25
+    y_center = 25
+    a = 8
+    b = 8
+    pa = 90
+    ellipse_mask = kdc_separation(x_center, y_center, a, b, pa)
+    # ------------------------------------------------------------------------------
+    ellipse_mask = np.repeat(ellipse_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis=0)
 
 # mask = ellipse_mask leads to a not-kdc spectrum, mask = ~ellipse_mask leads to a kdc spectrum.
 cleaned_data_cube = np.ma.masked_array(cleaned_data_cube, mask = ellipse_mask)
