@@ -260,7 +260,7 @@ to modify the spectrum before the usual LOG_REBIN, given that a redshift corresp
 a linear shift of the log-rebinned spectrum. One just needs to compute the wavelength 
 range in the rest-frame and adjust the instrumental resolution of the galaxy observations.
 '''
-FWHM_gal = FWHM_blue / (1 + redshift)
+fwhm_gal = fwhm_blue / (1 + redshift)
 
 '''
 # setup stellar templates.
