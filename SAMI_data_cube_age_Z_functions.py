@@ -45,7 +45,7 @@ def bootstrap_residuals(model, resid, wild = True):
     if wild:    # Wild Bootstrapping: generates -resid or resid with prob=1/2
         eps = resid*(2*np.random.randint(2, size = resid.size) - 1)
     else:       # Standard Bootstrapping: random selection with repetition
-        eps = np.random.choice(resid, size=resid.size)
+        eps = np.random.choice(resid, size = resid.size)
 
     return model + eps
 #---------------------------------------------------------------------------------------------
