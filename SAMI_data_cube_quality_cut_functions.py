@@ -224,6 +224,13 @@ def kdc_separation(x_center, y_center, a, b, pa):
     plt.show()
 
     return ellipse_mask
+#----------------------------------------------------------------------------
+if __name__ == '__main__':
+    # extract the combined mask based on the quality cut on the stellar velocity map.
+    vel_fits_file = '230776_A_stellar-velocity_default_two-moment.fits'
+    sig_fits_path = '230776_A_stellar-velocity-dispersion_default_two-moment.fits'
+    vmin = -75
+    vmax = 75
 
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
