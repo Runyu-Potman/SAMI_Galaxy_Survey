@@ -257,8 +257,8 @@ if __name__ == '__main__':
     # mask = ellipse_mask leads to a not-kdc spectrum, mask = ~ellipse_mask leads to a kdc spectrum.
     cleaned_data_cube = np.ma.masked_array(cleaned_data_cube, mask=ellipse_mask)
 
-# co-adding the spectra.
-coadded_spectrum = np.ma.sum(cleaned_data_cube, axis = (1, 2))
+    # co-adding the spectra.
+    coadded_spectrum = np.ma.sum(cleaned_data_cube, axis=(1, 2))
 
 # average the co-added_spectrum by the number of valid pixels inside (or outside) the ellipse.
 #valid_pixels = np.ma.count(cleaned_data_cube, axis = (1, 2))
