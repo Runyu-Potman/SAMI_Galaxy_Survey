@@ -205,8 +205,7 @@ def ppxf_pre_data_cube(spectrum_blue, blue_cube_fits, spectrum_red = None, red_c
 
         rest_wavelength = combined_wavelength / (1 + redshift)
 
-    # interpolate between the blue and red regions to get the continuum.
-    cont_interp = np.interp(ln_lam[feature_mask], [blue_wave, red_wave], [blue_mean, red_mean])
+        specNew, ln_lam, velscale = log_rebin(rest_wavelength, combined_flux, flux = False)
 
     if feature_mask.any():
         ew = simps((1 - flux[feature_mask] / cont_interp), np.exp(ln_lam[feature_mask]))
