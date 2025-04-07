@@ -403,8 +403,8 @@ else:
     print(f'Optimal regul found = {best_regul}')
     print(f'Final reduced Chi^2 = {pp_reg.chi2:.3f}')
 
-# the pPXF fit with best_regul, initial noise and clean.
-pp = ppxf(templates = templates, galaxy = galaxy, noise = noise, velscale = velscale,
+# the pPXF fit with best_regul, rescaled noise and clean.
+pp = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale,
           start = start, moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
           goodpixels = goodpixels_nan, regul = best_regul, reg_dim = reg_dim, component = component,
           gas_component = gas_component, gas_names = gas_names, reddening = 0, gas_reddening = 0, clean = True)
