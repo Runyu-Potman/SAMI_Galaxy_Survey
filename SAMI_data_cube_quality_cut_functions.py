@@ -254,8 +254,8 @@ if __name__ == '__main__':
     # ------------------------------------------------------------------------------
     ellipse_mask = np.repeat(ellipse_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis=0)
 
-# mask = ellipse_mask leads to a not-kdc spectrum, mask = ~ellipse_mask leads to a kdc spectrum.
-cleaned_data_cube = np.ma.masked_array(cleaned_data_cube, mask = ellipse_mask)
+    # mask = ellipse_mask leads to a not-kdc spectrum, mask = ~ellipse_mask leads to a kdc spectrum.
+    cleaned_data_cube = np.ma.masked_array(cleaned_data_cube, mask=ellipse_mask)
 
 # co-adding the spectra.
 coadded_spectrum = np.ma.sum(cleaned_data_cube, axis = (1, 2))
