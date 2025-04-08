@@ -235,10 +235,10 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # in this way the weights returned by pPXF and mean values are light-weighted quantities.
     sps = lib.sps_lib(filename, velscale, fwhm_gal, norm_range = [5000, 5500])
 
-# reshape the stellar templates into a 2-dim array with each spectrum as a column.
-# save the original array dimensions, which are needed to specify the regularization dimensions.
-reg_dim = sps.templates.shape[1:]
-stars_templates = sps.templates.reshape(sps.templates.shape[0], -1)
+    # reshape the stellar templates into a 2-dim array with each spectrum as a column.
+    # save the original array dimensions, which are needed to specify the regularization dimensions.
+    reg_dim = sps.templates.shape[1:]
+    stars_templates = sps.templates.reshape(sps.templates.shape[0], -1)
 
 # set up the gas emission lines templates.
 # estimated wavelength fitted range in the rest frame.
