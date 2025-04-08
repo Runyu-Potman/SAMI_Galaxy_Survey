@@ -44,24 +44,7 @@ def plot_spectrum(wavelength, spectrum):
     plt.title('spectrum before log-rebin')
     plt.show()
 
-    # loop over mdegree values from 1 to 20.
-    for mdegree in range(1, 21):
-        # the first pPXF fit without regularization.
-        pp_unreg = ppxf(templates=templates, galaxy=galaxy, noise=noise, velscale=velscale,
-                        start=start, moments=moments, degree=-1, mdegree=mdegree, lam=lam_gal, lam_temp=sps.lam_temp,
-                        goodpixels=goodpixels_nan, regul=0, component=component,
-                        gas_component=gas_component, gas_names=gas_names, reddening=0, gas_reddening=0)
-
-        residual = galaxy - pp_unreg.bestfit
-        offset = mdegree / 8
-        plt.plot(residual[goodpixels_nan] + offset, label = f'mdegree = {mdegree}', alpha = 0.7)
-        plt.axhline(y = offset, color = 'k', linestyle = '--', linewidth = 0.5)
-
-    plt.xlabel('wavelength index')
-    plt.ylabel('residuals')
-    plt.legend(loc = 'upper right')
-    plt.show()
-#---------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------
 def bootstrap_residuals(model, resid, wild = True):
     """
     https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Resampling_residuals
