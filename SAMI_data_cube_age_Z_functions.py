@@ -471,6 +471,8 @@ if __name__ == '__main__':
     percentage = 0.01
     wavelength_slice_index = 1024
 
+    blue_fits_path = 'CATID_A_cube_blue.fits'
+    blue_cleaned_data_cube = data_cube_clean_percentage(blue_fits_path, percentage, wavelength_slice_index)
 
 
 
