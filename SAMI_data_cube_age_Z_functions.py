@@ -294,10 +294,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # rescale noise to achieve reduced chi-squared ~ 1.
     noise_rescaled = noise * np.sqrt(reduced_chi2_unreg)
 
-pp_rescaled = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale,
-                start = start, moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
-                goodpixels = goodpixels_nan, regul = 0, component = component,
-                gas_component = gas_component, gas_names = gas_names, reddening = 0, gas_reddening = 0)
+    start = pp_unreg.sol.copy()
 
 print(f'Unregularized reduced Chi^2 with rescaled noise spectrum: {pp_rescaled.chi2:.3f}')
 
