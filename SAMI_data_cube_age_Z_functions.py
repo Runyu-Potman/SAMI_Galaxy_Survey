@@ -530,6 +530,4 @@ if __name__ == '__main__':
                noise_value = noise_value, redshift = redshift, filename = filename,
                velscale = velscale, start = start, nrand = nrand, find_regul = True,
                plot = True)
-
-
     # ------------------------------------------------------------------------------------
