@@ -264,8 +264,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # gas_component = True for gas templates.
     gas_component = np.array(component) > 0
 
-# fit two moments (v, sig) moments = 2 for the stars and for the two gas kinematic components.
-moments = [2, 2, 2]
+    # fit two moments (v, sig) moments = 2 for the stars and for the two gas kinematic components.
+    moments = [2, 2, 2]
 
 '''
 In the ppxf_example_population_gas_sdss.py, the author mentioned that: to avoid affecting the line strength
