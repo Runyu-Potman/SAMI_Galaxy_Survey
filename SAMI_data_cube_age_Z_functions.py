@@ -33,6 +33,7 @@ Note that all functions defined in this script assume low-redshift . Please refe
 SAMI_data_cube_age_Z_high_redshift_functions.py for more information.
   
 version_01: 03/04/2025
+version_02: 08/04/2025: new functions added.
 '''
 #--------------------------------------------------------------------------------------------
 # define constants.
