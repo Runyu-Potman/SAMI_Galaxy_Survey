@@ -381,8 +381,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     ages = []
     metallicities = []
 
-for j in range(nrand):
-    galaxy_boot = bootstrap_residuals(bestfit, resid)
+    for j in range(nrand):
+
+        galaxy_boot = bootstrap_residuals(bestfit, resid)
 
     pp_boot = ppxf(templates = templates, galaxy = galaxy_boot, noise = noise, velscale = velscale,
               start = start, moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
