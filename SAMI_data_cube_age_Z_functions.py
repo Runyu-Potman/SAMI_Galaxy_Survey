@@ -333,12 +333,12 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
                 best_regul = regul
                 break
 
-    # adjust regul.
-    if delta_chi2 < delta_chi2_target:
-        regul *= regul_step  # increase regul.
-    else:
-        regul /= regul_step  # decrease regul.
-        regul_step = np.sqrt(regul_step)  # make smaller adjustments
+            # adjust regul.
+            if delta_chi2 < delta_chi2_target:
+                regul *= regul_step  # increase regul.
+            else:
+                regul /= regul_step  # decrease regul.
+                regul_step = np.sqrt(regul_step)  # make smaller adjustments
 
     iteration += 1
 
