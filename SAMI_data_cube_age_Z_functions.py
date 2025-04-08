@@ -219,17 +219,17 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # the noise level is chosen to give Chi^2/DOF = 1 without regularization.
     noise = np.full_like(galaxy, noise_value)
 
-'''
-If the galaxy is at a significant redshift (z >= 0.03), one would need to apply a
-large velocity shift in pPXF to match the template to the galaxy spectrum. This would
-require a large initial value for the velocity (v >= 1e4 km/s) in the input parameter
-START = [v, sig]. An alternative solution consists of bringing the galaxy spectrum 
-roughly to the rest-frame wavelength, before calling pPXF. In practice there is no need
-to modify the spectrum before the usual LOG_REBIN, given that a redshift corresponds to
-a linear shift of the log-rebinned spectrum. One just needs to compute the wavelength 
-range in the rest-frame and adjust the instrumental resolution of the galaxy observations.
-'''
-fwhm_gal = fwhm_blue / (1 + redshift)
+    '''
+    If the galaxy is at a significant redshift (z >= 0.03), one would need to apply a
+    large velocity shift in pPXF to match the template to the galaxy spectrum. This would
+    require a large initial value for the velocity (v >= 1e4 km/s) in the input parameter
+    START = [v, sig]. An alternative solution consists of bringing the galaxy spectrum 
+    roughly to the rest-frame wavelength, before calling pPXF. In practice there is no need
+    to modify the spectrum before the usual LOG_REBIN, given that a redshift corresponds to
+    a linear shift of the log-rebinned spectrum. One just needs to compute the wavelength 
+    range in the rest-frame and adjust the instrumental resolution of the galaxy observations.
+    '''
+    fwhm_gal = fwhm_blue / (1 + redshift)
 
 '''
 # setup stellar templates.
