@@ -248,9 +248,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     gas_templates, gas_names, line_wave = util.emission_lines(sps.ln_lam_temp, lam_range_gal,
                                                               fwhm_gal, tie_balmer = 1)
 
-# combine the stellar and gaseous templates into a single array of templates.
-# during the pPXF fit they will be assigned a different kinematic component value.
-templates = np.column_stack([stars_templates, gas_templates])
+    # combine the stellar and gaseous templates into a single array of templates.
+    # during the pPXF fit they will be assigned a different kinematic component value.
+    templates = np.column_stack([stars_templates, gas_templates])
 
 # starting guess for [v, sig] (km/s).
 # spectrum is de-redshifted --> starting guess for vel is zero.
