@@ -267,12 +267,12 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # fit two moments (v, sig) moments = 2 for the stars and for the two gas kinematic components.
     moments = [2, 2, 2]
 
-'''
-In the ppxf_example_population_gas_sdss.py, the author mentioned that: to avoid affecting the line strength
-of the spectral features, the additive polynomials are excluded (degree = -1), and only the multiplicative ones
-are used. This is only recommended for population, not for kinematic extraction, where additive polynomials are 
-always recommended.
-'''
+    '''
+    In the ppxf_example_population_gas_sdss.py, the author mentioned that: to avoid affecting the line strength
+    of the spectral features, the additive polynomials are excluded (degree = -1), and only the multiplicative ones
+    are used. This is only recommended for population, not for kinematic extraction, where additive polynomials are 
+    always recommended.
+    '''
 
 decide_mdegree()
 
