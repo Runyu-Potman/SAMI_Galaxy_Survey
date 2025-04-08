@@ -274,7 +274,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     always recommended.
     '''
 
-decide_mdegree()
+    # decide_mdegree()
 
 print('Performing unregularized fit...')
 
