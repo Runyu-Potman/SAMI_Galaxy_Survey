@@ -414,8 +414,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         # set up the plotting style.
         sns.set(style = 'whitegrid')
 
-# create a figure for all the plots.
-plt.figure(figsize = (16, 12))
+        plt.figure(figsize=(10, 8))
 
 # plot distribution of lg_age.
 plt.subplot(2, 2, 1)
