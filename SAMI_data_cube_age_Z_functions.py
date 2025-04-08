@@ -308,10 +308,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         # multiplicative step size.
         regul_step = 1.5
 
-# target increase in chi-squared.
-iteration = 0
-max_iter = 50  # maximum number of iterations
-best_regul = None
+        iteration = 0
+        max_iter = 50  # maximum number of iterations
+        best_regul = None
 
 while iteration < max_iter:
     print(f'Iteration {iteration + 1}: Testing regul = {regul}...')
