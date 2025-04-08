@@ -342,11 +342,12 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
             iteration += 1
 
-if best_regul is None:
-    print('Failed to converge to an optimal regul within max iterations.')
-else:
-    print(f'Optimal regul found = {best_regul}')
-    print(f'Final reduced Chi^2 = {pp_reg.chi2:.3f}')
+        if best_regul is None:
+            print('Failed to converge to an optimal regul within max iterations.')
+        else:
+            print(f'Optimal regul found = {best_regul}')
+            print(f'Final reduced Chi^2 = {pp_reg.chi2:.3f}')
+            optimal_regul = best_regul
 
 # the pPXF fit with best_regul, rescaled noise and clean.
 pp = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale,
