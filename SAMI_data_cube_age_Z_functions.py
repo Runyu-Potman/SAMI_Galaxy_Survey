@@ -216,8 +216,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     ln_lam_gal = ln_lam.copy()
     lam_gal = np.exp(ln_lam_gal)
 
-# the noise level is chosen to give Chi^2/DOF = 1 without regularization.
-noise = np.full_like(galaxy, 0.014)
+    # the noise level is chosen to give Chi^2/DOF = 1 without regularization.
+    noise = np.full_like(galaxy, noise_value)
 
 '''
 If the galaxy is at a significant redshift (z >= 0.03), one would need to apply a
