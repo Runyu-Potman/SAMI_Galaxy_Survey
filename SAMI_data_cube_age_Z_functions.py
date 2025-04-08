@@ -397,21 +397,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         ages.append(mean_lg_age)
         metallicities.append(mean_metal)
 
-    pp_boot_stellar = pp_boot.bestfit - pp_boot.gas_bestfit
-
-    for index in lick_indices_log.keys():
-        ews[index].append(compute_atom_index(ln_lam_gal, pp_boot_stellar, index))
-
-    blue_band = (3850, 3950)
-    red_band = (4000, 4100)
-    blue_flux = np.mean(pp_boot_stellar[(ln_lam_gal >= np.log(blue_band[0])) & (ln_lam_gal <= np.log(blue_band[1]))])
-    red_flux = np.mean(pp_boot_stellar[(ln_lam_gal >= np.log(red_band[0])) & (ln_lam_gal <= np.log(red_band[1]))])
-    dn4000 = red_flux / blue_flux
-    dn4000s.append(dn4000)
-
-ages = np.array(ages)
-age_mean = np.mean(ages)
-age_std = np.std(ages)
+    ages = np.array(ages)
+    age_mean = np.mean(ages)
+    age_std = np.std(ages)
 
 metallicities = np.array(metallicities)
 metallicity_mean = np.mean(metallicities)
