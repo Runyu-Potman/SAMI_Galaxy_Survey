@@ -12,13 +12,25 @@ from scipy.ndimage import gaussian_filter1d
 from SAMI_data_cube_quality_cut_functions import data_cube_clean_percentage, data_cube_clean_snr
 #--------------------------------------------------------------------------------------------
 '''
-After using the code: SAMI_data_cube_quality_cut_functions.py, we could get a cleaned data cube, which
-will be used to generate (co-added) spectrum. With the spectrum, we could use pPXF to do the full spectrum 
-fitting and estimate mean age and metallicity and corresponding standard deviation with the bootstrapping
-method. The Dn4000 and ew for HdeltaA are also estimated but a more accurate estimation will be provided
-in another script with a totally different pPXF method (the pPXF method used in this script is especially 
-designed to estimate age and metallicity with MILES ssp model, mdegree and regularization, however, when 
-it comes to the ew and Dn4000, we should mainly focus on correcting for emission lines).
+Six functions are defined in this script:
+1. plot_spectrum()
+2. bootstrap_residuals()
+3. ppxf_pre_spectrum()
+4. ppxf_pre_data_cube()
+5. ppxf_age_z()
+6. decide_mdegree()
+
+After using the functions in the code: SAMI_data_cube_quality_cut_functions.py, we could get a 
+cleaned data cube. On the one hand, we could generate co-added spectrum based on the cleaned data 
+cube, and making use of ppxf_pre_spectrum() and ppxf_age_z() to estimate the age and metallicity 
+for this spectrum. On the other hand, we could make spatially resolved (pixel by pixel) maps for 
+age and metallicity by using ppxf_pre_data_cube() and ppxf_age_z() starting from the cleaned data
+cube. The final derived age and metallicity are obtained by using the bootstrapping method. The 
+decide_mdegree is used to derive the optimal mdegree value. However, in this script we just assume
+mdegree = 10 (a commonly used value when it comes to the stellar population estimation for SAMI).
+
+Note that all functions defined in this script assume low-redshift . Please refer to
+SAMI_data_cube_age_Z_high_redshift_functions.py for more information.
   
 version_01: 03/04/2025
 '''
