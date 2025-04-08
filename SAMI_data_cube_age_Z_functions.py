@@ -328,10 +328,10 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
             delta_chi2_target = np.sqrt(2 * dof)
             print(f'ΔChi^2: {delta_chi2:.3f}, target ΔChi^2: {delta_chi2_target:.3f}')
 
-    # check if the target Δchi2 is achieved.
-    if abs(delta_chi2 - delta_chi2_target) < 0.05 * delta_chi2_target:
-        best_regul = regul
-        break
+            # check if the target ΔChi2 is achieved.
+            if abs(delta_chi2 - delta_chi2_target) < 0.05 * delta_chi2_target:
+                best_regul = regul
+                break
 
     # adjust regul.
     if delta_chi2 < delta_chi2_target:
