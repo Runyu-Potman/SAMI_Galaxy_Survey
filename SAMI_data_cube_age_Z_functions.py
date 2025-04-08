@@ -520,6 +520,10 @@ if __name__ == '__main__':
     # step 4: extimate age and metallicity.
     noise_value = 0.022
 
+    # here we use the miles ssp model (see the code miles_ssp.py for more details).
+    filename = 'miles_ssp_models_ch_padova.npz'
+    start = [[0., 187.], [0., 187.], [0., 187.]]
+    nrand = 200
 
 
 
