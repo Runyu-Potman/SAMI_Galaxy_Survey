@@ -484,6 +484,8 @@ if __name__ == '__main__':
     x = 25
     y = 25
 
+    blue_spectrum = blue_cleaned_data_cube[:, x, y]
+    red_spectrum = red_cleaned_data_cube[:, x, y]
 
 
 
