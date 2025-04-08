@@ -359,8 +359,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     pp.plot()
     plt.title('pPXF fit with rescaled noise, regularization, mdegree and clean')
 
-weights = pp.weights[~gas_component] # exclude weights of the gas templates
-weights = weights.reshape(reg_dim) / weights.sum() # normalized
+    weights = pp.weights[~gas_component]  # exclude weights of the gas templates
+    weights = weights.reshape(reg_dim) / weights.sum()  # normalized
 
 sps.mean_age_metal(weights)
 
