@@ -312,8 +312,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         max_iter = 50  # maximum number of iterations
         best_regul = None
 
-while iteration < max_iter:
-    print(f'Iteration {iteration + 1}: Testing regul = {regul}...')
+        while iteration < max_iter:
+            print(f'Iteration {iteration + 1}: Testing regul = {regul}...')
 
     # perform regularized fit.
     pp_reg = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale,
