@@ -504,6 +504,11 @@ if __name__ == '__main__':
             red_spectrum[idx - 1] = np.nan
             red_spectrum[idx + 1] = np.nan
 
+    #-----------------------------------------------------------------------------------
+    # step 3: combine blue and red spectrum and do the log-rebin.
+    goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_data_cube(
+        blue_spectrum, blue_fits_path, red_spectrum, red_fits_path, plot = True
+    )
 
 
 
