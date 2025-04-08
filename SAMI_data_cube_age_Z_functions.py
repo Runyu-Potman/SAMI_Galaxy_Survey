@@ -139,19 +139,6 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits):
 
     return goodpixels_nan, specNew, ln_lam, velscale, redshift
 
-goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_spectrum(cube_fits, spectrum_fits)
-#------------------------------------------------------------------------------------
-#------------------------------------------------------------------------------------
-fits_path = 'CATID_A_cube_blue.fits'
-sn_threshold = 10
-percentage = 0.01
-wavelength_slice_index = 1024
-emission_free_range = (4600, 4800) # https://doi.org/10.1111/j.1365-2966.2011.20109.x
-#cleaned_data_cube = data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength_slice_index)
-cleaned_data_cube = data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index)
-print(cleaned_data_cube.shape)
-
-#-----------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------
 def ppxf_pre_data_cube(spectrum_blue, blue_cube_fits, spectrum_red = None, red_cube_fits = None, plot = False):
     # open the blue data cube to construct the blue wavelength and extract redshift value.
