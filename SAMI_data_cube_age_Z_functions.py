@@ -296,7 +296,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
     start = pp_unreg.sol.copy()
 
-print(f'Unregularized reduced Chi^2 with rescaled noise spectrum: {pp_rescaled.chi2:.3f}')
+    if optimal_regul is None and not find_regul:
+        raise ValueError('Please provide a regul value or set find_regul to True.')
 
 # make the fit to be regularized because this suppresses the noise makes it more representative of the underlying galaxy spectrum.
 # initial guess for regul and search parameters.
