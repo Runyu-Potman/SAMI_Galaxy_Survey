@@ -340,7 +340,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
                 regul /= regul_step  # decrease regul.
                 regul_step = np.sqrt(regul_step)  # make smaller adjustments
 
-    iteration += 1
+            iteration += 1
 
 if best_regul is None:
     print('Failed to converge to an optimal regul within max iterations.')
