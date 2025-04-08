@@ -498,6 +498,11 @@ if __name__ == '__main__':
             blue_spectrum[idx - 1] = np.nan
             blue_spectrum[idx + 1] = np.nan
 
+    nan_indices = np.isnan(red_spectrum)
+    for idx in range(1, len(red_spectrum) - 1):
+        if nan_indices[idx]:
+            red_spectrum[idx - 1] = np.nan
+            red_spectrum[idx + 1] = np.nan
 
 
 
