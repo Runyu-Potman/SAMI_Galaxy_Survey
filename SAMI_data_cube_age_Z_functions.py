@@ -284,9 +284,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
                     goodpixels = goodpixels_nan, component = component, gas_component = gas_component,
                     gas_names = gas_names, reddening = 0, gas_reddening = 0)
 
-# extract Chi2 of the first fit.
-reduced_chi2_unreg = pp_unreg.chi2
-print(f'Unregularized reduced Chi^2 with initial noise spectrum: {reduced_chi2_unreg:.3f}')
+    # extract Chi2 of the first fit.
+    reduced_chi2_unreg = pp_unreg.chi2
+    print(f'Unregularized reduced Chi^2 with initial noise spectrum: {reduced_chi2_unreg:.3f}')
 
 # degrees of freedom.
 dof = len(goodpixels_nan)
