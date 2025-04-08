@@ -240,9 +240,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     reg_dim = sps.templates.shape[1:]
     stars_templates = sps.templates.reshape(sps.templates.shape[0], -1)
 
-# set up the gas emission lines templates.
-# estimated wavelength fitted range in the rest frame.
-lam_range_gal = np.array([np.min(lam_gal), np.max(lam_gal)])
+    # set up the gas emission lines templates.
+    # estimated wavelength fitted range in the rest frame.
+    lam_range_gal = np.array([np.min(lam_gal), np.max(lam_gal)])
 
 # construct a set of Gaussian emission line templates.
 gas_templates, gas_names, line_wave = util.emission_lines(sps.ln_lam_temp, lam_range_gal,
