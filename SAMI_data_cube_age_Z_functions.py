@@ -393,9 +393,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         weights = pp_boot.weights[~gas_component]
         weights = weights.reshape(reg_dim) / weights.sum()
 
-    mean_lg_age, mean_metal = sps.mean_age_metal(weights)
-    ages.append(mean_lg_age)
-    metallicities.append(mean_metal)
+        mean_lg_age, mean_metal = sps.mean_age_metal(weights)
+        ages.append(mean_lg_age)
+        metallicities.append(mean_metal)
 
     pp_boot_stellar = pp_boot.bestfit - pp_boot.gas_bestfit
 
