@@ -369,11 +369,11 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
     plt.show()
 
-#-----------------------------------------------------------------------------------------
-# start bootstrapping.
-bestfit = pp.bestfit.copy()
-resid = galaxy - bestfit
-start = pp.sol.copy()
+    # start bootstrapping.
+    # note that regul will not be included while mdegree will still be included.
+    bestfit = pp.bestfit.copy()
+    resid = galaxy - bestfit
+    start = pp.sol.copy()
 
 # do not include regularization when doing the bootstrapping.
 np.random.seed(123) # for reproducible results
