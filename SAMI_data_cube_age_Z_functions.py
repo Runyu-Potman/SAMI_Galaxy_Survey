@@ -291,8 +291,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # degrees of freedom.
     dof = goodpixels_nan.size
 
-# rescale noise to achieve reduced chi-squared ~ 1.
-noise_rescaled = noise * np.sqrt(reduced_chi2_unreg)
+    # rescale noise to achieve reduced chi-squared ~ 1.
+    noise_rescaled = noise * np.sqrt(reduced_chi2_unreg)
 
 pp_rescaled = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale,
                 start = start, moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
