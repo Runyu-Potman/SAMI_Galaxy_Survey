@@ -202,11 +202,11 @@ def ppxf_pre_data_cube(spectrum_blue, blue_cube_fits, spectrum_red = None, red_c
 def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename, velscale,
                start, nrand, optimal_regul = None, find_regul = False, plot = False):
 
-# normalize spectrum to avoid numerical issues.
-# note that this normalization factor should be multiplied back when calculating the ew for lick indices
-# and when generating the noise spectrum.
-galaxy = specNew.copy()
-galaxy = galaxy / np.median(galaxy[goodpixels_nan])
+    # normalize spectrum to avoid numerical issues.
+    # note that this normalization factor should be multiplied back when calculating the ew for lick indices
+    # and when generating the noise spectrum after ppxf fitting.
+    galaxy = specNew.copy()
+    galaxy = galaxy / np.median(galaxy[goodpixels_nan])
 
 '''
 In the ppxf_example_population code, they applied a conversion (lg --> ln), which is not needed here. 
