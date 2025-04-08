@@ -466,7 +466,10 @@ if __name__ == '__main__':
     fwhm_red = 1.61  # Å
     c = 299792.458  # speed of light (km/s).
 
-
+    # ------------------------------------------------------------------------------------
+    # step 1: clean the blue and red data cube.
+    percentage = 0.01
+    wavelength_slice_index = 1024
 
 
 
