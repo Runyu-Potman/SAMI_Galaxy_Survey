@@ -231,28 +231,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     '''
     fwhm_gal = fwhm_blue / (1 + redshift)
 
-'''
-# setup stellar templates.
-# sps_name = 'fsps'
-# sps_name = 'galaxev'
-sps_name = 'emiles'
-# sps_name = 'xsl'
-
-ppxf_dir = Path(lib.__file__).parent
-basename = f"spectra_{sps_name}_9.0.npz"
-filename = ppxf_dir / 'sps_models' / basename
-if not filename.is_file():
-    url = "https://raw.githubusercontent.com/micappe/ppxf_data/main/" + basename
-    request.urlretrieve(url, filename)
-'''
-
-# here we use the miles ssp model (see the code miles_ssp.py for more details).
-filename = 'miles_ssp_models_ch_padova.npz'
-
-# normalize the templates to mean = 1 within the FWHM (wavelength range) of the V-band (5000 Å ~ 6000 Å).
-# in this way the weights returned by pPXF and mean values are light-weighted quantities.
-sps = lib.sps_lib(filename, velscale, fwhm_gal, norm_range = [5000, 5500])
-#sps = lib.sps_lib(filename, velscale, fwhm_gal, norm_range = [5070, 5950])
+    # normalize the templates to mean = 1 within the FWHM (wavelength range) of the V-band (5000 Å ~ 6000 Å).
+    # in this way the weights returned by pPXF and mean values are light-weighted quantities.
+    sps = lib.sps_lib(filename, velscale, fwhm_gal, norm_range = [5000, 5500])
 
 # reshape the stellar templates into a 2-dim array with each spectrum as a column.
 # save the original array dimensions, which are needed to specify the regularization dimensions.
