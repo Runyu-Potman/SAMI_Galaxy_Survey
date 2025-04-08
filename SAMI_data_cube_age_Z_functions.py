@@ -428,22 +428,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         plt.title(f'Distribution of [M/H]\nmean: {metallicity_mean:.3f}, std: {metallicity_std:.3f}')
         plt.xlabel('[M/H]')
 
-# plot distribution of Dn4000.
-plt.subplot(2, 2, 3)
-sns.histplot(dn4000s, kde = True, color = 'green', bins = 20)
-plt.title(f'Distribution of Dn4000\nMean: {dn4000_mean:.3f}, Std: {dn4000_std:.3f}')
-plt.xlabel('Dn4000')
-
-# plot distributions of ew for each lick index.
-# If ew_values is a dictionary, loop over them.
-plt.subplot(2, 2, 4)
-for index, ew_values in ews.items():
-    sns.histplot(ew_values, kde = True, label = f'{index} EW', bins = 20)
-plt.title(f'Distribution of Equivalent Widths (EW)')
-plt.xlabel('Equivalent width')
-
-plt.tight_layout()
-plt.show()
+        plt.tight_layout()
+        plt.show()
 
 
 
