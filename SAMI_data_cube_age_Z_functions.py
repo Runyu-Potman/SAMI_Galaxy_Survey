@@ -431,9 +431,34 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         plt.tight_layout()
         plt.show()
 
+    return age_mean, age_std, metallicity_mean, metallicity_std
 
+#----------------------------------------------------------------------------------------
+'''
+def decide_mdegree():
 
+    plt.figure(figsize = (25, 15))
 
+    # loop over mdegree values from 1 to 20.
+    for mdegree in range(1, 21):
+        # the first pPXF fit without regularization.
+        pp_unreg = ppxf(templates = templates, galaxy = galaxy, noise = noise, velscale = velscale, start = start, 
+                        moments = moments, degree = -1, mdegree = mdegree, lam = lam_gal, lam_temp = sps.lam_temp,
+                        goodpixels = goodpixels_nan, component = component, gas_component = gas_component, 
+                        gas_names = gas_names, reddening = 0, gas_reddening = 0)
+
+        residual = galaxy - pp_unreg.bestfit
+        offset = mdegree / 8
+        plt.plot(residual[goodpixels_nan] + offset, label = f'mdegree = {mdegree}', alpha = 0.7)
+        plt.axhline(y = offset, color = 'k', linestyle = '--', linewidth = 0.5)
+
+    plt.xlabel('wavelength index')
+    plt.ylabel('residuals')
+    plt.legend(loc = 'upper right')
+    plt.show()
+'''
+#---------------------------------------------------------------------------------------------
+if __name__ == '__main__':
 
 
 
