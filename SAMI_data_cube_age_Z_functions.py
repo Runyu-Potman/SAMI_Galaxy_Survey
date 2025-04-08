@@ -375,9 +375,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     resid = galaxy - bestfit
     start = pp.sol.copy()
 
-# do not include regularization when doing the bootstrapping.
-np.random.seed(123) # for reproducible results
-nrand = 100
+    # do not include regularization when doing the bootstrapping.
+    np.random.seed(123)  # for reproducible results
 
 ages = []
 metallicities = []
