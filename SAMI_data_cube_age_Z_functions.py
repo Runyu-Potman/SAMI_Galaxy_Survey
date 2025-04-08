@@ -526,5 +526,9 @@ if __name__ == '__main__':
     nrand = 200
 
 
+    ppxf_age_z(specNew = specNew, goodpixels_nan = goodpixels_nan, ln_lam = ln_lam,
+               noise_value = noise_value, redshift = redshift, filename = filename,
+               velscale = velscale, start = start, nrand = nrand, find_regul = True,
+               plot = True)
 
 
