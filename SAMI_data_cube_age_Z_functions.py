@@ -208,10 +208,10 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     galaxy = specNew.copy()
     galaxy = galaxy / np.median(galaxy[goodpixels_nan])
 
-'''
-In the ppxf_example_population code, they applied a conversion (lg --> ln), which is not needed here. 
-The log_rebin has already done the job.
-'''
+    '''
+    In the ppxf_example_population code, they applied a conversion (lg --> ln), which is not needed here. 
+    The log_rebin has already done the job.
+    '''
 
 ln_lam_gal = ln_lam.copy()
 lam_gal = np.exp(ln_lam_gal)
