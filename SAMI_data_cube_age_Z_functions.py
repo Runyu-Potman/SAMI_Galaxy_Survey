@@ -138,10 +138,6 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits):
     hdul.writeto('prepared_spectrum_for_pPXF.fits', overwrite = True)
 
     return goodpixels_nan, specNew, ln_lam, velscale, redshift
-#-----------------------------------------------------------------------------------
-#-----------------------------------------------------------------------------------
-cube_fits = 'CATID_A_cube_blue.fits'
-spectrum_fits = 'co-added_spectrum_CATID.fits'
 
 goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_spectrum(cube_fits, spectrum_fits)
 #------------------------------------------------------------------------------------
