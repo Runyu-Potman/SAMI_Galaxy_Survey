@@ -43,10 +43,6 @@ def plot_spectrum(wavelength, spectrum):
     plt.ylabel('flux')
     plt.title('spectrum before log-rebin')
     plt.show()
-#-------------------------------------------------------------------------------
-def decide_mdegree():
-
-    plt.figure(figsize = (25, 15))
 
     # loop over mdegree values from 1 to 20.
     for mdegree in range(1, 21):
