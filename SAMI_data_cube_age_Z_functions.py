@@ -35,11 +35,6 @@ SAMI_data_cube_age_Z_high_redshift_functions.py for more information.
 version_01: 03/04/2025
 version_02: 08/04/2025: new functions added.
 '''
-#--------------------------------------------------------------------------------------------
-# define constants.
-fwhm_blue = 2.65  # Å
-fwhm_red = 1.61 # Å
-c = 299792.458  # speed of light (km/s).
 #-------------------------------------------------------------------------------
 def plot_spectrum(wavelength, spectrum):
     plt.figure(figsize = (10, 8))
