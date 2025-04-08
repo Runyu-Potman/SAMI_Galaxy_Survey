@@ -401,9 +401,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     age_mean = np.mean(ages)
     age_std = np.std(ages)
 
-metallicities = np.array(metallicities)
-metallicity_mean = np.mean(metallicities)
-metallicity_std = np.std(metallicities)
+    metallicities = np.array(metallicities)
+    metallicity_mean = np.mean(metallicities)
+    metallicity_std = np.std(metallicities)
 
 dn4000s = np.array(dn4000s)
 dn4000_mean = np.mean(dn4000s)
