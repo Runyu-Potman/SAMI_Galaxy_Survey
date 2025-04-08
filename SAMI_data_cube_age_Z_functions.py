@@ -367,7 +367,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     plt.figure(figsize = (9, 6))
     sps.plot(weights)
 
-plt.show()
+    plt.show()
 
 #-----------------------------------------------------------------------------------------
 # start bootstrapping.
