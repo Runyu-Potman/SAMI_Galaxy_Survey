@@ -487,6 +487,8 @@ if __name__ == '__main__':
     blue_spectrum = blue_cleaned_data_cube[:, x, y]
     red_spectrum = red_cleaned_data_cube[:, x, y]
 
+    blue_spectrum = blue_spectrum.filled(np.nan)
+    red_spectrum = red_spectrum.filled(np.nan)
 
 
 
