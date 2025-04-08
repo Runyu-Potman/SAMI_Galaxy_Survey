@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 from ppxf.ppxf import ppxf
 import ppxf.ppxf_util as util
 import ppxf.sps_util as lib
-from scipy.integrate import simps
 import seaborn as sns
 from scipy.ndimage import gaussian_filter1d
 from SAMI_data_cube_quality_cut_functions import data_cube_clean_percentage, data_cube_clean_snr
