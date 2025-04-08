@@ -257,12 +257,12 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     n_forbidden = np.sum(["[" in a for a in gas_names])
     n_balmer = len(gas_names) - n_forbidden
 
-# assign component = 0 to the stellar templates.
-# component = 1 to the Balmer gas emission lines templates.
-# component = 2 to the gas forbidden lines.
-component = [0] * n_temps + [1] * n_balmer + [2] * n_forbidden
-# gas_component = True for gas templates.
-gas_component = np.array(component) > 0
+    # assign component = 0 to the stellar templates.
+    # component = 1 to the Balmer gas emission lines templates.
+    # component = 2 to the gas forbidden lines.
+    component = [0] * n_temps + [1] * n_balmer + [2] * n_forbidden
+    # gas_component = True for gas templates.
+    gas_component = np.array(component) > 0
 
 # fit two moments (v, sig) moments = 2 for the stars and for the two gas kinematic components.
 moments = [2, 2, 2]
