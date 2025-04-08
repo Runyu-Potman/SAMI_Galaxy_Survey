@@ -321,12 +321,12 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
                           goodpixels = goodpixels_nan, regul = regul, reg_dim = reg_dim, component = component, gas_component = gas_component,
                           gas_names = gas_names, reddening = 0, gas_reddening = 0, quiet = True)
 
-    # chi2 with regularization and with rescaled noise spectrum.
-    chi2_reg = pp_reg.chi2 * dof
-    # compute delta chi2
-    delta_chi2 = chi2_reg - dof
-    delta_chi2_target = np.sqrt(2 * dof)
-    print(f'ΔChi^2: {delta_chi2:.3f}, Target ΔChi^2: {delta_chi2_target:.3f}')
+            # chi2 with regularization and with rescaled noise spectrum.
+            chi2_reg = pp_reg.chi2 * dof
+            # compute delta chi2
+            delta_chi2 = chi2_reg - dof
+            delta_chi2_target = np.sqrt(2 * dof)
+            print(f'ΔChi^2: {delta_chi2:.3f}, target ΔChi^2: {delta_chi2_target:.3f}')
 
     # check if the target Δchi2 is achieved.
     if abs(delta_chi2 - delta_chi2_target) < 0.05 * delta_chi2_target:
