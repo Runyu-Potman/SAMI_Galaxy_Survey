@@ -408,16 +408,11 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     print(f'lg_age: {age_mean:.3f} ± {age_std:.3f}')
     print(f'[M/H]: {metallicity_mean:.3f} ± {metallicity_std:.3f}')
 
-for index, ew_values in ews.items():
-    ew_mean = np.mean(ew_values)
-    ew_std = np.std(ew_values)
-    print(f'{index} EW: {ew_mean:.3f} ± {ew_std:.3f}')
-
-#------------------------------------------------------------------------
-# visualization.
-# kde = True argument adds a smooth line representing the kernel density estimate.
-# set up the plotting style.
-sns.set(style = 'whitegrid')
+    if plot:
+        # visualization.
+        # kde = True argument adds a smooth line representing the kernel density estimate.
+        # set up the plotting style.
+        sns.set(style = 'whitegrid')
 
 # create a figure for all the plots.
 plt.figure(figsize = (16, 12))
