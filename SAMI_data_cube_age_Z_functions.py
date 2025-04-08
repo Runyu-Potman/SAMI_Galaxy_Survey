@@ -315,11 +315,11 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         while iteration < max_iter:
             print(f'Iteration {iteration + 1}: Testing regul = {regul}...')
 
-    # perform regularized fit.
-    pp_reg = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale,
-                  start = start, moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
-                  goodpixels = goodpixels_nan, regul = regul, reg_dim = reg_dim, component = component,
-                  gas_component = gas_component, gas_names = gas_names, reddening = 0, gas_reddening = 0, quiet = True)
+            # perform regularized fit.
+            pp_reg = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale, start = start,
+                          moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
+                          goodpixels = goodpixels_nan, regul = regul, reg_dim = reg_dim, component = component, gas_component = gas_component,
+                          gas_names = gas_names, reddening = 0, gas_reddening = 0, quiet = True)
 
     # chi2 with regularization and with rescaled noise spectrum.
     chi2_reg = pp_reg.chi2 * dof
