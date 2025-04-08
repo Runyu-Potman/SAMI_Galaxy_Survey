@@ -422,11 +422,11 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         plt.title(f'Distribution of lg_age\nmean: {age_mean:.3f}, std: {age_std:.3f}')
         plt.xlabel('lg_age')
 
-# plot distribution of metallicity.
-plt.subplot(2, 2, 2)
-sns.histplot(metallicities, kde = True, color = 'orange', bins = 20)
-plt.title(f'Distribution of [M/H]\nMean: {metallicity_mean:.3f}, Std: {metallicity_std:.3f}')
-plt.xlabel('[M/H]')
+        # plot distribution of metallicity.
+        plt.subplot(1, 2, 2)
+        sns.histplot(metallicities, kde = True, color = 'orange', bins = 50)
+        plt.title(f'Distribution of [M/H]\nmean: {metallicity_mean:.3f}, std: {metallicity_std:.3f}')
+        plt.xlabel('[M/H]')
 
 # plot distribution of Dn4000.
 plt.subplot(2, 2, 3)
