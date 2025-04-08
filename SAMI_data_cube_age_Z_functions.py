@@ -299,12 +299,14 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     if optimal_regul is None and not find_regul:
         raise ValueError('Please provide a regul value or set find_regul to True.')
 
-# make the fit to be regularized because this suppresses the noise makes it more representative of the underlying galaxy spectrum.
-# initial guess for regul and search parameters.
-# starting regularization guess value.
-regul = 10
-# multiplicative step size.
-regul_step = 1.5
+    # find the optimal regul value.
+    # make the fit to be regularized because this suppresses the noise makes it more representative of the underlying galaxy spectrum.
+    if optimal_regul is None and find_regul:
+
+        # starting regularization guess value.
+        regul = 10
+        # multiplicative step size.
+        regul_step = 1.5
 
 # target increase in chi-squared.
 iteration = 0
