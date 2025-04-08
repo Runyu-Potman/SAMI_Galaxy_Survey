@@ -405,13 +405,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     metallicity_mean = np.mean(metallicities)
     metallicity_std = np.std(metallicities)
 
-dn4000s = np.array(dn4000s)
-dn4000_mean = np.mean(dn4000s)
-dn4000_std = np.std(dn4000s)
-
-print(f'lg_age: {age_mean:.3f} ± {age_std:.3f}')
-print(f'[M/H]: {metallicity_mean:.3f} ± {metallicity_std:.3f}')
-print(f'Dn4000: {dn4000_mean:.3f} ± {dn4000_std:.3f}')
+    print(f'lg_age: {age_mean:.3f} ± {age_std:.3f}')
+    print(f'[M/H]: {metallicity_mean:.3f} ± {metallicity_std:.3f}')
 
 for index, ew_values in ews.items():
     ew_mean = np.mean(ew_values)
