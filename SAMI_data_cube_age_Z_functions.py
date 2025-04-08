@@ -288,8 +288,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     reduced_chi2_unreg = pp_unreg.chi2
     print(f'Unregularized reduced Chi^2 with initial noise spectrum: {reduced_chi2_unreg:.3f}')
 
-# degrees of freedom.
-dof = len(goodpixels_nan)
+    # degrees of freedom.
+    dof = goodpixels_nan.size
 
 # rescale noise to achieve reduced chi-squared ~ 1.
 noise_rescaled = noise * np.sqrt(reduced_chi2_unreg)
