@@ -378,10 +378,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # do not include regularization when doing the bootstrapping.
     np.random.seed(123)  # for reproducible results
 
-ages = []
-metallicities = []
-ews = {index: [] for index in lick_indices_log.keys()}
-dn4000s = []
+    ages = []
+    metallicities = []
 
 for j in range(nrand):
     galaxy_boot = bootstrap_residuals(bestfit, resid)
