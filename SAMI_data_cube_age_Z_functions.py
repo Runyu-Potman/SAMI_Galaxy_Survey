@@ -67,6 +67,7 @@ def bootstrap_residuals(model, resid, wild = True):
         eps = np.random.choice(resid, size = resid.size)
 
     return model + eps
+
 #---------------------------------------------------------------------------------------------
 def ppxf_pre_spectrum(cube_fits, spectrum_fits):
     '''
