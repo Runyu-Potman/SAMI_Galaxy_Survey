@@ -477,6 +477,12 @@ if __name__ == '__main__':
     red_fits_path = 'CATID_A_cube_red.fits'
     red_cleaned_data_cube = data_cube_clean_percentage(red_fits_path, percentage, wavelength_slice_index)
 
+    # -----------------------------------------------------------------------------------
+    # step 2: extract the blue spectrum and corresponding red spectrum for each pixel.
+    # if the pixel is masked in blue cube or in the red cube, skip this pixel.
+    # a testing example is given here (25, 25):
+    x = 25
+    y = 25
 
 
 
