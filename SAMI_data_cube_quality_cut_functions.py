@@ -224,6 +224,7 @@ def kdc_separation(x_center, y_center, a, b, pa):
     plt.show()
 
     return ellipse_mask
+
 #----------------------------------------------------------------------------
 if __name__ == '__main__':
     # extract the combined mask based on the quality cut on the stellar velocity map.
