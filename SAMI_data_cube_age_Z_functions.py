@@ -434,7 +434,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         plt.tight_layout()
         plt.show()
 
-    return age_mean, age_std, metallicity_mean, metallicity_std
+    return age_mean, metallicity_mean
 
 #----------------------------------------------------------------------------------------
 '''
