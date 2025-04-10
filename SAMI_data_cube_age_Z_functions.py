@@ -478,7 +478,7 @@ if __name__ == '__main__':
     wavelength_slice_index = 1024
 
     blue_fits_path = 'CATID_A_cube_blue.fits'
-    blue_cleaned_data_cube = data_cube_clean_percentage(blue_fits_path, percentage, wavelength_slice_index)
+    blue_cleaned_data_cube = data_cube_clean_snr(blue_fits_path, sn_threshold, emission_free_range_blue, wavelength_slice_index)
 
     red_fits_path = 'CATID_A_cube_red.fits'
     red_cleaned_data_cube = data_cube_clean_percentage(red_fits_path, percentage, wavelength_slice_index)
