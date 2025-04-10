@@ -349,7 +349,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
             print(f'Final reduced Chi^2 = {pp_reg.chi2:.3f}')
             optimal_regul = best_regul
 
-    # the pPXF fit with optima_regul and rescaled noise.
+    # the pPXF fit with optima_regul, rescaled noise and mdegree.
     pp = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale, start = start,
               moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
               goodpixels = goodpixels_nan, regul = optimal_regul, reg_dim = reg_dim, component = component, gas_component = gas_component,
