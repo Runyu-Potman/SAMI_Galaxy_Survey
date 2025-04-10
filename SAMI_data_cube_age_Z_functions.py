@@ -470,8 +470,11 @@ if __name__ == '__main__':
     c = 299792.458  # speed of light (km/s).
 
     # ------------------------------------------------------------------------------------
-    # step 1: clean the blue and red data cube.
-    percentage = 0.01
+    '''
+    # clean the blue and red data cube.
+    sn_threshold = 10
+    emission_free_range_blue = (4600, 4800)
+    emission_free_range_red = (6800, 7000)
     wavelength_slice_index = 1024
 
     blue_fits_path = 'CATID_A_cube_blue.fits'
