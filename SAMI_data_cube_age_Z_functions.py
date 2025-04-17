@@ -37,6 +37,16 @@ version_02: 08/04/2025: new functions added.
 '''
 #-------------------------------------------------------------------------------
 def plot_spectrum(wavelength, spectrum):
+    '''
+
+    Parameters:
+    - wavelength: rest-frame wavelength.
+    - spectrum: flux with the unit proportional to erg/s/cm**2/angstrom
+
+    Returns:
+    - None
+
+    '''
     plt.figure(figsize = (10, 8))
     plt.plot(wavelength, spectrum)
     plt.xlabel('rest-frame wavelength (Å)')
