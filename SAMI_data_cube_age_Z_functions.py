@@ -38,6 +38,7 @@ version_02: 08/04/2025: new functions added.
 #-------------------------------------------------------------------------------
 def plot_spectrum(wavelength, spectrum):
     '''
+    plot the spectrum before doing log-rebin.
 
     Parameters:
     - wavelength: rest-frame wavelength.
