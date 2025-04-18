@@ -248,7 +248,8 @@ def ppxf_pre_data_cube(
     else:
         rest_wavelength = blue_wavelength / (1 + redshift)
 
-        specNew, ln_lam, velscale = log_rebin(rest_wavelength, spectrum_blue, flux = False)
+        if high_redshift:
+            specNew, ln_lam, velscale = log_rebin(blue_wavelength, blue_spectrum, flux = False)
 
         if plot:
             plot_spectrum(rest_wavelength, spectrum_blue)
