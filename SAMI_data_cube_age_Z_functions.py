@@ -69,10 +69,10 @@ def bootstrap_residuals(model, resid, wild = True):
 
     https://doi.org/10.1016/j.jeconom.2008.08.003
 
-    :param spec: model (e.g. best fitting spectrum)
-    :param res: residuals (best_fit - observed)
-    :param wild: use wild bootstrap to allow for variable errors
-    :return: new model with bootstrapped residuals
+    Parameters:
+    - spec: model (e.g. best fitting spectrum).
+    - res: residuals (best_fit - observed).
+    - wild: use wild bootstrap to allow for variable errors.
 
     """
     if wild:    # Wild Bootstrapping: generates -resid or resid with prob=1/2
