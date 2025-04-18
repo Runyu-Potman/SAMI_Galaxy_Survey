@@ -98,7 +98,7 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False):
     - high_redshift: boolean, if True then high redshift situation will be considered.
 
     Returns:
-    - goodpixels_nan: goodpixels which will be fitted in pPXF.
+    - goodpixels_nan: good pixels which will be fitted in pPXF.
     - SpecNew: log-rebinned co-added spectrum.
     - ln_lam: log-resclaed wavelength range.
     - velscale: velocity scale.
