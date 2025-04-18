@@ -49,7 +49,6 @@ def plot_spectrum(wavelength, spectrum):
 
     Returns:
     - None
-
     '''
     plt.figure(figsize = (10, 8))
     plt.plot(wavelength, spectrum)
