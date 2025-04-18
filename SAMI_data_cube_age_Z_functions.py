@@ -97,6 +97,7 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
     - cube_fits: str, path to the data cube fits file.
     - spectrum_fits: str, path to the co-added spectrum fits file.
     - high_redshift: boolean, if True then high redshift situation will be considered.
+    - save_fits: boolean, if True then save the initial spectrum and the log-rebinned spectrum.
 
     Returns:
     - goodpixels_nan: good pixels which will be fitted in pPXF.
