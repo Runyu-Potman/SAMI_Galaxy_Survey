@@ -127,8 +127,8 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
     rest_wavelength = blue_wavelength / (1 + redshift)
 
     # spectrum generated from the data cube.
-    data_cube_spectrum = fits.open(spectrum_fits)
-    data_cube_spectrum = data_cube_spectrum[0].data
+    with fits.open(spectrum_fits) as spec_hdul:
+        data_cube_spectrum = spec_hdul[0].data
 
     if high_redshift:
         # perform log_rebin with wavelength in observed frame (flux = False for flux density).
