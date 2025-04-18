@@ -227,8 +227,8 @@ def ppxf_pre_data_cube(
         gap_wavelength = np.arange(blue_wavelength[-1] + cdelt3, red_wave_interp[0], cdelt3)
         gap_flux = np.full_like(gap_wavelength, np.nan)
 
-        combined_wavelength = np.concatenate([blue_wavelength, gap_wavelength, red_wavelength])
-        combined_flux = np.concatenate([spectrum_blue, gap_flux, red_flux])
+        combined_wavelength = np.concatenate([blue_wavelength, gap_wavelength, red_wave_interp])
+        combined_flux = np.concatenate([blue_spectrum, gap_flux, red_flux_interp])
 
         rest_wavelength = combined_wavelength / (1 + redshift)
 
