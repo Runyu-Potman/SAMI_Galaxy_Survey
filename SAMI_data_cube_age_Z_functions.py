@@ -89,7 +89,8 @@ def bootstrap_residuals(model, resid, wild = True):
 def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False):
     '''
     Log-rebin co-added spectrum generated from data cube, do preparations for pPXF. The data cube
-    will be used to construct wavelength and extract redshift.
+    will be used to construct wavelength and extract redshift. When the redshift is high, set the
+    high_redshift parameter to be true.
 
     Parameters:
     - cube_fits: str, path to the data cube fits file.
