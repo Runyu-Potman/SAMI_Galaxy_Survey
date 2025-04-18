@@ -44,8 +44,8 @@ def plot_spectrum(wavelength, spectrum):
     plot the spectrum before doing log-rebin.
 
     Parameters:
-    - wavelength: rest-frame wavelength.
-    - spectrum: flux with the unit proportional to erg/s/cm**2/angstrom
+    - wavelength: rest-frame (or observed-frame) wavelength in Å.
+    - spectrum: flux with the unit proportional to erg/s/cm**2/angstrom.
 
     Returns:
     - None
