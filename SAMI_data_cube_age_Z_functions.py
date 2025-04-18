@@ -251,8 +251,14 @@ def ppxf_pre_data_cube(
         if high_redshift:
             specNew, ln_lam, velscale = log_rebin(blue_wavelength, blue_spectrum, flux = False)
 
-        if plot:
-            plot_spectrum(rest_wavelength, spectrum_blue)
+            if plot:
+                plot_spectrum(blue_wavelength, blue_spectrum)
+
+        else:
+            specNew, ln_lam, velscale = log_rebin(rest_wavelength, blue_spectrum, flux = False)
+
+            if plot:
+                plot_spectrum(rest_wavelength, blue_spectrum)
 
     # identify NaN values in the log_rebinned flux, replace NaN values with a large number.
     nan_mask_flux = np.isnan(specNew)
