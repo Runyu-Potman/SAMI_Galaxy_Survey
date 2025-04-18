@@ -271,8 +271,31 @@ def ppxf_pre_data_cube(
 
 #-----------------------------------------------------------------------------------
 
-def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename, velscale,
-               start, nrand, optimal_regul = None, find_regul = False, plot = False):
+def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename, velscale, start,
+               nrand, optimal_regul = None, find_regul = False, high_redshift = False, plot = False):
+    '''
+    calculate mean age and [M/Z] with ppxf using mdegree = 10, regul, constant noise value, bootstrapping and the MILES ssp model.
+    Only two moments (vel, sig) are fitted.
+
+    Parameters:
+    - specNew: log-rebinned spectrum.
+    - goodpixels_nan: good pixels which will be fitted in pPXF.
+    - ln_lam: wavelength range in log(e) scale.
+    - noise_value: assume a constant noise (reduced Chi2 ~ 1 without regularization).
+    - redshift: redshift extracted from blue data cube.
+    - filename: ssp model used to fit the input spectrum.
+    - velscale: velocity scale in km/s.
+    - start: initial start guessing value for three components ([[vel, sig], [vel, sig], [vel, sig]]).
+    - nrand: do bootstrapping for nrand times.
+    - optimal_regul: optimal regul value (e.g., 100).
+    - find_regul: boolean, if True then the optimal regul value will be calculated and used.
+    - high_redshift: boolean, if true then the high redshift situation will be considered.
+    - plot: boolean, if True then the plot will be displayed.
+
+    Returns:
+    - age_mean: mean age in Gyr.
+    - metallicity_mean: mean [M/H].
+    '''
 
     # normalize spectrum to avoid numerical issues.
     # note that this normalization factor should be multiplied back when calculating the ew for lick indices
