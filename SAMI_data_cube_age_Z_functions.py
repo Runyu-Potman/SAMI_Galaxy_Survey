@@ -194,8 +194,8 @@ def ppxf_pre_data_cube(
 
     blue_wavelength = blue_header['CRVAL3'] + (np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3']) * blue_header['CDELT3']
 
-    if (spectrum_red is not None and red_cube_fits is None) or (spectrum_red is None and red_cube_fits is not None):
-        raise ValueError('spectrum_red and red_cube_fits must be provided together.')
+    if (red_spectrum is not None and red_cube_fits is None) or (red_spectrum is None and red_cube_fits is not None):
+        raise ValueError('red_spectrum and red_cube_fits must be provided together.')
 
     if red_cube_fits is not None and spectrum_red is not None:
         with fits.open(red_cube_fits) as red_hdul:
