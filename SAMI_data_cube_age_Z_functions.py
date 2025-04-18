@@ -74,7 +74,10 @@ def bootstrap_residuals(model, resid, wild = True):
     - res: residuals (best_fit - observed).
     - wild: use wild bootstrap to allow for variable errors.
 
-    """
+    Returns:
+    - model + eps: new model with bootstrapped residuals.
+    '''
+
     if wild:    # Wild Bootstrapping: generates -resid or resid with prob=1/2
         eps = resid*(2*np.random.randint(2, size = resid.size) - 1)
     else:       # Standard Bootstrapping: random selection with repetition
