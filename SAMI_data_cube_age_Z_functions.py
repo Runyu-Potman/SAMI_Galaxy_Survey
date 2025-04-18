@@ -163,7 +163,30 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False):
     return goodpixels_nan, specNew, ln_lam, velscale, redshift
 
 #-----------------------------------------------------------------------------------
-def ppxf_pre_data_cube(spectrum_blue, blue_cube_fits, spectrum_red = None, red_cube_fits = None, plot = False):
+def ppxf_pre_data_cube(
+        blue_spectrum, blue_cube_fits, red_spectrum = None, red_cube_fits = None, high_redshift = False, plot = False):
+    '''
+    Log-rebin spectrum in the data cube, do preparations for pPXF. The data cube will be used to construct wavelength
+    and extract redshift. When the redshift is high, set the high_redshift parameter to be true. If red spectrum and
+    red_cube_fits are provided, the red spectrum will be convolved to match the resolution of the blue spectrum following
+    the method described in Sande et al. 2017, the process would be: convolution -> interpolation -> combination -> log-rebin.
+
+    Parameters:
+    - blue_spectrum: spectrum extracted from blue data cube.
+    - blue_cube_fits: str, path to the blue data cube fits file.
+    - red_spectrum: spectrum extracted from red data cube.
+    - red_cube_fits: str, path to the red data cube fits file.
+    - high_redshift: boolean, if True then high redshift situation will be considered.
+    - plot: boolean, if True then the plot will be shown.
+
+    Returns:
+    - goodpixels_nan: good pixels which will be fitted in pPXF.
+    - SpecNew: log-rebinned spectrum.
+    - ln_lam: wavelength range in log(e) scale.
+    - velscale: velocity scale.
+    - redshift: redshift extracted from blue data cube.
+    '''
+
     # open the blue data cube to construct the blue wavelength and extract redshift value.
     with fits.open(blue_cube_fits) as blue_hdul:
         blue_header = blue_hdul[0].header
