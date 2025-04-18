@@ -50,7 +50,8 @@ def plot_spectrum(wavelength, spectrum):
     Returns:
     - None
     '''
-    plt.figure(figsize = (10, 8))
+
+    plt.figure(figsize = (15, 10))
     plt.plot(wavelength, spectrum)
     plt.xlabel('rest-frame wavelength (Å)')
     plt.ylabel('flux')
