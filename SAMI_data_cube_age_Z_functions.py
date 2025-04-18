@@ -28,8 +28,11 @@ cube. The final derived age and metallicity are obtained by using the bootstrapp
 decide_mdegree is used to derive the optimal mdegree value. However, in this script we just assume
 mdegree = 10 (a commonly used value when it comes to the stellar population estimation for SAMI).
 
-Note that all functions defined in this script assume low-redshift . Please refer to
-SAMI_data_cube_age_Z_high_redshift_functions.py for more information.
+Note that all functions defined in this script assume low-redshift by default. Please set the keyword
+high_redshift to be true when dealing with high redshift galaxies. In high redshift situation, we do not 
+do the de-redshifting, otherwise, the de-redshifted wavelength range is likely to become smaller than the 
+lower limit of the templates (e.g., MILES SSP: 3540.5 Å), also, if we do fwhm_gal = fwhm_blue / (1 + redshift), 
+the fwhm_gal is likely to become smaller than the fwhm of the templates (e,g., MILES SSP: 2.51 Å). 
   
 version_01: 03/04/2025
 version_02: 08/04/2025: new functions added.
