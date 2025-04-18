@@ -342,7 +342,13 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
     # set up the gas emission lines templates.
     # estimated wavelength fitted range in the rest frame.
-    lam_range_gal = np.array([np.min(lam_gal), np.max(lam_gal)])
+    if high_redshift:
+        # lam_gal is in observed frame.
+        lam_range_gal = np.array([np.min(lam_gal), np.max(lam_gal)]) / (1 + redshift)
+
+    else:
+        # lam_gal is already in rest frame.
+        lam_range_gal = np.array([np.min(lam_gal), np.max(lam_gal)])
 
     # construct a set of Gaussian emission line templates.
     gas_templates, gas_names, line_wave = util.emission_lines(sps.ln_lam_temp, lam_range_gal,
