@@ -60,9 +60,9 @@ def plot_spectrum(wavelength, spectrum):
 
 #--------------------------------------------------------------------------------
 def bootstrap_residuals(model, resid, wild = True):
-    """
-    https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Resampling_residuals
-    https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Wild_bootstrap
+    '''
+    https://en.wikipedia.org/wiki/Bootstrapping_(statistics) # Resampling_residuals
+    https://en.wikipedia.org/wiki/Bootstrapping_(statistics) # Wild_bootstrap
 
     Davidson & Flachaire (2008) eq.(12) gives the recommended form
     of the wild bootstrapping probability used here.
