@@ -9,6 +9,7 @@ import ppxf.ppxf_util as util
 import ppxf.sps_util as lib
 import seaborn as sns
 from scipy.ndimage import gaussian_filter1d
+from scipy.interpolate import interp1d
 from SAMI_data_cube_quality_cut_functions import data_cube_clean_percentage, data_cube_clean_snr
 #--------------------------------------------------------------------------------------------
 '''
