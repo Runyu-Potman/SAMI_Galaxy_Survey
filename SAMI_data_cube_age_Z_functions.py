@@ -119,7 +119,8 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
     # np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3']: the offset of each pixel from the reference.
     # * blue_header['CDELT3']: converts the pixel offset to a wavelength offset.
     # + blue_header['CRVAL3']: adds the starting wavelength to the calculated offset to get the actual wavelength for each pixel.
-    blue_wavelength = blue_header['CRVAL3'] + (np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3']) * blue_header['CDELT3']
+    # note that CRPIX is 1-based but np.arange() is 0-based, so + 1.
+    blue_wavelength = blue_header['CRVAL3'] + (np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3'] + 1) * blue_header['CDELT3']
 
     # de-redshifting to the rest frame.
     redshift = blue_header['Z_SPEC']
