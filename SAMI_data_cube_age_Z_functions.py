@@ -144,13 +144,14 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
     # the goodpixels_nan will be used to normalize the galaxy and do the pPXF fitting.
     goodpixels_nan = np.where(specNew < 1e5)[0]
 
-    # extension 1 [1] is the spectrum before log_rebin.
-    hdu_initial_flux = fits.ImageHDU(data_cube_spectrum, name = 'INITIAL_FLUX')
-    # the start of x-axis (index 1).
-    hdu_initial_flux.header['CRVAL1'] = 1
-    # the increment is 1 (for index).
-    hdu_initial_flux.header['CDELT1'] = 1
-    hdu_initial_flux.header['COMMENT'] = 'spectrum before log_rebin'
+    if save_fits:
+        # extension 1 [1] is the spectrum before log_rebin.
+        hdu_initial_flux = fits.ImageHDU(data_cube_spectrum, name = 'INITIAL_FLUX')
+        # the start of x-axis (index 1).
+        hdu_initial_flux.header['CRVAL1'] = 1
+        # the increment is 1 (for index).
+        hdu_initial_flux.header['CDELT1'] = 1
+        hdu_initial_flux.header['COMMENT'] = 'spectrum before log_rebin'
 
     # extension 2 [2] is the spectrum after log_rebin, which will be used to do the pPXF fitting.
     hdu_specNew = fits.ImageHDU(specNew, name = 'LOG_REBIN_FLUX')
