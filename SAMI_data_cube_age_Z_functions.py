@@ -100,7 +100,7 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False):
     Returns:
     - goodpixels_nan: good pixels which will be fitted in pPXF.
     - SpecNew: log-rebinned co-added spectrum.
-    - ln_lam: log-resclaed wavelength range.
+    - ln_lam: wavelength range in log(e) scale.
     - velscale: velocity scale.
     - redshift: redshift extracted from data cube.
     '''
