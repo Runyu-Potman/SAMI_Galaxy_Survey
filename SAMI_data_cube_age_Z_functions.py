@@ -198,7 +198,7 @@ def ppxf_pre_data_cube(
     if (red_spectrum is not None and red_cube_fits is None) or (red_spectrum is None and red_cube_fits is not None):
         raise ValueError('red_spectrum and red_cube_fits must be provided together.')
 
-    if red_cube_fits is not None and spectrum_red is not None:
+    if red_cube_fits is not None and red_spectrum is not None:
         with fits.open(red_cube_fits) as red_hdul:
             red_header = red_hdul[0].header
 
