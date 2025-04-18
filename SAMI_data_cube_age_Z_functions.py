@@ -204,7 +204,7 @@ def ppxf_pre_data_cube(
 
         red_wavelength = red_header['CRVAL3'] + (np.arange(red_header['NAXIS3']) - red_header['CRPIX3']) * red_header['CDELT3']
 
-        # do the convolution to match the resolution of red to the resolution of the blue.
+        # do the convolution to match the resolution of the red to the resolution of the blue.
         fwhm_conv = np.sqrt(fwhm_blue**2 - fwhm_red**2)
         sig_conv = fwhm_conv / (2 * np.sqrt(2 * np.log(2)))
         sig_conv = sig_conv / red_header['CDELT3']
