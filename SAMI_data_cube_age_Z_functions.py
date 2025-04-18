@@ -181,7 +181,7 @@ def ppxf_pre_data_cube(
     - red_spectrum: spectrum extracted from red data cube.
     - red_cube_fits: str, path to the red data cube fits file.
     - high_redshift: boolean, if True then the high redshift situation will be considered.
-    - plot: boolean, if True then the plot will be shown.
+    - plot: boolean, if True then the plot will be displayed.
 
     Returns:
     - goodpixels_nan: good pixels which will be fitted in pPXF.
