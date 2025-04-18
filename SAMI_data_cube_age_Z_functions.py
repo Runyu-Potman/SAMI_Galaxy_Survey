@@ -324,7 +324,12 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     a linear shift of the log-rebinned spectrum. One just needs to compute the wavelength 
     range in the rest-frame and adjust the instrumental resolution of the galaxy observations.
     '''
-    fwhm_gal = fwhm_blue / (1 + redshift)
+
+    if high_redshift:
+        fwhm_gal = fwhm_blue
+
+    else:
+        fwhm_gal = fwhm_blue / (1 + redshift)
 
     # normalize the templates to mean = 1 within the FWHM (wavelength range) of the V-band (5000 Å ~ 6000 Å).
     # in this way the weights returned by pPXF and mean values are light-weighted quantities.
