@@ -212,8 +212,15 @@ def ppxf_pre_data_cube(
         # do the convolution to match the resolution of the red to the resolution of the blue.
         fwhm_conv = np.sqrt(fwhm_blue**2 - fwhm_red**2)
         sig_conv = fwhm_conv / (2 * np.sqrt(2 * np.log(2)))
-        sig_conv = sig_conv / red_header['CDELT3']
-        red_flux = gaussian_filter1d(spectrum_red, sig_conv)
+        sig_conv = sig_conv / red_header['CDELT3'] # transfer to pixel scale.
+        red_flux = gaussian_filter1d(red_spectrum, sig_conv)
+
+        # do the interpolation.
+        cdelt3 = blue_header['CDELT3']
+        red_wave_interp = np.arange(red_wavelength[0], red_wavelength[-1] + cdelt3, cdelt3)
+
+        interp_func = interp1d(red_wavelength, red_flux, kind = 'linear', bounds_error = False, fill_value = np.nan)
+        red_flux_interp = interp_func(red_wave_interp)
 
         # introduce a gap between the blue wavelength range and the red wavelength range.
         # set the flux value in this gap region to be NaN, which could be excluded by using the goodpixel keyword.
