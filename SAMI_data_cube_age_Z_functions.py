@@ -153,13 +153,13 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
         hdu_initial_flux.header['CDELT1'] = 1
         hdu_initial_flux.header['COMMENT'] = 'spectrum before log_rebin'
 
-    # extension 2 [2] is the spectrum after log_rebin, which will be used to do the pPXF fitting.
-    hdu_specNew = fits.ImageHDU(specNew, name = 'LOG_REBIN_FLUX')
-    # the start of x-axis (index 1).
-    hdu_specNew.header['CRVAL1'] = 1
-    # the increment is 1 (for index).
-    hdu_specNew.header['CDELT1'] = 1
-    hdu_specNew.header['COMMENT'] = 'Log-rebinned spectrum prepared for pPXF'
+        # extension 2 [2] is the spectrum after log_rebin, which will be used to do the pPXF fitting.
+        hdu_specNew = fits.ImageHDU(specNew, name = 'LOG_REBIN_FLUX')
+        # the start of x-axis (index 1).
+        hdu_specNew.header['CRVAL1'] = 1
+        # the increment is 1 (for index).
+        hdu_specNew.header['CDELT1'] = 1
+        hdu_specNew.header['COMMENT'] = 'Log-rebinned spectrum prepared for pPXF'
 
     hdul = fits.HDUList([fits.PrimaryHDU(), hdu_initial_flux, hdu_specNew])
     hdul.writeto('prepared_spectrum_for_pPXF.fits', overwrite = True)
