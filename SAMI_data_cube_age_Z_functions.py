@@ -34,7 +34,7 @@ do the de-redshifting, otherwise, the de-redshifted wavelength range is likely t
 lower limit of the templates (e.g., MILES SSP: 3540.5 Å), also, if we do fwhm_gal = fwhm_blue / (1 + redshift), 
 the fwhm_gal is likely to become smaller than the fwhm of the templates (e,g., MILES SSP: 2.51 Å). 
   
-version_01: 03/04/2025
+version_01: 03/04/2025: initial version.
 version_02: 08/04/2025: new functions added.
 version_03: 17/04/2025: add high-redshift situation.
 '''
