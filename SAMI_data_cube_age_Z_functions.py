@@ -161,8 +161,8 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
         hdu_specNew.header['CDELT1'] = 1
         hdu_specNew.header['COMMENT'] = 'Log-rebinned spectrum prepared for pPXF'
 
-    hdul = fits.HDUList([fits.PrimaryHDU(), hdu_initial_flux, hdu_specNew])
-    hdul.writeto('prepared_spectrum_for_pPXF.fits', overwrite = True)
+        hdul = fits.HDUList([fits.PrimaryHDU(), hdu_initial_flux, hdu_specNew])
+        hdul.writeto('prepared_spectrum_for_pPXF.fits', overwrite = True)
 
     return goodpixels_nan, specNew, ln_lam, velscale, redshift
 
