@@ -206,7 +206,8 @@ def ppxf_pre_data_cube(
         with fits.open(red_cube_fits) as red_hdul:
             red_header = red_hdul[0].header
 
-        red_wavelength = red_header['CRVAL3'] + (np.arange(red_header['NAXIS3']) - red_header['CRPIX3']) * red_header['CDELT3']
+        # note that CRPIX is 1-based but np.arange() is 0-based, so + 1.
+        red_wavelength = red_header['CRVAL3'] + (np.arange(red_header['NAXIS3']) - red_header['CRPIX3'] + 1) * red_header['CDELT3']
 
         # do the convolution to match the resolution of the red to the resolution of the blue.
         fwhm_conv = np.sqrt(fwhm_blue**2 - fwhm_red**2)
