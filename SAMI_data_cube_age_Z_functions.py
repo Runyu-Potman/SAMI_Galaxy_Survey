@@ -36,6 +36,7 @@ the fwhm_gal is likely to become smaller than the fwhm of the templates (e,g., M
   
 version_01: 03/04/2025
 version_02: 08/04/2025: new functions added.
+version_03: 17/04/2025: add high-redshift situation.
 '''
 #-------------------------------------------------------------------------------
 def plot_spectrum(wavelength, spectrum):
