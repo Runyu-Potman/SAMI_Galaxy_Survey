@@ -224,9 +224,7 @@ def ppxf_pre_data_cube(
 
         # introduce a gap between the blue wavelength range and the red wavelength range.
         # set the flux value in this gap region to be NaN, which could be excluded by using the goodpixel keyword.
-        # use a smaller of the two CDELT3s (better spectral resolution).
-        cdelt3 = min(abs(blue_header['CDELT3']), abs(red_header['CDELT3']))
-        gap_wavelength = np.arange(blue_wavelength[-1] + cdelt3, red_wavelength[0], cdelt3)
+        gap_wavelength = np.arange(blue_wavelength[-1] + cdelt3, red_wave_interp[0], cdelt3)
         gap_flux = np.full_like(gap_wavelength, np.nan)
 
         combined_wavelength = np.concatenate([blue_wavelength, gap_wavelength, red_wavelength])
