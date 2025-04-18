@@ -127,8 +127,12 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False):
     data_cube_spectrum = fits.open(spectrum_fits)
     data_cube_spectrum = data_cube_spectrum[0].data
 
-    # perform log_rebin (flux = False for flux density).
-    specNew, ln_lam, velscale = log_rebin(rest_wavelength, data_cube_spectrum, flux = False)
+    if high_redshift:
+        # perform log_rebin with wavelength in observed frame (flux = False for flux density).
+        specNew, ln_lam, velscale = log_rebin(blue_wavelength, data_cube_spectrum, flux = False)
+    else:
+        # perform log_rebin with wavelength in rest frame (flux = False for flux density).
+        specNew, ln_lam, velscale = log_rebin(rest_wavelength, data_cube_spectrum, flux = False)
 
     # identify NaN values in the log_rebinned flux, replace NaN values with a large number.
     nan_mask_flux = np.isnan(specNew)
