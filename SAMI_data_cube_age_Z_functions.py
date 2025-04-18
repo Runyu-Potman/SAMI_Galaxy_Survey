@@ -53,8 +53,8 @@ def plot_spectrum(wavelength, spectrum):
 
     plt.figure(figsize = (15, 10))
     plt.plot(wavelength, spectrum)
-    plt.xlabel('rest-frame wavelength (Å)')
-    plt.ylabel('flux')
+    plt.xlabel('wavelength (Å)')
+    plt.ylabel('flux (10**(-16) erg/s/cm**2/angstrom/pixel)')
     plt.title('spectrum before log-rebin')
     plt.show()
 
