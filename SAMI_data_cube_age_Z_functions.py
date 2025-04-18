@@ -196,7 +196,8 @@ def ppxf_pre_data_cube(
         blue_header = blue_hdul[0].header
         redshift = blue_header['Z_SPEC']
 
-    blue_wavelength = blue_header['CRVAL3'] + (np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3']) * blue_header['CDELT3']
+    # note that CRPIX is 1-based but np.arange() is 0-based, so + 1.
+    blue_wavelength = blue_header['CRVAL3'] + (np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3'] + 1) * blue_header['CDELT3']
 
     if (red_spectrum is not None and red_cube_fits is None) or (red_spectrum is None and red_cube_fits is not None):
         raise ValueError('red_spectrum and red_cube_fits must be provided together.')
