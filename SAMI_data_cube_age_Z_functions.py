@@ -266,7 +266,7 @@ def ppxf_pre_data_cube(
                 plot_spectrum(combined_wavelength, combined_flux)
         else:
             # do the log-rebin with the wavelength in rest frame.
-            specNew, ln_lam, velscale = log_rebin(rest_wavelength, combined_flux, flux = False)
+            specNew, ln_lam, velscale = safe_log_rebin(rest_wavelength, combined_flux)
 
             if plot:
                 plot_spectrum(rest_wavelength, combined_flux)
