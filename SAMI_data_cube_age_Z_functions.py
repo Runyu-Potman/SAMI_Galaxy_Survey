@@ -569,7 +569,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
         # plot distribution of metallicity.
         plt.subplot(1, 2, 2)
-        sns.histplot(metallicities, kde = True, color = 'orange', bins = 50)
+        sns.histplot(metallicities, kde = True, color = 'orange', bins = 20)
         plt.title(f'Distribution of [M/H]\nmean: {metallicity_mean:.3f}, std: {metallicity_std:.3f}')
         plt.xlabel('[M/H]')
 
