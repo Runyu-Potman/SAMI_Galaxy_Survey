@@ -403,7 +403,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
         # we use the buffer to make sure the goodpixels are safely inside the template wavelength coverage.
         lam_mask = (lam_gal > sps.lam_temp[0]) & (lam_gal < sps.lam_temp[-1] - buffer)
-        
+
         galaxy = galaxy[lam_mask]
         lam_gal = lam_gal[lam_mask]
         noise = noise[lam_mask]
