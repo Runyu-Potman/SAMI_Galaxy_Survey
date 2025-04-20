@@ -211,7 +211,7 @@ def ppxf_pre_data_cube(
 
     Returns:
     - goodpixels_nan: good pixels which will be fitted in pPXF.
-    - SpecNew: log-rebinned spectrum.
+    - specNew: log-rebinned spectrum.
     - ln_lam: wavelength range in log(e) scale.
     - velscale: velocity scale in km/s.
     - redshift: redshift extracted from blue data cube.
