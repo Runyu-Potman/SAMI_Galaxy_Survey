@@ -557,7 +557,6 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     if plot:
         # visualization.
         # kde = True argument adds a smooth line representing the kernel density estimate.
-        # set up the plotting style.
         sns.set(style = 'whitegrid')
 
         plt.figure(figsize=(10, 8))
