@@ -281,7 +281,7 @@ def ppxf_pre_data_cube(
                 plot_spectrum(blue_wavelength, blue_spectrum)
 
         else:
-            specNew, ln_lam, velscale = log_rebin(rest_wavelength, blue_spectrum, flux = False)
+            specNew, ln_lam, velscale = safe_log_rebin(rest_wavelength, blue_spectrum)
 
             if plot:
                 plot_spectrum(rest_wavelength, blue_spectrum)
