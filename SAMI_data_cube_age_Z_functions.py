@@ -14,10 +14,11 @@ from scipy.interpolate import interp1d
 Seven functions are defined in this script:
 1. plot_spectrum()
 2. bootstrap_residuals()
-3. ppxf_pre_spectrum()
-4. ppxf_pre_data_cube()
-5. ppxf_age_z()
-6. decide_mdegree()
+3. safe_log_rebin()
+4. ppxf_pre_spectrum()
+5. ppxf_pre_data_cube()
+6. ppxf_age_z()
+7. decide_mdegree()
 
 After using the functions in the code: SAMI_data_cube_quality_cut_functions.py, we could get a 
 cleaned data cube. On the one hand, we could generate co-added spectrum based on the cleaned data 
