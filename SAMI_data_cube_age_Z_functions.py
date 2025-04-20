@@ -434,7 +434,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # degrees of freedom.
     dof = goodpixels_nan.size
 
-    # rescale noise to achieve reduced chi-squared ~ 1.
+    # rescale noise to achieve reduced Chi2 ~ 1.
     noise_rescaled = noise * np.sqrt(reduced_chi2_unreg)
 
     start = pp_unreg.sol.copy()
