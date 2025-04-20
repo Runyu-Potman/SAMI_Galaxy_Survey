@@ -38,6 +38,8 @@ the fwhm_gal is likely to become smaller than the fwhm of the templates (e,g., M
 version_01: 03/04/2025: initial version.
 version_02: 08/04/2025: new functions added.
 version_03: 17/04/2025: add high-redshift situation.
+version_04: 20/04/2025: handle NaN and inf in the input flux by replacing with a large value before log_rebin
+            by using the newly defined function: safe_log_rebin.
 '''
 #-------------------------------------------------------------------------------
 def plot_spectrum(wavelength, spectrum):
