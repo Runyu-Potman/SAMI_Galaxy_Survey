@@ -89,6 +89,33 @@ def bootstrap_residuals(model, resid, wild = True):
 
     return model + eps
 
+#--------------------------------------------------------------------------------------------
+def safe_log_rebin(wave, flux, nan_fill = 1e10):
+    '''
+    Run log_rebin safely by handling NaNs or inf in the input flux spectrum. Invalid values
+    are replaced by a large number nan_fill. These large values can be excluded using the
+    parameter goodpixels while using pPXF.
+
+    Note that flux = False by default.
+
+    Parameters:
+    - wave: rest-frame (or observed-frame) wavelength in Å.
+    - flux: flux with the unit proportional to erg/s/cm**2/angstrom.
+    - nan_fill: fill invalid values (NaN or inf) with a large number nan_fill.
+
+    Returns:
+    - specNew: log-rebinned co-added spectrum.
+    - ln_lam: wavelength range in log(e) scale.
+    - velscale: velocity scale.
+    '''
+
+    flux_clean = np.copy(flux)
+    flux_clean[~np.isfinite(flux_clean)] = nan_fill
+
+    specNew, ln_lam, velscale = log_rebin(wave, flux_clean, flux = False)
+
+    return specNew, ln_lam, velscale
+
 #---------------------------------------------------------------------------------------------
 def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits = False):
     '''
