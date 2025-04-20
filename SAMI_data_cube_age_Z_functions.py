@@ -320,6 +320,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     - metallicity_mean: mean [M/H].
     '''
 
+    if high_redshift and buffer is None:
+        raise ValueError('When high_redshift is True, buffer must be provided.')
+
     # normalize spectrum to avoid numerical issues.
     # note that this normalization factor should be multiplied back when calculating the ew for lick indices
     # and when generating the noise spectrum after ppxf fitting.
