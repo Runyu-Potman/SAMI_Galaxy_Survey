@@ -312,6 +312,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     - optimal_regul: optimal regul value (e.g., 100).
     - find_regul: boolean, if True then the optimal regul value will be calculated and used.
     - high_redshift: boolean, if true then the high redshift situation will be considered.
+    - buffer: adjust this value to ensure that lam_gal is within the wavelength range of the template.
     - plot: boolean, if True then the plot will be displayed.
 
     Returns:
