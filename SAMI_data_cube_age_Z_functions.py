@@ -429,7 +429,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
     # extract Chi2 of the first fit.
     reduced_chi2_unreg = pp_unreg.chi2
-    print(f'Unregularized reduced Chi^2 with initial noise spectrum: {reduced_chi2_unreg:.3f}')
+    print(f'Unregularized reduced Chi^2 (initial noise spectrum): {reduced_chi2_unreg:.3f}')
 
     # degrees of freedom.
     dof = goodpixels_nan.size
