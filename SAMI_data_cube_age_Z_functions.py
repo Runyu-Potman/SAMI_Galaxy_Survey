@@ -286,10 +286,6 @@ def ppxf_pre_data_cube(
             if plot:
                 plot_spectrum(rest_wavelength, blue_spectrum)
 
-    # identify NaN values in the log_rebinned flux, replace NaN values with a large number.
-    nan_mask_flux = np.isnan(specNew)
-    specNew[nan_mask_flux] = 1e10
-
     # the goodpixels_nan will be used to normalize the galaxy and do the pPXF fitting.
     goodpixels_nan = np.where(specNew < 1e5)[0]
 
