@@ -399,6 +399,17 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # fit two moments (v, sig) moments = 2 for the stars and for the two gas kinematic components.
     moments = [2, 2, 2]
 
+    if high_redshift:
+
+        # we use the buffer to make sure the goodpixels are safely inside the template wavelength coverage.
+        lam_mask = (lam_gal > sps.lam_temp[0]) & (lam_gal < sps.lam_temp[-1] - buffer)
+        
+        galaxy = galaxy[lam_mask]
+        lam_gal = lam_gal[lam_mask]
+        noise = noise[lam_mask]
+
+        goodpixels_nan = np.where(galaxy < 1e5)[0]
+
     '''
     In the ppxf_example_population_gas_sdss.py, the author mentioned that: to avoid affecting the line strength
     of the spectral features, the additive polynomials are excluded (degree = -1), and only the multiplicative ones
