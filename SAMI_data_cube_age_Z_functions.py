@@ -162,7 +162,7 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
 
     if high_redshift:
         # perform log_rebin with wavelength in observed frame (flux = False for flux density).
-        specNew, ln_lam, velscale = log_rebin(blue_wavelength, data_cube_spectrum, flux = False)
+        specNew, ln_lam, velscale = safe_log_rebin(blue_wavelength, data_cube_spectrum)
     else:
         # perform log_rebin with wavelength in rest frame (flux = False for flux density).
         specNew, ln_lam, velscale = log_rebin(rest_wavelength, data_cube_spectrum, flux = False)
