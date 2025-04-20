@@ -165,11 +165,7 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
         specNew, ln_lam, velscale = safe_log_rebin(blue_wavelength, data_cube_spectrum)
     else:
         # perform log_rebin with wavelength in rest frame (flux = False for flux density).
-        specNew, ln_lam, velscale = log_rebin(rest_wavelength, data_cube_spectrum, flux = False)
-
-    # identify NaN values in the log_rebinned flux, replace NaN values with a large number.
-    nan_mask_flux = np.isnan(specNew)
-    specNew[nan_mask_flux] = 1e10
+        specNew, ln_lam, velscale = safe_log_rebin(rest_wavelength, data_cube_spectrum)
 
     # the goodpixels_nan will be used to normalize the galaxy and do the pPXF fitting.
     goodpixels_nan = np.where(specNew < 1e5)[0]
