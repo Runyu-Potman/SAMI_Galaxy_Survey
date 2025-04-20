@@ -563,7 +563,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
         # plot distribution of lg_age.
         plt.subplot(1, 2, 1)
-        sns.histplot(ages, kde = True, color = 'skyblue', bins = 50)
+        sns.histplot(ages, kde = True, color = 'skyblue', bins = 20)
         plt.title(f'Distribution of lg_age\nmean: {age_mean:.3f}, std: {age_std:.3f}')
         plt.xlabel('lg_age')
 
