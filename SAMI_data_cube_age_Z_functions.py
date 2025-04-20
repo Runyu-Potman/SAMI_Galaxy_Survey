@@ -498,7 +498,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
               goodpixels = goodpixels_nan, regul = optimal_regul, reg_dim = reg_dim, component = component, gas_component = gas_component,
               gas_names = gas_names, reddening = 0, gas_reddening = 0)
 
-    plt.figure(figsize = (15, 10))
+    plt.figure(figsize = (15, 5))
     pp.plot()
     plt.title('pPXF fit with rescaled noise, regularization and mdegree')
 
