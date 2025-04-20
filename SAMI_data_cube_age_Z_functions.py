@@ -11,7 +11,7 @@ from scipy.interpolate import interp1d
 #from SAMI_data_cube_quality_cut_functions import data_cube_clean_percentage, data_cube_clean_snr
 #--------------------------------------------------------------------------------------------
 '''
-Six functions are defined in this script:
+Seven functions are defined in this script:
 1. plot_spectrum()
 2. bootstrap_residuals()
 3. ppxf_pre_spectrum()
