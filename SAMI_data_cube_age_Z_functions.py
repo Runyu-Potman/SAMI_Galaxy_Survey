@@ -689,17 +689,10 @@ if __name__ == '__main__':
                         spec[idx - 1] = np.nan
                         spec[idx + 1] = np.nan
 
-    nan_indices = np.isnan(red_spectrum)
-    for idx in range(1, len(red_spectrum) - 1):
-        if nan_indices[idx]:
-            red_spectrum[idx - 1] = np.nan
-            red_spectrum[idx + 1] = np.nan
-
-    #-----------------------------------------------------------------------------------
-    # step 3: combine blue and red spectrum and do the log-rebin.
-    goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_data_cube(
-        blue_spectrum, blue_fits_path, red_spectrum, red_fits_path, plot = True
-    )
+            # combine the blue and red spectrum and do the log-rebin.
+            goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_data_cube(
+                blue_spectrum, blue_fits_path, red_spectrum, red_fits_path, high_redshift = False, plot = True
+            )
 
 
 
