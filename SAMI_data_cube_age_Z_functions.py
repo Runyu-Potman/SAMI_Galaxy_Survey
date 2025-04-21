@@ -697,9 +697,28 @@ if __name__ == '__main__':
             #vel = c * np.log(1 + redshift)
             #start = [[vel, 200.], [vel, 200.], [vel, 200.]]
 
+            age_mean, metallicity_mean = ppxf_age_z(
+                specNew = specNew, goodpixels_nan = goodpixels_nan, ln_lam = ln_lam,
+                noise_value = noise_value, redshift = redshift, filename = filename,
+                velscale = velscale, start = start, nrand = nrand, optimal_regul = 100,
+                find_regul = False, high_redshift = False, plot = True)
 
-    ppxf_age_z(specNew = specNew, goodpixels_nan = goodpixels_nan, ln_lam = ln_lam,
-               noise_value = noise_value, redshift = redshift, filename = filename,
-               velscale = velscale, start = start, nrand = nrand, find_regul = True,
-               plot = True)
+            age_map[x, y] = 10**age_mean / 1e9
+            metallicity_map[x, y] = metallicity_mean
+
+    plt.figure(figsize = (12, 8))
+
+    plt.subplot(1, 2, 1)
+    plt.imshow(age_map, cmap = 'jet', origin = 'lower')
+    plt.title('age map')
+    plt.colorbar(label = 'age (Gyr)')
+    plt.title('age map with adaptively binning for 227266')
+
+    plt.subplot(1, 2, 2)
+    plt.imshow(metallicity_map, cmap = 'jet', origin = 'lower')
+    plt.colorbar(label = '[M/H]')
+    plt.title('[M/H] map with adaptively binning for 227266')
+    plt.tight_layout()
+
+    plt.show()
     # ------------------------------------------------------------------------------------
