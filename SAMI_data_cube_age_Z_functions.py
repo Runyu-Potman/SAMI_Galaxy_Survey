@@ -680,13 +680,14 @@ if __name__ == '__main__':
             blue_spectrum = blue_spectrum.filled(np.nan)
             red_spectrum = red_spectrum.filled(np.nan)
 
-    # around NaN values, sometimes there will be some very small values.
-    # for each NaN value (e.g., at index a), set the adjacent values (a-1 and a+1) to NaN as well.
-    nan_indices = np.isnan(blue_spectrum)
-    for idx in range(1, len(blue_spectrum) - 1):
-        if nan_indices[idx]:
-            blue_spectrum[idx - 1] = np.nan
-            blue_spectrum[idx + 1] = np.nan
+            # around NaN values, sometimes there will be some very small values.
+            # for each NaN value (e.g., at index a), set the adjacent values (a-1 and a+1) to NaN as well.
+            for spec in [blue_spectrum, red_spectrum]:
+                nan_idx = np.isnan(spec)
+                for idx in range(1, len(spec) - 1):
+                    if nan_idx[idx]:
+                        spec[idx - 1] = np.nan
+                        spec[idx + 1] = np.nan
 
     nan_indices = np.isnan(red_spectrum)
     for idx in range(1, len(red_spectrum) - 1):
