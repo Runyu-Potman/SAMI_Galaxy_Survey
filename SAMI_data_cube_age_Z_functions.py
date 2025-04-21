@@ -709,7 +709,7 @@ if __name__ == '__main__':
     plt.imshow(age_map, cmap = 'jet', origin = 'lower')
     plt.title('age map')
     plt.colorbar(label = 'age (Gyr)')
-    plt.title('age map with adaptively binning for 227266')
+    plt.title('age map with adaptively binning for CATID')
 
     plt.subplot(1, 2, 2)
     plt.imshow(metallicity_map, cmap = 'jet', origin = 'lower')
