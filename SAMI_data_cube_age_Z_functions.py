@@ -668,8 +668,13 @@ if __name__ == '__main__':
             x = 25
             y = 25
 
-    blue_spectrum = blue_cleaned_data_cube[:, x, y]
-    red_spectrum = red_cleaned_data_cube[:, x, y]
+            # if a pixel is invalid in the blue cube or in the red cube, skip this pixel.
+            if blue_cleaned_data_cube.mask[:, x, y].all() or red_cleaned_data_cube.mask[:, x, y].all():
+                continue
+
+            # extract the blue spectrum and corresponding red spectrum for each pixel.
+            blue_spectrum = blue_cleaned_data_cube[:, x, y]
+            red_spectrum = red_cleaned_data_cube[:, x, y]
 
     blue_spectrum = blue_spectrum.filled(np.nan)
     red_spectrum = red_spectrum.filled(np.nan)
