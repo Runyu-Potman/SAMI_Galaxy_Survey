@@ -694,20 +694,8 @@ if __name__ == '__main__':
                 blue_spectrum, blue_fits_path, red_spectrum, red_fits_path, high_redshift = False, plot = True
             )
 
-
-
-
-
-
-
-    #---------------------------------------------------------------------------------------
-    # step 4: extimate age and metallicity.
-    noise_value = 0.022
-
-    # here we use the miles ssp model (see the code miles_ssp.py for more details).
-    filename = 'miles_ssp_models_ch_padova.npz'
-    start = [[0., 187.], [0., 187.], [0., 187.]]
-    nrand = 200
+            #vel = c * np.log(1 + redshift)
+            #start = [[vel, 200.], [vel, 200.], [vel, 200.]]
 
 
     ppxf_age_z(specNew = specNew, goodpixels_nan = goodpixels_nan, ln_lam = ln_lam,
