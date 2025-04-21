@@ -665,9 +665,6 @@ if __name__ == '__main__':
     for x in range(50):
         for y in range(50):
 
-            x = 25
-            y = 25
-
             # if a pixel is invalid in the blue cube or in the red cube, skip this pixel.
             if blue_cleaned_data_cube.mask[:, x, y].all() or red_cleaned_data_cube.mask[:, x, y].all():
                 continue
