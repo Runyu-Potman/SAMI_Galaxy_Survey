@@ -646,12 +646,27 @@ if __name__ == '__main__':
         red_cube = hdul[0].data
         red_cleaned_data_cube = np.ma.masked_invalid(red_cube)
 
+    #-----------------------------------------------------------------------------------
+    noise_value = 0.022
+
+    # here we use the miles ssp model (see the code miles_ssp.py for more details).
+    filename = 'miles_ssp_models_ch_padova.npz'
+
+    start = [[0., 200.], [0., 200.], [0., 200.]]
+    nrand = 100
+
     # -----------------------------------------------------------------------------------
-    # step 2: extract the blue spectrum and corresponding red spectrum for each pixel.
-    # if the pixel is masked in blue cube or in the red cube, skip this pixel.
-    # a testing example is given here (25, 25):
-    x = 25
-    y = 25
+    # process the entire 50*50 spatial grid.
+    # initialize empty arrays to store the age and metallicity maps.
+    age_map = np.zeros((50, 50))
+    metallicity_map = np.zeros((50, 50))
+
+    # loop through each spatial pixel in the 50*50 grid.
+    for x in range(50):
+        for y in range(50):
+
+            x = 25
+            y = 25
 
     blue_spectrum = blue_cleaned_data_cube[:, x, y]
     red_spectrum = red_cleaned_data_cube[:, x, y]
