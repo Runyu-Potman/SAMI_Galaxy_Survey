@@ -714,7 +714,7 @@ if __name__ == '__main__':
     plt.subplot(1, 2, 2)
     plt.imshow(metallicity_map, cmap = 'jet', origin = 'lower')
     plt.colorbar(label = '[M/H]')
-    plt.title('[M/H] map with adaptively binning for 227266')
+    plt.title('[M/H] map with adaptively binning for CATID')
     plt.tight_layout()
 
     plt.show()
