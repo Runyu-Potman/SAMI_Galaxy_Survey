@@ -631,7 +631,20 @@ if __name__ == '__main__':
     blue_cleaned_data_cube = data_cube_clean_snr(blue_fits_path, sn_threshold, emission_free_range_blue, wavelength_slice_index)
 
     red_fits_path = 'CATID_A_cube_red.fits'
-    red_cleaned_data_cube = data_cube_clean_percentage(red_fits_path, percentage, wavelength_slice_index)
+    red_cleaned_data_cube = data_cube_clean_snr(red_fits_path, sn_threshold, emission_free_range_red, wavelength_slice_index)
+    '''
+    #-----------------------------------------------------------------------------------
+    # here we directly use the adaptively binned data cube.
+    blue_fits_path = 'CATID_A_adaptive_blue.fits'
+    red_fits_path = 'CATID_A_adaptive_red.fits'
+
+    with fits.open(blue_fits_path) as hdul:
+        blue_cube = hdul[0].data
+        blue_cleaned_data_cube = np.ma.masked_invalid(blue_cube)
+
+    with fits.open(red_fits_path) as hdul:
+        red_cube = hdul[0].data
+        red_cleaned_data_cube = np.ma.masked_invalid(red_cube)
 
     # -----------------------------------------------------------------------------------
     # step 2: extract the blue spectrum and corresponding red spectrum for each pixel.
