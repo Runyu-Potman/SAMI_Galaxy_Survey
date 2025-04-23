@@ -72,6 +72,8 @@ def ppxf_ew_Dn4000():
 
     noise_rescaled = noise * np.sqrt(pp_01.chi2)
 
+    start = [pp_01.sol[0], pp_01.sol[1]]
+
     pp_01 = ppxf(templates = sps.templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale,
                  start = start, goodpixels = goodpixels_nan, moments = 2, degree = 10, mdegree = -1,
                  lam = lam_gal, lam_temp = sps.lam_temp)
