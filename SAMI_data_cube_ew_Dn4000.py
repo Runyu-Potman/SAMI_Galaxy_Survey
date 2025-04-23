@@ -90,6 +90,70 @@ def ppxf_ew_Dn4000():
         plt.title('pPXF second fit with MILES stellar library')
         plt.show()
 
+    # identify new bad pixels.
+    new_bad_pixels = np.setdiff1d(goodpixels_nan, pp_02.goodpixels)
+
+    # ensure sorted order.
+    new_bad_pixels = np.sort(new_bad_pixels)
+
+    # a list including the new identified bad pixels and their expanded regions.
+    expanded_new_bad_pixels = []
+
+    # traverse through contiguous bad oixel regions.
+    # loop through all bad pixels.
+    i = 0
+    while i < len(new_bad_pixels):
+        # detect a contiguous bad pixel region.
+        # first pixel in the region.
+        begin = new_bad_pixels[i]
+        # end keeps track of the last pixel in the bad pixel region.
+        end = begin
+
+        # expand the region until we find a gap.
+        # check if the next pixel (new_bad_pixels[i + 1]) is exactly 1 step ahead of the current pixel.
+        # find contiguous bad pixel region.
+        while i + 1 < len(new_bad_pixels) and new_bad_pixels[i + 1] == new_bad_pixels[i] + 1:
+            # extend the region.
+            end = new_bad_pixels[i + 1]
+            # move to the next pixel.
+            i += 1
+
+        # region_width: total number of pixels in this bad region.
+        region_width = end - begin + 1
+
+        # compute expansion width: 25% of region width, minium 1 pixel.
+        if region_width == 1:
+            expand = 1
+        elif region_width <= 4:
+            expand = 1
+        elif region_width <= 8:
+            expand = 2
+        elif region_width <= 12:
+            expand = 3
+        elif region_width <= 16:
+            expand = 4
+        elif region_width <= 20:
+            expand = 5
+        elif region_width <= 24:
+            expand = 6
+        elif region_width <= 28:
+            expand = 7
+        elif region_width <= 32:
+            expand = 8
+        else:
+            expand = max(8, int(0.25 * region_width))
+
+        # expand begin and end of the region.
+        # max(): ensures we don't go below pixel index 0.
+        # min(): ensures we don't exceed the last valid pixel index.
+        expanded_new_bad_pixels.extend(range(max(0, begin - expand), min(len(galaxy) - 1, end + expand + 1)))
+
+        # move to the next region.
+        i += 1
+
+
+
+
 
 
 
