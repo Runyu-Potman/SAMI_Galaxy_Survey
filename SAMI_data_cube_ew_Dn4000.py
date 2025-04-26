@@ -184,6 +184,9 @@ def ppxf_ew_Dn4000():
 
     start = [pp_02.sol[0], pp_02.sol[1]]
 
+    pp_03 = ppxf(templates = sps.templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale,
+                 start = start, goodpixels = goodpixels_final, moments = 2, degree = 10, mdegree = -1,
+                 lam = lam_gal, lam_temp = sps.lam_temp)
 
 
 
