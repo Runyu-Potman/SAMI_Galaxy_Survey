@@ -106,7 +106,7 @@ def ppxf_ew_Dn4000():
     # a list including the new identified bad pixels and their expanded regions.
     expanded_new_bad_pixels = []
 
-    # traverse through contiguous bad oixel regions.
+    # traverse through contiguous bad pixel regions.
     # loop through all bad pixels.
     i = 0
     while i < len(new_bad_pixels):
