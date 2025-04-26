@@ -188,6 +188,10 @@ def ppxf_ew_Dn4000():
                  start = start, goodpixels = goodpixels_final, moments = 2, degree = 10, mdegree = -1,
                  lam = lam_gal, lam_temp = sps.lam_temp)
 
+    if plot:
+        pp_03.plot()
+        plt.title('pPXF third fit with MILES stellar library')
+        plt.show()
 
 
 
