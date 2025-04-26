@@ -100,7 +100,6 @@ def ppxf_ew_Dn4000():
 
     # identify new bad pixels.
     new_bad_pixels = np.setdiff1d(goodpixels_nan, pp_02.goodpixels)
-
     # ensure sorted order.
     new_bad_pixels = np.sort(new_bad_pixels)
 
