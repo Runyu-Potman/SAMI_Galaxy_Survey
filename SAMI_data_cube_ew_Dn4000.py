@@ -37,6 +37,9 @@ def compute_atom_index(ln_lam, flux, index_name):
 #-------------------------------------------------------------------------------------
 def ppxf_ew_Dn4000():
     galaxy = specNew.copy()
+
+    # normalize the spectrum to avoid numerical issues.
+    # in principle, this normalization factor should be multiplied back when extracting lick indices.
     galaxy = galaxy / np.median(galaxy[goodpixels_nan])
     ln_lam_gal = ln_lam.copy()
     lam_gal = np.exp(ln_lam_gal)
