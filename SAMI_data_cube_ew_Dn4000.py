@@ -163,6 +163,26 @@ def ppxf_ew_Dn4000():
         # move to the next region.
         i += 1
 
+    # combine unique new and new expanded bad pixels.
+    expanded_new_bad_pixels = np.union1d(new_bad_pixels, expanded_new_bad_pixels)
+    expanded_new_bad_pixels = np.unique(expanded_new_bad_pixels)
+
+    # combine initial bad pixels, new and new expanded bad pixels.
+    bad_pixels_initial = np.setdiff1d(np.arange(len(galaxy)), goodpixels_nan)
+    all_bad_pixels = np.union1d(bad_pixels_initial, expanded_new_bad_pixels)
+
+    # final good pixels.
+    goodpixels_final = np.setdiff1d(np.arange(len(galaxy)), all_bad_pixels)
+
+    if not quiet:
+        print(f'Number of initial bad pixels: {len(bad_pixels_initial)}')
+        print(f'Number of new bad pixels identified using clean: {len(new_bad_pixels)}')
+        print(f'Number of new and new expanded bad pixels: {len(expanded_new_bad_pixels)}')
+        print(f'Number of all bad pixels: {len(all_bad_pixels)}')
+        print(f'Number of original good pixels: {len(goodpixels_nan)}')
+        print(f'Number of final good pixels for third fit: {len(goodpixels_final)}')
+
+    start = [pp_02.sol[0], pp_02.sol[1]]
 
 
 
