@@ -193,6 +193,9 @@ def ppxf_ew_Dn4000():
         plt.title('pPXF third fit with MILES stellar library')
         plt.show()
 
+    # replace the all_bad_pixels in observed spectrum with the corresponding values in the best fitting templates.
+    galaxy_final = galaxy.copy()
+    galaxy_final[all_bad_pixels] = pp_03.bestfit[all_bad_pixels]
 
 
 
