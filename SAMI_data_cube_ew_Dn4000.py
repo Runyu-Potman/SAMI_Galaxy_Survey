@@ -197,6 +197,8 @@ def ppxf_ew_Dn4000():
     galaxy_final = galaxy.copy()
     galaxy_final[all_bad_pixels] = pp_03.bestfit[all_bad_pixels]
 
+    # previously we normalized the galaxy, and here we multiply this normalization factor back.
+    galaxy_final = galaxy_final * np.median(galaxy[goodpixels_nan])
 
 
 
