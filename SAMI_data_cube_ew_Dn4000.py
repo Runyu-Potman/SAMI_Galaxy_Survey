@@ -152,7 +152,8 @@ def ppxf_ew_Dn4000():
         elif region_width <= 40:
             expand = 10
         else:
-            expand = max(8, int(0.25 * region_width))
+            expand = max(10, int(0.25 * region_width))
+            warnings.warn(f"Too large region width {region_width} encountered!")
 
         # expand begin and end of the region.
         # max(): ensures we don't go below pixel index 0.
