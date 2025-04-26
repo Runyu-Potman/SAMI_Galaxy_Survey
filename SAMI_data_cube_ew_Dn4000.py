@@ -147,6 +147,10 @@ def ppxf_ew_Dn4000():
             expand = 7
         elif region_width <= 32:
             expand = 8
+        elif region_width <= 36:
+            expand = 9
+        elif region_width <= 40:
+            expand = 10
         else:
             expand = max(8, int(0.25 * region_width))
 
