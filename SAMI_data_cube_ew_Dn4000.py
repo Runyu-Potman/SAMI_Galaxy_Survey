@@ -8,6 +8,7 @@ import ppxf.sps_util as lib
 import seaborn as sns
 from scipy.ndimage import gaussian_filter1d
 from scipy.integrate import simps
+import warnings
 from SAMI_data_cube_age_Z_functions import plot_spectrum, bootstrap_residuals, safe_log_rebin, ppxf_pre_data_cube
 
 
