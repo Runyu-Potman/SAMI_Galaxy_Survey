@@ -50,6 +50,8 @@ def ppxf_ew_Dn4000():
     ln_lam_gal = ln_lam.copy()
     lam_gal = np.exp(ln_lam_gal)
 
+    # choose the noise to give Chi2/DOF = 1 without regularization (regul = 0).
+    # assume a uniform noise spectrum such that pPXF weights all pixels equally, without masking out any wavelength regions.
     noise = np.full_like(galaxy, noise_value)
 
     if high_redshift:
