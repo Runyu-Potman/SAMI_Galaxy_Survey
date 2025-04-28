@@ -323,7 +323,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     - pixel_coords: while plot is true, set this parameter to be (x, y) to save bootstrapping distribution plots.
 
     Returns:
-    - age_mean: mean age in Gyr.
+    - age_mean: mean log age.
     - metallicity_mean: mean [M/H].
     '''
 
