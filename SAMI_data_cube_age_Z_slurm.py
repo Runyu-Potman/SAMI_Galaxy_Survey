@@ -688,6 +688,9 @@ if __name__ == '__main__':
     age_map_part = np.full((end_x - start_x, 50), np.nan)
     metal_map_part = np.full_like(age_map_part, np.nan)
 
+    age_std_part = np.full_like(age_map_part, np.nan)
+    metal_std_part = np.full_like(age_map_part, np.nan)
+
     # loop through each spatial pixel in the 50*50 grid.
     for x in range(start_x, end_x):
         for y in range(50):
