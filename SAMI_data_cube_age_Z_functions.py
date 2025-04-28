@@ -316,7 +316,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     - plot: boolean, if True then the plot will be displayed.
 
     Returns:
-    - age_mean: mean age in Gyr.
+    - age_mean: mean log age.
     - metallicity_mean: mean [M/H].
     '''
 
