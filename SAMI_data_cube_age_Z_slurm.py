@@ -544,7 +544,10 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     metallicities = []
 
     for j in range(nrand):
-        galaxy_boot = bootstrap_residuals(bestfit, resid)
+
+        # reconstruct full galaxy spectrum and bootstrapping the goodpixels regions only.
+        galaxy_boot = bestfit.copy()
+        galaxy_boot[goodpixels_nan] = bootstrap_residuals(bestfit[goodpixels_nan], resid)
 
         pp_boot = ppxf(templates=templates, galaxy=galaxy_boot, noise=noise_rescaled, velscale=velscale, start=start,
                        moments=moments, degree=-1, mdegree=10, lam=lam_gal, lam_temp=sps.lam_temp,
