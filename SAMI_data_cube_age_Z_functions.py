@@ -696,7 +696,7 @@ if __name__ == '__main__':
             #vel = c * np.log(1 + redshift)
             #start = [[vel, 200.], [vel, 200.], [vel, 200.]]
 
-            age_mean, metallicity_mean = ppxf_age_z(
+            age_mean, metallicity_mean, age_std, metallicity_std = ppxf_age_z(
                 specNew = specNew, goodpixels_nan = goodpixels_nan, ln_lam = ln_lam,
                 noise_value = noise_value, redshift = redshift, filename = filename,
                 velscale = velscale, start = start, nrand = nrand, optimal_regul = 100,
