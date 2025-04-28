@@ -468,6 +468,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         max_iter = 50  # maximum number of iterations
         best_regul = None
 
+        # degrees of freedom.
+        dof = goodpixels_nan.size
+
         while iteration < max_iter:
             print(f'Iteration {iteration + 1}: Testing regul = {regul}...')
 
