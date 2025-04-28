@@ -525,9 +525,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # start bootstrapping.
     # note that regul will not be included while mdegree will still be included.
     bestfit = pp.bestfit.copy()
-    resid = galaxy - bestfit
-    # previously we replace those bad pixels with extreme values.
-    resid[resid > 1e5] = 0
+    resid = galaxy[goodpixels_nan] - bestfit[goodpixels_nan]
 
     start = pp.sol.copy()
 
