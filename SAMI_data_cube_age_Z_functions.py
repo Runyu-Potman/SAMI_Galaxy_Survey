@@ -318,6 +318,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     Returns:
     - age_mean: mean log age.
     - metallicity_mean: mean [M/H].
+    - age_std: standard deviation of log age.
+    - metallicity_std: standard deviation of [M/H].
     '''
 
     if high_redshift and buffer is None:
