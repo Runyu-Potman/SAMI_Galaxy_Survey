@@ -728,7 +728,7 @@ if __name__ == '__main__':
                     velscale=velscale, start=start, nrand=nrand, optimal_regul=100,
                     find_regul=False, plot=True, pixel_coords = (x, y))
 
-                age_map_part[x - start_x, y] = 10 ** age_mean / 1e9
+                age_map_part[x - start_x, y] = age_mean
                 metal_map_part[x - start_x, y] = metallicity_mean
 
             except Exception as e:
