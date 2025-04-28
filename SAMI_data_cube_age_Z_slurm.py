@@ -604,7 +604,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         plt.savefig(plot_filename, dpi = 150)
         plt.close()
 
-    return age_mean, metallicity_mean
+    return age_mean, metallicity_mean, age_std, metallicity_std
 
 # ----------------------------------------------------------------------------------------
 '''
