@@ -573,6 +573,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     ages = []
     metallicities = []
 
+    print('Start bootstrapping...')
+
     for j in range(nrand):
 
         # reconstruct full galaxy spectrum and bootstrapping the goodpixels regions only.
