@@ -467,6 +467,16 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # better constrained start value.
     start = pp_unreg.sol.copy()
 
+    # final unreg_pPXF fit with newly rescaled noise based on newly defined goodpixels.
+    pp_unreg = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale, start = start,
+                    moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
+                    goodpixels = goodpixels_nan, component = component, gas_component = gas_component,
+                    gas_names = gas_names, reddening = 0, gas_reddening = 0)
+
+    start = pp_unreg.sol.copy()
+
+    print(f'Unregularized fits finished, final reduced Chi2: {pp_unreg.chi2:.3f}')
+
     if optimal_regul is None and not find_regul:
         raise ValueError('Please provide a regul value or set find_regul to True.')
 
