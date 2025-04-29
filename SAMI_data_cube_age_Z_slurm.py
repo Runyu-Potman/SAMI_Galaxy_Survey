@@ -436,7 +436,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
                     gas_names = gas_names, reddening = 0, gas_reddening = 0)
 
     # rescale noise to achieve reduced Chi2 ~ 1.
-    noise_rescaled = noise * np.sqrt(reduced_chi2_unreg)
+    noise_rescaled = noise * np.sqrt(pp_unreg.chi2)
 
     start = pp_unreg.sol.copy()
 
