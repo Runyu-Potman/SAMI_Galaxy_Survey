@@ -421,7 +421,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
     # decide_mdegree()
 
-    print('Performing unregularized fit with mdegree = 10...')
+    print('Begin performing unregularized fit with mdegree = 10...')
 
     # the first pPXF fit without regularization.
     pp_unreg = ppxf(templates = templates, galaxy = galaxy, noise = noise, velscale = velscale, start = start,
