@@ -434,7 +434,16 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
     start = pp_unreg.sol.copy()
 
-    # unregularized fitting but with rescaled noise.
+    # the second unreg_pPXF fit based on better constrained vel, sig and noise.
+    pp_unreg = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale, start = start,
+                    moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
+                    goodpixels = goodpixels_nan, component = component, gas_component = gas_component,
+                    gas_names = gas_names, reddening = 0, gas_reddening = 0)
+
+    # better constrained start value.
+    start = pp_unreg.sol.copy()
+
+    # the third unreg_pPXF fit involving clean keyword to identify bad pixels.
     pp_unreg = ppxf(templates = templates, galaxy = galaxy, noise = noise_rescaled, velscale = velscale, start = start,
                     moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
                     goodpixels = goodpixels_nan, component = component, gas_component = gas_component,
