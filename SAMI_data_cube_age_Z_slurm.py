@@ -720,7 +720,7 @@ if __name__ == '__main__':
     # here we use the miles ssp model (see the code miles_ssp.py for more details).
     filename = 'data/miles_ssp_models_ch_padova.npz'
     start = [[0., 200.], [0., 200.], [0., 200.]]
-    nrand = 200
+    nrand = 100
 
     # -----------------------------------------------------------------------------------
     # process the entire 50*50 spatial grid.
