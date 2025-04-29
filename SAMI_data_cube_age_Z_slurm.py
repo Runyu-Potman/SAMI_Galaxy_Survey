@@ -393,6 +393,13 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # during the pPXF fit they will be assigned a different kinematic component value.
     templates = np.column_stack([stars_templates, gas_templates])
 
+    #############################################################################################################
+    # important!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    # the find_regul parameter will not be used.
+    # here we normalize the templates and use optimal_regul = 100.
+    templates = templates / np.median(templates)
+    #############################################################################################################
+
     # consider two gas components, one for the Balmer and another for the forbidden lines.
     n_temps = stars_templates.shape[1]
     n_forbidden = np.sum(["[" in a for a in gas_names])
