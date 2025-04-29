@@ -423,7 +423,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
     print('Begin performing unregularized fit with mdegree = 10...')
 
-    # the first pPXF fit without regularization.
+    # the first unreg_pPXF fit to have a rough estimation of vel, sig and noise.
     pp_unreg = ppxf(templates = templates, galaxy = galaxy, noise = noise, velscale = velscale, start = start,
                     moments = moments, degree = -1, mdegree = 10, lam = lam_gal, lam_temp = sps.lam_temp,
                     goodpixels = goodpixels_nan, component = component, gas_component = gas_component,
