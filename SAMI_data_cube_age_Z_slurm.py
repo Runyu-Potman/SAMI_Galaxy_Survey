@@ -718,7 +718,7 @@ if __name__ == '__main__':
     noise_value = 0.022
 
     # here we use the miles ssp model (see the code miles_ssp.py for more details).
-    filename = 'data/miles_ssp_models_ch_padova.npz'
+    filename = 'data/miles_ssp_models_ch_basti.npz'
     start = [[0., 200.], [0., 200.], [0., 200.]]
     nrand = 100
 
