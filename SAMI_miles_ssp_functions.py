@@ -168,7 +168,7 @@ def extract_miles_ssp_no_alpha(fits_dir, fwhm_value, output_filename, quiet = Fa
 
 fits_dir = 'miles_ssp_basti_ch_baseFe'
 fwhm_value = 2.51
-output_filename = 'miles_ssp_model_ch_basti.npz'
+output_filename = 'miles_ssp_models_ch_basti.npz'
 extract_miles_ssp_no_alpha(fits_dir, fwhm_value, output_filename, quiet = False)
 
 
