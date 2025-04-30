@@ -15,7 +15,7 @@ def extract_miles_ssp_no_alpha(fits_dir, fwhm_value, output_filename, quiet = Fa
     - quiet:
 
     Returns:
-
+    - None
     '''
 
     # list to store the extracted data.
