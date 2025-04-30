@@ -6,12 +6,13 @@ import matplotlib.pyplot as plt
 
 def extract_miles_ssp_no_alpha(fits_dir, fwhm_value, output_filename, quiet = False):
     '''
-    note that fake mass is used
-    Args:
-        fits_dir:
-        fwhm_value:
-        output_filename:
-        quiet:
+    note that fake mass is used. also baseFe
+
+    Paremeters:
+    - fits_dir:
+    - fwhm_value:
+    - output_filename:
+    - quiet:
 
     Returns:
 
