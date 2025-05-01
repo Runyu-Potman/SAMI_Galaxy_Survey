@@ -3,6 +3,17 @@ import matplotlib.pyplot as plt
 from scipy.stats import linregress
 
 def slurm_job_combine(base_dir, center_x = 24, center_y = 24):
+    '''
+
+    Parameters:
+    - base_dir:
+    - center_x:
+    - center_y:
+
+    Returns:
+    - None
+    '''
+
     # initialize the full maps for mean and standard deviation.
     age_map = np.full((50, 50), np.nan)
     metal_map = np.full_like(age_map, np.nan)
