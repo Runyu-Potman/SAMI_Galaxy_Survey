@@ -707,6 +707,7 @@ if __name__ == '__main__':
     blue_fits_path = 'data/CATID_A_adaptive_blue.fits'
     red_fits_path = 'data/CATID_A_adaptive_red.fits'
 
+    # open the data cube and mask invalid values.
     with fits.open(blue_fits_path) as hdul:
         blue_cube = hdul[0].data
         blue_cleaned_data_cube = np.ma.masked_invalid(blue_cube)
