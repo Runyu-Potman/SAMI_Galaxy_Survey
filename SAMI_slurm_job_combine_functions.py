@@ -126,5 +126,5 @@ def slurm_job_combine(base_dir, center_x = 24, center_y = 24):
     plt.savefig(f'{base_dir}/gradients.png', dpi = 300)
     plt.show()
 #-----------------------------------------------------------------------------------
-base_dir = '227266_adap_binned_age_Z_v02'
+base_dir = 'CATID_adap_binned_age_Z_v02'
 slurm_job_combine(base_dir)
