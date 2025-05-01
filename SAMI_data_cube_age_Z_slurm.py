@@ -314,7 +314,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     - filename: ssp model used to fit the input spectrum.
     - velscale: velocity scale in km/s.
     - start: initial start guessing value for three components ([[vel, sig], [vel, sig], [vel, sig]]).
-    - nrand: do bootstrapping for nrand times.
+    - nrand: number of bootstrapping iterations.
     - optimal_regul: optimal regul value (e.g., 100).
     - find_regul: boolean, if True then the optimal regul value will be calculated and used.
     - high_redshift: boolean, if true then the high redshift situation will be considered.
