@@ -153,7 +153,7 @@ def slurm_job_combine(base_dir, center_x = 24, center_y = 24):
 
     # Metallicity Gradient
     plt.subplot(1, 2, 2)
-    plt.errorbar(r, metal_map, yerr = metal_std_map, fmt = 'o', markersize = 5, alpha = 0.2, label = 'Pixels',
+    plt.errorbar(r, metal_map, yerr = metal_std_map, fmt = 'o', markersize = 3, alpha = 0.3, label = 'Pixels',
                  color = 'green')
     plt.plot(r_sorted, fit_metal_sorted, 'r-', linewidth = 2, label = f'Fit: slope = {slope_metal:.3f}')
     plt.xlabel('radius (pixels)')
