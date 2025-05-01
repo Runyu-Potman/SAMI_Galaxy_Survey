@@ -722,6 +722,7 @@ if __name__ == '__main__':
     # here we use the miles ssp model (see the code miles_ssp.py for more details).
     filename = 'data/miles_ssp_models_ch_basti.npz'
     start = [[0., 200.], [0., 200.], [0., 200.]]
+    # number of bootstrapping iterations.
     nrand = 100
 
     # -----------------------------------------------------------------------------------
