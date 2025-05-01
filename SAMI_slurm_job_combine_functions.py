@@ -143,7 +143,7 @@ def slurm_job_combine(base_dir, center_x = 24, center_y = 24):
 
     # Age Gradient
     plt.subplot(1, 2, 1)
-    plt.errorbar(r, age_map - 9, yerr = age_std_map, fmt = 'o', markersize = 5, alpha = 0.2, label= 'Pixels',
+    plt.errorbar(r, age_map - 9, yerr = age_std_map, fmt = 'o', markersize = 3, alpha = 0.3, label= 'Pixels',
                  color = 'blue')
     plt.plot(r_sorted, fit_age_sorted - 9, 'r-', linewidth = 2, label = f'Fit: slope = {slope_age:.3f}')
     plt.xlabel('radius (pixels)')
