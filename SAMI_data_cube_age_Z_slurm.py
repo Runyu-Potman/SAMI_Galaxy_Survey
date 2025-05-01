@@ -738,7 +738,7 @@ if __name__ == '__main__':
     for x in range(start_x, end_x):
         for y in range(50):
 
-            # if a pixel is invalid in the blue cube or in the red cube, skip this pixel.
+            # if entire spectrum is masked in the blue cube or in the red cube, skip this pixel.
             if blue_cleaned_data_cube.mask[:, x, y].all() or red_cleaned_data_cube.mask[:, x, y].all():
                 continue
 
