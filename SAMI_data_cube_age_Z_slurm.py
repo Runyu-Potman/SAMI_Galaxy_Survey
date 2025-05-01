@@ -675,7 +675,7 @@ def decide_mdegree():
 if __name__ == '__main__':
 
     #----------------------------------------------------------------------------------
-    # slurm: parse job ID.
+    # read the SLURM job array index: SLURM_ARRAY_TASK_ID.
     job_id = int(sys.argv[1]) if len(sys.argv) > 1 else 0
     rows_per_job = 2 # each task handles 2 rows (50 rows / 25 tasks)
     start_x = job_id * rows_per_job
