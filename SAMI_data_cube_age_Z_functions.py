@@ -404,8 +404,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
     # assign component = 0 to the stellar templates.
     # component = 1 to the Balmer gas emission lines templates.
-    # component = 2 to the gas forbidden lines.
-    component = [0] * n_temps + [1] * n_balmer + [2] * n_forbidden
+    # component = 2 to the other gas emission lines.
+    component = [0] * n_temps + [1] * n_balmer + [2] * n_others
     # gas_component = True for gas templates.
     gas_component = np.array(component) > 0
 
