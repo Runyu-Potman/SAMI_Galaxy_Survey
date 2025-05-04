@@ -565,7 +565,9 @@ def emission_lines(ln_lam_temp, lam_range_gal, FWHM_gal, pixel=True,
         if not vacuum:
             wave = vac_to_air(wave)
         gauss = gaussian(ln_lam_temp, wave, FWHM_gal1, pixel)
-        ratios = np.array([0.0530, 0.0731, 0.105, 0.159, 0.259, 0.468, 1, 2.86])
+        #######################################################################
+        # here the ratio between Halpha and Hbeta is 2.86, the ratio between Hgamma and Hbeta is 0.468.
+        ratios = np.array([0.468, 1, 2.86])
         # Account for varying log-sampled pixel size in Angstrom
         ratios *= wave[-2] / wave
         emission_lines = gauss @ ratios
