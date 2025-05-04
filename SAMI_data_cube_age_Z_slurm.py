@@ -11,6 +11,7 @@ from scipy.interpolate import interp1d
 import sys
 # from SAMI_data_cube_quality_cut_functions import data_cube_clean_percentage, data_cube_clean_snr
 import os
+from SAMI_ppxf_util_functions import emission_lines
 
 # --------------------------------------------------------------------------------------------
 '''
