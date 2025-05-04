@@ -2,6 +2,7 @@ from astropy.io import fits
 import matplotlib.pyplot as plt
 import numpy as np
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map
+from vorbin.voronoi_2d_binning import voronoi_2d_binning
 
 '''
 Three functions are defined in this script:
