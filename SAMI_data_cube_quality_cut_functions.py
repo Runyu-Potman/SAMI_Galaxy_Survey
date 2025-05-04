@@ -147,7 +147,14 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     var = np.ma.masked_invalid(var)
 
     wavelength = header['CRVAL3'] + (np.arange(header['NAXIS3']) - header['CRPIX3'] + 1) * header['CDELT3']
-    emission_free = (wavelength >= emission_free_range[0] * (1 + redshift)) & (wavelength <= emission_free_range[1] * (1 + redshift))
+    #emission_free = (wavelength >= emission_free_range[0] * (1 + redshift)) & (wavelength <= emission_free_range[1] * (1 + redshift))
+
+    # enable multiple emission-free regions to be included.
+    emission_free = np.zeros_like(wavelength, dtype = bool)
+    for r in emission_free_range:
+        rest_min, rest_max = r
+        mask = (wavelength >= rest_min * (1 + redshift)) & (wavelength <= rest_max * (1 + redshift))
+        emission_free |= mask
 
     mean_flux = np.mean(data_cube[emission_free, :, :], axis = 0)
     mean_noise = np.sqrt(np.mean(var[emission_free, :, :], axis = 0))
