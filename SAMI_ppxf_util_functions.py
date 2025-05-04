@@ -622,8 +622,8 @@ def emission_lines(ln_lam_temp, lam_range_gal, FWHM_gal, pixel=True,
     else:
 
         # Here the two doublets are free to have any ratio
-        #         -----[OII]-----     -----[SII]-----
-        wave = [3727.092, 3729.875, 6718.294, 6732.674]  # vacuum wavelengths
+        #        -----[SII]-----
+        wave = [6718.294, 6732.674]  # vacuum wavelengths
         if not vacuum:
             wave = vac_to_air(wave)
         names = ['[OII]3726', '[OII]3729', '[SII]6716', '[SII]6731']
