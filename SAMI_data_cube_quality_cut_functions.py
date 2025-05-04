@@ -137,6 +137,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
 
     Returns:
     - cleaned_data_cube: masked array containing the cleaned data cube.
+    - (optional if vorbin is True) Voronoi binning outputs.
     '''
 
     # read the primary data in extension [0] and the variance in [1].
