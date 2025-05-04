@@ -156,8 +156,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
         mask = (wavelength >= rest_min * (1 + redshift)) & (wavelength <= rest_max * (1 + redshift))
         emission_free |= mask
 
-    mean_flux = np.mean(data_cube[emission_free, :, :], axis = 0)
-    mean_noise = np.sqrt(np.mean(var[emission_free, :, :], axis = 0))
+    mean_flux = np.ma.median(data_cube[emission_free, :, :], axis = 0)
+    mean_noise = np.sqrt(np.ma.median(var[emission_free, :, :], axis = 0))
     sn = np.where(mean_noise > 0, mean_flux / mean_noise, 0)
 
     # plot the total S/N map before masking.
