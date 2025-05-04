@@ -383,7 +383,9 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         lam_range_gal = np.array([np.min(lam_gal), np.max(lam_gal)])
 
     # construct a set of Gaussian emission line templates.
-    gas_templates, gas_names, line_wave = util.emission_lines(sps.ln_lam_temp, lam_range_gal,
+    # here we modified the emission_line functions to only fit Hgamma, Hbeta, Halpha, [NII], [SII], [OI] and [OIII].
+    # see SAMI_ppxf_util_functions for more details.
+    gas_templates, gas_names, line_wave = emission_lines(sps.ln_lam_temp, lam_range_gal,
                                                               fwhm_gal, tie_balmer = 1)
 
     # combine the stellar and gaseous templates into a single array of templates.
