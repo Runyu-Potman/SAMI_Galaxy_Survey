@@ -9,6 +9,10 @@ import seaborn as sns
 from scipy.ndimage import gaussian_filter1d
 from scipy.interpolate import interp1d
 #from SAMI_data_cube_quality_cut_functions import data_cube_clean_percentage, data_cube_clean_snr
+
+from pathlib import Path
+from urllib import request
+from SAMI_ppxf_util_functions import emission_lines
 #--------------------------------------------------------------------------------------------
 '''
 Seven functions are defined in this script:
