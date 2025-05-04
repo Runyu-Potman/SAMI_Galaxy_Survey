@@ -197,6 +197,35 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     plt.title(f'data cube after cleaning at the wavelength slice: {wavelength_slice_index}')
     plt.show()
 
+    if vorbin and target_sn is not None:
+        # prepare x, y coordinates for the Voronoi binning.
+        n_x, n_y = data_cube.shape[1], data_cube.shape[2]
+        x = np.tile(np.arange(n_x), n_y)
+        y = np.repeat(np.arange(n_y), n_x)
+
+        signal = np.ma.median(cleaned_data_cube[emission_free, :, :], axis = 0)
+        noise = np.sqrt(np.ma.median(cleaned_var[emission_free, :, :], axis = 0))
+
+        # flatten the 2D signal and noise arrays to 1D for Voronoi binning.
+        signal = signal.flatten()
+        noise = noise.flatten()
+
+        # mask out any NaN or invalid values in signal and noise.
+        valid_mask = (np.isfinite(signal) & np.isfinite(noise) & (noise > 0))
+        signal = signal[valid_mask]
+        noise = noise[valid_mask]
+        x = x[valid_mask]
+        y = y[valid_mask]
+        x = x - 24
+        y = y - 24
+
+        binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale = voronoi_2d_binning(
+            x, y, signal, noise, target_sn, plot = 1, quiet = 0
+        )
+
+        plt.show()
+        return cleaned_data_cube, binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale
+
     return cleaned_data_cube
 
 #-----------------------------------------------------------------------------------------------
