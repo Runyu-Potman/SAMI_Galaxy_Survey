@@ -626,7 +626,7 @@ def emission_lines(ln_lam_temp, lam_range_gal, FWHM_gal, pixel=True,
         wave = [6718.294, 6732.674]  # vacuum wavelengths
         if not vacuum:
             wave = vac_to_air(wave)
-        names = ['[OII]3726', '[OII]3729', '[SII]6716', '[SII]6731']
+        names = ['[SII]6716', '[SII]6731']
         gauss = gaussian(ln_lam_temp, wave, FWHM_gal1, pixel)
         emission_lines = np.column_stack([emission_lines, gauss])
         line_names = np.append(line_names, names)
