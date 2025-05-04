@@ -552,7 +552,7 @@ def emission_lines(ln_lam_temp, lam_range_gal, FWHM_gal, pixel=True,
     ###########################################################################
     # here we only want to fit Hgamma, Halpha and Hbeta.
     balmer = np.array(
-        [3798.983, 3836.479, 3890.158, 3971.202, 4102.899, 4341.691, 4862.691, 6564.632])  # vacuum wavelengths
+        [4341.691, 4862.691, 6564.632])  # vacuum wavelengths
 
     if tie_balmer:
 
