@@ -580,7 +580,9 @@ def emission_lines(ln_lam_temp, lam_range_gal, FWHM_gal, pixel=True,
         line_wave = balmer
         if not vacuum:
             line_wave = vac_to_air(line_wave)
-        line_names = ['H10', 'H9', 'H8', 'Heps', 'Hdelta', 'Hgamma', 'Hbeta', 'Halpha']
+        #######################################################################
+        # only Hgamma, Halpha and Hbeta.
+        line_names = ['Hgamma', 'Hbeta', 'Halpha']
         emission_lines = gaussian(ln_lam_temp, line_wave, FWHM_gal1, pixel)
 
     if limit_doublets:
