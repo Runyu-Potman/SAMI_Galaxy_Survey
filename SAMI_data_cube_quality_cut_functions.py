@@ -146,7 +146,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     data_cube = np.ma.masked_invalid(data_cube)
     var = np.ma.masked_invalid(var)
 
-    wavelength = header['CRVAL3'] + (np.arange(header['NAXIS3']) - header['CRPIX3']) * header['CDELT3']
+    wavelength = header['CRVAL3'] + (np.arange(header['NAXIS3']) - header['CRPIX3'] + 1) * header['CDELT3']
     emission_free = (wavelength >= emission_free_range[0] * (1 + redshift)) & (wavelength <= emission_free_range[1] * (1 + redshift))
 
     mean_flux = np.mean(data_cube[emission_free, :, :], axis = 0)
