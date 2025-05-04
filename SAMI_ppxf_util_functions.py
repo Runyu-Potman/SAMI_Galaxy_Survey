@@ -632,17 +632,6 @@ def emission_lines(ln_lam_temp, lam_range_gal, FWHM_gal, pixel=True,
         line_names = np.append(line_names, names)
         line_wave = np.append(line_wave, wave)
 
-    # Here the lines are free to have any ratio
-    #       -----[NeIII]-----    HeII      HeI
-    wave = [3968.59, 3869.86, 4687.015, 5877.243]  # vacuum wavelengths
-    if not vacuum:
-        wave = vac_to_air(wave)
-    names = ['[NeIII]3968', '[NeIII]3869', 'HeII4687', 'HeI5876']
-    gauss = gaussian(ln_lam_temp, wave, FWHM_gal1, pixel)
-    emission_lines = np.column_stack([emission_lines, gauss])
-    line_names = np.append(line_names, names)
-    line_wave = np.append(line_wave, wave)
-
     ######### Doublets with fixed ratios #########
 
     # To keep the flux ratio of a doublet fixed, we place the two lines in a single template
