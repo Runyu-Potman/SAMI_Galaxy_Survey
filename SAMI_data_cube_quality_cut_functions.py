@@ -163,7 +163,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
 
     mean_flux = np.ma.median(data_cube[emission_free, :, :], axis = 0)
     mean_noise = np.sqrt(np.ma.median(var[emission_free, :, :], axis = 0))
-    sn = np.where(mean_noise > 0, mean_flux / mean_noise, 0)
+    sn = np.ma.masked_where(mean_noise <= 0, mean_flux / mean_noise)
 
     # plot the total S/N map before masking.
     plt.imshow(sn, cmap = 'jet', origin = 'lower')
