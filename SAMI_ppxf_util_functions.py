@@ -663,7 +663,6 @@ def emission_lines(ln_lam_temp, lam_range_gal, FWHM_gal, pixel=True,
         wave = vac_to_air(wave)
     doublet = gaussian(ln_lam_temp, wave, FWHM_gal1, pixel) @ [0.33, 1]
     emission_lines = np.column_stack([emission_lines, doublet])
-
     # single template for this doublet
     line_names = np.append(line_names, '[NII]6583_d')
     line_wave = np.append(line_wave, wave[1])
