@@ -395,8 +395,12 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
     # consider two gas components, one for the Balmer and another for the forbidden lines.
     n_temps = stars_templates.shape[1]
-    n_forbidden = np.sum(["[" in a for a in gas_names])
-    n_balmer = len(gas_names) - n_forbidden
+    #############################################################################################################
+    # important!
+    # because we use tie_balmer, so here n_balmer would just be 1
+    n_balmer = 1
+    n_others = len(gas_names) - n_balmer
+    #############################################################################################################
 
     # assign component = 0 to the stellar templates.
     # component = 1 to the Balmer gas emission lines templates.
