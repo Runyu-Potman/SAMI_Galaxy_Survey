@@ -165,10 +165,11 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     plt.title('S/N map before quality cut')
     plt.show()
 
-    sn_mask = sn < sn_threshold
-    sn_mask = np.repeat(sn_mask[np.newaxis, :, :], data_cube.shape[0], axis = 0)
-    cleaned_data_cube = np.ma.masked_where(sn_mask, data_cube)
-    cleaned_var = np.ma.masked_where(sn_mask, var)
+    # mask spaxels with low S/N.
+    sn_mask = sn < sn_threshold # 50*50
+    sn_mask = np.broadcast_to(sn_mask, flux_cube.shape) # 2048*50*50
+    cleaned_flux_cube = np.ma.masked_where(sn_mask, flux_cube)
+    cleaned_var_cube = np.ma.masked_where(sn_mask, var_cube)
 
     if combined_mask is not None:
         combined_mask = np.repeat(combined_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis = 0)
