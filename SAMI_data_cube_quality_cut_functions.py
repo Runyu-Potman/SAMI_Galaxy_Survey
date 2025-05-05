@@ -122,9 +122,8 @@ def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, co
 #------------------------------------------------------------------------------
 def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength_slice_index, combined_mask = None, vorbin = False, target_sn = None):
     '''
-    Clean the data cube by excluding pixels with low S/N (mean flux / mean noise) in a specific emission-free
-    wavelength range, and exclude them across the whole cube. This function could also be used to do preparation
-    for vorbin.
+    Clean the data cube by excluding pixels with low S/N (for each spaxel, median S/N across whole wavelength range).
+    This function could also be used to do preparation for vorbin.
 
     Parameters:
     - fits_path: str, path to the data cube fits file.
