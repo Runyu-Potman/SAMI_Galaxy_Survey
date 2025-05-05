@@ -199,8 +199,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         x = np.tile(np.arange(n_x), n_y)
         y = np.repeat(np.arange(n_y), n_x)
 
-        signal = np.ma.median(cleaned_data_cube[emission_free, :, :], axis = 0)
-        noise = np.sqrt(np.ma.median(cleaned_var[emission_free, :, :], axis = 0))
+        sn_slice = sn_slice.ravel()
 
         # flatten the 2D signal and noise arrays to 1D for Voronoi binning.
         signal = signal.flatten()
