@@ -140,7 +140,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     - (optional if vorbin is True) Voronoi binning outputs.
     '''
 
-    # read the primary data in extension [0] and the variance in [1].
+    # read the primary flux data in extension [0] and the variance data in [1].
     with fits.open(fits_path) as hdul:
         data_cube = hdul[0].data # flux data
         var = hdul[1].data # variance data
