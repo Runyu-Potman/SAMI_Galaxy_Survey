@@ -187,7 +187,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     plt.colorbar(label = 'flux value')
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
-    plt.title(f'data cube after cleaning at the wavelength slice: {wavelength_slice_index}')
+    plt.title(f'data cube after quality cut at the wavelength slice: {wavelength_slice_index}')
     plt.show()
 
     if vorbin and target_sn is not None:
