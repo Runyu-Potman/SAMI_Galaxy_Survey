@@ -220,7 +220,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         )
 
         plt.show()
-        return cleaned_data_cube, binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale
+        return cleaned_flux_cube, binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale
 
     return cleaned_data_cube
 
