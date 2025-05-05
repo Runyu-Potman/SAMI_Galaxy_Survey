@@ -201,9 +201,9 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
 
         sn_slice = sn_slice.ravel()
 
-        # flatten the 2D signal and noise arrays to 1D for Voronoi binning.
-        signal = signal.flatten()
-        noise = noise.flatten()
+        # for each spaxel, extract the flux and noise value at the wavelength slice with the median S/N.
+        flux = cleaned_flux_cube[sn_slice, y, x]
+        noise = np.sqrt(cleaned_var_cube[sn_slice, y, x])
 
         # mask out any NaN or invalid values in signal and noise.
         valid_mask = (np.isfinite(signal) & np.isfinite(noise) & (noise > 0))
