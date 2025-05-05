@@ -183,8 +183,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     plt.title(f'data cube before quality cut at the wavelength slice: {wavelength_slice_index}')
     plt.show()
 
-    plt.imshow(cleaned_data_cube[wavelength_slice_index, :, :], cmap = 'jet', origin = 'lower')
-    plt.colorbar()
+    plt.imshow(cleaned_flux_cube[wavelength_slice_index, :, :], cmap = 'jet', origin = 'lower')
+    plt.colorbar(label = 'flux value')
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
     plt.title(f'data cube after cleaning at the wavelength slice: {wavelength_slice_index}')
