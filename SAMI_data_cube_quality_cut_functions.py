@@ -172,9 +172,9 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     cleaned_var_cube = np.ma.masked_where(sn_mask, var_cube)
 
     if combined_mask is not None:
-        combined_mask = np.repeat(combined_mask[np.newaxis, :, :], cleaned_data_cube.shape[0], axis = 0)
-        cleaned_data_cube = np.ma.masked_where(combined_mask, cleaned_data_cube)
-        cleaned_var = np.ma.masked_where(combined_mask, cleaned_var)
+        combined_mask = np.broadcast_to(combined_mask, cleaned_flux_cube.shape)
+        cleaned_flux_cube = np.ma.masked_where(combined_mask, cleaned_flux_cube)
+        cleaned_var_cube = np.ma.masked_where(combined_mask, cleaned_var_cube)
 
     plt.imshow(data_cube[wavelength_slice_index, :, :], cmap = 'jet', origin = 'lower')
     plt.colorbar()
