@@ -128,7 +128,6 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
     Parameters:
     - fits_path: str, path to the data cube fits file.
     - sn_threshold: float, minimum S/N required for a pixel to be included.
-    - emission_free_range: [(min_wavelength_01, max_wavelength_01), (min_wavelength_02, max_wavelength_02),...], wavelength range free of emission lines defined in rest-frame.
     - wavelength_slice_index: int, wavelength slice to visualize before cleaning and after cleaning.
     - combined_mask: 2D mask, the mask from other maps (e.g., stellar velocity maps).
     - vorbin: bool, whether to perform Voronoi binning.
