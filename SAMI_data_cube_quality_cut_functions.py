@@ -142,11 +142,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
 
     # read the primary flux data in extension [0] and the variance data in [1].
     with fits.open(fits_path) as hdul:
-        data_cube = hdul[0].data # flux data
-        var = hdul[1].data # variance data
-        header = hdul[0].header
-
-    redshift = header['Z_SPEC']
+        flux_cube = hdul[0].data # flux data (2048*50*50)
+        var_cube = hdul[1].data # variance data (2048*50*50)
 
     data_cube = np.ma.masked_invalid(data_cube)
     var = np.ma.masked_invalid(var)
