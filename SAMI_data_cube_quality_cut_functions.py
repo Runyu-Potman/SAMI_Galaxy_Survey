@@ -227,6 +227,42 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
 
         plt.show()
 
+        # stack spectra within bins.
+        # initialize the final stacked cube with all values masked.
+        binned_flux_cube = np.ma.zeros_like(cleaned_flux_cube)
+        binned_flux_cube.mask = np.ones_like(cleaned_flux_cube.mask)
+
+        # create a map showing which spaxels belongs to which voronoi bin.
+        binMap = np.full((n_y, n_x), -1, dtype = int)
+        x_all = x + 24
+        y_all = y + 24
+        binMap[y_all.astype(int), x_all.astype(int)] = binNum
+
+        # for each bin:
+        # collects the spectra from all spaxels in the bin.
+        # stack them by averaging.
+        # assign the stacked spectrum back to those spaxels.
+        for b in np.unique(binNum):
+            y_idx , x_idx = np.where(binMap == b)
+            spectra = np.ma.stack([cleaned_flux_cube[:, y_, x_] for y_, x_ in zip(y_idx, x_idx)], axis = -1)
+            stacked_spectrum = np.ma.mean(spectra, axis = -1)
+
+            for y_, x_ in zip(y_idx, x_idx):
+                binned_flux_cube[:, y_, x_] = stacked_spectrum
+
+        # spaxels not included in any bin keep their original spectra.
+        unbinned_mask = (binMap == -1)
+        for y_, x_ in zip(*np.where(unbinned_mask)):
+            binned_flux_cube[:, y_, x_] = cleaned_flux_cube[:, y_, x_]
+
+        # apply the final mask explicity.
+        binned_flux_cube = np.ma.masked_where(binned_flux_cube.mask, binned_flux_cube)
+
+        plt.imshow(binned_flux_cube[wavelength_slice_index, :, :], cmap = 'jet', origin = 'lower')
+        plt.colorbar(label = 'flux value')
+        plt.title(f'binned data cube at wavelength slice: {wavelength_slice_index}')
+        plt.show()
+
         return cleaned_flux_cube, binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale
 
     return cleaned_flux_cube
