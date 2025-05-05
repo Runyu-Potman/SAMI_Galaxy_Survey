@@ -150,8 +150,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     var_cube = np.ma.masked_invalid(var_cube)
     var_cube = np.ma.masked_where(var_cube <= 0, var_cube)
 
-    wavelength = header['CRVAL3'] + (np.arange(header['NAXIS3']) - header['CRPIX3'] + 1) * header['CDELT3']
-    #emission_free = (wavelength >= emission_free_range[0] * (1 + redshift)) & (wavelength <= emission_free_range[1] * (1 + redshift))
+    # compute S/N cube (same shape as the flux and variance cube).
+    sn_cube = flux_cube / np.sqrt(var_cube)
 
     # enable multiple emission-free regions to be included.
     emission_free = np.zeros_like(wavelength, dtype = bool)
