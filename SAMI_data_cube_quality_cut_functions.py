@@ -39,7 +39,8 @@ velocity map, should also be included.
 
 version_01: 01/04/2025: initial version.
 version_02: 06/04/2025: modification on the data_cube_clean_snr function, we use mean flux and
-            mean noise to calculate the S/N in a specific emission-free wavelength range. 
+            mean noise to calculate the S/N in a specific emission-free wavelength range.
+version_03: 05/05/2025: add vorbin after the data cube process. 
 '''
 #---------------------------------------------------------------------------------------------------
 def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, combined_mask = None):
