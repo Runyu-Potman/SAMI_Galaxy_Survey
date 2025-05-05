@@ -143,6 +143,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
     with fits.open(fits_path) as hdul:
         flux_cube = hdul[0].data # flux data (2048*50*50)
         var_cube = hdul[1].data # variance data (2048*50*50)
+        header = hdul[0].header # extract the header for the output fits file.
 
     # mask invalid data.
     flux_cube = np.ma.masked_invalid(flux_cube)
