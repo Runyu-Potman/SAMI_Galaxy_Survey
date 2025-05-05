@@ -245,7 +245,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         for b in np.unique(binNum):
             y_idx , x_idx = np.where(binMap == b)
             spectra = np.ma.stack([cleaned_flux_cube[:, y_, x_] for y_, x_ in zip(y_idx, x_idx)], axis = -1)
-            stacked_spectrum = np.ma.mean(spectra, axis = -1)
+            stacked_spectrum = np.ma.median(spectra, axis = -1)
 
             for y_, x_ in zip(y_idx, x_idx):
                 binned_flux_cube[:, y_, x_] = stacked_spectrum
