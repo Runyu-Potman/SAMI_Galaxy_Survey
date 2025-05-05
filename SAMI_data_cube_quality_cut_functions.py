@@ -153,16 +153,9 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
     # compute S/N cube (same shape as the flux and variance cube).
     sn_cube = flux_cube / np.sqrt(var_cube)
 
-    # enable multiple emission-free regions to be included.
-    emission_free = np.zeros_like(wavelength, dtype = bool)
-    for r in emission_free_range:
-        rest_min, rest_max = r
-        mask = (wavelength >= rest_min * (1 + redshift)) & (wavelength <= rest_max * (1 + redshift))
-        emission_free |= mask
-
-    mean_flux = np.ma.median(data_cube[emission_free, :, :], axis = 0)
-    mean_noise = np.sqrt(np.ma.median(var[emission_free, :, :], axis = 0))
-    sn = np.ma.masked_where(mean_noise <= 0, mean_flux / mean_noise)
+    # for each spaxel, compute the S/N at each wavelength slice (axis = 0).
+    # the median S/N will be used to represent the S/N for each spaxel.
+    sn = np.ma.median(sn_cube, axis = 0) # 50*50
 
     # plot the total S/N map before masking.
     plt.imshow(sn, cmap = 'jet', origin = 'lower')
