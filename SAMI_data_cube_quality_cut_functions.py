@@ -211,6 +211,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         noise = noise[valid_mask]
         x = x[valid_mask]
         y = y[valid_mask]
+        # shift the center of the galaxy.
         x = x - 24
         y = y - 24
 
