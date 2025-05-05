@@ -204,6 +204,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         x = np.tile(np.arange(n_x), n_y)
         y = np.repeat(np.arange(n_y), n_x)
 
+        # flatten the 2D array into 1D
         sn_slice = sn_slice.ravel()
 
         # for each spaxel, extract the flux and noise value at the wavelength slice with the median S/N.
