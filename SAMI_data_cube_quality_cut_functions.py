@@ -176,8 +176,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, emission_free_range, wavelength
         cleaned_flux_cube = np.ma.masked_where(combined_mask, cleaned_flux_cube)
         cleaned_var_cube = np.ma.masked_where(combined_mask, cleaned_var_cube)
 
-    plt.imshow(data_cube[wavelength_slice_index, :, :], cmap = 'jet', origin = 'lower')
-    plt.colorbar()
+    plt.imshow(flux_cube[wavelength_slice_index, :, :], cmap = 'jet', origin = 'lower')
+    plt.colorbar(label = 'flux value')
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
     plt.title(f'data cube before cleaning at the wavelength slice: {wavelength_slice_index}')
