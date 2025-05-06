@@ -268,6 +268,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
 
         # apply the final mask explicity.
         binned_flux_cube = np.ma.masked_where(binned_flux_cube.mask, binned_flux_cube)
+        binned_var_cube = np.ma.masked_where(binned_var_cube.mask, binned_var_cube)
 
         plt.imshow(binned_flux_cube[wavelength_slice_index, :, :], cmap = 'jet', origin = 'lower')
         plt.colorbar(label = 'flux value')
