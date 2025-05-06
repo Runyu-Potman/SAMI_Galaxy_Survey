@@ -278,8 +278,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         hdu_flux = fits.PrimaryHDU(binned_flux_cube.filled(np.nan), header = header)
         hdu_var = fits.ImageHDU(binned_var_cube.filled(np.nan), name = 'VARIANCE')
 
-        hdulist = fits.HDUList([hdu])
-        hdulist.writeto('binned_data_cube_s_n_20.fits', overwrite = True)
+        fits.HDUList([hdu_flux, hdu_var]).writeto('binned_data_cube_s_n_20.fits', overwrite = True)
 
         return cleaned_flux_cube, binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale
 
