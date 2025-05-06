@@ -228,7 +228,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         plt.show()
 
         # stack spectra within bins.
-        # initialize the final stacked cube with all values masked.
+        # initialize an empty binned data cube with all values set to zero and initially unmasked.
         binned_flux_cube = np.ma.zeros_like(cleaned_flux_cube)
         binned_flux_cube.mask = np.ones_like(cleaned_flux_cube.mask)
 
