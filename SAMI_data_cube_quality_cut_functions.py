@@ -264,6 +264,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         unbinned_mask = (binMap == -1)
         for y_, x_ in zip(*np.where(unbinned_mask)):
             binned_flux_cube[:, y_, x_] = cleaned_flux_cube[:, y_, x_]
+            binned_var_cube[:, y_, x_] = cleaned_var_cube[:, y_, x_]
 
         # apply the final mask explicity.
         binned_flux_cube = np.ma.masked_where(binned_flux_cube.mask, binned_flux_cube)
