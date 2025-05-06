@@ -275,7 +275,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         plt.title(f'binned data cube at wavelength slice: {wavelength_slice_index}')
         plt.show()
 
-        hdu = fits.PrimaryHDU(binned_flux_cube.filled(np.nan), header = header)
+        hdu_flux = fits.PrimaryHDU(binned_flux_cube.filled(np.nan), header = header)
+        hdu_var = fits.ImageHDU(binned_var_cube.filled(np.nan), name = 'VARIANCE')
 
         hdulist = fits.HDUList([hdu])
         hdulist.writeto('binned_data_cube_s_n_20.fits', overwrite = True)
