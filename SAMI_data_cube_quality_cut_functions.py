@@ -200,6 +200,9 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
     if vorbin and target_sn is None:
         raise ValueError('target_sn must be provided for Voronoi binning.')
 
+    if vorbin and target_sn <= sn_threshold:
+        raise ValueError('target_sn must be greater than sn_threshold.')
+
     if vorbin and target_sn is not None:
         # prepare x, y coordinates for the Voronoi binning.
         n_x, n_y = cleaned_flux_cube.shape[1], cleaned_flux_cube.shape[2]
