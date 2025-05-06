@@ -257,7 +257,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
             stacked_var = np.ma.sum(spectra_var, axis = -1) / spectra_var.shape[-1]**2
 
             for y_, x_ in zip(y_idx, x_idx):
-                binned_flux_cube[:, y_, x_] = stacked_spectrum
+                binned_flux_cube[:, y_, x_] = stacked_flux
+                binned_var_cube[:, y_, x_] = stacked_var
 
         # spaxels not included in any bin keep their original spectra.
         unbinned_mask = (binMap == -1)
