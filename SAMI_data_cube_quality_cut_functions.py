@@ -135,8 +135,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
     - target_sn: float, target S/N for Voronoi binning (required if vorbin is True).
 
     Returns:
-    - cleaned_data_cube: masked array containing the cleaned data cube.
-    - (optional if vorbin is True) Voronoi binning outputs.
+    - cleaned_data_cube: masked array containing the cleaned data cube with S/N > sn_threshold.
+    - (optional if vorbin is True) Voronoi binning outputs and data cube with S/N > target_sn.
     '''
 
     # read the primary flux data in extension [0] and the variance data in [1].
