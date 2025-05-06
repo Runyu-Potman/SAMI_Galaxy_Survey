@@ -126,6 +126,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
     Clean the data cube by excluding pixels with low S/N, and optionally perform Voronoi binning. For each spaxel, the S/N
     for all wavelength slices are calculated, and the median S/N is chosen to represent the spaxel.
 
+    Note that this script expects the shape of input data to be (wavelength, 50, 50).
+
     Parameters:
     - fits_path: str, path to the data cube fits file.
     - sn_threshold: float, minimum S/N required for a pixel to be kept.
