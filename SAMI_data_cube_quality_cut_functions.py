@@ -233,6 +233,10 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combine
         # set all values as masked unless we explicitly fill them later.
         binned_flux_cube.mask = np.ones_like(cleaned_flux_cube.mask)
 
+        # do the same for the variance data cube.
+        binned_var_cube = np.ma.zeros_like(cleaned_var_cube)
+        binned_var_cube.mask = np.ones_like(cleaned_var_cube.mask)
+
         # create a map showing which spaxels belongs to which voronoi bin.
         binMap = np.full((n_y, n_x), -1, dtype = int)
         x_all = x + 24
