@@ -100,7 +100,6 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     hdul = fits.HDUList([hdu_flux, hdu_var])
     hdul.writeto(output_filename, overwrite = True)
 
-
 #--------------------------------------------------------------------------
 
 if __name__ == "__main__":
