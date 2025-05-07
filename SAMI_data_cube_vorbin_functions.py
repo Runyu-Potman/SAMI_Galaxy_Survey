@@ -89,6 +89,12 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
             combined_var_cube[:, x, y] = combined_var
 
     hdu_flux = fits.PrimaryHDU(data = combined_flux_cube)
+    hdu_flux.header['CTYPE3'] = 'WAVELENGTH'
+    hdu_flux.header['CUNIT3'] = 'Angstrom'
+    hdu_flux.header['CRVAL3'] = combined_wavelength[0]
+    hdu_flux.header['CRPIX3'] = 1
+    hdu_flux.header['CDELT3'] = cdelt3
+
     hdu_var = fits.ImageHDU(data = combined_var_cube, name = 'VARIANCE')
 
     hdul = fits.HDUList([hdu_flux, hdu_var])
