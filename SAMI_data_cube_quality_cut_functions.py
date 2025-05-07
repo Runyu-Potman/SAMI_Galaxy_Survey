@@ -121,7 +121,7 @@ def data_cube_clean_percentage(fits_path, percentage, wavelength_slice_index, co
     return cleaned_data_cube
 
 #------------------------------------------------------------------------------
-def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, combined_mask = None, vorbin = False, target_sn = None):
+def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_filename, combined_mask = None, vorbin = False, target_sn = None):
     '''
     Clean the data cube by excluding pixels with low S/N, and optionally perform Voronoi binning. For each spaxel, the S/N
     for all wavelength slices are calculated, and the median S/N is chosen to represent the spaxel.
