@@ -115,11 +115,15 @@ if __name__ == "__main__":
 
     output_filename = 'CATID_A_cube_combined_vorbin_20.fits'
 
-sn_threshold = 3
-target_sn = 20
-wavelength_slice_index = 1024
-cleaned_data_cube, binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale = data_cube_clean_snr(
-    fits_path = fits_path, sn_threshold = sn_threshold, wavelength_slice_index = wavelength_slice_index, output_filename = output_filename, vorbin = True, target_sn = target_sn)
+    sn_threshold = 3
+    target_sn = 20
+    wavelength_slice_index = 1024
+    cleaned_data_cube, binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale = data_cube_clean_snr(
+        fits_path = fits_path, sn_threshold = sn_threshold, wavelength_slice_index = wavelength_slice_index, output_filename = output_filename, vorbin = True, target_sn = target_sn)
+
+
+
+
 
 
 
