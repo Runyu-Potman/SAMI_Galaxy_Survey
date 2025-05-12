@@ -118,6 +118,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, vmin, vma
     - sig_fits_path: str, path to the stellar velocity dispersion fits file.
     - vmin: int, minimum value for the color bar.
     - vmax: int, maximum value for the color bar.
+    - output_file: str, path to the output csv file.
 
     Returns:
     - None
