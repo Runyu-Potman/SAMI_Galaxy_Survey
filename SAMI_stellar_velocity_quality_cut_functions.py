@@ -138,7 +138,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     sig_SNR_data = sig_map[4].data # [4]: SNR.
 
     # mask NaN values in the initial velocity, velocity error, velocity SNR, dispersion, dispersion error, dispersion SNR maps.
-    # if any of the six maps have a NaN value at a specific spaxel, this spaxel should be masked (excluded).
+    # if any of the six maps have a NaN value at a specific spaxel, this spaxel should be excluded.
     vel_data = np.ma.masked_invalid(vel_data)
     vel_err_data = np.ma.masked_invalid(vel_err_data)
     vel_SNR_data = np.ma.masked_invalid(vel_SNR_data)
