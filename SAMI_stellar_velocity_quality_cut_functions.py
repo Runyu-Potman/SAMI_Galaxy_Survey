@@ -189,6 +189,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
         x_grid = np.where(x_values == row['x_arcsec'])[0][0]
         y_grid = np.where(y_values == row['y_arcsec'])[0][0]
         velocity_grid[y_grid, x_grid] = row['vel']
+        sig_grid[y_grid, x_grid] = row['sig']
 
     # plot the quality cut stellar velocity map.
     plt.figure(figsize=(10, 8))
