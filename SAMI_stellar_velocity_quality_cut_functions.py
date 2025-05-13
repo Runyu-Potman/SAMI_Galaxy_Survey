@@ -103,7 +103,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     the galaxy in this function is now shifted to (0, 0), in preparation for e.g., position angle calculation.
 
     In order to use the fit_kinematic_pa code, the coordinate (0, 0) should be an estimate of the centre of rotation.
-    For SAMI, the dimension for the spaxels is 50 * 50, and the center of the galaxy is approximately located at (25, 25).
+    For SAMI, the dimension for the maps is 50 * 50, and the center of the galaxy is approximately located at (25, 25).
     So the center should be shifted such that (0, 0) being the center of rotation.
 
     Be careful about the indexing definition in fits file and in Python. Fits files use 1-based indexing, meaning
