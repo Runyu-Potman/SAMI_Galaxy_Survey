@@ -183,6 +183,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     y_values = np.unique(quality_cut_map['y_arcsec'])
 
     velocity_grid = np.full((len(y_values), len(x_values)), np.nan)
+    sig_grid = np.full((len(y_values), len(x_values)), np.nan)
 
     for index, row in quality_cut_map.iterrows():
         x_grid = np.where(x_values == row['x_arcsec'])[0][0]
