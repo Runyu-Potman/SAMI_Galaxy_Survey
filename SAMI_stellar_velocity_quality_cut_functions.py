@@ -164,8 +164,8 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
             if (not vel_data.mask[i, j] and not vel_err_data.mask[i, j] and not vel_SNR_data.mask[i, j]
                     and not sig_data.mask[i, j] and not sig_err_data.mask[i, j] and not sig_SNR_data.mask[i, j]):
 
-                x_arcsec = (x[j] - 24) * 0.5
-                y_arcsec = (y[i] - 24) * 0.5
+                x_arcsec = (j - 24) * 0.5
+                y_arcsec = (i - 24) * 0.5
 
                 print(f'{x_arcsec}, {y_arcsec}, {vel_data[i, j]}, {vel_err_data[i, j]}')
                 data_to_save.append((x_arcsec, y_arcsec, vel_data[i, j], vel_err_data[i, j]))
