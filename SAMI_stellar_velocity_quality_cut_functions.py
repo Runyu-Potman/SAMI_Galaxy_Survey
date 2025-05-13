@@ -173,7 +173,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     with open(output_file, 'w') as f:
         f.write('x_arcsec,y_arcsec,vel,vel_err,sig\n')
         for entry in data_to_save:
-            f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}\n')
+            f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}, {entry[4]}\n')
 
     # read the csv file.
     quality_cut_map = pd.read_csv('stellar_velocity_quality_cut_CATID.csv')
