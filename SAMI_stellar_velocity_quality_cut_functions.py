@@ -121,7 +121,8 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     - vmax_sig: int, maximum value for the color bar of the velocity dispersion map.
 
     Returns:
-    - None
+    - velocity_grid: velocity map after applying the quality cut criteria and center shifting.
+    - sig_grid: velocity dispersion map after applying the quality cut criteria and center shifting.
     '''
 
     # read the stellar velocity fits file: velocity (PRIMARY), velocity error (VEL_ERR), S/N (SNR).
