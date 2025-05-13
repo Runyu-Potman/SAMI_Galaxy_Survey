@@ -96,10 +96,8 @@ def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin = None, 
 
     return combined_mask, cleaned_vel_data
 
-# example usage:
-#quality_cut_stellar_velocity_map('CATID_A_stellar-velocity_default_two-moment.fits', 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits', vmin = -75, vmax = 75)
-
-def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, vmin, vmax):
+#----------------------------------------------------------------------------------------------------
+def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_file, vmin_vel = None, vmax_vel = None, vmin_sig = None, vmax_sig = None):
     '''
     Apply the quality cut criteria and make plot with x_axis and y_axis in arcsec unit, note that the center of
     the galaxy in this function is now shifted to (0, 0), in preparation for e.g., position angle calculation.
