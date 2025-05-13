@@ -176,7 +176,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
             f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}, {entry[4]}\n')
 
     # read the csv file.
-    quality_cut_map = pd.read_csv('stellar_velocity_quality_cut_CATID.csv')
+    quality_cut_map = pd.read_csv(output_file)
 
     # extract unique x and y values
     x_values = np.unique(quality_cut_map['x_arcsec'])
