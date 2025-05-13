@@ -155,10 +155,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     vel_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), vel_data) # sig_err < sig * 0.1 + 25 km/s.
 
     # prepare the csv data for the position angle calculation.
-    nx, ny = vel_data.shape
-
-    x = np.arange(nx)
-    y = np.arange(ny)
+    ny, nx = vel_data.shape
 
     data_to_save = []
 
