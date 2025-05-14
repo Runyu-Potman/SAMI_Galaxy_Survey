@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map_csv, quality_cut_gaseous_velocity_map_csv
-
+import matplotlib.patches as patches
+from PIL import Image
 #---------------------------------------------------------------
 def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'vel',
                     show_colorbar = True, fraction = 0.046, pad = 0.04, ax = None,
