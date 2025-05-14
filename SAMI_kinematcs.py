@@ -65,7 +65,8 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
 
     im = ax.imshow(
         grid, origin = 'lower', aspect = 'equal',
-        cmap = cmap, vmin = vmin, vmax = vmax
+        cmap = cmap, vmin = vmin, vmax = vmax,
+        extent = [x_values.min(), x_values.max(), y_values.min(), y_values.max()]
     )
 
     # colorbar.
