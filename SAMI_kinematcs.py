@@ -91,26 +91,6 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     if title:
         ax.set_title(title)
 
-    # tick setting.
-    tick_interval = 2  # arcsec
-
-    # major ticks every 2 arcsec, ensure 0 is included.
-    x_tick_labels = np.arange(np.floor(min(x_values) / 2) * 2, np.ceil(max(x_values) / 2) * 2 + 1, tick_interval)
-    y_tick_labels = np.arange(np.floor(min(y_values) / 2) * 2, np.ceil(max(y_values) / 2) * 2 + 1, tick_interval)
-
-    # match tick label values to their positions in the imshow grid.
-    x_tick_indices = [np.where(x_values == val)[0][0] for val in x_tick_labels if val in x_values]
-    y_tick_indices = [np.where(y_values == val)[0][0] for val in y_tick_labels if val in y_values]
-
-    # set ticks and tick labels
-    ax.set_xticks(x_tick_indices)
-    ax.set_xticklabels([f"{x_values[i]:.0f}" for i in x_tick_indices])
-    ax.set_yticks(y_tick_indices)
-    ax.set_yticklabels([f"{y_values[i]:.0f}" for i in y_tick_indices])
-
-    ax.set_xlabel('Offset [arcsec]')
-    ax.set_ylabel('Offset [arcsec]')
-
     # make these (major) ticks longer.
     ax.tick_params(axis = 'both', which = 'major', length = 7, width = 1)
 
