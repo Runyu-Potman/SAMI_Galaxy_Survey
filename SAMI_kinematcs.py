@@ -101,7 +101,6 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
 
     return ax
 
-
 #----------------------------------------------------------------------
 
 
