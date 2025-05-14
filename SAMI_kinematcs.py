@@ -69,6 +69,19 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
         extent = [x_values.min(), x_values.max(), y_values.min(), y_values.max()]
     )
 
+    # tick setting.
+    # set fixed axis limits (-12.5 to 12.5 arcsec).
+    ax.set_xlim([-12.5, 12.5])
+    ax.set_ylim([-12.5, 12.5])
+
+    # set ticks every 5 arcsec, centered on 0.
+    tick_locs = np.arange(-10, 11, 5)
+    ax.set_xticks(tick_locs)
+    ax.set_yticks(tick_locs)
+
+    ax.set_xlabel('Offset [arcsec]')
+    ax.set_ylabel('Offset [arcsec]')
+
     # colorbar.
     if show_colorbar:
         cbar = plt.colorbar(im, ax = ax, fraction = fraction, pad = pad)
