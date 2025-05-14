@@ -82,8 +82,8 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     ax.set_xticks(tick_locs)
     ax.set_yticks(tick_locs)
 
-    ax.set_xlabel('Offset [arcsec]')
-    ax.set_ylabel('Offset [arcsec]')
+    ax.set_xlabel('Offset [arcsec]', fontsize = fontsize, labelpad = label_pad)
+    ax.set_ylabel('Offset [arcsec]', fontsize = fontsize, labelpad = label_pad)
 
     # colorbar.
     if show_colorbar:
