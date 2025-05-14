@@ -1,0 +1,216 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.ticker import AutoMinorLocator
+from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map_csv, quality_cut_gaseous_velocity_map_csv
+
+#---------------------------------------------------------------
+def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'vel',
+                    show_colorbar = True, fraction = 0.046, pad = 0.04, ax = None,
+                    vmin = None, vmax = None, title = None, csv_path_uncut = None,
+                    background_alpha = 0.3):
+    """
+    Plot velocity or sigma map from CSV file on a given matplotlib axis.
+
+    Parameters:
+    - csv_path: str, path to the CSV file (must include 'x_arcsec', 'y_arcsec', 'vel', 'sig')
+    - ax: matplotlib.axes.Axes object. If None, creates a new figure.
+    - value_type: 'vel' or 'sig' — determines which column to plot
+    - cmap: colormap for imshow
+    - vmin, vmax: color scale limits
+    - title: plot title
+    - cbar_label: label for colorbar
+    - show_colorbar: whether to display colorbar
+    - background_alpha: alpha transparency for background layer.
+
+    Returns:
+    - ax: the axis used for plotting
+    """
+    # read the csv file.
+    quality_cut_map = pd.read_csv(csv_path)
+
+    # extract unique x and y values
+    x_values = np.unique(quality_cut_map['x_arcsec'])
+    y_values = np.unique(quality_cut_map['y_arcsec'])
+
+    grid = np.full((len(y_values), len(x_values)), np.nan)
+
+    for index, row in quality_cut_map.iterrows():
+        x_grid = np.where(x_values == row['x_arcsec'])[0][0]
+        y_grid = np.where(y_values == row['y_arcsec'])[0][0]
+        grid[y_grid, x_grid] = row[value_type]
+
+    if csv_path_uncut:
+        uncut_map = pd.read_csv(csv_path_uncut)
+        bg_grid = np.full_like(grid, np.nan)
+        for index, row in uncut_map.iterrows():
+            x_grid = np.where(x_values == row['x_arcsec'])[0][0]
+            y_grid = np.where(y_values == row['y_arcsec'])[0][0]
+            bg_grid[y_grid, x_grid] = row[value_type]
+
+    # set up plot.
+    if ax is None:
+        fig, ax = plt.subplots()
+
+    if vmin is None:
+        vmin = np.nanmin(grid)
+    if vmax is None:
+        vmax = np.nanmax(grid)
+
+    if csv_path_uncut:
+        ax.imshow(bg_grid, origin = 'lower', aspect = 'equal', cmap = 'Greys_r', alpha = background_alpha)
+
+    im = ax.imshow(
+        grid, origin = 'lower', aspect = 'equal',
+        cmap = cmap, vmin = vmin, vmax = vmax
+    )
+
+    # colorbar.
+    if show_colorbar:
+        cbar = plt.colorbar(im, ax = ax, fraction = fraction, pad = pad)
+        if cbar_label:
+            cbar.set_label(cbar_label)
+
+    if title:
+        ax.set_title(title)
+
+    # tick setting.
+    tick_interval = 2  # arcsec
+
+    # major ticks every 2 arcsec, ensure 0 is included.
+    x_tick_labels = np.arange(np.floor(min(x_values) / 2) * 2, np.ceil(max(x_values) / 2) * 2 + 1, tick_interval)
+    y_tick_labels = np.arange(np.floor(min(y_values) / 2) * 2, np.ceil(max(y_values) / 2) * 2 + 1, tick_interval)
+
+    # match tick label values to their positions in the imshow grid.
+    x_tick_indices = [np.where(x_values == val)[0][0] for val in x_tick_labels if val in x_values]
+    y_tick_indices = [np.where(y_values == val)[0][0] for val in y_tick_labels if val in y_values]
+
+    # set ticks and tick labels
+    ax.set_xticks(x_tick_indices)
+    ax.set_xticklabels([f"{x_values[i]:.0f}" for i in x_tick_indices])
+    ax.set_yticks(y_tick_indices)
+    ax.set_yticklabels([f"{y_values[i]:.0f}" for i in y_tick_indices])
+
+    ax.set_xlabel('Offset [arcsec]')
+    ax.set_ylabel('Offset [arcsec]')
+
+    # make these (major) ticks longer.
+    ax.tick_params(axis = 'both', which = 'major', length = 7, width = 1)
+
+    # add minor ticks (shorter, no labels).
+    ax.xaxis.set_minor_locator(AutoMinorLocator())
+    ax.yaxis.set_minor_locator(AutoMinorLocator())
+    ax.tick_params(axis = 'both', which = 'minor', length = 4, width = 1)
+
+    return ax
+
+
+#----------------------------------------------------------------------
+vel_fits_path = '227266/227266_A_stellar-velocity_default_two-moment.fits'
+sig_fits_path = '227266/227266_A_stellar-velocity-dispersion_default_two-moment.fits'
+output_file = '227266/227266_quality_cut_stellar_velocity_map.csv'
+quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_file)
+
+fig, axs = plt.subplots(3, 4, figsize=(18, 12))
+plot_vel_or_sig(csv_path = output_file, value_type = 'vel', ax = axs[0, 0])
+
+plt.tight_layout()
+plt.show()
+
+'''
+vel_fits_path = '227266/227266_A_gas-velocity_default_1-comp.fits'
+sig_fits_path = '227266/227266_A_gas-vdisp_default_1-comp.fits'
+Halpha_fits_path = '227266/227266_A_Halpha_default_1-comp.fits'
+output_file = '227266/227266_quality_cut_gaseous_velocity_map.csv'
+gas_vel_227266, gas_sig_227266 = quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fits_path, output_file)
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#----------------------------------------------------------------
+
+# 12 CSV file paths, ordered as: vel1, sig1, vel2, sig2, ..., vel6, sig6
+csv_vel_sig_files = [
+    "gal1_vel.csv", "gal1_sig.csv",
+    "gal2_vel.csv", "gal2_sig.csv",
+    "gal3_vel.csv", "gal3_sig.csv",
+    "gal4_vel.csv", "gal4_sig.csv",
+    "gal5_vel.csv", "gal5_sig.csv",
+    "gal6_vel.csv", "gal6_sig.csv"
+]
+
+# Set up the 3x4 figure
+fig, axs = plt.subplots(3, 4, figsize=(18, 12))
+
+# Row 0
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[0], ax=axs[0, 0], value_type='vel', title='Galaxy 1 Velocity', cbar_label='km/s')
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[1], ax=axs[0, 1], value_type='sig', title='Galaxy 1 Sigma', cbar_label='km/s')
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[2], ax=axs[0, 2], value_type='vel', title='Galaxy 2 Velocity', cbar_label='km/s')
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[3], ax=axs[0, 3], value_type='sig', title='Galaxy 2 Sigma', cbar_label='km/s')
+
+# Row 1
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[4], ax=axs[1, 0], value_type='vel', title='Galaxy 3 Velocity', cbar_label='km/s')
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[5], ax=axs[1, 1], value_type='sig', title='Galaxy 3 Sigma', cbar_label='km/s')
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[6], ax=axs[1, 2], value_type='vel', title='Galaxy 4 Velocity', cbar_label='km/s')
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[7], ax=axs[1, 3], value_type='sig', title='Galaxy 4 Sigma', cbar_label='km/s')
+
+# Row 2
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[8], ax=axs[2, 0], value_type='vel', title='Galaxy 5 Velocity', cbar_label='km/s')
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[9], ax=axs[2, 1], value_type='sig', title='Galaxy 5 Sigma', cbar_label='km/s')
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[10], ax=axs[2, 2], value_type='vel', title='Galaxy 6 Velocity', cbar_label='km/s')
+plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[11], ax=axs[2, 3], value_type='sig', title='Galaxy 6 Sigma', cbar_label='km/s')
+
+# Final layout adjustment and display
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
