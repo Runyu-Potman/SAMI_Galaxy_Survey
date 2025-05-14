@@ -87,7 +87,7 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
 
     # colorbar.
     if show_colorbar:
-        cbar = plt.colorbar(im, ax = ax, fraction = fraction, pad = pad)
+        cbar = plt.colorbar(im, ax = ax, fraction = bar_fraction, pad = bar_pad)
         if cbar_label:
             cbar.set_label(cbar_label)
 
