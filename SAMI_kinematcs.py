@@ -106,25 +106,6 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
 
 
 #----------------------------------------------------------------------
-vel_fits_path = '227266/227266_A_stellar-velocity_default_two-moment.fits'
-sig_fits_path = '227266/227266_A_stellar-velocity-dispersion_default_two-moment.fits'
-output_file = '227266/227266_quality_cut_stellar_velocity_map.csv'
-quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_file)
-
-fig, axs = plt.subplots(3, 4, figsize=(18, 12))
-plot_vel_or_sig(csv_path = output_file, value_type = 'vel', ax = axs[0, 0])
-
-plt.tight_layout()
-plt.show()
-
-'''
-vel_fits_path = '227266/227266_A_gas-velocity_default_1-comp.fits'
-sig_fits_path = '227266/227266_A_gas-vdisp_default_1-comp.fits'
-Halpha_fits_path = '227266/227266_A_Halpha_default_1-comp.fits'
-output_file = '227266/227266_quality_cut_gaseous_velocity_map.csv'
-gas_vel_227266, gas_sig_227266 = quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fits_path, output_file)
-'''
-
 
 
 
