@@ -9,7 +9,7 @@ from PIL import Image
 def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'vel',
                     show_colorbar = True, fontsize = 8, bar_fraction = 0.046, bar_pad = 0.04, label_pad = 0.5, ax = None,
                     vmin = None, vmax = None, title = None, csv_path_uncut = None,
-                    background_alpha = 0.3):
+                    background_alpha = 0.3, PAs = None, line_length = 5, plot_psf = False, psffwhm = 2.10812):
     """
     Plot velocity or sigma map from CSV file on a given matplotlib axis.
 
