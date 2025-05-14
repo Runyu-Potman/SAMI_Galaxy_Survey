@@ -23,6 +23,8 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     - cbar_label: label for colorbar
     - show_colorbar: whether to display colorbar
     - background_alpha: alpha transparency for background layer.
+    - PAs: list of position angles (in degree, counterclockwise from North, 0 to 360).
+    - line_length: length of the line to plot, in arcsec.
 
     Returns:
     - ax: the axis used for plotting
