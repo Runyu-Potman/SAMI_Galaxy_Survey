@@ -58,7 +58,10 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
         vmax = np.nanmax(grid)
 
     if csv_path_uncut:
-        ax.imshow(bg_grid, origin = 'lower', aspect = 'equal', cmap = 'Greys_r', alpha = background_alpha)
+        ax.imshow(bg_grid, origin = 'lower', aspect = 'equal',
+                  cmap = 'Greys_r', alpha = background_alpha,
+                  extent = [x_values.min(), x_values.max(), y_values.min(), y_values.max()]
+                  )
 
     im = ax.imshow(
         grid, origin = 'lower', aspect = 'equal',
