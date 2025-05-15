@@ -139,11 +139,11 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
 
     return ax
 
-#----------------------------------------------------------------------
-
-
-
-
+#---------------------------------------------------------------------------------------
+def add_circle(ax, img):
+    scale = 0.4  # arcsec/pixel
+    radius = 15 / 2  # arcsec
+    radius_pix = radius / scale  # pixel
 
 
 
