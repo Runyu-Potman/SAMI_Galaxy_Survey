@@ -351,6 +351,100 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
 #output_dir = cwd
 
 #quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_dir)
+#---------------------------------------------------------------------------------------------------
+def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fits_path, output_file):
+    '''
+    Apply the quality cut criteria and make plot with x_axis and y_axis in arcsec unit, note that the center of
+    the galaxy in this function is now shifted to (0, 0), in preparation for e.g., position angle calculation.
+
+    In order to use the fit_kinematic_pa code, the coordinate (0, 0) should be an estimate of the centre of rotation.
+    For SAMI, the dimension for the spaxels is 50 * 50, and the center of the galaxy is approximately located at (25, 25).
+    So the center should be shifted such that (0, 0) being the center of rotation.
+
+    Be careful about the indexing definition in fits file and in Python. Fits files use 1-based indexing, meaning
+    the first pixel is indexed as (1, 1); Python use 0-based indexing, meaning the first pixel is indexed as (0, 0).
+
+    Another thing to mention is that in Python (and in Fits), (row, column) -> (y, x).
+
+    Parameters:
+    - vel_fits_path: str, path to the gaseous velocity fits file.
+    - sig_fits_path: str, path to the gaseous velocity dispersion fits file.
+    - vmin: int, minimum value for the color bar.
+    - vmax: int, maximum value for the color bar.
+    - output_file: str, path to the output csv file.
+
+    Returns:
+    - None
+    '''
+
+    # read the gaseous velocity fits file: velocity (PRIMARY), velocity error (VEL_ERR).
+    vel_map = fits.open(vel_fits_path)
+    vel_data = np.squeeze(vel_map[0].data) # [0]: PRIMARY.
+    vel_err_data = np.squeeze(vel_map[1].data) # [1]: VEL_ERR.
+
+    # read the gaseous velocity dispersion fits file: dispersion (PRIMARY), dispersion error (SIG_ERR).
+    sig_map = fits.open(sig_fits_path)
+    sig_data = np.squeeze(sig_map[0].data) # [0]: PRIMARY.
+    sig_err_data = np.squeeze(sig_map[1].data) # [1]: SIG_ERR.
+
+    # read the Halpha flux fits file.
+    Halpha_map = fits.open(Halpha_fits_path)
+    Halpha_data = Halpha_map[0].data
+    Halpha_err_data = Halpha_map[1].data
+
+    Halpha_data = Halpha_data[0, :, :]
+    Halpha_err_data = Halpha_err_data[0, :, :]
+
+    # mask NaN values in the initial velocity, velocity error, dispersion, dispersion error, Halpha, Halpha error.
+    # if any of the six maps have a NaN value at a specific spaxel, this spaxel should be excluded.
+    vel_data = np.ma.masked_invalid(vel_data)
+    vel_err_data = np.ma.masked_invalid(vel_err_data)
+
+    sig_data = np.ma.masked_invalid(sig_data)
+    sig_err_data = np.ma.masked_invalid(sig_err_data)
+
+    Halpha_data = np.ma.masked_invalid(Halpha_data)
+    Halpha_err_data = np.ma.masked_invalid(Halpha_err_data)
+
+    # calculate S/N.
+    SNR_data = Halpha_data / Halpha_err_data
+
+    # apply the quality cut criteria.
+    vel_data = np.ma.masked_where(SNR_data <= 3, vel_data) # S/N > 5.
+    vel_data = np.ma.masked_where(sig_data <= 15, vel_data)
+    vel_data = np.ma.masked_where(vel_err_data >= 50, vel_data) # vel_err < 30 km/s.
+    vel_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.25 + 15), vel_data)
+
+    sig_data = np.ma.masked_where(SNR_data <= 3, sig_data)
+    sig_data = np.ma.masked_where(sig_data <= 15, sig_data)
+    sig_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.25 + 15), sig_data)
+
+    # prepare the csv data for the position angle calculation.
+    ny, nx = vel_data.shape
+
+    data_to_save = []
+
+    for i in range(ny):
+        for j in range(nx):
+            if (not vel_data.mask[i, j] and not vel_err_data.mask[i, j]
+                    and not sig_data.mask[i, j] and not sig_err_data.mask[i, j]
+                    and not Halpha_data.mask[i, j] and not Halpha_err_data.mask[i, j]):
+
+                x_arcsec = (j - 24) * 0.5
+                y_arcsec = (i - 24) * 0.5
+
+                print(f'{x_arcsec}, {y_arcsec}, {vel_data[i, j]}, {vel_err_data[i, j]}, {sig_data[i, j]}')
+                data_to_save.append((x_arcsec, y_arcsec, vel_data[i, j], vel_err_data[i, j], sig_data[i, j]))
+
+    with open(output_file, 'w') as f:
+        f.write('x_arcsec,y_arcsec,vel,vel_err,sig\n')
+        for entry in data_to_save:
+            f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}, {entry[4]}\n')
+
+    # close the fits files after use.
+    vel_map.close()
+    sig_map.close()
+    Halpha_map.close()
 
 
 
