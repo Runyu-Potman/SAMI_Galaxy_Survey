@@ -148,8 +148,8 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     sig_SNR_data = np.ma.masked_invalid(sig_SNR_data)
 
     # apply the two moments quality cut criteria.
-    vel_data = np.ma.masked_where(vel_SNR_data < 5, vel_data) # S/N > 5.
-    vel_data = np.ma.masked_where(sig_SNR_data < 5, vel_data) # S/N > 5.
+    vel_data = np.ma.masked_where(vel_SNR_data <= 5, vel_data) # S/N > 5.
+    vel_data = np.ma.masked_where(sig_SNR_data <= 5, vel_data) # S/N > 5.
     vel_data = np.ma.masked_where(sig_data <= 35, vel_data) # sig > 35 km/s.
     vel_data = np.ma.masked_where(vel_err_data >= 30, vel_data) # vel_err < 30 km/s.
     vel_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), vel_data) # sig_err < sig * 0.1 + 25 km/s.
