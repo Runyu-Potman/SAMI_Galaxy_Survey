@@ -145,6 +145,9 @@ def add_circle(ax, img):
     radius = 15 / 2  # arcsec
     radius_pix = radius / scale  # pixel
 
+    width, height = img.size
+    center_x = width / 2
+    center_y = height / 2
 
 
 
