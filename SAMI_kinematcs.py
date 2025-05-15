@@ -100,7 +100,42 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     # add minor ticks (shorter, no labels).
     ax.xaxis.set_minor_locator(AutoMinorLocator())
     ax.yaxis.set_minor_locator(AutoMinorLocator())
-    ax.tick_params(axis = 'both', which = 'minor', length = 4, width = 1)
+    ax.tick_params(axis = 'both', which = 'minor', length = 2, width = 1)
+
+    # if PAs is provided, plot multiple lines.
+    if PAs is not None:
+        for PA in PAs:
+            # convert pa from degrees to radians.
+            PA_rad = np.deg2rad(180 - PA)
+
+            # calculate the line coordinates based on the position angle.
+            x0, y0 = 0, 0
+            x1 = x0 + line_length * np.cos(PA_rad)
+            y1 = y0 + line_length * np.sin(PA_rad)
+
+            x2 = x0 - line_length * np.cos(PA_rad)
+            y2 = y0 - line_length * np.sin(PA_rad)
+
+            ax.plot([x1, x2], [y1, y2], color = 'black', lw = 2)
+
+    if plot_psf:
+        radius = psffwhm / 2
+        circle = patches.Circle(
+            (-10, -10), # position of the circle in arcsec
+            radius,
+            edgecolor = 'black', # color of the circle's border
+            facecolor = 'none', # no fill color
+            linewidth = 3, # thickness of the circle's edge
+            linestyle = '-'
+        )
+
+        ax.add_patch(circle)
+
+    # add optional upper-left corner text.
+    if text_ul:
+        ax.text(0.05, 0.95, text_ul, transform = ax.transAxes, fontsize = fontsize,
+                horizontalalignment = 'left', verticalalignment = 'top')
+
 
     return ax
 
