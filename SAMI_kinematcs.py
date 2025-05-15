@@ -149,6 +149,10 @@ def add_circle(ax, img):
     center_x = width / 2
     center_y = height / 2
 
+    circle = patches.Circle((center_x, center_y), radius_pix,
+                            edgecolor = 'white', facecolor = 'none',
+                            linestyle = '--', linewidth = 2)
+    ax.add_patch(circle)
 
 
 
