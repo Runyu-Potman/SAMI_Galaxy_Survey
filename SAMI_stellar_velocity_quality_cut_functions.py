@@ -179,45 +179,6 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
         for entry in data_to_save:
             f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}, {entry[4]}\n')
 
-    # read the csv file.
-    quality_cut_map = pd.read_csv(output_file)
-
-    # extract unique x and y values
-    x_values = np.unique(quality_cut_map['x_arcsec'])
-    y_values = np.unique(quality_cut_map['y_arcsec'])
-
-    velocity_grid = np.full((len(y_values), len(x_values)), np.nan)
-    sig_grid = np.full((len(y_values), len(x_values)), np.nan)
-
-    for index, row in quality_cut_map.iterrows():
-        x_grid = np.where(x_values == row['x_arcsec'])[0][0]
-        y_grid = np.where(y_values == row['y_arcsec'])[0][0]
-        velocity_grid[y_grid, x_grid] = row['vel']
-        sig_grid[y_grid, x_grid] = row['sig']
-
-    # plot the quality cut stellar velocity map.
-    plt.figure(figsize=(10, 8))
-
-    plt.imshow(
-        velocity_grid, origin = 'lower', aspect = 'auto',
-        cmap = 'jet', vmin = vmin, vmax = vmax
-    )
-
-    plt.colorbar(label = 'km/s')
-
-    plt.title('Quality Cut Stellar Kinematic Map')
-    plt.xlabel('arcsec')
-    plt.ylabel('arcsec')
-
-    tick_spacing = 1
-    x_ticks = np.arange(min(x_values), max(x_values) + tick_spacing, tick_spacing)
-    y_ticks = np.arange(min(y_values) + 0.5, max(y_values) + tick_spacing)
-
-    plt.xticks(np.searchsorted(x_values, x_ticks), x_ticks)
-    plt.yticks(np.searchsorted(y_values, y_ticks), y_ticks)
-
-    plt.show()
-
     # close the fits files after use.
     vel_map.close()
     sig_map.close()
