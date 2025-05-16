@@ -350,6 +350,8 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
     Halpha_data = Halpha_map[0].data
     Halpha_err_data = Halpha_map[1].data
 
+    # here we extract the total component.
+    # for the 1-component situation, [0, :, :] is the same as [1, :, :].
     Halpha_data = Halpha_data[0, :, :]
     Halpha_err_data = Halpha_err_data[0, :, :]
 
