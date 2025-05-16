@@ -46,13 +46,20 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
         for j in range(nx):
             if (not gas_data.mask[i, j] and not gas_err_data.mask[i, j]):
 
-    plt.figure(figsize = (10, 10))
-    plt.imshow(Hα_map, origin = 'lower', cmap = 'viridis')
-    plt.colorbar(label = 'flux intensity')
-    plt.xlabel('pixel')
-    plt.ylabel('pixel')
-    plt.title('gas distribution map')
-    plt.show()
+                x_arcsec = (j - 24) * 0.5
+                y_arcsec = (i - 24) * 0.5
+
+                print(f'{x_arcsec}, {y_arcsec}, {gas_data[i, j]}, {gas_err_data[i, j]}')
+                data_to_save.append((x_arcsec, y_arcsec, gas_data[i, j], gas_err_data[i, j]))
+
+    with open(output_file, 'w') as f:
+        f.write('x_arcsec,y_arcsec,gas,gas_err\n')
+        for entry in data_to_save:
+            f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}\n')
+
+    # close the fits files after use.
+    gas_map.close()
+
 #-----------------------------------------------------------------------------------------------------------------
 Hα_fits_path = '230776_A_Halpha_adaptive_recom-comp.fits'
 threshold = 3
