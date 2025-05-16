@@ -15,7 +15,6 @@ Note that all functions here focus on two moments situation.
 from astropy.io import fits
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 import os
 import glob
 
