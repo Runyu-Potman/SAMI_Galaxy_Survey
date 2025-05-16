@@ -40,9 +40,7 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
     # prepare the csv data for plotting.
     ny, nx = gas_data.shape
 
-    # combined_mask_NII is the combined mask for the first BPT plot.
-    combined_mask = np.ma.getmask(Hα_map)
-    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(Hα_err))
+    data_to_save = []
 
     Hα_map = np.ma.masked_array(Hα_map, mask=combined_mask)
 
