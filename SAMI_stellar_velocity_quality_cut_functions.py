@@ -183,9 +183,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     vel_map.close()
     sig_map.close()
 
-# example usage:
-#quality_cut_stellar_velocity_map_csv('CATID_A_stellar-velocity_default_two-moment.fits', 'CATID_A_stellar-velocity-dispersion_default_two-moment.fits', vmin = -75, vmax = 75)
-
+#--------------------------------------------------------------------------------------------------
 def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_dir):
     '''
     This script can be used to do the quality cut process for stellar velocity maps of all the galaxy samples
