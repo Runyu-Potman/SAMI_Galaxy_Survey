@@ -7,6 +7,7 @@ import numpy as np
 import astropy.io.fits as fits
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
+from SAMI_kinematcs import plot_vel_or_sig
 
 def gas_distribution(Hα_fits_path, threshold):
     # load the optical emission line maps (primary map[0] and error map [1]) for each line.
