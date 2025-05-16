@@ -21,8 +21,8 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
     gas_err_data = gas_err_data[0, :, :]
 
     # mask NaN values in all 14 maps.
-    Hα_map = np.ma.masked_invalid(Hα_map)
-    Hα_err = np.ma.masked_invalid(Hα_err)
+    gas_data = np.ma.masked_invalid(gas_data)
+    gas_err_data = np.ma.masked_invalid(gas_err_data)
 
     # calculate the signal-to-noise ratio (SNR) for each emission line.
     '''
