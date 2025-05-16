@@ -42,7 +42,9 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
 
     data_to_save = []
 
-    Hα_map = np.ma.masked_array(Hα_map, mask=combined_mask)
+    for i in range(ny):
+        for j in range(nx):
+            if (not gas_data.mask[i, j] and not gas_err_data.mask[i, j]):
 
     plt.figure(figsize = (10, 10))
     plt.imshow(Hα_map, origin = 'lower', cmap = 'viridis')
