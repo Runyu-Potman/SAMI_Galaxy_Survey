@@ -18,6 +18,7 @@ import numpy as np
 import os
 import glob
 
+#-------------------------------------------------------------------------------------------------
 def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin = None, vmax = None):
     '''
     Apply the quality cut criteria and make plot with x_axis and y_axis in pixel unit,
