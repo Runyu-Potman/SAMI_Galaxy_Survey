@@ -32,9 +32,7 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
     if threshold is not None:
         gas_SNR = gas_data / gas_err_data
 
-    Hα_SNR = Hα_map / Hα_err
-
-    print(f'Hα_SNR: min = {np.min(Hα_SNR)}, max = {np.max(Hα_SNR)}.')
+        print(f'Gas_SNR: min = {np.min(gas_SNR)}, max = {np.max(gas_SNR)}.')
 
     # mask data points where SNR is below a specific threshold.
     Hα_map = np.ma.masked_where(Hα_SNR < threshold, Hα_map)
