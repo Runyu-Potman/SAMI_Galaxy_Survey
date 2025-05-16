@@ -328,8 +328,7 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
     Parameters:
     - vel_fits_path: str, path to the gaseous velocity fits file.
     - sig_fits_path: str, path to the gaseous velocity dispersion fits file.
-    - vmin: int, minimum value for the color bar.
-    - vmax: int, maximum value for the color bar.
+    - Halpha_fits_path: str, path to the Halpha flux fits file.
     - output_file: str, path to the output csv file.
 
     Returns:
