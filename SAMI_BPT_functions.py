@@ -16,12 +16,9 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
     gas_err_data = gas_map[1].data
 
     # extract the total component (0) of Hα (50*50*4 -> 50*50).
-    Hα_map = Hα_map[0, :, :]
-    Hα_err = Hα_err[0, :, :]
-
-    print(
-        f'Shape of Hα_map after extraction: {Hα_map.shape}, shape of Hα_err after extraction: {Hα_err.shape}.'
-    )
+    # for the 1-component case, [0, :, :] is the same as [1, :, :].
+    gas_data = gas_data[0, :, :]
+    gas_err_data = gas_err_data[0, :, :]
 
     # mask NaN values in all 14 maps.
     Hα_map = np.ma.masked_invalid(Hα_map)
