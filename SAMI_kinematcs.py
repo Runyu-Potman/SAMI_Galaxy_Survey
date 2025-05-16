@@ -47,8 +47,8 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
         uncut_map = pd.read_csv(csv_path_uncut)
         bg_grid = np.full_like(grid, np.nan)
         for index, row in uncut_map.iterrows():
-            x_grid = np.where(x_values == row['x_arcsec'])[0][0]
-            y_grid = np.where(y_values == row['y_arcsec'])[0][0]
+            x_grid = np.argmin(np.abs(x_values - row['x_arcsec']))
+            y_grid = np.argmin(np.abs(y_values - row['y_arcsec']))
             bg_grid[y_grid, x_grid] = row[value_type]
 
     # set up plot.
