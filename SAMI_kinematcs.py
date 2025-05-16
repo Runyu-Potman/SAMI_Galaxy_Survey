@@ -96,7 +96,7 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
         ax.set_title(title)
 
     # make these (major) ticks longer.
-    ax.tick_params(axis = 'both', which = 'major', length = 4, width = 1)
+    ax.tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
 
     # add minor ticks (shorter, no labels).
     ax.xaxis.set_minor_locator(AutoMinorLocator())
