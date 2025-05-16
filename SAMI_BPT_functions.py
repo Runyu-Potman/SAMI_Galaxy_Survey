@@ -36,6 +36,7 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
 
         # mask data points where SNR is below a specific threshold.
         gas_data = np.ma.masked_where(gas_SNR <= threshold, gas_data)
+        gas_err_data = np.ma.masked_where(gas_SNR <= threshold, gas_err_data)
 
     # prepare the csv data for plotting.
     ny, nx = gas_data.shape
