@@ -313,8 +313,8 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
 #---------------------------------------------------------------------------------------------------
 def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fits_path, output_file):
     '''
-    Apply the quality cut criteria and make plot with x_axis and y_axis in arcsec unit, note that the center of
-    the galaxy in this function is now shifted to (0, 0), in preparation for e.g., position angle calculation.
+    Apply the quality cut criteria and prepare csv file with x_axis and y_axis in arcsec unit, note that the center
+    of the galaxy in this function is now shifted to (0, 0), in preparation for e.g., position angle calculation.
 
     In order to use the fit_kinematic_pa code, the coordinate (0, 0) should be an estimate of the centre of rotation.
     For SAMI, the dimension for the spaxels is 50 * 50, and the center of the galaxy is approximately located at (25, 25).
