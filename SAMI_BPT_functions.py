@@ -6,7 +6,6 @@ for SAMI galaxies using the optical line ratios.
 import numpy as np
 import astropy.io.fits as fits
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
 from SAMI_kinematcs import plot_vel_or_sig
 
 def gas_distribution(gas_fits_path, output_file, threshold = None):
