@@ -30,6 +30,8 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
     ratio also being masked, even if primary_map at that pixel is valid.
     '''
     if threshold is not None:
+        gas_err_data = np.ma.masked_where(gas_err_data == 0, gas_err_data)
+
         gas_SNR = gas_data / gas_err_data
 
         print(f'Gas_SNR: min = {np.min(gas_SNR)}, max = {np.max(gas_SNR)}.')
