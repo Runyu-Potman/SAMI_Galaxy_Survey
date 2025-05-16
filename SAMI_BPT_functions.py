@@ -29,6 +29,8 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
     be noticed that any pixel where err_map is masked will result in the corresponding 
     ratio also being masked, even if primary_map at that pixel is valid.
     '''
+    if threshold is not None:
+        gas_SNR = gas_data / gas_err_data
 
     Hα_SNR = Hα_map / Hα_err
 
