@@ -101,7 +101,7 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     # add minor ticks (shorter, no labels).
     ax.xaxis.set_minor_locator(AutoMinorLocator())
     ax.yaxis.set_minor_locator(AutoMinorLocator())
-    ax.tick_params(axis = 'both', which = 'minor', length = 2, width = 1)
+    ax.tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
     # if PAs is provided, plot multiple lines.
     if PAs is not None:
