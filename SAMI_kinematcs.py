@@ -126,7 +126,7 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
             radius,
             edgecolor = 'black', # color of the circle's border
             facecolor = 'none', # no fill color
-            linewidth = 3, # thickness of the circle's edge
+            linewidth = 1.5, # thickness of the circle's edge
             linestyle = '-'
         )
 
