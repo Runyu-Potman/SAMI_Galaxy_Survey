@@ -348,12 +348,12 @@ def pa_and_k1_plot(k, y_lim, y_range):
 
     axs[1].errorbar(k.rad * 0.5, k1, yerr = erk1, fmt = 'o', color = 'black', ecolor = 'black', capsize = 2.5, markersize = 2.5)
     axs[1].plot(k.rad * 0.5, k1, color = 'grey', linewidth = 1)
-    axs[1].set_xlabel('Radius (arcsec)')
-    axs[1].set_ylabel(r'$k_1$ (km/s)')
-    axs[1].set_xlim([0, 8])
-    axs[1].set_xticks(np.arange(0, 9, 1))
-    axs[1].set_ylim([0, 35])
-    axs[1].set_yticks(np.arange(0, 35, 5))
+    axs[1].set_xlabel('Radius (arcsec)', fontsize = 10)
+    axs[1].set_ylabel(r'$k_1$ (km/s)', fontsize = 10)
+    axs[1].set_xlim(x_lim)
+    axs[1].set_xticks(np.arange(*x_tick))
+    axs[1].set_ylim(yk1_lim)
+    axs[1].set_yticks(np.arange(*yk1_tick))
 
     # make these (major) ticks longer.
     axs[1].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
