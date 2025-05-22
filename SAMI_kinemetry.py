@@ -320,6 +320,20 @@ def plot_kinemetry_maps(xbin, ybin, velbin, k, sigma=False):
 
 
 #---------------------------------------------------------------
+def pa_and_k1_plot(k, y_lim, y_range):
+
+    k1 = np.sqrt(k.cf[:, 1] ** 2 + k.cf[:, 2] ** 2)
+
+    erk1 = (np.sqrt((k.cf[:, 1] * k.er_cf[:, 1]) ** 2 + (k.cf[:, 2] * k.er_cf[:, 2]) ** 2)) / k1
+
+    fig, axs = plt.subplots(2, 1, figsize = (10/3, 6), sharex = True, gridspec_kw = {'hspace': 0})
+
+    axs[0].errorbar(k.rad * 0.5, k.pa, yerr = k.er_pa, fmt = 'o', color = 'black', ecolor = 'black', capsize = 2.5, markersize = 2.5)
+    axs[0].plot(k.rad * 0.5, k.pa, color = 'grey', linewidth = 1)
+    axs[0].set_ylabel(r'PA$_{kin}$ (degrees)')
+    axs[0].set_ylim([0, 185])
+    axs[0].set_yticks(np.arange(0, 186, 20))
+    axs[0].tick_params(labelbottom = False)
 
 
 csv_file = pd.read_csv('CATID/CATID_quality_cut_stellar_velocity_map.csv')
