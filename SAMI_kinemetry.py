@@ -342,7 +342,14 @@ def pa_and_k1_plot(k, y_lim, y_range):
     axs[0].yaxis.set_minor_locator(AutoMinorLocator())
     axs[0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
-csv_file = pd.read_csv('CATID/CATID_quality_cut_stellar_velocity_map.csv')
+    axs[1].errorbar(k.rad * 0.5, k1, yerr = erk1, fmt = 'o', color = 'black', ecolor = 'black', capsize = 2.5, markersize = 2.5)
+    axs[1].plot(k.rad * 0.5, k1, color = 'grey', linewidth = 1)
+    axs[1].set_xlabel('Radius (arcsec)')
+    axs[1].set_ylabel(r'$k_1$ (km/s)')
+    axs[1].set_xlim([0, 8])
+    axs[1].set_xticks(np.arange(0, 9, 1))
+    axs[1].set_ylim([0, 35])
+    axs[1].set_yticks(np.arange(0, 35, 5))
 
 
 xbin = csv_file['x_arcsec'].values
