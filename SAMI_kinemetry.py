@@ -330,9 +330,13 @@ def pa_and_k1_plot(k, y_lim, y_range):
 
     axs[0].errorbar(k.rad * 0.5, k.pa, yerr = k.er_pa, fmt = 'o', color = 'black', ecolor = 'black', capsize = 2.5, markersize = 2.5)
     axs[0].plot(k.rad * 0.5, k.pa, color = 'grey', linewidth = 1)
-    axs[0].set_ylabel(r'PA$_{kin}$ (degrees)')
-    axs[0].set_ylim([0, 185])
-    axs[0].set_yticks(np.arange(0, 186, 20))
+
+    axs[0].axhline(y = pa1, color = 'grey', linestyle = '--', linewidth = 1)
+    axs[0].axhline(y = pa2, color = 'grey', linestyle = '--', linewidth = 1)
+
+    axs[0].set_ylabel(r'PA$_{kin}$ (degrees)', fontsize = 10)
+    axs[0].set_ylim(ypa_lim)
+    axs[0].set_yticks(np.arange(*ypa_tick))
     axs[0].tick_params(labelbottom = False)
 
     # make these (major) ticks longer.
