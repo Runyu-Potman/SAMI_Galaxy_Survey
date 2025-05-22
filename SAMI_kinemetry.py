@@ -335,6 +335,12 @@ def pa_and_k1_plot(k, y_lim, y_range):
     axs[0].set_yticks(np.arange(0, 186, 20))
     axs[0].tick_params(labelbottom = False)
 
+    # make these (major) ticks longer.
+    axs[0].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+    # add minor ticks (shorter, no labels).
+    axs[0].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[0].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
 csv_file = pd.read_csv('CATID/CATID_quality_cut_stellar_velocity_map.csv')
 
