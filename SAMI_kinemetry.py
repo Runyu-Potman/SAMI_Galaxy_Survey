@@ -322,6 +322,7 @@ def plot_kinemetry_maps(xbin, ybin, velbin, k, sigma=False):
 #---------------------------------------------------------------
 def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, pa1, pa2, counter_rotating = False):
 
+    # k1 coefficient.
     k1 = np.sqrt(k.cf[:, 1] ** 2 + k.cf[:, 2] ** 2)
 
     erk1 = (np.sqrt((k.cf[:, 1] * k.er_cf[:, 1]) ** 2 + (k.cf[:, 2] * k.er_cf[:, 2]) ** 2)) / k1
