@@ -100,9 +100,9 @@ def bpt(
         OI_map = OI[0].data
         OI_err = OI[1].data
 
-    SII_6716 = fits.open(SII_6716_fits_path)
-    SII_6716_map = SII_6716[0].data
-    SII_6716_err = SII_6716[1].data
+    with fits.open(SII_6716_fits_path) as SII_6716:
+        SII_6716_map = SII_6716[0].data
+        SII_6716_err = SII_6716[1].data
 
     SII_6731 = fits.open(SII_6731_fits_path)
     SII_6731_map = SII_6731[0].data
