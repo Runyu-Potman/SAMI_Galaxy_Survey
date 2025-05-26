@@ -144,8 +144,8 @@ def bpt(
     ratio also being masked, even if primary_map at that pixel is valid.
     '''
 
-    Hα_SNR = Hα_map / Hα_err
-    Hβ_SNR = Hβ_map / Hβ_err
+    Ha_SNR = Ha_map / Ha_err
+    Hb_SNR = Hb_map / Hb_err
     OIII_SNR = OIII_map / OIII_err
     OI_SNR = OI_map / OI_err
     SII_6716_SNR = SII_6716_map / SII_6716_err
