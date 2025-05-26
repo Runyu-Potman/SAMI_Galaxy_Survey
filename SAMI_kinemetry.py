@@ -349,7 +349,10 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
     axs[0].set_ylabel(r'PA$_{kin}$ (degrees)', fontsize = 10)
     axs[0].set_ylim(ypa_lim)
     axs[0].set_yticks(np.arange(*ypa_tick))
-    axs[0].tick_params(labelbottom = False)
+
+    # x lim and ticks.
+    axs[0].set_xlim(x_lim)
+    axs[0].set_xticks(np.arange(*x_tick))
 
     # make these (major) ticks longer.
     axs[0].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
