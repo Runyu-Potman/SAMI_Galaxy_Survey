@@ -222,10 +222,10 @@ def bpt(
 
     # apply the combined mask across all maps to ensure consistency.
     # the first BPT plot.
-    Hα_map_NII = np.ma.masked_array(Hα_map, mask=combined_mask_NII)
-    Hβ_map_NII = np.ma.masked_array(Hβ_map, mask=combined_mask_NII)
-    OIII_map_NII = np.ma.masked_array(OIII_map, mask=combined_mask_NII)
-    NII_map_NII = np.ma.masked_array(NII_map, mask=combined_mask_NII)
+    Ha_map_NII = np.ma.masked_array(Ha_map, mask = combined_mask_NII)
+    Hb_map_NII = np.ma.masked_array(Hb_map, mask = combined_mask_NII)
+    OIII_map_NII = np.ma.masked_array(OIII_map, mask = combined_mask_NII)
+    NII_map_NII = np.ma.masked_array(NII_map, mask = combined_mask_NII)
 
     # the second BPT plot.
     Hα_map_SII = np.ma.masked_array(Hα_map, mask=combined_mask_SII)
