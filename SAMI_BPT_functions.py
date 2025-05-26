@@ -108,9 +108,9 @@ def bpt(
         SII_6731_map = SII_6731[0].data
         SII_6731_err = SII_6731[1].data
 
-    NII = fits.open(NII_fits_path)
-    NII_map = NII[0].data
-    NII_err = NII[1].data
+    with fits.open(NII_fits_path) as NII:
+        NII_map = NII[0].data
+        NII_err = NII[1].data
 
     # extract the total component (0) of Ha (50*50*4 -> 50*50).
     Ha_map = Ha_map[0, :, :]
