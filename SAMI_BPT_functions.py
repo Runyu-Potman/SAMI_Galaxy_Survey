@@ -152,8 +152,8 @@ def bpt(
     SII_6731_SNR = SII_6731_map / SII_6731_err
     NII_SNR = NII_map / NII_err
 
-    print(f'Hα_SNR: min = {np.min(Hα_SNR)}, max = {np.max(Hα_SNR)}.')
-    print(f'Hβ_SNR: min = {np.min(Hβ_SNR)}, max = {np.max(Hβ_SNR)}.')
+    print(f'Ha_SNR: min = {np.min(Ha_SNR)}, max = {np.max(Ha_SNR)}.')
+    print(f'Hb_SNR: min = {np.min(Hb_SNR)}, max = {np.max(Hb_SNR)}.')
     print(f'OIII_SNR: min = {np.min(OIII_SNR)}, max = {np.max(OIII_SNR)}.')
     print(f'OI_SNR: min = {np.min(OI_SNR)}, max = {np.max(OI_SNR)}.')
     print(f'SII_6716_SNR: min = {np.min(SII_6716_SNR)}, max = {np.max(SII_6716_SNR)}.')
