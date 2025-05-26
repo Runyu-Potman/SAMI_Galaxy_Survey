@@ -345,6 +345,7 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
     axs[0].axhline(y = pa1, color = 'grey', linestyle = '--', linewidth = 1)
     axs[0].axhline(y = pa2, color = 'grey', linestyle = '--', linewidth = 1)
 
+    # y label and ticks.
     axs[0].set_ylabel(r'PA$_{kin}$ (degrees)', fontsize = 10)
     axs[0].set_ylim(ypa_lim)
     axs[0].set_yticks(np.arange(*ypa_tick))
