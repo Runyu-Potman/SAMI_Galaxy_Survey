@@ -380,8 +380,6 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
     axs[1].yaxis.set_minor_locator(AutoMinorLocator())
     axs[1].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
-    fig.tight_layout()
-
 #-----------------------------------------------------------------
 csv_file = pd.read_csv('CATID/CATID_quality_cut_stellar_velocity_map.csv')
 
