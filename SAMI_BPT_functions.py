@@ -247,7 +247,7 @@ def bpt(
 
     Now we extract the valid data points for the calculation of log ratios (we need an array of data). 
     Be careful that after the valid data points are extracted, the shape will no longer be 50*50. 
-    Therefore, when creating the spatial map, these valid maps should not be used. 
+    Therefore, when creating the spatial map, these valid arrays should not be used. 
     '''
 
     # valid data array for the first BPT plot.
