@@ -117,8 +117,8 @@ def bpt(
     Ha_err = Ha_err[0, :, :]
 
     # mask NaN values in all 14 maps.
-    Hα_map = np.ma.masked_invalid(Hα_map)
-    Hα_err = np.ma.masked_invalid(Hα_err)
+    Ha_map = np.ma.masked_invalid(Ha_map)
+    Ha_err = np.ma.masked_invalid(Ha_err)
 
     Hβ_map = np.ma.masked_invalid(Hβ_map)
     Hβ_err = np.ma.masked_invalid(Hβ_err)
