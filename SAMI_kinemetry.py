@@ -7,7 +7,6 @@ from matplotlib import gridspec
 import matplotlib as mpl
 mpl.rcParams['xtick.direction'] = 'in'
 mpl.rcParams['ytick.direction'] = 'in'
-
 from kinemetry import kinemetry
 
 import kinemetry as kin
