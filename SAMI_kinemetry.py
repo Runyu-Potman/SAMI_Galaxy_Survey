@@ -363,7 +363,8 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
     axs[0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
     # k1 versus rad plot.
-    axs[1].errorbar(k.rad * 0.5, k1, yerr = erk1, fmt = 'o', color = 'black', ecolor = 'black', capsize = 2.5, markersize = 2.5)
+    axs[1].errorbar(k.rad * 0.5, k1, yerr = erk1, fmt = 'o', color = 'black', ecolor = 'black',
+                    capsize = 2.5, markersize = 2.5)
     axs[1].plot(k.rad * 0.5, k1, color = 'grey', linewidth = 1)
     axs[1].set_xlabel('Radius (arcsec)', fontsize = 10)
     axs[1].set_ylabel(r'$k_1$ (km/s)', fontsize = 10)
