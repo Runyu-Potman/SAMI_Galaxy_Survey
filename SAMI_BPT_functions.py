@@ -104,9 +104,9 @@ def bpt(
         SII_6716_map = SII_6716[0].data
         SII_6716_err = SII_6716[1].data
 
-    SII_6731 = fits.open(SII_6731_fits_path)
-    SII_6731_map = SII_6731[0].data
-    SII_6731_err = SII_6731[1].data
+    with fits.open(SII_6731_fits_path) as SII_6731:
+        SII_6731_map = SII_6731[0].data
+        SII_6731_err = SII_6731[1].data
 
     NII = fits.open(NII_fits_path)
     NII_map = NII[0].data
