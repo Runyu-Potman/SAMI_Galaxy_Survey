@@ -257,8 +257,8 @@ def bpt(
     valid_NII_map_NII = NII_map_NII[~NII_map_NII.mask]
 
     # valid data array for the second BPT plot.
-    valid_Hα_map_SII = Hα_map_SII[~Hα_map_SII.mask]
-    valid_Hβ_map_SII = Hβ_map_SII[~Hβ_map_SII.mask]
+    valid_Ha_map_SII = Ha_map_SII[~Ha_map_SII.mask]
+    valid_Hb_map_SII = Hb_map_SII[~Hb_map_SII.mask]
     valid_OIII_map_SII = OIII_map_SII[~OIII_map_SII.mask]
     valid_SII_6716_map_SII = SII_6716_map_SII[~SII_6716_map_SII.mask]
     valid_SII_6731_map_SII = SII_6731_map_SII[~SII_6731_map_SII.mask]
