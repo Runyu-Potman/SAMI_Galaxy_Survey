@@ -328,10 +328,18 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
     # error of k1.
     erk1 = (np.sqrt((k.cf[:, 1] * k.er_cf[:, 1]) ** 2 + (k.cf[:, 2] * k.er_cf[:, 2]) ** 2)) / k1
 
-    fig, axs = plt.subplots(2, 1, figsize = (10/3, 6), sharex = True, gridspec_kw = {'hspace': 0})
-
-    axs[0].errorbar(k.rad * 0.5, k.pa, yerr = k.er_pa, fmt = 'o', color = 'black', ecolor = 'black', capsize = 2.5, markersize = 2.5)
-    axs[0].plot(k.rad * 0.5, k.pa, color = 'grey', linewidth = 1)
+    # pa in kinemetry is defined from north to receding side.
+    if counter_rotating:
+        # shift PA by 180 degrees and wrap into [-180, 180].
+        pa = (k.pa + 180) % 360
+        pa[pa > 180] -= 360
+        axs[0].errorbar(k.rad * 0.5, pa, yerr = k.er_pa, fmt = 'o', color = 'black', ecolor = 'black',
+                        capsize = 2.5, markersize = 2.5)
+        axs[0].plot(k.rad * 0.5, pa, color = 'grey', linewidth = 1)
+    else:
+        axs[0].errorbar(k.rad * 0.5, k.pa, yerr = k.er_pa, fmt = 'o', color = 'black', ecolor = 'black',
+                        capsize = 2.5, markersize = 2.5)
+        axs[0].plot(k.rad * 0.5, k.pa, color = 'grey', linewidth = 1)
 
     axs[0].axhline(y = pa1, color = 'grey', linestyle = '--', linewidth = 1)
     axs[0].axhline(y = pa2, color = 'grey', linestyle = '--', linewidth = 1)
