@@ -116,10 +116,6 @@ def bpt(
     Ha_map = Ha_map[0, :, :]
     Ha_err = Ha_err[0, :, :]
 
-    print(
-        f'Shape of Hα_map after extraction: {Hα_map.shape}, shape of Hα_err after extraction: {Hα_err.shape}.'
-    )
-
     # mask NaN values in all 14 maps.
     Hα_map = np.ma.masked_invalid(Hα_map)
     Hα_err = np.ma.masked_invalid(Hα_err)
