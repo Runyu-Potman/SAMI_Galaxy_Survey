@@ -120,8 +120,8 @@ def bpt(
     Ha_map = np.ma.masked_invalid(Ha_map)
     Ha_err = np.ma.masked_invalid(Ha_err)
 
-    Hβ_map = np.ma.masked_invalid(Hβ_map)
-    Hβ_err = np.ma.masked_invalid(Hβ_err)
+    Hb_map = np.ma.masked_invalid(Hb_map)
+    Hb_err = np.ma.masked_invalid(Hb_err)
 
     OIII_map = np.ma.masked_invalid(OIII_map)
     OIII_err = np.ma.masked_invalid(OIII_err)
