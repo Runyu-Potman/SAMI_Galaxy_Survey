@@ -64,25 +64,6 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
     gas_map.close()
 
 #-----------------------------------------------------------------------------------------------------------------
-Hα_fits_path = '230776_A_Halpha_adaptive_recom-comp.fits'
-threshold = 3
-
-gas_distribution(Hα_fits_path, threshold)
-
-
-
-
-
-
-
-
-
-
-
-
-
-#-------------------------------------------------------------------------------------------------------------------
-
 def bpt(
         Hα_fits_path, Hβ_fits_path, OIII_fits_path, OI_fits_path,
         SII_6716_fits_path, SII_6731_fits_path, NII_fits_path,
