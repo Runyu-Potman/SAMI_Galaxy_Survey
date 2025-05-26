@@ -88,9 +88,9 @@ def bpt(
     Ha_map = Ha[0].data
     Ha_err = Ha[1].data
 
-    Hβ = fits.open(Hβ_fits_path)
-    Hβ_map = Hβ[0].data
-    Hβ_err = Hβ[1].data
+    Hb = fits.open(Hb_fits_path)
+    Hb_map = Hb[0].data
+    Hb_err = Hb[1].data
 
     OIII = fits.open(OIII_fits_path)
     OIII_map = OIII[0].data
