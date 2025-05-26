@@ -341,6 +341,7 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
                         capsize = 2.5, markersize = 2.5)
         axs[0].plot(k.rad * 0.5, k.pa, color = 'grey', linewidth = 1)
 
+    # two dashed line indicating the mean PA.
     axs[0].axhline(y = pa1, color = 'grey', linestyle = '--', linewidth = 1)
     axs[0].axhline(y = pa2, color = 'grey', linestyle = '--', linewidth = 1)
 
