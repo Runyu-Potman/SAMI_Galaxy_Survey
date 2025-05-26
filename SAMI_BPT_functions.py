@@ -92,9 +92,9 @@ def bpt(
         Hb_map = Hb[0].data
         Hb_err = Hb[1].data
 
-    OIII = fits.open(OIII_fits_path)
-    OIII_map = OIII[0].data
-    OIII_err = OIII[1].data
+    with fits.open(OIII_fits_path) as OIII:
+        OIII_map = OIII[0].data
+        OIII_err = OIII[1].data
 
     OI = fits.open(OI_fits_path)
     OI_map = OI[0].data
