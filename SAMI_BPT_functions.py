@@ -65,7 +65,7 @@ def gas_distribution(gas_fits_path, output_file, threshold = None):
 
 #-----------------------------------------------------------------------------------------------------------------
 def bpt(
-        Hα_fits_path, Hβ_fits_path, OIII_fits_path, OI_fits_path,
+        Ha_fits_path, Hb_fits_path, OIII_fits_path, OI_fits_path,
         SII_6716_fits_path, SII_6731_fits_path, NII_fits_path,
         threshold
 ):
