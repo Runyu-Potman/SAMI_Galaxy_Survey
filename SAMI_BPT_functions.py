@@ -211,8 +211,8 @@ def bpt(
     combined_mask_OI = np.ma.getmask(Ha_map)
     combined_mask_OI = np.ma.mask_or(combined_mask_OI, np.ma.getmask(Ha_err))
 
-    combined_mask_OI = np.ma.mask_or(combined_mask_OI, np.ma.getmask(Hβ_map))
-    combined_mask_OI = np.ma.mask_or(combined_mask_OI, np.ma.getmask(Hβ_err))
+    combined_mask_OI = np.ma.mask_or(combined_mask_OI, np.ma.getmask(Hb_map))
+    combined_mask_OI = np.ma.mask_or(combined_mask_OI, np.ma.getmask(Hb_err))
 
     combined_mask_OI = np.ma.mask_or(combined_mask_OI, np.ma.getmask(OIII_map))
     combined_mask_OI = np.ma.mask_or(combined_mask_OI, np.ma.getmask(OIII_err))
