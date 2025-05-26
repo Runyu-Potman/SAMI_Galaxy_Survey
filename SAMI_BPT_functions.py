@@ -278,9 +278,9 @@ def bpt(
                           valid_Ha_map_SII)
     log_OIII_Hb_SII = np.log10(valid_OIII_map_SII / valid_Hb_map_SII)
 
-    # calculate the ratio: log([OI]/Hα) vs log([OIII]/Hβ) for the third BPT plot.
-    log_OI_Hα = np.log10(valid_OI_map_OI / valid_Hα_map_OI)
-    log_OIII_Hβ_OI = np.log10(valid_OIII_map_OI / valid_Hβ_map_OI)
+    # calculate the ratio: log([OI]/Ha) vs log([OIII]/Hb) for the third BPT plot.
+    log_OI_Ha = np.log10(valid_OI_map_OI / valid_Ha_map_OI)
+    log_OIII_Hb_OI = np.log10(valid_OIII_map_OI / valid_Hb_map_OI)
 
     # begin making plots.
     # the first row would be three spatial maps, the second row would be three BPT plots.
