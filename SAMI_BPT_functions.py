@@ -161,8 +161,8 @@ def bpt(
     print(f'NII_SNR: min = {np.min(NII_SNR)}, max = {np.max(NII_SNR)}.')
 
     # mask data points where SNR is below a specific threshold.
-    Hα_map = np.ma.masked_where(Hα_SNR < threshold, Hα_map)
-    Hβ_map = np.ma.masked_where(Hβ_SNR < threshold, Hβ_map)
+    Ha_map = np.ma.masked_where(Ha_SNR < threshold, Ha_map)
+    Hb_map = np.ma.masked_where(Hb_SNR < threshold, Hb_map)
     OIII_map = np.ma.masked_where(OIII_SNR < threshold, OIII_map)
     OI_map = np.ma.masked_where(OI_SNR < threshold, OI_map)
     SII_6716_map = np.ma.masked_where(SII_6716_SNR < threshold, SII_6716_map)
