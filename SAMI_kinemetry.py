@@ -373,9 +373,9 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
     axs[1].set_ylim(yk1_lim)
     axs[1].set_yticks(np.arange(*yk1_tick))
 
-    # make these (major) ticks longer.
-    axs[1].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
-    # add minor ticks (shorter, no labels).
+    # add major ticks.
+    axs[1].tick_params(axis = 'x', which = 'both', labelbottom = True, length = 4, width = 1, direction = 'in')
+    # add minor ticks.
     axs[1].xaxis.set_minor_locator(AutoMinorLocator())
     axs[1].yaxis.set_minor_locator(AutoMinorLocator())
     axs[1].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
