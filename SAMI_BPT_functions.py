@@ -269,9 +269,9 @@ def bpt(
     valid_OIII_map_OI = OIII_map_OI[~OIII_map_OI.mask]
     valid_OI_map_OI = OI_map_OI[~OI_map_OI.mask]
 
-    # calculate the ratio: log([NII]/Hα) vs log([OIII]/Hβ) for the first BPT plot.
-    log_NII_Hα = np.log10(valid_NII_map_NII / valid_Hα_map_NII)
-    log_OIII_Hβ_NII = np.log10(valid_OIII_map_NII / valid_Hβ_map_NII)
+    # calculate the ratio: log([NII]/Ha) vs log([OIII]/Hb) for the first BPT plot.
+    log_NII_Ha = np.log10(valid_NII_map_NII / valid_Ha_map_NII)
+    log_OIII_Hb_NII = np.log10(valid_OIII_map_NII / valid_Hb_map_NII)
 
     # calculate the ratio: log([SII]/Hα) vs log([OIII]/Hβ) for the second BPT plot.
     log_SII_Hα = np.log10((valid_SII_6716_map_SII + valid_SII_6731_map_SII) /
