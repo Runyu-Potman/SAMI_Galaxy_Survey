@@ -176,10 +176,7 @@ def plot_kinemetry_profiles_velocity(k, fitcentre=False, name=None):
 
     fig.tight_layout()
 
-
-
-
-#--------------------------------------------------------------
+# ----------------------------------------------------------------------------
 def plot_kinemetry_maps(xbin, ybin, velbin, k, sigma=False):
     """
     Based on the kinemetry results (k) and original coordinates (xbin,ybin) and
