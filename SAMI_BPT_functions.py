@@ -112,9 +112,9 @@ def bpt(
     NII_map = NII[0].data
     NII_err = NII[1].data
 
-    # extract the total component (0) of Hα (50*50*4 -> 50*50).
-    Hα_map = Hα_map[0, :, :]
-    Hα_err = Hα_err[0, :, :]
+    # extract the total component (0) of Ha (50*50*4 -> 50*50).
+    Ha_map = Ha_map[0, :, :]
+    Ha_err = Ha_err[0, :, :]
 
     print(
         f'Shape of Hα_map after extraction: {Hα_map.shape}, shape of Hα_err after extraction: {Hα_err.shape}.'
