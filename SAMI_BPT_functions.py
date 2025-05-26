@@ -251,8 +251,8 @@ def bpt(
     '''
 
     # valid data array for the first BPT plot.
-    valid_Hα_map_NII = Hα_map_NII[~Hα_map_NII.mask]
-    valid_Hβ_map_NII = Hβ_map_NII[~Hβ_map_NII.mask]
+    valid_Ha_map_NII = Ha_map_NII[~Ha_map_NII.mask]
+    valid_Hb_map_NII = Hb_map_NII[~Hb_map_NII.mask]
     valid_OIII_map_NII = OIII_map_NII[~OIII_map_NII.mask]
     valid_NII_map_NII = NII_map_NII[~NII_map_NII.mask]
 
