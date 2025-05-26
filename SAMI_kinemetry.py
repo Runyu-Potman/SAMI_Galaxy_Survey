@@ -354,9 +354,10 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
     axs[0].set_xlim(x_lim)
     axs[0].set_xticks(np.arange(*x_tick))
 
-    # make these (major) ticks longer.
-    axs[0].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
-    # add minor ticks (shorter, no labels).
+    # add major ticks.
+    axs[0].tick_params(axis = 'x', which = 'both', labelbottom = False, length = 4, width = 1, direction = 'in')
+
+    # add minor ticks.
     axs[0].xaxis.set_minor_locator(AutoMinorLocator())
     axs[0].yaxis.set_minor_locator(AutoMinorLocator())
     axs[0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
