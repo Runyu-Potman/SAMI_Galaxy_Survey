@@ -228,11 +228,11 @@ def bpt(
     NII_map_NII = np.ma.masked_array(NII_map, mask = combined_mask_NII)
 
     # the second BPT plot.
-    Hα_map_SII = np.ma.masked_array(Hα_map, mask=combined_mask_SII)
-    Hβ_map_SII = np.ma.masked_array(Hβ_map, mask=combined_mask_SII)
-    OIII_map_SII = np.ma.masked_array(OIII_map, mask=combined_mask_SII)
-    SII_6716_map_SII = np.ma.masked_array(SII_6716_map, mask=combined_mask_SII)
-    SII_6731_map_SII = np.ma.masked_array(SII_6731_map, mask=combined_mask_SII)
+    Ha_map_SII = np.ma.masked_array(Ha_map, mask = combined_mask_SII)
+    Hb_map_SII = np.ma.masked_array(Hb_map, mask = combined_mask_SII)
+    OIII_map_SII = np.ma.masked_array(OIII_map, mask = combined_mask_SII)
+    SII_6716_map_SII = np.ma.masked_array(SII_6716_map, mask = combined_mask_SII)
+    SII_6731_map_SII = np.ma.masked_array(SII_6731_map, mask = combined_mask_SII)
 
     # the third BPT plot.
     Hα_map_OI = np.ma.masked_array(Hα_map, mask=combined_mask_OI)
