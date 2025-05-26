@@ -192,8 +192,8 @@ def bpt(
     combined_mask_NII = np.ma.mask_or(combined_mask_NII, np.ma.getmask(NII_err))
 
     # combined_mask_SII is the combined mask for the second BPT plot.
-    combined_mask_SII = np.ma.getmask(Hα_map)
-    combined_mask_SII = np.ma.mask_or(combined_mask_SII, np.ma.getmask(Hα_err))
+    combined_mask_SII = np.ma.getmask(Ha_map)
+    combined_mask_SII = np.ma.mask_or(combined_mask_SII, np.ma.getmask(Ha_err))
 
     combined_mask_SII = np.ma.mask_or(combined_mask_SII, np.ma.getmask(Hβ_map))
     combined_mask_SII = np.ma.mask_or(combined_mask_SII, np.ma.getmask(Hβ_err))
