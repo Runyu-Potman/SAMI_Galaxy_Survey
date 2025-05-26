@@ -2,14 +2,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from plotbin.plot_velfield import plot_velfield
-#from plotbin.display_pixels import display_pixels
-#from plotbin.display_bins_generators import display_bins_generators
-
-#from cap_display_pixels import display_pixels
-#from cap_display_bins_generators import display_bins_generators
-from matplotlib.patches import Ellipse
-
-import matplotlib.ticker
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from matplotlib import gridspec
 import matplotlib as mpl
