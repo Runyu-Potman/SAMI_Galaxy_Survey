@@ -84,9 +84,9 @@ def bpt(
     '''
 
     # load the optical emission line maps (primary map[0] and error map [1]) for each line.
-    Hα = fits.open(Hα_fits_path)
-    Hα_map = Hα[0].data
-    Hα_err = Hα[1].data
+    Ha = fits.open(Ha_fits_path)
+    Ha_map = Ha[0].data
+    Ha_err = Ha[1].data
 
     Hβ = fits.open(Hβ_fits_path)
     Hβ_map = Hβ[0].data
