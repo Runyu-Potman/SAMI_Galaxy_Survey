@@ -170,7 +170,7 @@ def bpt(
     NII_map = np.ma.masked_where(NII_SNR < threshold, NII_map)
 
     '''
-    For the first BPT plot ([NII]/Hα verse [OIII]/Hβ), if a data point is invalid (NaN or SNR < threshold)
+    For the first BPT plot ([NII]/Ha verse [OIII]/Hb), if a data point is invalid (NaN or SNR < threshold)
     in any of the emission line maps, it should be excluded from all maps.
 
     Note that when creating the first BPT plot, the mask from the second and the third plots should not be
