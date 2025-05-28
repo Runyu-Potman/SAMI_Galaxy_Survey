@@ -383,6 +383,9 @@ def bpt(
     axs[1, 1].set_xlim(-1.4, 0.6)
     axs[1, 1].set_ylim(-1.4, 1.4)
 
+    # set x and y ticks.
+    axs[1, 1].set_xticks([-1.0, -0.5, 0.0, 0.5])
+    axs[1, 1].set_yticks([-1.0, -0.5, 0.0, 0.5, 1.0])
 
 
 
