@@ -318,6 +318,9 @@ def bpt(
     boundary_1_values = boundary_1(boundary_1_range)
     boundary_2_values = boundary_2(boundary_2_range)
 
+    # plot two boundaries.
+    axs[1, 0].plot(boundary_1_range, boundary_1_values, color = 'black', linestyle = '-', linewidth = 1)
+    axs[1, 0].plot(boundary_2_range, boundary_2_values, color = 'black', linestyle = '--', linewidth = 1)
 
 
 
