@@ -310,21 +310,9 @@ def bpt(
     bpt_plot(Ha_map_clean = Ha_map_NII, ax = axs[1, 0],
              log_x = log_NII_Ha, log_y = log_OIII_Hb_NII)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # the boundary range for plotting.
+    boundary_1_range = np.linspace(-1.4, 0.234, 1000)
+    boundary_2_range = np.linspace(-1.274, -0.176, 1000)
 
 
 
