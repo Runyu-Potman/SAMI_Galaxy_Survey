@@ -299,6 +299,7 @@ def bpt(
     fig, axs = plt.subplots(2, 3, figsize = (10, 6))
 
     # three BPT plots in the second row.
+    #########################################################################
     # first BPT plot (NII).
     # boundary for different classification region.
     def boundary_1(x):
