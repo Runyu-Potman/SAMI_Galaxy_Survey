@@ -299,7 +299,10 @@ def bpt(
     fig, axs = plt.subplots(2, 3, figsize = (10, 6))
 
     # three BPT plots in the second row.
-
+    # first BPT plot (NII).
+    # boundary for different classification region.
+    def boundary_1(x):
+        return (0.61 / (x - 0.47)) + 1.19 # the solid line (Kewley et al. 2006)
 
 
 
