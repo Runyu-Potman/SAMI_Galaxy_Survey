@@ -339,6 +339,49 @@ def bpt(
     axs[1, 0].set_xticks([-1.0, -0.5, 0.0, 0.5])
     axs[1, 0].set_yticks([-1.0, -0.5, 0.0, 0.5, 1.0])
 
+    # add major ticks.
+    axs[1, 0].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+
+    # add minor ticks.
+    axs[1, 0].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[1, 0].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[1, 0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+    ####################################################################
+    # second BPT plot (SII).
+    # boundary for different classification region.
+    def boundary_1(x):
+        return 1.89 * x + 0.76 # Kewley et al. 2006
+
+    def boundary_2(x):
+        return (0.72 / (x - 0.32)) + 1.30 # Kewley et al. 2006
+
+    bpt_plot(Ha_map_clean = Ha_map_SII, ax = axs[1, 1],
+             log_x = log_SII_Ha, log_y = log_OIII_Hb_SII)
+
+    # the boundary range for plotting.
+    boundary_1_range = np.linspace(-0.313, 0.338, 1000)
+    boundary_2_range = np.linspace(-1.4, 0.0533, 1000)
+
+    # the boundary values for plotting.
+    boundary_1_values = boundary_1(boundary_1_range)
+    boundary_2_values = boundary_2(boundary_2_range)
+
+    # plot two boundaries.
+    axs[1, 1].plot(boundary_1_range, boundary_1_values, color = 'black', linestyle = '--', linewidth = 1)
+    axs[1, 1].plot(boundary_2_range, boundary_2_values, color = 'black', linestyle = '-', linewidth = 1)
+
+    # add labels for each region, ha = 'center' centers the text horizontally at the specified x position.
+    axs[1, 1].text(-0.8, -0.8, 'SF', color = 'grey', fontsize = 10, ha = 'center')
+    axs[1, 1].text(0.25, -0.8, 'LINER', color = 'lightblue', fontsize = 10, ha = 'center')
+    axs[1, 1].text(-0.30, 0.8, 'AGN', color = 'purple', fontsize = 10, ha = 'center')
+
+    # set axis labels, title, and limits.
+    axs[1, 1].set_xlabel(r'log([SII]/H$\alpha$)', fontsize = 10)
+    axs[1, 1].set_ylabel(r'log([OIII]/H$\beta$)', fontsize = 10)
+
+    axs[1, 1].set_xlim(-1.4, 0.6)
+    axs[1, 1].set_ylim(-1.4, 1.4)
 
 
 
