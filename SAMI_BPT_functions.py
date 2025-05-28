@@ -390,6 +390,10 @@ def bpt(
     # add major ticks.
     axs[1, 1].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
 
+    # add minor ticks.
+    axs[1, 1].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[1, 1].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[1, 1].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
 
 
