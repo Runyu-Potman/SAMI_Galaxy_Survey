@@ -303,7 +303,7 @@ def bpt(
     # first BPT plot (NII).
     # boundary for different classification region.
     def boundary_1(x):
-        return (0.61 / (x - 0.47)) + 1.19 # the solid line (Kewley et al. 2006)
+        return (0.61 / (x - 0.47)) + 1.19 # Kewley et al. 2006
 
     def boundary_2(x):
         return (0.61 / (x - 0.05)) + 1.3 # the dashed line (Kewley et al. 2006)
