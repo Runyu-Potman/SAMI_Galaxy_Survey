@@ -67,9 +67,6 @@ def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correcti
         for entry in data_to_save:
             f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}\n')
 
-    # close the fits files after use.
-    gas_map.close()
-
 #-----------------------------------------------------------------------------------------------------------------
 def bpt(
         Ha_fits_path, Hb_fits_path, OIII_fits_path, OI_fits_path,
