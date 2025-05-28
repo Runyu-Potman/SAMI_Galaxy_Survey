@@ -314,6 +314,9 @@ def bpt(
     boundary_1_range = np.linspace(-1.4, 0.234, 1000)
     boundary_2_range = np.linspace(-1.274, -0.176, 1000)
 
+    # the boundary values for plotting.
+    boundary_1_values = boundary_1(boundary_1_range)
+    boundary_2_values = boundary_2(boundary_2_range)
 
 
 
