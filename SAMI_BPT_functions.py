@@ -331,6 +331,8 @@ def bpt(
     axs[1, 0].set_xlabel(r'log([NII]/H$\alpha$)', fontsize = 10)
     axs[1, 0].set_ylabel(r'log([OIII]/H$\beta$)', fontsize = 10)
 
+    axs[1, 0].set_xlim(-1.4, 0.6)
+    axs[1, 0].set_ylim(-1.4, 1.4)
 
 
 
