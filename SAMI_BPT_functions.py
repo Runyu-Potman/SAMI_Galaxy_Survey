@@ -21,7 +21,7 @@ def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correcti
     gas_data = gas_data[0, :, :]
     gas_err_data = gas_err_data[0, :, :]
 
-    # mask NaN values in all 14 maps.
+    # mask NaN values.
     gas_data = np.ma.masked_invalid(gas_data)
     gas_err_data = np.ma.masked_invalid(gas_err_data)
 
