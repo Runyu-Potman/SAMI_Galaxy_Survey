@@ -11,10 +11,10 @@ from SAMI_stellar_velocity_quality_cut_functions import quality_cut_gaseous_velo
 from matplotlib.colors import Normalize
 #---------------------------------------------------------------------------------------------------------------------
 def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correction = False, dust_fits = None):
-    # load the optical emission line maps (primary map[0] and error map [1]) for each line.
-    gas_map = fits.open(gas_fits_path)
-    gas_data = gas_map[0].data
-    gas_err_data = gas_map[1].data
+    # load the optical emission line maps (primary map[0] and error map [1]).
+    with fits.open(gas_fits_path) as gas_map:
+        gas_data = gas_map[0].data
+        gas_err_data = gas_map[1].data
 
     # extract the total component (0) of Ha (50*50*4 -> 50*50).
     # for the 1-component case, [0, :, :] is the same as [1, :, :].
