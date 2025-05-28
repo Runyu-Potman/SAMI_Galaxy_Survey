@@ -307,6 +307,8 @@ def bpt(
     def boundary_2(x):
         return (0.61 / (x - 0.05)) + 1.3 # the dashed line (Kewley et al. 2006)
 
+    bpt_plot(Ha_map_clean = Ha_map_NII, ax = axs[1, 0],
+             log_x = log_NII_Ha, log_y = log_OIII_Hb_NII)
 
 
 
