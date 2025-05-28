@@ -296,31 +296,7 @@ def bpt(
 
     # begin making plots.
     # the first row would be three spatial maps, the second row would be three BPT plots.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    fig, axs = plt.subplots(2, 3, figsize = (10, 6))
 
 
 
