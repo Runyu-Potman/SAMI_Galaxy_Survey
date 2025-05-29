@@ -401,7 +401,7 @@ def bpt(
 
     # set axis labels, title, and limits.
     axs[1, 1].set_xlabel(r'log([SII]/H$\alpha$)', fontsize = 10)
-    axs[1, 1].set_ylabel(r'log([OIII]/H$\beta$)', fontsize = 10)
+    axs[1, 1].set_ylabel('')
 
     axs[1, 1].set_xlim(-1.4, 0.6)
     axs[1, 1].set_ylim(-1.4, 1.4)
