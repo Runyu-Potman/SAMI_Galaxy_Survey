@@ -463,6 +463,8 @@ def bpt(
     axs[1, 2].set_xticks([-2.0, -1.5, -1.0, -0.5, 0.0])
     axs[1, 2].set_yticks([-1.0, -0.5, 0.0, 0.5, 1.0])
 
+    # add major ticks.
+    axs[1, 2].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
 
 
 
