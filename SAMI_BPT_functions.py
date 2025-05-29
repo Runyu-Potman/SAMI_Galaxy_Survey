@@ -452,6 +452,9 @@ def bpt(
     axs[1, 2].text(0.3, -0.8, 'LINER', color = 'lightblue', fontsize = 10, ha = 'center')
     axs[1, 2].text(-0.4, 0.8, 'AGN', color = 'purple', fontsize = 10, ha = 'center')
 
+    # set axis labels, title, and limits.
+    axs[1, 2].set_xlabel(r'log([OI]/H$\alpha$)', fontsize = 10)
+    axs[1, 2].set_ylabel(r'log([OIII]/H$\beta$)', fontsize = 10)
 
 
 
