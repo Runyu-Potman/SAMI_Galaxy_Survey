@@ -383,8 +383,8 @@ def bpt(
              log_x = log_SII_Ha, log_y = log_OIII_Hb_SII)
 
     # the boundary range for plotting.
-    boundary_1_range = np.linspace(-0.313, 0.338, 1000)
-    boundary_2_range = np.linspace(-1.4, 0.0533, 1000)
+    boundary_3_range = np.linspace(-0.313, 0.338, 1000)
+    boundary_4_range = np.linspace(-1.4, 0.0533, 1000)
 
     # the boundary values for plotting.
     boundary_1_values = boundary_1(boundary_1_range)
