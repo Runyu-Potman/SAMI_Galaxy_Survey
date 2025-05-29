@@ -76,6 +76,21 @@ def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correcti
             f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}\n')
 
 #-----------------------------------------------------------------------------------------------------------------
+def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25):
+    y, x = np.meshgrid(np.arange(Ha_map_clean.shape[0]), np.arange(Ha_map_clean.shape[1]))
+    x = x[~Ha_map_clean.mask]
+    y = y[~Ha_map_clean.mask]
+
+    distance = np.sqrt((x - center_x)**2 + (y - center_y)**2)
+
+    # normalize distance.
+    normalized_distance = (distance - np.min(distance)) / (np.max(distance) - np.min(distance))
+
+    # plot the BPT diagram.
+    ax.scatter(log_x, log_y, c = normalized_distance, cmap = plt.cm.coolwarm,
+                    s = 0.5, alpha = 1) # s: marker size
+
+#-------------------------------------------------------------------------------------
 def bpt(
         Ha_fits_path, Hb_fits_path, OIII_fits_path, OI_fits_path,
         SII_6716_fits_path, SII_6731_fits_path, NII_fits_path,
