@@ -466,5 +466,18 @@ def bpt(
     # add major ticks.
     axs[1, 2].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
 
+    # add minor ticks.
+    axs[1, 2].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[1, 2].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[1, 2].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+    '''
+    #########################################################################
+    # three spatial plots in the first row.
+    ########################################################################
+    #important!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    # here we assume the shape of emission line maps are (50, 50) and the center is (25, 25).
+    # transfer from pixel size to arcsec.
+    x = (np.arange(50) - 25) * 0.5
+    y = (np.arange(50) - 25) * 0.5
 
 
