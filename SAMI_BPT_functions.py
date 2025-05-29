@@ -317,7 +317,9 @@ def bpt(
     #########################################################################
     # first BPT plot (NII).
     # boundary for different classification region.
-    def boundary_1(x):
+    def boundary_1(x, clip = False):
+        if clip:
+            x = np.clip(x, -1.274, 0.469)
         return (0.61 / (x - 0.47)) + 1.19 # Kewley et al. 2006
 
     def boundary_2(x):
