@@ -369,7 +369,9 @@ def bpt(
     ####################################################################
     # second BPT plot (SII).
     # boundary for different classification region.
-    def boundary_1(x):
+    def boundary_3(x, clip = False):
+        if clip:
+            x = np.clip(x, -0.313, np.inf)
         return 1.89 * x + 0.76 # Kewley et al. 2006
 
     def boundary_2(x):
