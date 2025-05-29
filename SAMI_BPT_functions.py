@@ -387,8 +387,8 @@ def bpt(
     boundary_4_range = np.linspace(-1.4, 0.0533, 1000)
 
     # the boundary values for plotting.
-    boundary_1_values = boundary_1(boundary_1_range)
-    boundary_2_values = boundary_2(boundary_2_range)
+    boundary_3_values = boundary_3(boundary_3_range)
+    boundary_4_values = boundary_4(boundary_4_range)
 
     # plot two boundaries.
     axs[1, 1].plot(boundary_1_range, boundary_1_values, color = 'black', linestyle = '--', linewidth = 1)
