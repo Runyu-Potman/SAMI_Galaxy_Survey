@@ -374,7 +374,9 @@ def bpt(
             x = np.clip(x, -0.313, np.inf)
         return 1.89 * x + 0.76 # Kewley et al. 2006
 
-    def boundary_2(x):
+    def boundary_4(x, clip = False):
+        if clip:
+            x = np.clip(x, -np.inf, 0.319)
         return (0.72 / (x - 0.32)) + 1.30 # Kewley et al. 2006
 
     bpt_plot(Ha_map_clean = Ha_map_SII, ax = axs[1, 1],
