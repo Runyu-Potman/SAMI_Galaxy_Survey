@@ -418,6 +418,39 @@ def bpt(
     axs[1, 1].yaxis.set_minor_locator(AutoMinorLocator())
     axs[1, 1].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
+    #################################################################################
+    '''
+    # third BPT plot (OI).
+    # boundary for different classification region.
+    def boundary_5(x, clip = False):
+        if clip:
+            x = np.clip(x, -1.13, np.inf)
+        return 1.18 * x + 1.30 # Kewley et al. 2006
+
+    def boundary_6(x, clip = False):
+        if clip:
+            x = np.clip(x, -np.inf, -0.591)
+        return (0.73 / (x + 0.59)) + 1.33 # Kewley et al. 2006
+
+    bpt_plot(Ha_map_clean = Ha_map_OI, ax = axs[1, 2],
+             log_x = log_OI_Ha, log_y = log_OIII_Hb_OI)
+
+    # the boundary range for plotting.
+    boundary_5_range = np.linspace(-1.13, -0.254, 1000)
+    boundary_6_range = np.linspace(-2.0, -0.902, 1000)
+
+    # the boundary values for plotting.
+    boundary_5_values = boundary_5(boundary_5_range)
+    boundary_6_values = boundary_6(boundary_6_range)
+
+    # plot two boundaries.
+    axs[1, 2].plot(boundary_5_range, boundary_5_values, color = 'black', linestyle = '--', linewidth = 1)
+    axs[1, 2].plot(boundary_6_range, boundary_6_values, color = 'black', linestyle = '-', linewidth = 1)
+
+    # add labels for each region, ha = 'center' centers the text horizontally at the specified x position.
+    axs[1, 2].text(-0.8, -0.8, 'SF', color = 'grey', fontsize = 10, ha = 'center')
+    axs[1, 2].text(0.3, -0.8, 'LINER', color = 'lightblue', fontsize = 10, ha = 'center')
+    axs[1, 2].text(-0.4, 0.8, 'AGN', color = 'purple', fontsize = 10, ha = 'center')
 
 
 
