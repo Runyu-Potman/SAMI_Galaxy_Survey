@@ -330,7 +330,7 @@ def bpt(
             x = np.clip(x, -1.274, 0.05)
         return (0.61 / (x - 0.05)) + 1.3 # Kewley et al. 2006
 
-    bpt_plot(Ha_map_clean = Ha_map_NII, ax = axs[1, 0],
+    sc, center_x, center_y = bpt_plot(Ha_map_clean = Ha_map_NII, ax = axs[1, 0],
              log_x = log_NII_Ha, log_y = log_OIII_Hb_NII)
 
     # the boundary range for plotting.
