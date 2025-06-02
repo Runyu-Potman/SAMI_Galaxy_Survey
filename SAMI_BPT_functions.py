@@ -487,6 +487,7 @@ def bpt(
     cbar.set_label('Radius (arcsec)', fontsize = 10)
     cbar.ax.yaxis.set_tick_params(direction = 'in')
     '''
+
     #########################################################################
     # three spatial plots in the first row.
     ########################################################################
