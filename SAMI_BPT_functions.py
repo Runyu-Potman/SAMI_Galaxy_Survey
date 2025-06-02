@@ -85,7 +85,7 @@ def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25):
     distance = np.sqrt((x - center_x)**2 + (y - center_y)**2) * 0.5
 
     # normalize distance.
-    normalized_distance = (distance - np.min(distance)) / (np.max(distance) - np.min(distance))
+    #normalized_distance = (distance - np.min(distance)) / (np.max(distance) - np.min(distance))
 
     # plot the BPT diagram.
     ax.scatter(log_x, log_y, c = normalized_distance, cmap = plt.cm.coolwarm,
