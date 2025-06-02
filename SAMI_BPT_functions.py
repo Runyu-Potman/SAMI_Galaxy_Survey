@@ -491,8 +491,6 @@ def bpt(
     #########################################################################
     # three spatial plots in the first row.
     ########################################################################
-    #important!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # here we assume the shape of emission line maps are (50, 50) and the center is (25, 25).
     # transfer from pixel size to arcsec.
     x = (np.arange(50) - 25) * 0.5
     y = (np.arange(50) - 25) * 0.5
