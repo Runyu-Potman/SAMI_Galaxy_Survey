@@ -8,7 +8,7 @@ import astropy.io.fits as fits
 import matplotlib.pyplot as plt
 from SAMI_kinematcs import plot_vel_or_sig
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_gaseous_velocity_map_csv
-from matplotlib.colors import Normalize
+from matplotlib.ticker import AutoMinorLocator
 #---------------------------------------------------------------------------------------------------------------------
 def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correction = False, dust_fits = None):
     # load the optical emission line maps (primary map[0] and error map [1]).
