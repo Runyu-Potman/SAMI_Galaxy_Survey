@@ -136,6 +136,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
             combined_flux_cube[:, y, x] = combined_flux
             combined_var_cube[:, y, x] = combined_var
 
+    # store the data and new wavelength information.
     hdu_flux = fits.PrimaryHDU(data = combined_flux_cube)
     hdu_flux.header['CTYPE3'] = 'WAVELENGTH'
     hdu_flux.header['CUNIT3'] = 'Angstrom'
