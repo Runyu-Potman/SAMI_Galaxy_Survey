@@ -61,6 +61,8 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     red_cleaned_flux_cube = np.ma.masked_invalid(red_flux)
     red_cleaned_var_cube = np.ma.masked_invalid(red_var)
 
+    # construct blue and red wavelengths.
+    # note that CRPIX is 1-based but np.arange() is 0-based, so + 1.
     blue_wavelength = blue_header['CRVAL3'] + (np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3'] + 1) * blue_header['CDELT3']
     red_wavelength = red_header['CRVAL3'] + (np.arange(red_header['NAXIS3']) - red_header['CRPIX3'] + 1) * red_header['CDELT3']
 
