@@ -108,10 +108,12 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
 
                 continue
 
-            blue_flux = blue_cleaned_flux_cube[:, x, y].filled(np.nan)
-            red_flux = red_cleaned_flux_cube[:, x, y].filled(np.nan)
-            blue_var = blue_cleaned_var_cube[:, x, y].filled(np.nan)
-            red_var = red_cleaned_var_cube[:, x, y].filled(np.nan)
+            # extract the flux spectrum and variance spectrum.
+            # fill the masked regions with NaN.
+            blue_flux = blue_cleaned_flux_cube[:, y, x].filled(np.nan)
+            red_flux = red_cleaned_flux_cube[:, y, x].filled(np.nan)
+            blue_var = blue_cleaned_var_cube[:, y, x].filled(np.nan)
+            red_var = red_cleaned_var_cube[:, y, x].filled(np.nan)
 
             for spec in [blue_flux, red_flux, blue_var, red_var]:
                 nan_idx = np.isnan(spec)
