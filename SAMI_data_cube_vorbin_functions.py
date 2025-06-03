@@ -74,7 +74,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     sig_conv = fwhm_conv / (2 * np.sqrt(2 * np.log(2)))
     sig_conv = sig_conv / red_header['CDELT3']  # transfer to pixel scale.
 
-    # do the interpolation.
+    # do the interpolation on red wavelength based on the increment of blue wavelength.
     cdelt3 = blue_header['CDELT3']
     red_wave_interp = np.arange(red_wavelength[0], red_wavelength[-1] + cdelt3, cdelt3)
 
