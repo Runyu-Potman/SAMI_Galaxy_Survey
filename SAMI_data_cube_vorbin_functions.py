@@ -115,14 +115,8 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
             blue_var = blue_cleaned_var_cube[:, y, x].filled(np.nan)
             red_var = red_cleaned_var_cube[:, y, x].filled(np.nan)
 
-            for spec in [blue_flux, red_flux, blue_var, red_var]:
-                nan_idx = np.isnan(spec)
-                for idx in range(1, len(spec) - 1):
-                    if nan_idx[idx]:
-                        spec[idx - 1] = np.nan
-                        spec[idx + 1] = np.nan
-
-            red_flux = gaussian_filter1d(red_flux, sig_conv)
+            # first step would be the convolution.
+            red_flux = nan_safe_gaussian_filter1d(red_flux, sig_conv)
             red_noise = np.sqrt(red_var)
             red_noise = gaussian_filter1d(red_noise, sig_conv)
             red_var = red_noise**2
