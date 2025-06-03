@@ -54,8 +54,8 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     print('blue data cube shape:', blue_cube_shape_wave, blue_cube_shape_y, blue_cube_shape_x)
 
     # mask invalid values in blue cube.
-    blue_cleaned_flux_cube = np.ma.masked_invalid(blue_flux)
-    blue_cleaned_var_cube = np.ma.masked_invalid(blue_var)
+    blue_cleaned_flux_cube = np.ma.masked_invalid(blue_flux_cube)
+    blue_cleaned_var_cube = np.ma.masked_invalid(blue_var_cube)
 
     # mask invalid values in red cube.
     red_cleaned_flux_cube = np.ma.masked_invalid(red_flux)
