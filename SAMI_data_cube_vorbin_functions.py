@@ -94,6 +94,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     shape = (nwave_combined, blue_flux_shape_y, blue_flux_shape_x)
     # extension one is combined flux.
     combined_flux_cube = np.full(shape, np.nan, dtype = np.float32)
+    # extension two is combined variance.
     combined_var_cube = np.full(shape, np.nan, dtype = np.float32)
 
     # loop through each spatial pixel in the 50*50 grid.
