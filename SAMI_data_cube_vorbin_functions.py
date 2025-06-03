@@ -118,7 +118,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
             # first step would be the convolution.
             red_flux = nan_safe_gaussian_filter1d(red_flux, sig_conv)
             red_noise = np.sqrt(red_var)
-            red_noise = gaussian_filter1d(red_noise, sig_conv)
+            red_noise = nan_safe_gaussian_filter1d(red_noise, sig_conv)
             red_var = red_noise**2
 
             interp_func_flux = interp1d(red_wavelength, red_flux, kind = 'linear', bounds_error = False, fill_value = np.nan)
