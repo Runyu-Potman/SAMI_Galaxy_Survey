@@ -87,6 +87,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     # combine blue, gap and interpolated red wavelength.
     combined_wavelength = np.concatenate([blue_wavelength, gap_wavelength, red_wave_interp])
 
+    # length of combined wavelength for fits file storing.
     nwave_combined = len(combined_wavelength)
 
     # output cubes.
