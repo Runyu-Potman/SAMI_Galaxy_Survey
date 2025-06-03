@@ -84,6 +84,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     gap_flux = np.full_like(gap_wavelength, np.nan)
     gap_var = np.full_like(gap_wavelength, np.nan)
 
+    # combine blue, gap and interpolated red wavelength.
     combined_wavelength = np.concatenate([blue_wavelength, gap_wavelength, red_wave_interp])
 
     nwave_combined = len(combined_wavelength)
