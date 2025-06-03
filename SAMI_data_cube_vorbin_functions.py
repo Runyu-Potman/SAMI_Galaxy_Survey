@@ -42,8 +42,8 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
 
     # open the red data cube.
     with fits.open(red_cube_fits) as red_hdul:
-        red_flux = red_hdul[0].data
-        red_var = red_hdul[1].data
+        red_flux_cube = red_hdul[0].data
+        red_var_cube = red_hdul[1].data
         red_header = red_hdul[0].header
 
     # data cube shape for later use.
