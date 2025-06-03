@@ -65,6 +65,9 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     # note that CRPIX is 1-based but np.arange() is 0-based, so + 1.
     blue_wavelength = blue_header['CRVAL3'] + (np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3'] + 1) * blue_header['CDELT3']
     red_wavelength = red_header['CRVAL3'] + (np.arange(red_header['NAXIS3']) - red_header['CRPIX3'] + 1) * red_header['CDELT3']
+    # debug.
+    print('blue wavelength range:', blue_wavelength[0], blue_wavelength[-1])
+    print('red wavelength range:', red_wavelength[0], red_wavelength[-1])
 
     # do the convolution to match the resolution of the red to the resolution of the blue.
     fwhm_conv = np.sqrt(fwhm_blue ** 2 - fwhm_red ** 2)
