@@ -36,8 +36,8 @@ def nan_safe_gaussian_filter1d (data, sigma):
 def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     # open the blue data cube.
     with fits.open(blue_cube_fits) as blue_hdul:
-        blue_flux = blue_hdul[0].data
-        blue_var = blue_hdul[1].data
+        blue_flux_cube = blue_hdul[0].data
+        blue_var_cube = blue_hdul[1].data
         blue_header = blue_hdul[0].header
 
     # open the red data cube.
