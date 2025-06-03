@@ -58,8 +58,8 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     blue_cleaned_var_cube = np.ma.masked_invalid(blue_var_cube)
 
     # mask invalid values in red cube.
-    red_cleaned_flux_cube = np.ma.masked_invalid(red_flux)
-    red_cleaned_var_cube = np.ma.masked_invalid(red_var)
+    red_cleaned_flux_cube = np.ma.masked_invalid(red_flux_cube)
+    red_cleaned_var_cube = np.ma.masked_invalid(red_var_cube)
 
     # construct blue and red wavelengths.
     # note that CRPIX is 1-based but np.arange() is 0-based, so + 1.
