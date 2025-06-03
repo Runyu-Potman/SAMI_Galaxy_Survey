@@ -143,6 +143,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     hdu_flux.header['CRVAL3'] = combined_wavelength[0]
     hdu_flux.header['CRPIX3'] = 1
     hdu_flux.header['CDELT3'] = cdelt3
+    # extract the redshift from the input blue cube.
     z = blue_header['Z_SPEC']
     hdu_flux.header['Z_SPEC'] = z
 
