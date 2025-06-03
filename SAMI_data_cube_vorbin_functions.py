@@ -128,6 +128,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
             red_flux_interp = interp_func_flux(red_wave_interp)
             red_var_interp = interp_func_var(red_wave_interp)
 
+            # third step would be the combination.
             combined_flux = np.concatenate([blue_flux, gap_flux, red_flux_interp])
             combined_var = np.concatenate([blue_var, gap_var, red_var_interp])
 
