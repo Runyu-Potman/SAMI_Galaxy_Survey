@@ -5,6 +5,33 @@ from scipy.ndimage import gaussian_filter1d
 from scipy.interpolate import interp1d
 from SAMI_data_cube_quality_cut_functions import data_cube_clean_snr
 
+#-------------------------------------------------------------------------------
+def nan_safe_gaussian_filter1d (data, sigma):
+    # identify NaNs.
+    nan_mask = np.isnan(data)
+
+    # replace NaNs with 0 temporarily, but keep track of them.
+    data_filled = np.nan_to_num(data, nan = 0)
+
+    # make a weight array: 1 where data is valid, 0 where it's NaN.
+    weights = (~nan_mask).astype(float)
+
+    # convolve both the filled data and the weights.
+    smoothed_data = gaussian_filter1d(data_filled, sigma = sigma)
+    smoothed_weights = gaussian_filter1d(weights, sigma = sigma)
+
+    # avoid division by zero by adding a small epsilon to the denominator.
+    epsilon = 1e-10
+    smoothed_weights = np.where(smoothed_weights == 0, epsilon, smoothed_weights)
+
+    # normalize the result by the weights.
+    result = smoothed_data / smoothed_weights
+
+    # where there was no valid data, set output to NaN.
+    result[smoothed_weights == epsilon] = np.nan
+
+    return result
+
 #------------------------------------------------------------------------------
 def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     with fits.open(blue_cube_fits) as blue_hdul:
