@@ -98,8 +98,8 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     combined_var_cube = np.full(shape, np.nan, dtype = np.float32)
 
     # loop through each spatial pixel in the 50*50 grid.
-    for x in range(blue_flux_shape_x):
-        for y in range(blue_flux_shape_y):
+    for x in range(blue_cube_shape_x):
+        for y in range(blue_cube_shape_y):
             # skip if a spaxel is totally masked in the wavelength dimension.
             if (blue_cleaned_flux_cube.mask[:, y, x].all() or
                 red_cleaned_flux_cube.mask[:, y, x].all() or
