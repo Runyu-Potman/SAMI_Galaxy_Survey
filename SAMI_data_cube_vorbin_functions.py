@@ -145,6 +145,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
     hdu_flux.header['CDELT3'] = cdelt3
     # extract the redshift from the input blue cube.
     z = blue_header['Z_SPEC']
+    # store the redshift in the new cube.
     hdu_flux.header['Z_SPEC'] = z
 
     hdu_var = fits.ImageHDU(data = combined_var_cube, name = 'VARIANCE')
