@@ -153,6 +153,14 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
     var_cube = np.ma.masked_invalid(var_cube)
     var_cube = np.ma.masked_where(var_cube <= 0, var_cube)
 
+    if wave_range:
+        wavelength = header['CRVAL3'] + (np.arange(header['NAXIS3']) - header['CRPIX3'] + 1) * header['CDELT3']
+        redshift = header['Z_SPEC']
+        wave_mask = ((wavelength >= wave_min * (1 + redshift))
+                     & (wavelength <= wave_max * (1 + redshift)))
+        flux_cube = flux_cube[wave_mask, :, :]
+        var_cube = var_cube[wave_mask, :, :]
+
     # compute S/N cube (same shape as the flux and variance cube).
     sn_cube = flux_cube / np.sqrt(var_cube)
 
