@@ -186,7 +186,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
 
     # mask spaxels with low S/N.
     sn_mask = sn < sn_threshold # 50*50
-    sn_mask = np.broadcast_to(sn_mask, flux_cube.shape) # 2048*50*50
+    sn_mask = np.broadcast_to(sn_mask, flux_cube.shape) # wave*50*50
     cleaned_flux_cube = np.ma.masked_where(sn_mask, flux_cube)
     cleaned_var_cube = np.ma.masked_where(sn_mask, var_cube)
 
