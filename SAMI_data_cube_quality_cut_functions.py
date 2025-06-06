@@ -171,7 +171,10 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
     # for each spaxel, find the wavelength slice where the median S/N is obtained.
     # the flux and noise at this wavelength slice will be used to do vorbin.
     # the np.ma.argmin() function returns the index of the minimum value.
-    sn_slice = np.ma.argmin(np.abs(sn_cube - sn), axis = 0)
+    # extend sn to match the shape of sn_cube.
+    sn_expand = sn[None, :, :]
+    # find the slice.
+    sn_slice = np.ma.argmin(np.abs(sn_cube - sn_expand), axis = 0)
 
     # plot the total S/N map before masking.
     plt.imshow(sn, cmap = 'jet', origin = 'lower')
