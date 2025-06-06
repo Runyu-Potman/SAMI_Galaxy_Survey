@@ -178,7 +178,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
 
     # plot the total S/N map before masking.
     plt.imshow(sn, cmap = 'jet', origin = 'lower')
-    plt.colorbar(label = 'median S/N based on whole wavelength slices')
+    plt.colorbar(label = 'median S/N based on whole/specified wavelength slices')
     plt.xlabel('SPAXEL X')
     plt.ylabel('SPAXEL Y')
     plt.title('S/N map before quality cut')
