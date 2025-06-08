@@ -17,6 +17,8 @@ def nan_safe_gaussian_filter1d (data, sigma):
     weights = (~nan_mask).astype(float)
 
     # convolve both the filled data and the weights.
+    # after convolution, some initial NaN values can have valid value (if not all NaNs),
+    # because convolution is to make the spectrum broader.
     smoothed_data = gaussian_filter1d(data_filled, sigma = sigma)
     smoothed_weights = gaussian_filter1d(weights, sigma = sigma)
 
