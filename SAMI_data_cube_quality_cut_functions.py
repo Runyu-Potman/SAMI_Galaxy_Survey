@@ -243,8 +243,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
         sn_slice = sn_slice.ravel()
 
         # for each spaxel, extract the flux and noise value at the wavelength slice with the median S/N.
-        flux = np.ma.array([cleaned_flux_cube[sn_slice[i], y[i], x[i]] for i in range(len(x))])
-        noise = np.ma.array([np.sqrt(cleaned_var_cube[sn_slice[i], y[i], x[i]]) for i in range(len(x))])
+        flux = cleaned_flux_cube[sn_slice, y, x]
+        noise = np.sqrt(cleaned_var_cube[sn_slice, y, x])
 
         # mask out any NaN or invalid values in signal and noise.
         valid_mask = (~flux.mask) & (~noise.mask)
