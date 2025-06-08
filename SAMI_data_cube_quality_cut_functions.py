@@ -297,9 +297,9 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
                 binned_flux_cube[:, y_, x_] = stacked_flux
                 binned_var_cube[:, y_, x_] = stacked_var
 
-        # spaxels not included in any bin keep their original spectra.
-        unbinned_mask = (binMap == -1)
-        for y_, x_ in zip(*np.where(unbinned_mask)):
+        # masked spaxels not included in any bin keep their original data (--).
+        invalid_mask = (binMap == -1)
+        for y_, x_ in zip(*np.where(invalid_mask)):
             binned_flux_cube[:, y_, x_] = cleaned_flux_cube[:, y_, x_]
             binned_var_cube[:, y_, x_] = cleaned_var_cube[:, y_, x_]
 
