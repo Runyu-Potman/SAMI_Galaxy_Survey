@@ -190,7 +190,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
     # the flux and noise at this wavelength slice will be used to do vorbin.
     # the np.ma.argmin() function returns the index of the minimum value.
     # extend sn to match the shape of sn_cube.
-    sn_expand = sn[None, :, :]
+    sn_expand = sn[None, :, :] # 1*50*50
     # find the slice.
     sn_slice = np.ma.argmin(np.abs(sn_cube - sn_expand), axis = 0)
 
