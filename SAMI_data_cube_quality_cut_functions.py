@@ -247,7 +247,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
         noise = np.sqrt(cleaned_var_cube[sn_slice, y, x])
 
         # mask out any NaN or invalid values in signal and noise.
-        valid_mask = (~flux.mask) & (~noise.mask)
+        valid_mask = (~flux.mask) & (~noise.mask) & (noise > 0)
         flux = flux[valid_mask]
         noise = noise[valid_mask]
         x = x[valid_mask]
