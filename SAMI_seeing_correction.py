@@ -76,9 +76,9 @@ plt.tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction
 # three galaxies.
 # Define galaxies with (ε_e, λ_Re, color, marker)
 galaxies = {
-    'Galaxy 7969':     (0.098, 0.06,  'purple',  'o'),
-    'Galaxy 227266':   (0.113, 0.058, 'orange',  'o'),
-    'Galaxy 230776':   (0.342, 0.105, 'cyan',    'o'),
+    'Galaxy 7969':     (ellipticity_7969, lambda_7969, 'yellow', 'o'),
+    'Galaxy 227266':   (ellipticity_227266, lambda_227266, 'salmon', 'o'),
+    'Galaxy 230776':   (ellipticity_230776, lambda_230776, 'cyan', 'o'),
 }
 # Add galaxy points
 for name, (eps, lam, color, marker) in galaxies.items():
