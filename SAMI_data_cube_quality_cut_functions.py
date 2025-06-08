@@ -150,8 +150,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
 
     # read the primary flux data in extension [0] and the variance data in [1].
     with fits.open(fits_path) as hdul:
-        flux_cube = hdul[0].data # flux data (2048*50*50)
-        var_cube = hdul[1].data # variance data (2048*50*50)
+        flux_cube = hdul[0].data # flux data (wave*50*50)
+        var_cube = hdul[1].data # variance data (wave*50*50)
         header = hdul[0].header # extract the header for the input fits file.
 
     # mask invalid data.
