@@ -274,8 +274,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
         # binNum is the vorbin ID only for all the valid, unmasked spaxels.
         # masked invalid spaxels are assigned -1 in the binMap.
         binMap = np.full((n_y, n_x), -1, dtype = int)
-        x_all = x + 24
-        y_all = y + 24
+        x_all = x + center_x
+        y_all = y + center_y
         binMap[y_all.astype(int), x_all.astype(int)] = binNum
 
         # for each bin:
