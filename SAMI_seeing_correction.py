@@ -27,8 +27,7 @@ def correct_lambda_R(lambda_R_obs, Re_arcsec, ellipticity, sersic_n, fwhm=2.1):
 
     return lambda_corr, ellipticity
 
-kdc_7969 = correct_lambda_R(0.045, 2.859/np.sqrt(1 - 0.098), 0.098, 5.073, fwhm = 1.561)
-print(kdc_7969)
+lambda_7969, ellipticity_7969 = correct_lambda_R(0.045, 2.859/np.sqrt(1 - 0.098), 0.098, 5.073, fwhm = 1.561)
 
 kdc_227266 = correct_lambda_R(0.052, 7.136/np.sqrt(1 - 0.113), 0.113, 4.095, fwhm = 2.108)
 print(kdc_227266)
