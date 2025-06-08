@@ -271,6 +271,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
         binned_var_cube.mask = np.ones_like(cleaned_var_cube.mask)
 
         # create a map showing which spaxels belongs to which voronoi bin.
+        # binNum is the vorbin ID only for all the valid, unmasked spaxels.
+        # masked invalid spaxels are assigned -1 in the binMap.
         binMap = np.full((n_y, n_x), -1, dtype = int)
         x_all = x + 24
         y_all = y + 24
