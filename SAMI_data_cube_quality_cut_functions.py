@@ -140,6 +140,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
     - combined_mask: 2D mask, the mask from other maps (e.g., stellar velocity maps), where True indicates pixels to exclude.
     - vorbin: bool, whether to perform Voronoi binning.
     - target_sn: float, target S/N for Voronoi binning (required if vorbin is True).
+    - center_x: float, center x coordinate in pixel.
+    - center_y: float, center y coordinate in pixel.
 
     Returns:
     - cleaned_data_cube: masked array containing the cleaned data cube with S/N > sn_threshold.
