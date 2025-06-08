@@ -34,7 +34,7 @@ lambda_7969, ellipticity_7969 = correct_lambda_R(0.045, 2.859, 0.098, 5.073, fwh
 
 lambda_227266, ellipticity_227266 = correct_lambda_R(0.052, 7.136, 0.113, 4.095, fwhm = 2.108)
 
-lambda_230776, ellipticity_230776 = correct_lambda_R(0.104, 23.81/np.sqrt(1 - 0.342), 0.342, 3.661, fwhm = 2.144)
+lambda_230776, ellipticity_230776 = correct_lambda_R(0.104, 23.81, 0.342, 3.661, fwhm = 2.144)
 
 # make the lambda_re verse ellipticity plot.
 # Axes limits
