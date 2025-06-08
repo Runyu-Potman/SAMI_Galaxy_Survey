@@ -162,7 +162,8 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
     flux_cube = np.ma.masked_where(flux_cube < 0, flux_cube)
     var_cube = np.ma.masked_where(var_cube <= 0, var_cube)
 
-    if wave_range:
+    if wave_range and (wave_min is not None) and (wave_max is not None):
+        # construct the wavelength.
         wavelength = header['CRVAL3'] + (np.arange(header['NAXIS3']) - header['CRPIX3'] + 1) * header['CDELT3']
         redshift = header['Z_SPEC']
         wave_mask = ((wavelength >= wave_min * (1 + redshift))
