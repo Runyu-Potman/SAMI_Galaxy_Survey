@@ -167,6 +167,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
         wavelength = header['CRVAL3'] + (np.arange(header['NAXIS3']) - header['CRPIX3'] + 1) * header['CDELT3']
         # extract the redshift.
         redshift = header['Z_SPEC']
+        # use the emission-free region to calculate S/N.
         wave_mask = ((wavelength >= wave_min * (1 + redshift))
                      & (wavelength <= wave_max * (1 + redshift)))
         flux_cube = flux_cube[wave_mask, :, :]
