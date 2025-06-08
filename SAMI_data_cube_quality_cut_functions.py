@@ -157,6 +157,9 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
     # mask invalid data.
     flux_cube = np.ma.masked_invalid(flux_cube)
     var_cube = np.ma.masked_invalid(var_cube)
+
+    # mask unphysical values.
+    flux_cube = np.ma.masked_where(flux_cube < 0, flux_cube)
     var_cube = np.ma.masked_where(var_cube <= 0, var_cube)
 
     if wave_range:
