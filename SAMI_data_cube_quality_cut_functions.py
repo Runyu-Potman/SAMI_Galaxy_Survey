@@ -255,7 +255,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
         y = y[valid_mask] - center_y
 
         binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale = voronoi_2d_binning(
-            x, y, flux, noise, target_sn, plot = 1, quiet = 0
+            x = x, y = y, signal = flux, noise = noise, target_sn = target_sn, plot = 1, quiet = 0
         )
 
         plt.show()
