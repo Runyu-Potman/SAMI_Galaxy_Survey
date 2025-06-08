@@ -250,11 +250,9 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
         valid_mask = (~flux.mask) & (~noise.mask) & (noise > 0)
         flux = flux[valid_mask]
         noise = noise[valid_mask]
-        x = x[valid_mask]
-        y = y[valid_mask]
-        # shift the center of the galaxy.
-        x = x - 24
-        y = y - 24
+        # extract valid value and shift the center of the galaxy.
+        x = x[valid_mask] - center_x
+        y = y[valid_mask] - center_y
 
         binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale = voronoi_2d_binning(
             x, y, flux, noise, target_sn, plot = 1, quiet = 0
