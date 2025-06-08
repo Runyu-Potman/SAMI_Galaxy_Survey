@@ -170,15 +170,21 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
         # use the emission-free region to calculate S/N.
         wave_mask = ((wavelength >= wave_min * (1 + redshift))
                      & (wavelength <= wave_max * (1 + redshift)))
-        flux_cube = flux_cube[wave_mask, :, :]
-        var_cube = var_cube[wave_mask, :, :]
-
-    # compute S/N cube (same shape as the flux and variance cube).
-    sn_cube = flux_cube / np.sqrt(var_cube)
-
-    # for each spaxel, compute the S/N at each wavelength slice (axis = 0).
-    # the median S/N will be used to represent the S/N for each spaxel.
-    sn = np.ma.median(sn_cube, axis = 0) # 50*50
+        # cube within corresponding wavelength region.
+        flux_cube_select = flux_cube[wave_mask, :, :]
+        var_cube_select = var_cube[wave_mask, :, :]
+        # S/N within the corresponding wavelength region.
+        sn_cube = flux_cube_select / np.sqrt(var_cube_select) # wave*50*50
+        # use the median value in emission-free region to represent the S/N for this spaxel.
+        sn = np.ma.median(sn_cube, axis = 0)  # 50*50
+        # we want to work with the data cube in whole wavelength range.
+        sn_cube = flux_cube / np.sqrt(var_cube)
+    else:
+        # calculate the S/N along whole wavelength range.
+        # compute S/N cube.
+        sn_cube = flux_cube / np.sqrt(var_cube)
+        # the median value.
+        sn = np.ma.median(sn_cube, axis = 0)  # 50*50
 
     # for each spaxel, find the wavelength slice where the median S/N is obtained.
     # the flux and noise at this wavelength slice will be used to do vorbin.
