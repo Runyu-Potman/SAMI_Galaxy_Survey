@@ -227,7 +227,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
     plt.title(f'data cube after quality cut at the wavelength slice: {wavelength_slice_index}')
     plt.show()
 
-    if vorbin and target_sn is None:
+    if vorbin and (target_sn is None):
         raise ValueError('target_sn must be provided for Voronoi binning.')
 
     if vorbin and target_sn <= sn_threshold:
