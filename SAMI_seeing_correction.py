@@ -85,16 +85,6 @@ for name, (eps, lam, color, marker) in galaxies.items():
     plt.scatter(eps, lam, color = color, marker = marker, s = 100,
                 edgecolors = 'k', label = name, zorder = 5)
 
-
-
-
-
-
-
-
-
-
-
 # Formatting
 plt.xlabel(r'$\epsilon_{\mathrm{e}}$', fontsize = 15)
 plt.ylabel(r'$\lambda_{R_{\mathrm{e}}}$', fontsize = 15)
