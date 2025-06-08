@@ -292,6 +292,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
             stacked_flux = np.ma.mean(spectra_flux, axis = -1)
             stacked_var = np.ma.sum(spectra_var, axis = -1) / spectra_var.shape[-1]**2
 
+            # store the flux and variance.
             for y_, x_ in zip(y_idx, x_idx):
                 binned_flux_cube[:, y_, x_] = stacked_flux
                 binned_var_cube[:, y_, x_] = stacked_var
