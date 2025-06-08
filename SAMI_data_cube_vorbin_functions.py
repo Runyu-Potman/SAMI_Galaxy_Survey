@@ -22,6 +22,7 @@ def nan_safe_gaussian_filter1d (data, sigma):
     smoothed_data = gaussian_filter1d(data_filled, sigma = sigma)
     smoothed_weights = gaussian_filter1d(weights, sigma = sigma)
 
+    # so we track those stay NaN values (stay 0) after convolution.
     # avoid division by zero by adding a small epsilon to the denominator.
     epsilon = 1e-10
     smoothed_weights = np.where(smoothed_weights == 0, epsilon, smoothed_weights)
