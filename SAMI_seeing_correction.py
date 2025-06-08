@@ -25,7 +25,7 @@ def correct_lambda_R(lambda_R_obs, Re_arcsec, ellipticity, sersic_n, fwhm=2.1):
     log_lambda_corr = np.log10(lambda_R_obs) - delta_log_lambda
     lambda_corr = 10 ** log_lambda_corr
 
-    return lambda_corr
+    return lambda_corr, ellipticity
 
 kdc_7969 = correct_lambda_R(0.045, 2.859/np.sqrt(1 - 0.098), 0.098, 5.073, fwhm = 1.561)
 print(kdc_7969)
