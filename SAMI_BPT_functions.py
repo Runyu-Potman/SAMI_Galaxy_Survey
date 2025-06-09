@@ -427,8 +427,8 @@ def bpt(
     axs[1, 1].yaxis.set_minor_locator(AutoMinorLocator())
     axs[1, 1].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
-    cbar = fig.colorbar(sc, ax = axs[1, 1], location = 'right', pad = 0.04)
-    cbar.set_label('Radius (arcsec)', fontsize = 10)
+    cbar = fig.colorbar(sc, ax = axs[1, 1], pad = cbar_pad)
+    cbar.set_label('Radius (arcsec)', fontsize = fontsize, labelpad = labelpad_cbar)
     cbar.ax.yaxis.set_tick_params(direction = 'in')
 
     #################################################################################
