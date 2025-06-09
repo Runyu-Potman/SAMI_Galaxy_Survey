@@ -495,7 +495,6 @@ def bpt(
     # transfer from pixel size to arcsec.
     y = (np.arange(Ha_map.shape[0]) - center_y) * 0.5
     x = (np.arange(Ha_map.shape[1]) - center_x) * 0.5
-    y = (np.arange(Ha_map.shape[0]) - center_y) * 0.5
 
     #######################################################################
     # first spatial plot.
