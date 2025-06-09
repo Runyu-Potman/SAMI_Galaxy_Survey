@@ -693,6 +693,7 @@ if __name__ == "__main__":
 
     axs[0].set_title(r'H$\alpha$ Flux', fontsize = 10)
     axs[1].set_title('Gas Velocity', fontsize = 10)
+    axs[1].text(4, 9, r'$\mathrm{PA}_{\mathit{kin}}$ = $191^\circ$', color = 'black', fontsize = 10, ha = 'center')
     axs[2].set_title('Gas Velocity Dispersion', fontsize = 10)
 
     #---------------------------------------------------------------------------
