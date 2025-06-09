@@ -715,3 +715,21 @@ if __name__ == "__main__":
     plt.tight_layout(pad = 0.85, h_pad = 0.85, w_pad = 0.55)
     plt.savefig('final/bpt.png', dpi = 300)
     plt.show()
+
+#-----------------------------------------------------------------------------------
+    # the pa estimation.
+    data = np.genfromtxt('227266/227266_quality_cut_gas_velocity_map.csv', delimiter = ',', skip_header = 1)
+    xbin = data[:,0]
+    ybin = data[:,1]
+    vel = data[:,2]
+    dvel = data[:,3]
+
+    vel_corr = vel - np.median(vel)
+
+    plt.clf()
+
+    fit_kinematic_pa(x = xbin, y = ybin, vel = vel_corr, dvel = dvel, plot = True, quiet = False, debug = False)
+    plt.pause(1)
+
+
+
