@@ -461,9 +461,9 @@ def bpt(
     axs[1, 2].plot(boundary_6_range, boundary_6_values, color = 'black', linestyle = '-', linewidth = 1)
 
     # add labels for each region, ha = 'center' centers the text horizontally at the specified x position.
-    axs[1, 2].text(-1.5, -0.8, 'SF', color = 'grey', fontsize = 10, ha = 'center')
-    axs[1, 2].text(-0.5, -0.8, 'LINER', color = 'lightblue', fontsize = 10, ha = 'center')
-    axs[1, 2].text(-1, 0.8, 'AGN', color = 'purple', fontsize = 10, ha = 'center')
+    axs[1, 2].text(-1.5, -0.55, 'SF', color = 'grey', fontsize = fontsize, ha = 'center')
+    axs[1, 2].text(-0.5, -0.55, 'LINER', color = 'lightblue', fontsize = fontsize, ha = 'center')
+    axs[1, 2].text(-1, 0.55, 'AGN', color = 'purple', fontsize = fontsize, ha = 'center')
 
     # set axis labels, title, and limits.
     axs[1, 2].set_xlabel(r'log([OI]/H$\alpha$)', fontsize = 10)
