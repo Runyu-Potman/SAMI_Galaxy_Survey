@@ -10,6 +10,7 @@ from matplotlib.colors import ListedColormap, BoundaryNorm
 from SAMI_kinematcs import plot_vel_or_sig
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_gaseous_velocity_map_csv
 from matplotlib.ticker import AutoMinorLocator
+from pafit.fit_kinematic_pa import fit_kinematic_pa
 #---------------------------------------------------------------------------------------------------------------------
 def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correction = False, dust_fits = None):
     # load the optical emission line maps (primary map[0] and error map [1]).
