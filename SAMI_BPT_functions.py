@@ -497,5 +497,102 @@ def bpt(
     x = (np.arange(Ha_map.shape[1]) - center_x) * 0.5
 
     #######################################################################
-    # first spatial plot.
+    # first spatial plot (SF: grey, Comp: salmon, AGN: purple).
+    cmap = ListedColormap(['grey', 'salmon', 'purple'])
+    log_y = np.log10(OIII_map_NII / Hb_map_NII)
+    log_x = np.log10(NII_map_NII / Ha_map_NII)
+
+    # SF: 0, Comp: 1, AGN: 2.
+    classification = np.zeros_like(log_y, dtype = int)
+
+    sf = (log_y < boundary_1(log_x, clip = True)) & (log_y < boundary_2(log_x, clip = True))
+    classification[sf] = 0
+
+    comp = (log_y >= boundary_2(log_x, clip = True)) & (log_y < boundary_1(log_x, clip = True))
+    classification[comp] = 1
+
+    agn = (log_y >= boundary_1(log_x, clip = True))
+    classification[agn] = 2
+
+    bounds = [0, 1, 2, 3]
+    norm = BoundaryNorm(bounds, cmap.N)
+
+    im = axs[0, 0].imshow(classification, origin = 'lower', cmap = cmap, norm = norm,
+                     extent = [x[0], x[-1], y[0], y[-1]])
+
+    axs[0, 0].set_xlim([-12.5, 12.5])
+    axs[0, 0].set_ylim([-12.5, 12.5])
+
+    axs[0, 0].set_xticks(np.arange(-10, 11, 5))
+    axs[0, 0].set_yticks(np.arange(-10, 11, 5))
+
+    axs[0, 0].set_xlabel('Offset [arcsec]', fontsize = fontsize, labelpad = labelpad_x)
+    axs[0, 0].set_ylabel('Offset [arcsec]', fontsize = fontsize, labelpad = labelpad_y)
+    axs[0, 0].set_title(r'[OIII]/H$\beta$ vs [NII]/H$\alpha$', fontsize = fontsize)
+
+    # add major ticks.
+    axs[0, 0].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+    # add minor ticks.
+    axs[0, 0].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[0, 0].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[0, 0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+    # add colorbar.
+
+    cbar = fig.colorbar(im, ax = axs[0, 0], boundaries = bounds, ticks = [], pad = cbar_pad)
+
+    # remove tick lines and set no ticks.
+    cbar.ax.tick_params(axis = 'y', which = 'both', length = 0)
+
+    cbar.ax.text(1.2, 0.5, 'SF', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+    cbar.ax.text(1.2, 1.5, 'Comp', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+    cbar.ax.text(1.2, 2.5, 'AGN', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+
+    ###############################################################################
+    # second spatial plot (SF: grey, LINER: lightblue, AGN: purple).
+    cmap = ListedColormap(['grey', 'lightblue', 'purple'])
+    log_y = np.log10(OIII_map_SII / Hb_map_SII)
+    log_x = np.log10((SII_6716_map_SII + SII_6731_map_SII) / Ha_map_SII)
+
+    # SF: 0, LINER: 1, AGN: 2.
+    classification = np.zeros_like(log_y, dtype = int)
+
+    sf = (log_y < boundary_4(log_x, clip = True))
+    classification[sf] = 0
+
+    liner = (log_y <= boundary_3(log_x, clip = True)) & (log_y >= boundary_4(log_x, clip = True))
+    classification[liner] = 1
+
+    agn = (log_y > boundary_3(log_x, clip = True)) & (log_y >= boundary_4(log_x, clip = True))
+    classification[agn] = 2
+
+    bounds = [0, 1, 2, 3]
+    norm = BoundaryNorm(bounds, cmap.N)
+
+    im = axs[0, 1].imshow(classification, origin = 'lower', cmap = cmap, norm = norm,
+                     extent = [x[0], x[-1], y[0], y[-1]])
+
+    axs[0, 1].set_xlim([-12.5, 12.5])
+    axs[0, 1].set_ylim([-12.5, 12.5])
+
+    axs[0, 1].set_xticks(np.arange(-10, 11, 5))
+    axs[0, 1].set_yticks(np.arange(-10, 11, 5))
+
+    axs[0, 1].set_xlabel('Offset [arcsec]', fontsize = fontsize, labelpad = labelpad_x)
+    axs[0, 1].set_ylabel('Offset [arcsec]', fontsize = fontsize, labelpad = labelpad_y)
+    axs[0, 1].set_title(r'[OIII]/H$\beta$ vs [SII]/H$\alpha$', fontsize = fontsize)
+
+    # add major ticks.
+    axs[0, 1].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+    # add minor ticks.
+    axs[0, 1].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[0, 1].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[0, 1].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+    # add colorbar.
+
+    cbar = fig.colorbar(im, ax = axs[0, 1], boundaries = bounds, ticks = [], pad = cbar_pad)
+
+    # remove tick lines and set no ticks.
+    cbar.ax.tick_params(axis = 'y', which = 'both', length = 0)
 
