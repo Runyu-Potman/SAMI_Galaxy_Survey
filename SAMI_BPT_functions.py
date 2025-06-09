@@ -599,3 +599,117 @@ def bpt(
     cbar.ax.text(1.2, 0.5, 'SF', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
     cbar.ax.text(1.2, 1.5, 'LINER', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
     cbar.ax.text(1.2, 2.5, 'AGN', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+
+    #############################################################################
+    '''
+    # third spatial plot (SF: grey, LINER: lightblue, AGN: purple).
+    cmap = ListedColormap(['grey', 'lightblue', 'purple'])
+    log_y = np.log10(OIII_map_OI / Hb_map_OI)
+    log_x = np.log10(OI_map_OI / Ha_map_OI)
+
+    # SF: 0, LINER: 1, AGN: 2.
+    classification = np.zeros_like(log_y, dtype = int)
+
+    sf = (log_y < boundary_6(log_x, clip = True))
+    classification[sf] = 0
+
+    liner = (log_y <= boundary_5(log_x, clip = True)) & (log_y >= boundary_6(log_x, clip = True))
+    classification[liner] = 1
+
+    agn = (log_y > boundary_5(log_x, clip = True)) & (log_y >= boundary_6(log_x, clip = True))
+    classification[agn] = 2
+
+    bounds = [0, 1, 2, 3]
+    norm = BoundaryNorm(bounds, cmap.N)
+
+    im = axs[0, 2].imshow(classification, origin = 'lower', cmap = cmap, norm = norm,
+                          extent = [x[0], x[-1], y[0], y[-1]])
+
+    axs[0, 2].set_xlim([-12.5, 12.5])
+    axs[0, 2].set_ylim([-12.5, 12.5])
+
+    axs[0, 2].set_xticks(np.arange(-10, 11, 5))
+    axs[0, 2].set_yticks(np.arange(-10, 11, 5))
+
+    axs[0, 2].set_xlabel('Offset [arcsec]', fontsize = fontsize, labelpad = labelpad_x)
+    axs[0, 2].set_ylabel('Offset [arcsec]', fontsize = fontsize, labelpad = labelpad_y)
+    axs[0, 2].set_title(r'[OIII]/H$\beta$ vs [OI]/H$\alpha$', fontsize = fontsize)
+
+    # add major ticks.
+    axs[0, 2].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+    # add minor ticks.
+    axs[0, 2].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[0, 2].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[0, 2].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+    # add colorbar.
+
+    cbar = fig.colorbar(im, ax = axs[0, 2], boundaries = bounds, ticks = [], pad = cbar_pad)
+
+    # remove tick lines and set no ticks.
+    cbar.ax.tick_params(axis = 'y', which = 'both', length = 0)
+
+    cbar.ax.text(1.2, 0.5, 'SF', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+    cbar.ax.text(1.2, 1.5, 'LINER', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+    cbar.ax.text(1.2, 2.5, 'AGN', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+    '''
+
+#----------------------------------------------------------
+if __name__ == "__main__":
+    # we use recommended component for the distribution because we care about the total flux.
+
+    #gas_Halpha_7969 = '7969/7969_A_Halpha_default_recom-comp.fits'
+    #gas_output_file_7969_cut = '7969/7969_quality_cut_gas_distribution_map.csv'
+    #gas_distribution(gas_Halpha_7969, gas_output_file_7969_cut, threshold = 5)
+    #----------------------------------------------------------------------------
+    # 227266 gas distribution map, we use recommended component.
+    gas_Halpha_227266_distribution = '227266/227266_A_Halpha_default_recom-comp.fits'
+    gas_output_file_227266_distribution = '227266/227266_quality_cut_gas_distribution_map.csv'
+    dust_fits = '227266/227266_A_extinct-corr_default_recom-comp.fits'
+    gas_distribution(gas_Halpha_227266_distribution, gas_output_file_227266_distribution, threshold = 5, dust_correction = True, dust_fits = dust_fits)
+
+    # 227266 gaseous kinematic files.
+    gas_vel_227266 = '227266/227266_A_gas-velocity_default_1-comp.fits'
+    gas_sig_227266 = '227266/227266_A_gas-vdisp_default_1-comp.fits'
+    gas_Halpha_227266_kinematics = '227266/227266_A_Halpha_default_1-comp.fits'
+    gas_output_file_227266_kinematics = '227266/227266_quality_cut_gas_velocity_map.csv'
+    # 227266 gaseous quality cut.
+    quality_cut_gaseous_velocity_map_csv(gas_vel_227266, gas_sig_227266, gas_Halpha_227266_kinematics, gas_output_file_227266_kinematics)
+    #---------------------------------------------------------------------------
+    #gas_Halpha_230776 = '230776/230776_A_Halpha_default_recom-comp.fits'
+    #gas_output_file_230776_cut = '230776/230776_quality_cut_gas_distribution_map.csv'
+    #gas_distribution(gas_Halpha_230776, gas_output_file_230776_cut, threshold = 5)
+    #--------------------------------------------------------------------------
+    fig, axs = plt.subplots(1, 3, figsize = (10, 3))
+
+    #plot_vel_or_sig(csv_path = gas_output_file_7969_cut, cbar_label = r"$1 \times 10^{-16}$ erg s$^{-1}$ spaxel$^{-1}$ cm$^{-2}$", ax = axs[0], value_type = 'gas', plot_psf = True)
+    plot_vel_or_sig(csv_path = gas_output_file_227266_distribution, cbar_label = r"$1 \times 10^{-16}$ erg s$^{-1}$ spaxel$^{-1}$ cm$^{-2}$",
+                    ax = axs[0], value_type = 'gas', plot_psf = True, vmax = 8)
+    #plot_vel_or_sig(csv_path = gas_output_file_230776_cut, cbar_label = r"$1 \times 10^{-16}$ erg s$^{-1}$ spaxel$^{-1}$ cm$^{-2}$", ax = axs[2], value_type = 'gas', plot_psf = True)
+
+    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'vel', ax = axs[1], cbar_label = 'km/s', plot_psf = True, vmin=-300)
+    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'sig', ax = axs[2], cbar_label = 'km/s', plot_psf = True)
+
+    axs[0].set_title(r'H$\alpha$ Flux', fontsize = 10)
+    axs[1].set_title('Gas Velocity', fontsize = 10)
+    axs[2].set_title('Gas Velocity Dispersion', fontsize = 10)
+
+    #---------------------------------------------------------------------------
+    plt.tight_layout(pad = 0.85, h_pad = 0.85, w_pad = 0.55)
+    plt.savefig('final/gas_distribution_image.png', dpi = 300, bbox_inches = 'tight')
+    plt.show()
+    #----------------------------------------------------------------------------
+    Ha_fits_path = 'D:/227266/galaxy_227266/227266_A_Halpha_default_recom-comp.fits'
+    Hb_fits_path = 'D:/227266/galaxy_227266/227266_A_Hbeta_default_recom-comp.fits'
+    OIII_fits_path = 'D:/227266/galaxy_227266/227266_A_OIII5007_default_recom-comp.fits'
+    OI_fits_path = 'D:/227266/galaxy_227266/227266_A_OI6300_default_recom-comp.fits'
+    SII_6716_fits_path = 'D:/227266/galaxy_227266/227266_A_SII6716_default_recom-comp.fits'
+    SII_6731_fits_path = 'D:/227266/galaxy_227266/227266_A_SII6731_default_recom-comp.fits'
+    NII_fits_path = 'D:/227266/galaxy_227266/227266_A_NII6583_default_recom-comp.fits'
+
+    bpt(Ha_fits_path = Ha_fits_path, Hb_fits_path = Hb_fits_path, OIII_fits_path = OIII_fits_path,
+        OI_fits_path = OI_fits_path, SII_6716_fits_path = SII_6716_fits_path,
+        SII_6731_fits_path = SII_6731_fits_path, NII_fits_path = NII_fits_path, threshold = 5)
+    plt.tight_layout(pad = 0.85, h_pad = 0.85, w_pad = 0.55)
+    plt.savefig('final/bpt.png', dpi = 300)
+    plt.show()
