@@ -98,7 +98,7 @@ def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25):
 def bpt(
         Ha_fits_path, Hb_fits_path, OIII_fits_path, OI_fits_path,
         SII_6716_fits_path, SII_6731_fits_path, NII_fits_path,
-        threshold
+        threshold, fontsize = 10, cbar_pad = 0.04, labelpad_x = 8, labelpad_y = 0.85,labelpad_cbar = 5
 ):
     '''
     Apply the quality cut criteria and make plot with x_axis and y_axis in pixel unit,
