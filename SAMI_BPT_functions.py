@@ -688,7 +688,7 @@ if __name__ == "__main__":
                     ax = axs[0], value_type = 'gas', plot_psf = True, vmax = 8)
     #plot_vel_or_sig(csv_path = gas_output_file_230776_cut, cbar_label = r"$1 \times 10^{-16}$ erg s$^{-1}$ spaxel$^{-1}$ cm$^{-2}$", ax = axs[2], value_type = 'gas', plot_psf = True)
 
-    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'vel', ax = axs[1], cbar_label = 'km/s', plot_psf = True, vmin=-300)
+    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'vel', ax = axs[1], cbar_label = 'km/s', plot_psf = True, vmin=-300, PAs= [11])
     plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'sig', ax = axs[2], cbar_label = 'km/s', plot_psf = True)
 
     axs[0].set_title(r'H$\alpha$ Flux', fontsize = 10)
