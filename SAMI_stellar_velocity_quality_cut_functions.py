@@ -63,6 +63,10 @@ def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin = None, 
     vel_data = np.ma.masked_where(vel_err_data >= 30, vel_data) # vel_err < 30 km/s.
     vel_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), vel_data) # sig_err < sig * 0.1 + 25 km/s.
 
+    sig_data = np.ma.masked_where(sig_SNR_data <= 5, sig_data)
+    sig_data = np.ma.masked_where(sig_data <= 35, sig_data)
+    sig_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), sig_data)
+    
     # get the mask from other maps.
     combined_mask = np.ma.getmask(vel_err_data)
     combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(vel_SNR_data))
