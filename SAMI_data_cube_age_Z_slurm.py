@@ -221,7 +221,8 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
 
 # -----------------------------------------------------------------------------------
 def ppxf_pre_data_cube(
-        blue_spectrum, blue_cube_fits, red_spectrum=None, red_cube_fits=None, high_redshift=False, plot=False):
+        blue_spectrum, blue_cube_fits, red_spectrum=None, red_cube_fits=None, high_redshift=False, plot=False,
+        convolve=False, wave_clip=False, miles_low=3540.5, miles_high=7409.6):
     '''
     Log-rebin spectrum in the data cube, do preparations for pPXF. The data cube will be used to construct wavelength
     and extract redshift. When the redshift is high, set the high_redshift parameter to be true. If red spectrum and
