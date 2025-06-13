@@ -67,6 +67,19 @@ def plot_spectrum(wavelength, spectrum):
     plt.show()
 
 # --------------------------------------------------------------------------------
+def spectrum_template_convolve(flux, redshift, cdelt3, fwhm_blue = 2.65, fwhm_miles = 2.51):
+    fwhm_miles_obs = fwhm_miles * (1 + redshift)
+    if fwhm_miles_obs > fwhm_blue:
+        fwhm_conv = np.sqrt(fwhm_miles_obs**2 - fwhm_blue**2)
+        sig_conv = fwhm_conv / (2 * np.sqrt(2 * np.log(2)))
+        sig_conv = sig_conv / cdelt3
+
+        flux_conv = nan_safe_gaussian_filter1d(flux, sig_conv)
+    else:
+        raise ValueError('No need to do the convolution!')
+
+    return flux_conv
+#----------------------------------------------------------------------------------
 def bootstrap_residuals(model, resid, wild=True):
     '''
     https://en.wikipedia.org/wiki/Bootstrapping_(statistics) # Resampling_residuals
