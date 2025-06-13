@@ -612,6 +612,11 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     bestfit = pp.bestfit.copy()
     resid = galaxy[goodpixels_nan] - bestfit[goodpixels_nan]
 
+    plt.figure(figsize = (15, 5))
+    plt.plot(resid)
+    plt.title('residual')
+    plt.show()
+
     start = pp.sol.copy()
 
     # do not include regularization when doing the bootstrapping.
