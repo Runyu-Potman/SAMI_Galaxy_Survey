@@ -175,6 +175,7 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
 
     # de-redshifting to the rest frame.
     redshift = blue_header['Z_SPEC']
+    cdelt3 = blue_header['CDELT3']
     rest_wavelength = blue_wavelength / (1 + redshift)
 
     # spectrum generated from the data cube.
