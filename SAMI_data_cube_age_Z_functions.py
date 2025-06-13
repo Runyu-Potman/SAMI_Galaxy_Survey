@@ -334,7 +334,8 @@ def ppxf_pre_data_cube(
 #-----------------------------------------------------------------------------------
 
 def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename, velscale, start,
-               nrand, optimal_regul = None, find_regul = False, high_redshift = False, buffer = None, plot = False):
+               nrand, optimal_regul = None, find_regul = False, high_redshift = False,
+               buffer = None, plot = False, fwhm_blue = 2.65):
     '''
     calculate mean age and [M/Z] with ppxf using mdegree = 10, regul, constant noise value, bootstrapping and the MILES ssp model.
     Only two moments (vel, sig) are fitted.
