@@ -179,6 +179,14 @@ def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits
     with fits.open(spectrum_fits) as spec_hdul:
         data_cube_spectrum = spec_hdul[0].data
 
+    if convolve:
+        data_cube_spectrum = spectrum_template_convolve(flux=data_cube_spectrum, redshift=redshift, cdelt3=cdelt3)
+
+    if wave_clip:
+        wave_mask = (rest_wavelength >= miles_low + 34) & (rest_wavelength <= miles_high)
+        rest_wavelength = rest_wavelength[wave_mask]
+        data_cube_spectrum = data_cube_spectrum[wave_mask]
+
     if high_redshift:
         # perform log_rebin with wavelength in observed frame (flux = False for flux density).
         specNew, ln_lam, velscale = safe_log_rebin(blue_wavelength, data_cube_spectrum)
