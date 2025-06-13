@@ -12,7 +12,7 @@ import sys
 # from SAMI_data_cube_quality_cut_functions import data_cube_clean_percentage, data_cube_clean_snr
 import os
 from SAMI_ppxf_util_functions import emission_lines
-
+from SAMI_data_cube_vorbin_functions import nan_safe_gaussian_filter1d
 # --------------------------------------------------------------------------------------------
 '''
 Seven functions are defined in this script:
