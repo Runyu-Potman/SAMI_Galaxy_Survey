@@ -135,7 +135,8 @@ def safe_log_rebin(wave, flux, nan_fill=1e10):
     return specNew, ln_lam, velscale
 
 # ---------------------------------------------------------------------------------------------
-def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift=False, save_fits=False):
+def ppxf_pre_spectrum(cube_fits, spectrum_fits, high_redshift = False, save_fits = False,
+                      convolve = False, wave_clip = False, miles_low = 3540.5, miles_high = 7409.6):
     '''
     Log-rebin co-added spectrum generated from data cube, do preparations for pPXF. The data cube
     will be used to construct wavelength and extract redshift. When the redshift is high, set the
