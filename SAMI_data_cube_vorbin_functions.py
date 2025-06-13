@@ -36,7 +36,7 @@ def nan_safe_gaussian_filter1d (data, sigma):
     return result
 
 #------------------------------------------------------------------------------
-def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename):
+def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename, fwhm_blue = 2.65, fwhm_red = 1.61):
     # open the blue data cube.
     with fits.open(blue_cube_fits) as blue_hdul:
         blue_flux_cube = blue_hdul[0].data
