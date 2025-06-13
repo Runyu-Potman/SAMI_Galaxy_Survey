@@ -45,7 +45,7 @@ version_02: 08/04/2025: new functions added.
 version_03: 17/04/2025: add high-redshift situation.
 version_04: 20/04/2025: handle NaN and inf in the input flux by replacing with a large value before log_rebin
             by using the newly defined function: safe_log_rebin.
-version_05: 13/06/2025: new high redshift method is added, do not use the high_redshift keyword anymore.
+version_05: 13/06/2025: new high redshift method with convolve and wave_clip keyword is added, do not use the high_redshift keyword anymore.
 '''
 #-------------------------------------------------------------------------------
 def plot_spectrum(wavelength, spectrum):
