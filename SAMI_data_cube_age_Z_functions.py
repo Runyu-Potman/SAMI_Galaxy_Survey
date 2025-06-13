@@ -13,6 +13,7 @@ from scipy.interpolate import interp1d
 from pathlib import Path
 from urllib import request
 from SAMI_ppxf_util_functions import emission_lines
+from SAMI_data_cube_vorbin_functions import nan_safe_gaussian_filter1d
 #--------------------------------------------------------------------------------------------
 '''
 Seven functions are defined in this script:
