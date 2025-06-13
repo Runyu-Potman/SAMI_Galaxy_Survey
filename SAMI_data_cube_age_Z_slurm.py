@@ -249,6 +249,7 @@ def ppxf_pre_data_cube(
     with fits.open(blue_cube_fits) as blue_hdul:
         blue_header = blue_hdul[0].header
         redshift = blue_header['Z_SPEC']
+        cdelt3 = blue_header['CDELT3']
 
     # note that CRPIX is 1-based but np.arange() is 0-based, so + 1.
     blue_wavelength = blue_header['CRVAL3'] + (np.arange(blue_header['NAXIS3']) - blue_header['CRPIX3'] + 1) * \
