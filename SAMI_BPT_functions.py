@@ -527,8 +527,8 @@ def bpt(
     axs[0, 0].set_xticks(np.arange(-10, 11, 5))
     axs[0, 0].set_yticks(np.arange(-10, 11, 5))
 
-    axs[0, 0].set_xlabel('Offset [arcsec]', fontsize = fontsize, labelpad = labelpad_x)
-    axs[0, 0].set_ylabel('Offset [arcsec]', fontsize = fontsize, labelpad = labelpad_y)
+    axs[0, 0].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = labelpad_x)
+    axs[0, 0].set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = labelpad_y)
     axs[0, 0].set_title(r'[OIII]/H$\beta$ vs [NII]/H$\alpha$', fontsize = fontsize)
 
     # add major ticks.
