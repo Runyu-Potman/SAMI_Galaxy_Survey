@@ -10,6 +10,11 @@ two moments (Q1 and Q2): S/N > 3 /Å, sig > 35 km/s, vel_err < 30 km/s, sig_err 
 four moments (Q3):  S/N > 20 /Å, sig > 70 km/s.
 
 Note that all functions here focus on two moments situation.
+
+version_02: 02/07/2025
+we include the four-moment situation and make preparations for DYNAMITE, however, based on the paper of Santucci et al.,
+they do not apply the Q3 but increase the error for those measurements which do not meet Q3.
+
 '''
 
 from astropy.io import fits
