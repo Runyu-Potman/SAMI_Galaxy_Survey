@@ -632,7 +632,7 @@ def quality_cut_stellar_velocity_map_four_moment(
         x_flat = x.flatten()[flat_mask]
         y_flat = y.flatten()[flat_mask]
 
-        y_flat = y.flatten()
+        flux_flat = flux.flatten()[flat_mask]
 
         flux_flat = flux.flatten()
 
