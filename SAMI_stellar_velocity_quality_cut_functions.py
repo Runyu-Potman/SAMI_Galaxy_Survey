@@ -643,11 +643,8 @@ def quality_cut_stellar_velocity_map_four_moment(
         h3_flat = cleaned_h3_data.flatten()[flat_mask]
         dh3_flat = cleaned_h3_err_data.flatten()[flat_mask]
 
-        h3_flat = cleaned_h3_data.flatten()
-        dh3_flat = cleaned_h3_err_data.flatten()
-
-        h4_flat = cleaned_h4_data.flatten()
-        dh4_flat = cleaned_h4_err_data.flatten()
+        h4_flat = cleaned_h4_data.flatten()[flat_mask]
+        dh4_flat = cleaned_h4_err_data.flatten()[flat_mask]
 
         if BIN_ID.size == x_flat.size == y_flat.size == flux_flat.size \
             == v_flat.size == dv_flat.size == sig_flat.size == dsig_flat.size \
