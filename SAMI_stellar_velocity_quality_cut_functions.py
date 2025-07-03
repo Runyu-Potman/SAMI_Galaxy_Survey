@@ -629,7 +629,8 @@ def quality_cut_stellar_velocity_map_four_moment(
         n_valid = flat_mask.sum()
         BIN_ID = np.arange(1, n_valid + 1).astype(int)
 
-        x_flat = x.flatten()
+        x_flat = x.flatten()[flat_mask]
+        y_flat = y.flatten()[flat_mask]
 
         y_flat = y.flatten()
 
