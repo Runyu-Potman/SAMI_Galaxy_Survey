@@ -640,8 +640,8 @@ def quality_cut_stellar_velocity_map_four_moment(
         sig_flat = cleaned_sig_data.flatten()[flat_mask]
         dsig_flat = cleaned_sig_err_data.flatten()[flat_mask]
 
-        sig_flat = cleaned_sig_data.flatten()
-        dsig_flat = cleaned_sig_err_data.flatten()
+        h3_flat = cleaned_h3_data.flatten()[flat_mask]
+        dh3_flat = cleaned_h3_err_data.flatten()[flat_mask]
 
         h3_flat = cleaned_h3_data.flatten()
         dh3_flat = cleaned_h3_err_data.flatten()
