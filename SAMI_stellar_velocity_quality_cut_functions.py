@@ -414,3 +414,317 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
     vel_map.close()
     sig_map.close()
     Halpha_map.close()
+
+#-------------------------------------------------------------------------------------------------------------------
+def quality_cut_stellar_velocity_map_four_moment(
+        vel_fits_path, sig_fits_path, h3_fits_path, h4_fits_path, output_filename,
+        Q3 = False, plot = False, dynamite = False, center_x = 25, center_y = 25,
+        vmin=None, vmax=None):
+    '''
+    Apply the quality cut criteria and make plot with x_axis and y_axis in pixel unit,
+    note that the center of the galaxy is located at around (25, 25).If dynamite = True,
+    then a fits file will be prepared for dynamite input, the center will be shifted to (0, 0).
+
+    Parameters:
+    - vel_fits_path: str, path to the stellar velocity fits file.
+    - sig_fits_path: str, path to the stellar velocity dispersion fits file.
+    - h3_fits_path: str, path to the skewness fits file.
+    - h4_fits_path: str, path to the kurtosis fits file.
+    - output_filename: str, name and path of the output fits file (if dynamite = True).
+    - Q3: the Q3 quality cut criteria when considering four moment, default = False.
+    - plot: plot the vel, sig, h3 and h4.
+    - dynamite: whether to prepare for dynamite input or not.
+    - center_x: the center of the galaxy in pixel unit, default = 25.
+    - center_y: the center of the galaxy in pixel unit, default = 25.
+    - vmin: int, minimum value for the color bar.
+    - vmax: int, maximum value for the color bar.
+
+    Returns:
+    - None
+    '''
+
+    # read the stellar velocity fits file: velocity (PRIMARY), velocity error (VEL_ERR), S/N (SNR).
+    with fits.open(vel_fits_path) as vel_map:
+        vel_data = vel_map[0].data  # [0]: PRIMARY.
+        vel_err_data = vel_map[1].data  # [1]: VEL_ERR.
+        vel_SNR_data = vel_map[4].data  # [4]: SNR.
+
+        # flux for dynamite.
+        vel_flux = vel_map[2].data # [2]: FLUX.
+
+    # read the stellar velocity dispersion fits file: dispersion (PRIMARY), dispersion error (SIG_ERR), S/N (SNR).
+    with fits.open(sig_fits_path) as sig_map:
+        sig_data = sig_map[0].data  # [0]: PRIMARY.
+        sig_err_data = sig_map[1].data  # [1]: SIG_ERR.
+        sig_SNR_data = sig_map[4].data  # [4]: SNR.
+
+        # flux for dynamite.
+        sig_flux = sig_map[2].data # [2]: FLUX.
+
+    # read the skewness fits file: h3 (PRIMARY), h3 error (H3_ERR), S/N  (SNR).
+    with fits.open(h3_fits_path) as h3_map:
+        h3_data = h3_map[0].data # [0]: PRIMARY.
+        h3_err_data = h3_map[1].data # [1]: H3_ERR.
+        h3_SNR_data = h3_map[4].data # [4]: SNR.
+
+        # flux for dynamite.
+        h3_flux = h3_map[2].data # [2]: FLUX.
+
+    # read the kurtosis fits file: h4 (PRIMARY), h4 error (H4_ERR), S/N  (SNR).
+    with fits.open(h4_fits_path) as h4_map:
+        h4_data = h4_map[0].data # [0]: PRIMARY.
+        h4_err_data = h4_map[1].data # [1]: H4_ERR.
+        h4_SNR_data = h4_map[4].data # [4]: SNR.
+
+        # flux for dynamite.
+        h4_flux = h4_map[2].data # [2]: FLUX.
+
+    # mask NaN values in the initial velocity, velocity error, velocity SNR, dispersion, dispersion error, dispersion SNR,
+    # h3, h3 error, h3 SNR, h4, h4 err, h4 SNR maps.
+    # if any of the twelve maps have a NaN value at a specific spaxel, this spaxel should be masked (excluded).
+    vel_data = np.ma.masked_invalid(vel_data)
+    vel_err_data = np.ma.masked_invalid(vel_err_data)
+    vel_SNR_data = np.ma.masked_invalid(vel_SNR_data)
+
+    sig_data = np.ma.masked_invalid(sig_data)
+    sig_err_data = np.ma.masked_invalid(sig_err_data)
+    sig_SNR_data = np.ma.masked_invalid(sig_SNR_data)
+
+    h3_data = np.ma.masked_invalid(h3_data)
+    h3_err_data = np.ma.masked_invalid(h3_err_data)
+    h3_SNR_data = np.ma.masked_invalid(h3_SNR_data)
+
+    h4_data = np.ma.masked_invalid(h4_data)
+    h4_err_data = np.ma.masked_invalid(h4_err_data)
+    h4_SNR_data = np.ma.masked_invalid(h4_SNR_data)
+
+    # in principle, the SNR maps across all kinematic fits files should be the same for SAMI.
+    SNR_comparison_all = (np.all(vel_SNR_data == sig_SNR_data)
+                          and np.all(sig_SNR_data == h3_SNR_data)
+                          and np.all(h3_SNR_data == h4_SNR_data))
+
+    if SNR_comparison_all:
+        print("SNR across all input fits files are the same, continue...")
+        SNR_data = vel_SNR_data.copy()
+    else:
+        raise ValueError("SNR are not the same across all input fits files, check the input data!")
+
+    if Q3 == True:
+        # apply Q1, Q2 and Q3.
+        vel_data = np.ma.masked_where(SNR_data <= 20.5, vel_data)  # S/N > 20.5.
+        vel_data = np.ma.masked_where(sig_data <= 70, vel_data)  # sig > 70 km/s.
+        vel_data = np.ma.masked_where(vel_err_data >= 30, vel_data)  # vel_err < 30 km/s.
+        vel_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), vel_data)  # sig_err < sig * 0.1 + 25 km/s.
+
+        sig_data = np.ma.masked_where(SNR_data <= 20.5, sig_data)
+        sig_data = np.ma.masked_where(sig_data <= 70, sig_data)
+        sig_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), sig_data)
+
+        h3_data = np.ma.masked_where(SNR_data <= 20.5, h3_data)
+        h4_data = np.ma.masked_where(SNR_data <= 20.5, h4_data)
+
+    else:
+        # apply the two moments quality cut criteria.
+        vel_data = np.ma.masked_where(SNR_data <= 5, vel_data)  # S/N > 5.
+        vel_data = np.ma.masked_where(sig_data <= 35, vel_data)  # sig > 35 km/s.
+        vel_data = np.ma.masked_where(vel_err_data >= 30, vel_data)  # vel_err < 30 km/s.
+        vel_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), vel_data)  # sig_err < sig * 0.1 + 25 km/s.
+
+        sig_data = np.ma.masked_where(SNR_data <= 5, sig_data)
+        sig_data = np.ma.masked_where(sig_data <= 35, sig_data)
+        sig_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), sig_data)
+
+        h3_data = np.ma.masked_where(SNR_data <= 5, h3_data)
+        h4_data = np.ma.masked_where(SNR_data <= 5, h4_data)
+
+    # get the mask from all kinematic maps.
+    combined_mask = np.ma.getmask(vel_data)
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(vel_err_data))
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(SNR_data))
+
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(sig_data))
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(sig_err_data))
+
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(h3_data))
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(h3_err_data))
+
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(h4_data))
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(h4_err_data))
+
+    # apply the combined_mask to all kinematic maps.
+    cleaned_vel_data = np.ma.masked_array(vel_data, mask = combined_mask)
+    cleaned_vel_err_data = np.ma.masked_array(vel_err_data, mask = combined_mask)
+
+    cleaned_sig_data = np.ma.masked_array(sig_data, mask = combined_mask)
+    cleaned_sig_err_data = np.ma.masked_array(sig_err_data, mask = combined_mask)
+
+    cleaned_h3_data = np.ma.masked_array(h3_data, mask = combined_mask)
+    cleaned_h3_err_data = np.ma.masked_array(h3_err_data, mask = combined_mask)
+
+    cleaned_h4_data = np.ma.masked_array(h4_data, mask = combined_mask)
+    cleaned_h4_err_data = np.ma.masked_array(h4_err_data, mask = combined_mask)
+
+    if plot:
+        def plot(data, title, label = None):
+            plt.figure(figsize = (10, 8))
+
+            plt.imshow(data, origin = 'lower', aspect = 'auto',
+                       cmap = 'jet', vmin = vmin, vmax = vmax)
+
+            plt.colorbar(label = label)
+            plt.title(title)
+            plt.xlabel('SPAXEL')
+            plt.ylabel('SPAXEL')
+
+            plt.show()
+
+        # velocity map.
+        plot(cleaned_vel_data, title = 'cleaned stellar velocity map', label = 'km/s')
+
+        # velocity dispersion map.
+        plot(cleaned_sig_data, title = 'cleaned stellar velocity dispersion map', label = 'km/s')
+
+        # h3 map.
+        plot(cleaned_h3_data, title = 'cleaned h3 map')
+
+        # h4 map.
+        plot(cleaned_h4_data, title = 'cleaned h4 map')
+
+    if dynamite:
+        # prepare the flux.
+        vel_flux = np.ma.masked_invalid(vel_flux)
+        sig_flux = np.ma.masked_invalid(sig_flux)
+        h3_flux = np.ma.masked_invalid(h3_flux)
+        h4_flux = np.ma.masked_invalid(h4_flux)
+
+        # in principle, the flux maps should be the same across all kinematic maps.
+        flux_comparison_all = (np.all(vel_flux == sig_flux)
+                               and np.all(sig_flux == h3_flux)
+                               and np.all(h3_flux == h4_flux))
+
+        if flux_comparison_all:
+            print("flux maps across all input fits files are the same, continue...")
+            flux = vel_flux.copy()
+
+            flux = np.ma.masked_where(flux < 0, flux)
+            flux = np.ma.masked_array(flux, mask = combined_mask)
+
+        else:
+            raise ValueError("flux maps are not the same across all input fits files, check the input data!")
+
+        # get dimensions.
+        ny, nx = flux.shape
+
+        # generate x, y coordinates with center at (0, 0).
+        x_coords = np.arange(nx) - center_x
+        y_coords = np.arange(ny) - center_y
+        # the order is correct here, do not use y, x = np.meshgrid(y_coords, x_coords)
+        x, y = np.meshgrid(x_coords, y_coords)
+
+        # flatten all data.
+
+        BIN_ID = np.arange(1, nx * ny + 1).astype(int) # each spaxel gets a unique bin ID.
+
+        x_flat = x.flatten()
+
+        y_flat = y.flatten()
+
+        flux_flat = flux.flatten()
+
+        v_flat = cleaned_vel_data.flatten()
+        dv_flat = cleaned_vel_err_data.flatten()
+
+        sig_flat = cleaned_sig_data.flatten()
+        dsig_flat = cleaned_sig_err_data.flatten()
+
+        h3_flat = cleaned_h3_data.flatten()
+        dh3_flat = cleaned_h3_err_data.flatten()
+
+        h4_flat = cleaned_h4_data.flatten()
+        dh4_flat = cleaned_h4_err_data.flatten()
+
+        if BIN_ID.size == x_flat.size == y_flat.size == flux_flat.size \
+            == v_flat.size == dv_flat.size == sig_flat.size == dsig_flat.size \
+            == h3_flat.size == dh3_flat.size == h4_flat.size == dh4_flat.size:
+
+            total_index = BIN_ID.size
+            print('total index number:', total_index)
+
+        else:
+            raise ValueError('the size of the flatten data do no match!')
+
+        # apply mask.
+        flat_mask = ~flux.mask.flatten()
+
+        BIN_ID = BIN_ID[flat_mask]
+
+        x_flat = x_flat[flat_mask]
+        y_flat = y_flat[flat_mask]
+
+        flux_flat = flux_flat[flat_mask]
+
+        v_flat = v_flat[flat_mask]
+        dv_flat = dv_flat[flat_mask]
+
+        sig_flat = sig_flat[flat_mask]
+        dsig_flat = dsig_flat[flat_mask]
+
+        h3_flat = h3_flat[flat_mask]
+        dh3_flat = dh3_flat[flat_mask]
+
+        h4_flat = h4_flat[flat_mask]
+        dh4_flat = dh4_flat[flat_mask]
+
+        if BIN_ID.size == x_flat.size == y_flat.size == flux_flat.size \
+                == v_flat.size == dv_flat.size == sig_flat.size == dsig_flat.size \
+                == h3_flat.size == dh3_flat.size == h4_flat.size == dh4_flat.size:
+
+            total_index = BIN_ID.size
+            print('total valid index number:', total_index)
+
+        else:
+            raise ValueError('the size of the flatten valid data do no match!')
+
+        # create binary table for extension [1].
+        col1 = fits.Column(name = 'BIN_ID', array = BIN_ID, format = 'J')
+        col2 = fits.Column(name = 'X', array = x_flat, format = 'E')
+        col3 = fits.Column(name = 'Y', array = y_flat, format = 'E')
+        col4 = fits.Column(name = 'FLUX', array = flux_flat, format = 'E')
+        col5 = fits.Column(name = 'V', array = v_flat, format = 'E')
+        col6 = fits.Column(name = 'DV', array = dv_flat, format = 'E')
+        col7 = fits.Column(name = 'SIG', array = sig_flat, format = 'E')
+        col8 = fits.Column(name = 'DSIG', array = dsig_flat, format = 'E')
+        col9 = fits.Column(name = 'H3', array = h3_flat, format = 'E')
+        col10 = fits.Column(name = 'DH3', array = dh3_flat, format = 'E')
+        col11 = fits.Column(name = 'H4', array = h4_flat, format = 'E')
+        col12 = fits.Column(name = 'DH4', array = dh4_flat, format = 'E')
+
+        cols = fits.ColDefs([col1, col2, col3,
+                             col4, col5, col6,
+                             col7, col8, col9,
+                             col10, col11, col12])
+
+        hdul = fits.BinTableHDU.from_columns(cols)
+        hdul.name = 'STEKIN_UNBIN'
+
+        hdu0 = fits.PrimaryHDU()
+
+        hdul = fits.HDUList([hdu0, hdul])
+        hdul.writeto(output_filename, overwrite = True)
+
+    return combined_mask, cleaned_vel_data
+
+
+#---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
