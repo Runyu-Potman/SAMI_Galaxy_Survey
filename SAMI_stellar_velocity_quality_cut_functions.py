@@ -696,5 +696,3 @@ def quality_cut_stellar_velocity_map_four_moment(
 
 
 
-
-
