@@ -621,7 +621,9 @@ def quality_cut_stellar_velocity_map_four_moment(
         # the order is correct here, do not use y, x = np.meshgrid(y_coords, x_coords)
         x, y = np.meshgrid(x_coords, y_coords)
 
-        # flatten all data.
+        # flatten all data and apply mask.
+        # the mask.
+        flat_mask = ~flux.mask.flatten()
 
         BIN_ID = np.arange(1, nx * ny + 1).astype(int) # each spaxel gets a unique bin ID.
 
