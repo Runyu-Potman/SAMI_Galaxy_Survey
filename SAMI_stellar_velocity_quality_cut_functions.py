@@ -654,38 +654,6 @@ def quality_cut_stellar_velocity_map_four_moment(
             print('total valid index number:', total_index)
 
         else:
-            raise ValueError('the size of the flatten data do no match!')
-
-        # apply mask.
-        flat_mask = ~flux.mask.flatten()
-
-        BIN_ID = BIN_ID[flat_mask]
-
-        x_flat = x_flat[flat_mask]
-        y_flat = y_flat[flat_mask]
-
-        flux_flat = flux_flat[flat_mask]
-
-        v_flat = v_flat[flat_mask]
-        dv_flat = dv_flat[flat_mask]
-
-        sig_flat = sig_flat[flat_mask]
-        dsig_flat = dsig_flat[flat_mask]
-
-        h3_flat = h3_flat[flat_mask]
-        dh3_flat = dh3_flat[flat_mask]
-
-        h4_flat = h4_flat[flat_mask]
-        dh4_flat = dh4_flat[flat_mask]
-
-        if BIN_ID.size == x_flat.size == y_flat.size == flux_flat.size \
-                == v_flat.size == dv_flat.size == sig_flat.size == dsig_flat.size \
-                == h3_flat.size == dh3_flat.size == h4_flat.size == dh4_flat.size:
-
-            total_index = BIN_ID.size
-            print('total valid index number:', total_index)
-
-        else:
             raise ValueError('the size of the flatten valid data do no match!')
 
         # create binary table for extension [1].
