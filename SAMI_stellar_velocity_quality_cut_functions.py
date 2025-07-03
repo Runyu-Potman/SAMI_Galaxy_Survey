@@ -625,7 +625,9 @@ def quality_cut_stellar_velocity_map_four_moment(
         # the mask.
         flat_mask = ~flux.mask.flatten()
 
-        BIN_ID = np.arange(1, nx * ny + 1).astype(int) # each spaxel gets a unique bin ID.
+        # each valid spaxel gets a unique bin ID.
+        n_valid = flat_mask.sum()
+        BIN_ID = np.arange(1, n_valid + 1).astype(int)
 
         x_flat = x.flatten()
 
