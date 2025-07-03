@@ -651,7 +651,7 @@ def quality_cut_stellar_velocity_map_four_moment(
             == h3_flat.size == dh3_flat.size == h4_flat.size == dh4_flat.size:
 
             total_index = BIN_ID.size
-            print('total index number:', total_index)
+            print('total valid index number:', total_index)
 
         else:
             raise ValueError('the size of the flatten data do no match!')
