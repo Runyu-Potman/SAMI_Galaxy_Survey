@@ -634,7 +634,8 @@ def quality_cut_stellar_velocity_map_four_moment(
 
         flux_flat = flux.flatten()[flat_mask]
 
-        flux_flat = flux.flatten()
+        v_flat = cleaned_vel_data.flatten()[flat_mask]
+        dv_flat = cleaned_vel_err_data.flatten()[flat_mask]
 
         v_flat = cleaned_vel_data.flatten()
         dv_flat = cleaned_vel_err_data.flatten()
