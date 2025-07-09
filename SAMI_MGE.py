@@ -3,8 +3,7 @@ from astropy.wcs import WCS
 from astropy.nddata import Cutout2D
 from scipy.ndimage import rotate
 import matplotlib.pyplot as plt
-from astropy.io import fits
-from astropy.wcs import WCS
+
 #----------------------------------------------------------------------------------------------------------------
 def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None):
     '''
