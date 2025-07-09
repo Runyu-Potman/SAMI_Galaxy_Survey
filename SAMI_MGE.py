@@ -44,6 +44,18 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     cutout = Cutout2D(data, position, (cut_size_pixel, cut_size_pixel), wcs = wcs)
     print(f'Initial image shape (pixel):{data.shape}, cutout shape (pixel):{cutout.data.shape}')
 
+    # rotate the direction such that the image would be in the traditional north-up orientation.
+    if 'SPA' in header:
+        # position angle from the header.
+        pa = header['SPA']
+        print(f'Position angle (SPA) from header: {pa} degrees')
+
+        # rotate the image to make north-up.
+        rotated_data = rotate(cutout.data, -pa, reshape = True)
+
+    else:
+        rotated_data = cutout.data
+
     # save the output fits file.
     cutout_hdu = fits.PrimaryHDU(data = cutout.data)
     hdul = fits.HDUList([cutout_hdu])
