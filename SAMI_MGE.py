@@ -1,3 +1,5 @@
+from astropy.io import fits
+from astropy.wcs import WCS
 from astropy.nddata import Cutout2D
 import matplotlib.pyplot as plt
 from astropy.io import fits
