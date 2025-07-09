@@ -30,7 +30,7 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
         data = hdu[0].data
         header = hdu[0].header
 
-    # read the header information.
+    # read the header information and extract wcs.
     wcs = WCS(header)
 
     # cut_size in pixel scale.
