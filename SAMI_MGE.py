@@ -66,8 +66,8 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     plt.imshow(rotated_data, cmap = 'jet', origin = 'lower', vmin = vmin, vmax = vmax)
     plt.colorbar(label = 'flux in nanomaggy')
     plt.title('cutout image')
-    plt.xlabel('RA (degrees)')
-    plt.ylabel('Dec (degrees)')
+    plt.xlabel('spaxel')
+    plt.ylabel('spaxel')
 
     plt.show()
 #-----------------------------------------------------------------------------------
