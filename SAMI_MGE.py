@@ -1,6 +1,7 @@
 from astropy.io import fits
 from astropy.wcs import WCS
 from astropy.nddata import Cutout2D
+from scipy.ndimage import rotate
 import matplotlib.pyplot as plt
 from astropy.io import fits
 from astropy.wcs import WCS
