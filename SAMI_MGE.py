@@ -14,8 +14,7 @@ version_01: 11/07/2025: initial function.
 def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None):
     '''
     The function can be used to do preparation for SEXTRACTOR or MGE. Large cut_size to identify stars and estimate PSF
-    with SEXTRACTOR, then switch to small cut_size to apply MGE. Note that the cutout image would be rotated to be in
-    the traditional north-up orientation.
+    with SEXTRACTOR, then switch to small cut_size to apply MGE.
 
     Parameters:
     - fits_path: path to the input optical FITS file in pixel scale.
