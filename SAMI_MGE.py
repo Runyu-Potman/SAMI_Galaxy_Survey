@@ -178,4 +178,26 @@ def apply_mge(cut_data, mask_map, level, minlevel, fwhm, skylev = 0, scale = 0.3
                         scale = scale, plot = True, linear = False)
     plt.pause(1)
 
+    # show contour plots of the results.
+    plt.clf()
+    mge.print_contours(cut_data, f.theta, f.xpeak, f.ypeak, m.sol, scale = scale,
+                       sigmapsf = sigmapsf, mask = target_mask, minlevel = minlevel)
+
+    plt.xlim(-50, 50)
+    plt.ylim(-50, 50)
+
+    plt.pause(1)
+
+    # peak surface brightness.
+
+#-----------------------------------------------------------------------------------
+# usage example.
+# step one: cutout the image and estimate PSF.
+fits_path = 'sextractor_and_mge/NGC_6278/frame-r-NGC_6278.fits'
+ra = 255.20968
+dec = 23.01104
+scale = 0.396
+cut_size = 200
+output_path = 'sextractor_and_mge/NGC_6278/NGC_6287_cut_image.fits'
+cut_data = image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = 0, vmax = 10)
 #--------------------------------------------------------------------------------
