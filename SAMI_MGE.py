@@ -78,6 +78,8 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     plt.ylabel('spaxel')
 
     plt.show()
+
+    return cutout.data
 #-----------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------
