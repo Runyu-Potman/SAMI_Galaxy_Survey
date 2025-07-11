@@ -81,5 +81,101 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
 
     return cutout.data
 #-----------------------------------------------------------------------------------
+def mask_map(fits_path, target_label):
+    '''
+    After using the sextractor, we obtain a segmentation map where each star or galaxy would
+    have a unique label, and the background would have a 0 value. After applying this function,
+    all the contamination sources will have a label of 1, and the background and the target galaxy
+    will have a label of 0. The returned mask map can be used to exclude those contamination while
+    using MGE.
+
+    Parameters:
+    - fits_path: path to the input segmentation fits file given by sextractor.
+    - target_label: the label of the target galaxy given by sextractor.
+
+    Returns:
+    - mask_map: the map with contamination sources having a label of 1.
+    '''
+    with fits.open(fits_path) as hdu:
+        data = hdu[0].data
+        print(f'Unique label values in the data: {np.unique(data)}')
+
+    # we set pixels corresponding to the target galaxy to have a value of 0 and contamination objects to have a value of 1.
+    # note the background would have a 0 value in the output image of Sextractor.
+    # after this process, we mask the contamination objects, which will have a value of 1, the target galaxy and the background will have a value of 0.
+    mask_map = np.where((data != target_label) & (data != 0), 1, 0)
+    mask_map = mask_map.astype(np.uint8)
+
+    # visulization.
+    plt.figure(figsize = (8, 8))
+    plt.imshow(mask_map, cmap = 'jet', origin = 'lower')
+    plt.title('mask map for mge')
+    plt.xlabel('pixel')
+    plt.ylabel('pixel')
+    plt.show()
+
+    return mask_map
+#-----------------------------------------------------------------------------------
+def apply_mge(cut_data, mask_map, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss = 12):
+    '''
+
+    Parameters:
+        cut_data: the cutout data given by image_cutout function.
+        mask_map: the mask map given by mask_map function.
+        level: level above which to select pixels to consider in the estimate of the galaxy parameters (in find_galaxy function).
+        minlevel: The minimum `counts` level to include in the photometry. The measurement along one profile stops
+                  when the `counts` first go below this level (in sectors_photometry function).
+        fwhm: fwhm value in pixel scale estimated from the sextractor.
+        skylev: the sky level in the unit of counts/pixel which will be subtracted from the input data.
+        scale: pixel scale in arcsec (e.g., 0.396 arcsec/pixel for SDSS), this is *only* used for the scale
+               on the plots. It has no influence on the output.
+        ngauss: maximum number of Gaussians allowed in the MGE fit. Typical values are in
+                the range ``10 -- 20`` when ``linear=False`` (default: ``ngauss=12``) and
+                ``20**2 -- 40**2`` when ``linear=True`` (default: ``ngauss=30**2=900``).
+
+    Returns:
+
+    '''
+    if cut_data.shape != mask_map.shape:
+        raise ValueError('The shape of cut_data and mask_map must be the same!')
+
+    # subtract sky.
+    cut_data = cut_data - skylev
+
+    # estimated PSF value.
+    # a more accurate estimate would be using MGE and fit stars identified with SEXTRACTOR.
+    # This method would be updated in a later version.
+    sigmapsf = fwhm / 2.355
+
+    # use the find_galaxy function.
+    plt.clf()
+    f = mge.find_galaxy(img = cut_data, level = level, plot = True)
+    plt.pause(1)
+
+    # where mask_image == 0 (valid regions), the boolean mask will be True.
+    # where mask_image == 1 (invalid regions), the boolean mask will be False.
+    # false values are masked and ignored in the photometry.
+    target_mask = mask_map == 0
+
+    # create a mask for the kdc region.
+    # radius_pixel = 4.5 / scale
+    # y, x = np.indices(img.shape)
+    # kdc_mask = (x - f.xpeak)**2 + (y - f.ypeak)**2 >= radius_pixel**2
+
+    # mask = kdc_mask & target_mask
+
+    # perform galaxy photometry.
+    plt.clf()
+    s = mge.sectors_photometry(
+        cut_data, f.eps, f.theta, f.xpeak, f.ypeak,
+        minlevel = minlevel, mask = target_mask, plot = True)
+    plt.pause(1)
+
+    # do the MGE fit.
+    plt.clf()
+    m = mge.fit_sectors_regularized(s.radius, s.angle, s.counts, f.eps,
+                        ngauss = ngauss, sigmapsf = sigmapsf,
+                        scale = scale, plot = True, linear = False)
+    plt.pause(1)
 
 #--------------------------------------------------------------------------------
