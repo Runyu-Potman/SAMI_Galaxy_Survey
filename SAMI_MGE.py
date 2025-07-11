@@ -33,7 +33,7 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     # open the input optical image.
     with fits.open(fits_path) as hdu:
         data = hdu[0].data # in the unit of nanomaggy.
-        calib = hdu[1].data # the calibration factor in nanomaggy/counts.
+        calib = hdu[1].data # the calibration factor in nanomaggy/count.
         header = hdu[0].header
 
     # expand the calibration vector to match the image shape.
