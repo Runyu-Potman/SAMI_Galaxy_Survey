@@ -195,6 +195,9 @@ def apply_mge(cut_data, mask_map, level, minlevel, fwhm, skylev = 0, scale = 0.3
 
     plt.pause(1)
 
+    # final results.
+    total_counts, sigma, q_obs = m.sol
+
     # peak surface brightness.
 
 #-----------------------------------------------------------------------------------
