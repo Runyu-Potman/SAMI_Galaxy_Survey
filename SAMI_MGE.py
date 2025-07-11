@@ -6,6 +6,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import mgefit as mge
 
+#----------------------------------------------------------------------------
+'''
+version_01: 11/07/2025: initial function.
+'''
 #----------------------------------------------------------------------------------------------------------------
 def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None):
     '''
