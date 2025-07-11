@@ -39,8 +39,8 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     # expand the calibration vector to match the image shape.
     calib = np.tile(calib, (data.shape[0], 1))
 
-    # decalibrate the data from nanomaggy to counts.
-    data = data / calib # now the data is in counts/pixel.
+    # decalibrate the data from nanomaggy to count.
+    data = data / calib # now the data is in count/pixel.
 
     # read the header information and extract wcs.
     wcs = WCS(header)
