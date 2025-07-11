@@ -198,7 +198,7 @@ def apply_mge(cut_data, mask_map, level, minlevel, fwhm, skylev = 0, scale = 0.3
     # final results.
     total_counts, sigma, q_obs = m.sol
 
-    # peak surface brightness.
+    # peak surface brightness, in preparation for dynamical modeling.
     surf = total_counts / (2 * np.pi * q_obs * sigma**2)
     # sigma in arcsec, in preparation for dynamical modeling.
     sigma_arcsec = sigma * scale
