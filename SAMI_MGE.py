@@ -20,7 +20,7 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     - fits_path: path to the input optical FITS file in pixel scale.
     - ra: right ascension of the target galaxy in degrees.
     - dec: declination of the target galaxy in degrees.
-    - scale: scale of the input optical image (e.g., 0.396 arcsec/pixel for SDSS).
+    - scale: size of pixel in arcsec (e.g., 0.396 arcsec/pixel for SDSS).
     - cut_size: cut size in arcsec. Large cut_size for identify stars in SEXTRACTOR, small cut_size for mge fitting.
     - output_path: path to output FITS file, the file is stored in the same unit as the input FITS file.
     - vmin: colorbar plotting.
