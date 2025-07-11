@@ -27,7 +27,7 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     - vmax: colorbar plotting.
 
     Return:
-    - None.
+    - cutout.data: the data containing the brightness of all sources.
     '''
 
     # open the input optical image.
