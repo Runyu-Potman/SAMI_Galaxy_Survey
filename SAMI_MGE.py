@@ -3,6 +3,8 @@ from astropy.wcs import WCS
 from astropy.nddata import Cutout2D
 from scipy.ndimage import rotate
 import matplotlib.pyplot as plt
+import numpy as np
+import mgefit as mge
 
 #----------------------------------------------------------------------------------------------------------------
 def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None):
