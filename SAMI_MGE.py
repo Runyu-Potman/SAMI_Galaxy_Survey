@@ -201,3 +201,10 @@ cut_size = 200
 output_path = 'sextractor_and_mge/NGC_6278/NGC_6287_cut_image.fits'
 cut_data = image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = 0, vmax = 10)
 #--------------------------------------------------------------------------------
+# step two: prepare the mask map.
+fits_path = 'sextractor_and_mge/NGC_6278/segmentation.fits'
+target_label = 1
+mask_map = mask_map(fits_path, target_label)
+#---------------------------------------------------------------------------------
+# third step: apply the MGE.
+apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1, fwhm = 2.30843, ngauss = 12)
