@@ -179,9 +179,9 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
         target_mask = mask_map == 0
 
         # create a mask for the kdc region.
-        # radius_pixel = 4.5 / scale
-        # y, x = np.indices(img.shape)
-        # kdc_mask = (x - f.xpeak)**2 + (y - f.ypeak)**2 >= radius_pixel**2
+        # radius_pixel = 30
+        # y, x = np.indices(cut_data.shape)
+        # kdc_mask = (x - f.xpeak)**2 + (y - f.ypeak)**2 <= radius_pixel**2
 
         # target_mask = kdc_mask & target_mask
     else:
