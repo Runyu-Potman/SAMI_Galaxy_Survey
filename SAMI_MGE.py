@@ -154,8 +154,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
     cut_data = cut_data - skylev
 
     # estimated PSF value.
-    # a more accurate estimate would be using MGE and fit stars identified with SEXTRACTOR.
-    # This method would be updated in a later version.
+    # if using sdss r band image, a more accurate estimate would be using MGE and fit stars identified with SEXTRACTOR.
     sigmapsf = fwhm / 2.355
 
     # use the find_galaxy function.
