@@ -75,8 +75,6 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     else:
         rotated_data = cutout.data
 
-    '''
-
     # save the output fits file.
     cutout_hdu = fits.PrimaryHDU(data = cutout.data)
     hdul = fits.HDUList([cutout_hdu])
