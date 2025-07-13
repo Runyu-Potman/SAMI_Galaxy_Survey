@@ -67,6 +67,11 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
             # rotate the image to make north-up.
             rotated_data = rotate(cutout.data, -pa, reshape = True)
 
+            # set those new regions (with 0 value) to be nan.
+            rotated_data[rotated_data == 0] = np.nan
+
+        else:
+            rotated_data = cutout.data
     else:
         rotated_data = cutout.data
 
