@@ -25,7 +25,7 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     - output_path: path to output FITS file, the file is stored in the same unit as the input FITS file.
     - vmin: colorbar plotting.
     - vmax: colorbar plotting.
-    - rotate: rotate the image to the traditional up north direction.
+    - rotation: rotate the image to the traditional up north direction.
 
     Return:
     - rotated_data: the data containing the brightness of all sources.
