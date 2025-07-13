@@ -131,7 +131,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
         level: level above which to select pixels to consider in the estimate of the galaxy parameters (in find_galaxy function).
         minlevel: The minimum `counts` level to include in the photometry. The measurement along one profile stops
                   when the `counts` first go below this level (in sectors_photometry function).
-        fwhm: fwhm value in pixel scale estimated from the sextractor.
+        fwhm: fwhm value in pixel scale (e.g., estimated from the sextractor).
         skylev: the sky level in the unit of counts/pixel which will be subtracted from the input data.
         scale: pixel scale in arcsec (e.g., 0.396 arcsec/pixel for SDSS), this is *only* used for the scale
                on the plots. It has no influence on the output.
