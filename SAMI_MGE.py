@@ -162,10 +162,11 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
     f = mge.find_galaxy(img = cut_data, level = level, plot = True)
     plt.pause(1)
 
-    # where mask_image == 0 (valid regions), the boolean mask will be True.
-    # where mask_image == 1 (invalid regions), the boolean mask will be False.
-    # false values are masked and ignored in the photometry.
-    target_mask = mask_map == 0
+    if mask_map is not None:
+        # where mask_image == 0 (valid regions), the boolean mask will be True.
+        # where mask_image == 1 (invalid regions), the boolean mask will be False.
+        # false values are masked and ignored in the photometry.
+        target_mask = mask_map == 0
 
     # create a mask for the kdc region.
     # radius_pixel = 4.5 / scale
