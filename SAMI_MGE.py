@@ -90,7 +90,7 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
 
     plt.show()
 
-    return cutout.data
+    return rotated_data
 #-----------------------------------------------------------------------------------
 def mask_map(fits_path, target_label):
     '''
