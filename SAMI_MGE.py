@@ -173,7 +173,9 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
         # y, x = np.indices(img.shape)
         # kdc_mask = (x - f.xpeak)**2 + (y - f.ypeak)**2 >= radius_pixel**2
 
-    # mask = kdc_mask & target_mask
+        # mask = kdc_mask & target_mask
+    else:
+        target_mask = None
 
     # perform galaxy photometry.
     plt.clf()
