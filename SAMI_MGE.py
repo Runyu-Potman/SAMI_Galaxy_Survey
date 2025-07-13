@@ -143,8 +143,12 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
     Returns:
 
     '''
-    if cut_data.shape != mask_map.shape:
-        raise ValueError('The shape of cut_data and mask_map must be the same!')
+
+    # if the mask map is given.
+    if mask_map is not None:
+        # check the shape of the input data and mask map.
+        if cut_data.shape != mask_map.shape:
+            raise ValueError('The shape of cut_data and mask_map must be the same!')
 
     # subtract sky.
     cut_data = cut_data - skylev
