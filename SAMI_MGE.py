@@ -9,6 +9,7 @@ import mgefit as mge
 #----------------------------------------------------------------------------
 '''
 version_01: 11/07/2025: initial function.
+version_02: 13/07/2025: consider rotation.
 '''
 #----------------------------------------------------------------------------------------------------------------
 def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotation = False):
