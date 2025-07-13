@@ -91,6 +91,9 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
 
     plt.show()
 
+    # convert nan values back to zero in preparation for MGE.
+    rotated_data = np.nan_to_num(rotated_data, nan = 0)
+
     return rotated_data
 #-----------------------------------------------------------------------------------
 def mask_map(fits_path, target_label):
