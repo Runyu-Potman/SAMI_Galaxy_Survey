@@ -11,7 +11,7 @@ import mgefit as mge
 version_01: 11/07/2025: initial function.
 '''
 #----------------------------------------------------------------------------------------------------------------
-def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None):
+def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotate = False):
     '''
     The function can be used to do preparation for SEXTRACTOR or MGE. Large cut_size to identify stars and estimate PSF
     with SEXTRACTOR, then switch to small cut_size to apply MGE.
