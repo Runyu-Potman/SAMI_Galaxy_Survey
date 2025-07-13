@@ -82,7 +82,7 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
 
     # visualization.
     plt.figure(figsize = (9, 8))
-    plt.imshow(cutout.data, cmap = 'jet', origin = 'lower', vmin = vmin, vmax = vmax)
+    plt.imshow(rotated_data, cmap = 'jet', origin = 'lower', vmin = vmin, vmax = vmax)
     plt.colorbar(label = 'surface brightness in counts/pixel')
     plt.title('cutout image')
     plt.xlabel('spaxel')
