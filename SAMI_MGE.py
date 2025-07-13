@@ -128,7 +128,6 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
 
     Parameters:
         cut_data: the cutout data given by image_cutout function.
-        mask_map: the mask map given by mask_map function.
         level: level above which to select pixels to consider in the estimate of the galaxy parameters (in find_galaxy function).
         minlevel: The minimum `counts` level to include in the photometry. The measurement along one profile stops
                   when the `counts` first go below this level (in sectors_photometry function).
