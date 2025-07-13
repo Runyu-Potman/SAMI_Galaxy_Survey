@@ -64,8 +64,8 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
             pa = header['SPA']
             print(f'Position angle (SPA) from header: {pa} degrees')
 
-        # rotate the image to make north-up.
-        rotated_data = rotate(cutout.data, 0, reshape = True)
+            # rotate the image to make north-up.
+            rotated_data = rotate(cutout.data, -pa, reshape = True)
 
     else:
         rotated_data = cutout.data
