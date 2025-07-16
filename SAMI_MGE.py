@@ -13,7 +13,7 @@ version_02: 13/07/2025: consider rotation. However, it seems the rotation of the
             will not affect the final MGE results (counts, sigma and q).
 '''
 #----------------------------------------------------------------------------------------------------------------
-def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotation = False):
+def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotation = False, calibration = True):
     '''
     The function can be used to do preparation for SEXTRACTOR or MGE. Large cut_size to identify stars and estimate PSF
     with SEXTRACTOR, then switch to small cut_size to apply MGE.
