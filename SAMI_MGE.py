@@ -232,8 +232,8 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
     # sigma in arcsec, in preparation for dynamical modeling.
     sigma_arcsec = sigma * scale
 
-    print(surf)
-    print(sigma_arcsec)
+    print('surface density in Lsolar/pc^2', I)
+    print('sigma in arcsec', sigma_arcsec)
 
 #-----------------------------------------------------------------------------------
 # usage example.
