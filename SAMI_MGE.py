@@ -150,6 +150,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
         ngauss: maximum number of Gaussians allowed in the MGE fit. Typical values are in
                 the range ``10 -- 20`` when ``linear=False`` (default: ``ngauss=12``) and
                 ``20**2 -- 40**2`` when ``linear=True`` (default: ``ngauss=30**2=900``).
+        Msolar: absolute magnitude of the sun (e.g., 4.68 for SDSS r band).
         mask_map: the mask map given by mask_map function after using sextractor.
 
     Returns:
