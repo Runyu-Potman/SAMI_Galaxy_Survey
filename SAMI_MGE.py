@@ -216,8 +216,19 @@ def apply_mge(cut_data, level, minlevel, fwhm, skylev = 0, scale = 0.396, ngauss
     # final results.
     total_counts, sigma, q_obs = m.sol
 
-    # peak surface brightness, in preparation for dynamical modeling.
-    surf = total_counts / (2 * np.pi * q_obs * sigma**2)
+    # the following steps are in preparation for the dynamical modeling, see readme_mge_fit_sectors.pdf for more details.
+    # the total counts of each Gaussian can be converted into the corresponding peak surface brightness.
+    # if calibration = True in the image_cutout function, then C0 would have the unit of counts/pixel.
+    C0 = total_counts / (2 * np.pi * q_obs * sigma**2)
+
+    # convert to the surface brightness in mag/arcsec^2 using the SDSS Pogson magnitude equation.
+    # note that sdss provides calibrated quantities and no exposure time needs to enter.
+    # note the extinction is not considered.
+    u = 22.5 - 2.5 * np.log10(C0/scale**2)
+
+    # convert to surface density in Lsolar/pc^2.
+    I = (64800/np.pi)**2 * 10**(0.4*(Msolar - u))
+
     # sigma in arcsec, in preparation for dynamical modeling.
     sigma_arcsec = sigma * scale
 
