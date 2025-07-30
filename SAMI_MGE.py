@@ -155,6 +155,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
                 the range ``10 -- 20`` when ``linear=False`` (default: ``ngauss=12``) and
                 ``20**2 -- 40**2`` when ``linear=True`` (default: ``ngauss=30**2=900``).
         Msolar: absolute magnitude of the sun (e.g., 4.68 for SDSS r band).
+        xlim: x and y scale for the MGE plot.
         mask_map: the mask map given by mask_map function after using sextractor.
 
     Returns:
