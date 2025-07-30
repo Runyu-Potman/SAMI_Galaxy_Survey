@@ -31,7 +31,7 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     - vmin: colorbar plotting.
     - vmax: colorbar plotting.
     - rotation: rotate the image to the traditional up north direction.
-    - calibration: whether to calibrate the unit from nanomaggy to count or not.
+    - calibration: whether to calibrate the unit from nanomaggy to count or not, normally, no need to do that.
 
     Return:
     - rotated_data: the data containing the brightness of all sources.
