@@ -229,7 +229,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     # convert to the surface brightness in mag/arcsec^2 using the SDSS Pogson magnitude equation.
     # note that sdss provides calibrated quantities and no exposure time needs to enter.
     # note the extinction is not considered.
-    u = 22.5 - 2.5 * np.log10(C0/scale**2)
+    u = 22.5 - 2.5 * np.log10(C0/scale**2) - Ar
 
     # convert to surface density in Lsolar/pc^2.
     I = (64800/np.pi)**2 * 10**(0.4*(Msolar - u))
