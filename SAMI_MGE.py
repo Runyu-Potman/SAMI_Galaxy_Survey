@@ -11,6 +11,9 @@ import mgefit as mge
 version_01: 11/07/2025: initial function.
 version_02: 13/07/2025: consider rotation. However, it seems the rotation of the r band image
             will not affect the final MGE results (counts, sigma and q).
+version_03: 30/07/2025: convert the unit into Lsolar/pc2 in preparation for dynamical modeling. Note after using the 'test',
+            we conclude that there is no need to set the 'calibration' keyword. Just starting directly from nanomaggy and 
+            using Pogson magnitude to convert the unit into mag/arcsec^2.
 '''
 #----------------------------------------------------------------------------------------------------------------
 def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotation = False, calibration = True):
