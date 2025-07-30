@@ -16,7 +16,7 @@ version_03: 30/07/2025: convert the unit into Lsolar/pc2 in preparation for dyna
             using Pogson magnitude to convert the unit into mag/arcsec^2.
 '''
 #----------------------------------------------------------------------------------------------------------------
-def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotation = False, calibration = True):
+def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotation = False, calibration = False):
     '''
     The function can be used to do preparation for SEXTRACTOR or MGE. Large cut_size to identify stars and estimate PSF
     with SEXTRACTOR, then switch to small cut_size to apply MGE.
