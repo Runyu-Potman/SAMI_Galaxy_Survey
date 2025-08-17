@@ -33,7 +33,7 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     - scale: pixel scale (e.g., 0.5 arcsec/pixel for SAMI).
     - xc: galaxy center in pixel.
     - yc: galaxy center in pixel.
-    - factor: flux factor (the unit in the emission map is 10^(-16) erg/s/cm^2/pixel).
+    - factor: flux factor (the unit in the emission line maps is 10^(-16) erg/s/cm^2/pixel).
     - H0: Hubble constant at redshift = 0 in km/s/Mpc.
     - om0: Omega matter: density of non-relativistic matter in units of the critical density at redshift = 0.
 
