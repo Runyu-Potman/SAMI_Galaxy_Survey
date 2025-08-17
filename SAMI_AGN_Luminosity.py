@@ -117,7 +117,7 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
 
     # calculate the total flux within the radius.
     aperture = CircularAperture((xc, yc), radius)
-    phot_table = aperture_photometry(OIII_map, aperture, error = OIII_err)
+    phot_table = aperture_photometry(OIII_map, aperture, error = OIII_err, mask = combined_mask)
     flux_agn = phot_table['aperture_sum'][0] * factor
     print(f'Nuclear [OIII] flux: {flux_agn:} erg/s/cm^2')
 
