@@ -151,6 +151,38 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
                     bassani_factor = 1
                     print(f'no correction will be applied, bassani_factor = {bassani_factor}.')
 
+            else:
+                raise ValueError('Invalid Ha or Hb flux encountered!')
+
+            # intrinsic integrated flux.
+            flux_agn = flux_agn * bassani_factor
+            print(f'Integrated intrinsic [OIII] flux: {flux_agn} erg/s/cm^2')
+
+        # using the dust correction map instead of the Bassani correction.
+        elif not Bassani and dust_fits_path is not None:
+            # load the dust correction map.
+            with fits.open(dust_fits_path) as dust:
+                dust_map = dust[0].data
+
+            # mask NaN values.
+            dust_map = np.ma.masked_invalid(dust_map)
+
+            # apply the combined mask.
+            dust_map = np.ma.masked_array(dust_map, mask = combined_mask)
+
+            # transform the observed flux map into intrinsic flux map.
+            OIII_map = OIII_map * dust_map
+            OIII_err = OIII_err * dust_map
+
+            # calculate the total flux within the radius.
+            phot_table = aperture_photometry(OIII_map, aperture, error = OIII_err, mask = combined_mask)
+            flux_agn = phot_table['aperture_sum'][0] * factor
+            print(f'Integrated intrinsic [OIII] flux: {flux_agn} erg/s/cm^2')
+
+        else:
+            raise ValueError('Please select one of Bassani or dust_fits_path!')
+
+    # next step is to transform the integrated flux into integrated luminosity.
     # the assumed cosmology.
     cosmo = FlatLambdaCDM(H0 = H0, Om0 = om0)
 
