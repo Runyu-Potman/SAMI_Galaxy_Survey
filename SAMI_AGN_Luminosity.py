@@ -48,6 +48,7 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     '''
 
     # load the optical emission line maps (primary map[0] and error map [1]) for each line.
+    #  using [OIII] to estimate AGN luminosity.
     with fits.open(OIII_fits_path) as OIII:
         OIII_map = OIII[0].data
         OIII_err = OIII[1].data
