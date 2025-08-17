@@ -76,6 +76,15 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     Hb_map = np.ma.masked_invalid(Hb_map)
     Hb_err = np.ma.masked_invalid(Hb_err)
 
+    # mask spaxels with negative flux or error value in all 6 maps.
+    OIII_map = np.ma.masked_where(OIII_map < 0, OIII_map)
+    Ha_map = np.ma.masked_where(Ha_map < 0, Ha_map)
+    Hb_map = np.ma.masked_where(Hb_map < 0, Hb_map)
+    
+    OIII_err = np.ma.masked_where(OIII_err <= 0, OIII_err)
+    Ha_err = np.ma.masked_where(Ha_err <= 0, Ha_err)
+    Hb_err = np.ma.masked_where(Hb_err <= 0, Hb_err)
+
     # calculate the signal-to-noise ratio (SNR) for each emission line.
     OIII_SNR = OIII_map / OIII_err
     Ha_SNR = Ha_map / Ha_err
