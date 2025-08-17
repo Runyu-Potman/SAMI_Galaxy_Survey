@@ -194,6 +194,20 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     # the AGN luminosity.
     L_agn = 4 * np.pi * DL_cm**2 * flux_agn
 
-    print(f'the AGN luminosity: {L_agn:} erg/s.')
+    print(f'the AGN ([OIII]) luminosity: {L_agn:} erg/s.')
+
+    # convert to Bolometric luminosity.
+    if Bolometric:
+        if 1e38 <= L_agn <= 1e40:
+            L_agn = L_agn * 87
+            print(f'Bolometric luminosity: {L_agn:} erg/s.')
+        elif 1e40 < L_agn <= 1e42:
+            L_agn = L_agn * 142
+            print(f'Bolometric luminosity: {L_agn:} erg/s.')
+        elif 1e42 < L_agn <= 1e44:
+            L_agn = L_agn * 454
+            print(f'Bolometric luminosity: {L_agn:} erg/s.')
+        else:
+            raise ValueError('No Bolometric correction will be applied, set Bolometric to be False.')
 
 #------------------------------------------------------------------------
