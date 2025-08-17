@@ -104,6 +104,12 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     OIII_map = np.ma.masked_array(OIII_map, mask = combined_mask)
     OIII_err = np.ma.masked_array(OIII_err, mask = combined_mask)
 
+    Ha_map = np.ma.masked_array(Ha_map, mask = combined_mask)
+    Ha_err = np.ma.masked_array(Ha_err, mask = combined_mask)
+
+    Hb_map = np.ma.masked_array(Hb_map, mask = combined_mask)
+    Hb_err = np.ma.masked_array(Hb_err, mask = combined_mask)
+
     # the next step is to transfer the flux into luminosity.
     radius = 2 * psf_fwhm # in arcsec scale.
     radius = radius / scale # in pixel scale.
