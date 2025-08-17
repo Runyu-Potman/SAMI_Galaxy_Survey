@@ -38,8 +38,9 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     - H0: Hubble constant at redshift = 0 in km/s/Mpc.
     - om0: Omega matter: density of non-relativistic matter in units of the critical density at redshift = 0.
     - dust_correction: bool, whether to apply dust correction.
-    - Bassani: bool, whether to apply Bassani dust correction.
-    - dust_fits_path: if Bassani dust correction is not applied, then one can choose to provide the path to the dust fits file.
+    - Bassani: bool, if dust_correction is true, one can choose whether to apply Bassani dust correction.
+    - dust_fits_path: if dust_correction is true and Bassani dust correction is not applied, then one can
+                      choose to provide the path to the dust fits file (e.g., products given by SAMI).
     - Bolometric: bool, whether to transform the dust corrected luminosity to Bolometric luminosity.
 
     Returns:
