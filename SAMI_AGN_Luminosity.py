@@ -19,7 +19,8 @@ def plot(data):
 
 #-----------------------------------------------------------------
 def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fwhm, redshift,
-                   scale = 0.5, xc = 25, yc = 25, factor = 10**(-16), H0 = 73, om0 = 0.3):
+                   scale = 0.5, xc = 25, yc = 25, factor = 10**(-16), H0 = 73, om0 = 0.3,
+                   dust_correction = False, Bassani = False, dust_fits_path = None, Bolometric = False):
     '''
     Caculate the AGN luminosity using [OIII].
 
