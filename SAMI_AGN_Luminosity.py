@@ -138,10 +138,9 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
             flux_Ha = phot_table_Ha['aperture_sum'][0] * factor
             print(f'Integrated observed Ha flux: {flux_Ha} erg/s/cm^2')
 
-    # try another method:
-    y, x = np.mgrid[:OIII_map.shape[0], :OIII_map.shape[1]]
-    mask = np.sqrt((x - xc)**2 + (y - yc)**2) <= radius
-    flux_agn_02 = np.sum(OIII_map[mask]) * factor
+            phot_table_Hb = aperture_photometry(Hb_map, aperture, error = Hb_err, mask = combined_mask)
+            flux_Hb = phot_table_Hb['aperture_sum'][0] * factor
+            print(f'Integrated observed Hb flux: {flux_Hb} erg/s/cm^2')
 
     print(f'directly using mask instead of using photutils: {flux_agn_02} erg/s/cm^2')
 
