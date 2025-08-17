@@ -128,7 +128,15 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     aperture = CircularAperture((xc, yc), radius)
     phot_table = aperture_photometry(OIII_map, aperture, error = OIII_err, mask = combined_mask)
     flux_agn = phot_table['aperture_sum'][0] * factor
-    print(f'Nuclear [OIII] flux: {flux_agn:} erg/s/cm^2')
+    print(f'Integrated observed [OIII] flux: {flux_agn} erg/s/cm^2')
+
+    # transform the observed integrated flux into intrinsic integrated flux.
+    if dust_correction:
+        # perform the Bassani dust correction.
+        if Bassani and dust_fits_path is None:
+            phot_table_Ha = aperture_photometry(Ha_map, aperture, error = Ha_err, mask = combined_mask)
+            flux_Ha = phot_table_Ha['aperture_sum'][0] * factor
+            print(f'Integrated observed Ha flux: {flux_Ha} erg/s/cm^2')
 
     # try another method:
     y, x = np.mgrid[:OIII_map.shape[0], :OIII_map.shape[1]]
