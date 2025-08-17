@@ -142,7 +142,14 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
             flux_Hb = phot_table_Hb['aperture_sum'][0] * factor
             print(f'Integrated observed Hb flux: {flux_Hb} erg/s/cm^2')
 
-    print(f'directly using mask instead of using photutils: {flux_agn_02} erg/s/cm^2')
+            if flux_Hb > 0 and flux_Ha >= 0:
+                if (flux_Ha / flux_Hb) >= 3:
+                    bassani_factor = ((flux_Ha / flux_Hb) / 3) ** 2.94
+                    print(f'bassani_factor = {bassani_factor}')
+                else:
+                    # no dust correction will be applied.
+                    bassani_factor = 1
+                    print(f'no correction will be applied, bassani_factor = {bassani_factor}.')
 
     # the assumed cosmology.
     cosmo = FlatLambdaCDM(H0 = H0, Om0 = om0)
