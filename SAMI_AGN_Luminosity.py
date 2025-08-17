@@ -36,6 +36,10 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     - factor: flux factor (e.g., for SAMI, the unit in the emission line maps is 10^(-16) erg/s/cm^2/pixel).
     - H0: Hubble constant at redshift = 0 in km/s/Mpc.
     - om0: Omega matter: density of non-relativistic matter in units of the critical density at redshift = 0.
+    - dust_correction: bool, whether to apply dust correction.
+    - Bassani: bool, whether to apply Bassani dust correction.
+    - dust_fits_path: if Bassani dust correction is not applied, then one can choose to provide the path to the dust fits file.
+    - Bolometric: bool, whether to transform the dust corrected luminosity to Bolometric luminosity.
 
     Returns:
 
