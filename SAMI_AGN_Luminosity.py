@@ -111,6 +111,7 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     Hb_err = np.ma.masked_array(Hb_err, mask = combined_mask)
 
     # the next step is to transfer the flux into luminosity.
+    # first of all, calculate the total flux within an aperture with radius being 2 * PSF_FWHM.
     radius = 2 * psf_fwhm # in arcsec scale.
     radius = radius / scale # in pixel scale.
 
