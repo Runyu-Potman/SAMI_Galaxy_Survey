@@ -30,7 +30,7 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     - Hb_fits_path: str, path to the Hb fits file.
     - threshold: exclude spaxels in all emission maps where S/N < threshold.
     - psf_fwhm: float, FWHM of the PSF in arcseconds.
-    - redshift: redshift value to calculate distance.
+    - redshift: redshift value to calculate luminosity distance.
     - scale: pixel scale (e.g., 0.5 arcsec/pixel for SAMI).
     - xc: galaxy center in pixel.
     - yc: galaxy center in pixel.
