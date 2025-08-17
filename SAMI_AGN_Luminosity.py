@@ -53,6 +53,7 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
         OIII_map = OIII[0].data
         OIII_err = OIII[1].data
 
+    # Ha and Hb would be used to calculate the Balmer decrement.
     with fits.open(Ha_fits_path) as Ha:
         Ha_map = Ha[0].data
         Ha_err = Ha[1].data
