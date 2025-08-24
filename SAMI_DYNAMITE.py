@@ -9,7 +9,6 @@ from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velo
 import os
 import dynamite as dyn
 #---------------------------------------------------------------------------------
-
 def read_kinematics_user(file):
     # This function can be filled by the user
     return None, None, None, None
