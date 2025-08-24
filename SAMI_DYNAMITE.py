@@ -297,6 +297,11 @@ def create_kin_input(galaxy, file, dyn_model_dir, expr='', angle_deg=0,
             ngh = 4
         binNum,xp,yp,flux,vel,sig,h3,h4,dvel,dsig,dh3,dh4,xbin,ybin=read_atlas3d(file)
 
+    elif kin_input == 'SAMI':
+        if ngh == 'all':
+            ngh = 4
+        binNum, xp, yp, flux, vel, sig, h3, h4, dvel, dsig, dh3, dh4, xbin, ybin = read_sami(file)
+
     elif kin_input == 'USER':
         binNum, xp, yp, data = read_kinematics_user(file)
 
