@@ -178,6 +178,13 @@ def read_califa(file):
 
     return binNum-1,xp,yp,flux,vel,sig,h3,h4,dvel,dsig,dh3,dh4,xbin,ybin
 
+#------------------------------------------------------------------------------
+def read_sami(file):
+    # open the fits file.
+    hdulist = fits.open(file)
+
+    # kinematic table is in extension 1.
+    kin_tab = hdulist[1].data
 
 def create_aperture_file(dir,expr,minx,maxx,miny,maxy,angle_deg,nx,ny):
     # The angle saved here is measured counter clock-wise
