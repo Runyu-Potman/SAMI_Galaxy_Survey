@@ -616,8 +616,8 @@ def quality_cut_stellar_velocity_map_four_moment(
         ny, nx = flux.shape
 
         # generate x, y coordinates with center at (0, 0).
-        x_coords = np.arange(nx) - center_x
-        y_coords = np.arange(ny) - center_y
+        x_coords = (np.arange(nx) - center_x) * 0.5
+        y_coords = (np.arange(ny) - center_y) * 0.5
         # the order is correct here, do not use y, x = np.meshgrid(y_coords, x_coords)
         x, y = np.meshgrid(x_coords, y_coords)
 
