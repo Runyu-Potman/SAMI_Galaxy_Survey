@@ -310,7 +310,7 @@ def create_kin_input(galaxy, file, dyn_model_dir, expr='', angle_deg=0,
 
     if kin_input in ['CALIFA', 'ATLAS3D', 'SAMI']:
         data = table.Table()
-        data['v'] = vel - np.median(vel)  # not done in califa and atlas3d read
+        data['v'] = vel - np.median(vel)  # not done in califa and atlas3d read and sami.
         data['dv'] = dvel
         data['sigma'] = sig
         data['dsigma'] = dsig
