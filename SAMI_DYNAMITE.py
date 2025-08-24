@@ -224,6 +224,7 @@ def read_sami(file):
         ybin[i] = kin_tab[si].Y
 
     return binNum-1, xp, yp, flux, vel, sig, h3, h4, dvel, dsig, dh3, dh4, xbin, ybin
+
 #-------------------------------------------------------------------------------
 def create_aperture_file(dir,expr,minx,maxx,miny,maxy,angle_deg,nx,ny):
     # The angle saved here is measured counter clock-wise
