@@ -308,7 +308,7 @@ def create_kin_input(galaxy, file, dyn_model_dir, expr='', angle_deg=0,
     elif kin_input == 'NIFS':
         binNum, xp, yp, data = read_kinematics_nifs(file, n_gh=ngh, idl=True)
 
-    if kin_input in ['CALIFA', 'ATLAS3D']:
+    if kin_input in ['CALIFA', 'ATLAS3D', 'SAMI']:
         data = table.Table()
         data['v'] = vel - np.median(vel)  # not done in califa and atlas3d read
         data['dv'] = dvel
