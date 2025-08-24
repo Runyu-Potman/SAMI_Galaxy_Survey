@@ -6,6 +6,8 @@ import plotbin.display_pixels as dp
 import pafit.fit_kinematic_pa as pa
 import cmasher as cmr
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map_four_moment
+import os
+import dynamite as dyn
 #---------------------------------------------------------------------------------
 
 def read_kinematics_user(file):
