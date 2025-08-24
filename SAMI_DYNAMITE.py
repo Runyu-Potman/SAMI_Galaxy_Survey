@@ -186,6 +186,45 @@ def read_sami(file):
     # kinematic table is in extension 1.
     kin_tab = hdulist[1].data
 
+    # select valid values.
+    s = kin_tab.BIN_ID > 0
+
+    # ID of vorbin.
+    binNum = (kin_tab[s].BIN_ID).astype(int)
+
+    # extract x, y and flux.
+    # xp, yp is the position of each spaxel individually.
+    xp = kin_tab[s].X
+    yp = kin_tab[s].Y
+    flux = kin_tab[s].FLUX
+
+    # check where each bin appears the first time.
+    ubins, indices = np.unique(binNum, return_index = True)
+
+    # extract kinematic values.
+    vel = kin_tab[s].V[indices]
+    sig = kin_tab[s].SIG[indices]
+    h3 = kin_tab[s].H3[indices]
+    h4 = kin_tab[s].H4[indices]
+    dvel = kin_tab[s].DV[indices]
+    dsig = kin_tab[s].DSIG[indices]
+    dh3 = kin_tab[s].DH3[indices]
+    dh4 = kin_tab[s].DH4[indices]
+
+    # total number of bins.
+    nbin = int(np.max(kin_tab.BIN_ID))
+
+    # xbin, ybin is the position of the bins.
+    xbin = np.zeros(nbin)
+    ybin = np.zeros(nbin)
+
+    for i in range(len(xbin)):
+        si = np.where(ubins == i+1)[0]
+        xbin[i] = kin_tab[si].X
+        ybin[i] = kin_tab[si].Y
+
+    return binNum-1, xp, yp, flux, vel, sig, h3, h4, dvel, dsig, dh3, dh4, xbin, ybin
+#-------------------------------------------------------------------------------
 def create_aperture_file(dir,expr,minx,maxx,miny,maxy,angle_deg,nx,ny):
     # The angle saved here is measured counter clock-wise
     # from the galaxy major axis to the X-axis of the input data
