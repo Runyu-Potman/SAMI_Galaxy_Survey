@@ -26,6 +26,9 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
                        file should be provided (SAMI provides dust correction maps).
     - dust_fits: dust fits file path when setting dust_correction = True.
     - csv: whether to output csv file, the csv file consists of x_arcsec, y_arcsec, gas flux value, and gas flux error value.
+    - x_center: x center of gas map in pixel.
+    - y_center: y center of gas map in pixel.
+    - scale: pixel scale (e.g., 0.5 arcsec/pixel for SAMI galaxy survey).
 
     Returns:
     - gas_data: gas flux (after quality cut and/or dust corrected) data.
