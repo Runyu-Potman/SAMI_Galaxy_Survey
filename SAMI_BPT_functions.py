@@ -47,8 +47,9 @@ def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correcti
         with fits.open(dust_fits) as dust:
             dust_data = dust[0].data
 
-            # mask invalid spaxels in the dust map.
-            dust_data = np.ma.masked_invalid(dust_data)
+        # mask invalid spaxels in the dust map.
+        dust_data = np.ma.masked_invalid(dust_data)
+
         # correct for dust and get the intrinsic flux value.
         gas_data = gas_data * dust_data
 
