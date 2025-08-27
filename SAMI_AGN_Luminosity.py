@@ -6,6 +6,7 @@ import astropy.io.fits as fits
 import matplotlib.pyplot as plt
 from photutils.aperture import CircularAperture, aperture_photometry
 from astropy.cosmology import FlatLambdaCDM
+from SAMI_BPT_functions import gas_distribution
 #---------------------------------------------------------------
 def plot(data):
     plt.figure(figsize = (10, 8))
