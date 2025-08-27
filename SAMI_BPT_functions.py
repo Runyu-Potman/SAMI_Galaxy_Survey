@@ -12,7 +12,26 @@ from SAMI_stellar_velocity_quality_cut_functions import quality_cut_gaseous_velo
 from matplotlib.ticker import AutoMinorLocator
 from pafit.fit_kinematic_pa import fit_kinematic_pa
 #---------------------------------------------------------------------------------------------------------------------
-def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correction = False, dust_fits = None):
+def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_correction = False, dust_fits = None, csv = True):
+    '''
+    This function do the preparation for creating the gas distribution (flux intensity) plot for the SAMI galaxies by
+    doing the quality cut (e.g., S/N <= 5) and correcting for dust using the dust correction maps provided by SAMI.
+    The assumed pixel scale is 0.5 arcsec/pixel in the output csv file.
+
+    Parameters:
+    - gas_fits_path: gas fits file path.
+    - output_file: output csv file path when setting csv = True.
+    - threshold: threshold for quality cut, spaxels <= threshold will be excluded.
+    - dust_correction: whether to apply dust correction or not, if dust_correction = True, then the dust correction fits
+                       file should be provided (SAMI provides dust correction maps).
+    - dust_fits: dust fits file path when setting dust_correction = True.
+    - csv: whether to output csv file, the csv file consists of x_arcsec, y_arcsec, gas flux value, and gas flux error value.
+
+    Returns:
+    - gas_data: gas flux (after quality cut and/or dust corrected) data.
+
+    '''
+
     # load the optical emission line maps (primary map[0] and error map [1]).
     with fits.open(gas_fits_path) as gas_map:
         gas_data = gas_map[0].data
