@@ -60,7 +60,7 @@ def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correcti
         # prepare the csv data for plotting.
         ny, nx = gas_data.shape
 
-    data_to_save = []
+        data_to_save = []
 
     for i in range(ny):
         for j in range(nx):
