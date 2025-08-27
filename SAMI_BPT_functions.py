@@ -69,8 +69,8 @@ def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correcti
                         x_arcsec = (j - 24) * 0.5
                         y_arcsec = (i - 24) * 0.5
 
-                    print(f'{x_arcsec}, {y_arcsec}, {gas_data[i, j]}, {gas_err_data[i, j]}')
-                    data_to_save.append((x_arcsec, y_arcsec, gas_data[i, j], gas_err_data[i, j]))
+                        print(f'{x_arcsec}, {y_arcsec}, {gas_data[i, j]}, {gas_err_data[i, j]}')
+                        data_to_save.append((x_arcsec, y_arcsec, gas_data[i, j], gas_err_data[i, j]))
 
             else:
                 if (not gas_data.mask[i, j] and not gas_err_data.mask[i, j]):
