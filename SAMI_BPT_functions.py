@@ -53,8 +53,12 @@ def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correcti
         # correct for dust and get the intrinsic flux value.
         gas_data = gas_data * dust_data
 
-    # prepare the csv data for plotting.
-    ny, nx = gas_data.shape
+    if csv and output_file is None:
+        raise ValueError('Please provide the output file path when setting csv = True.')
+
+    if csv and output_file is not None:
+        # prepare the csv data for plotting.
+        ny, nx = gas_data.shape
 
     data_to_save = []
 
