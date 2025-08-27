@@ -18,7 +18,7 @@ def gas_distribution(gas_fits_path, output_file, threshold = None, dust_correcti
         gas_data = gas_map[0].data
         gas_err_data = gas_map[1].data
 
-    # extract the total component (0) of Ha (50*50*4 -> 50*50) when using recommended component.
+    # extract the total component (0) of Ha (50*50*4 -> 50*50) when using the recommended component.
     # for the 1-component case, [0, :, :] is the same as [1, :, :].
     gas_data = gas_data[0, :, :]
     gas_err_data = gas_err_data[0, :, :]
