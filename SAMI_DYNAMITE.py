@@ -274,6 +274,8 @@ def create_bins_file(dir,expr,grid):
                                                                                int(flattened[line*10+6]),int(flattened[line*10+7]),
                                                                                int(flattened[line*10+8]),int(flattened[line*10+9]))
         bins_file.write(string)
+
+    # leftover items.
     last_line = ''
     # number of items in last line:
     num_last_items = len(flattened) - num_of_lines*10
