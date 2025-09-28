@@ -255,6 +255,9 @@ def create_aperture_file(dir,expr,minx,maxx,miny,maxy,angle_deg,nx,ny):
 def create_bins_file(dir,expr,grid):
     #adapted from schwpy. Not very beautiful
 
+    # write 10 numbers per line with a final line for the leftover values.
+
+    # store the results in the 2D array.
     s = np.shape(grid)
     #the grid is expressed with 10 numbers in each line. This is prepared here
     flattened = grid.T.flatten()
