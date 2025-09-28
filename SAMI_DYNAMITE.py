@@ -366,6 +366,7 @@ def create_kin_input(galaxy, file, dyn_model_dir, expr='', angle_deg=0,
 
     # Determination of the pixel size
     npixels = len(xp)
+    # initialize dx with a huge number.
     dx = 1e30
     for j in range(npixels-1):
         dxj = np.min((xp[j]-xp[j+1])**2 + (yp[j]-yp[j+1])**2)
