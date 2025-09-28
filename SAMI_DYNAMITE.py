@@ -180,6 +180,18 @@ def read_califa(file):
 
 #------------------------------------------------------------------------------
 def read_sami(file):
+    '''
+    Prepare the kinematic information for DYNAMITE.
+
+    Parameters:
+    - file: the file contains the bin_id, x, y, flux, v, sigma,
+            h3, h4, and associated uncertainties of those LOSVD.
+
+    Returns:
+    - binNum-1, xp, yp, flux, vel, sig, h3, h4, dvel, dsig, dh3, dh4, xbin, ybin
+
+    '''
+
     # open the fits file.
     hdulist = fits.open(file)
 
