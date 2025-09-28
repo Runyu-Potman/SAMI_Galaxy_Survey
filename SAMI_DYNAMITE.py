@@ -206,6 +206,8 @@ def read_sami(file):
 
     # extract x, y and flux.
     # xp, yp is the position of each spaxel individually.
+    # flux value will not be used to perform dynamical modeling,
+    # but can be used as a diagnostic after the MGE flux model is constructed.
     xp = kin_tab[s].X
     yp = kin_tab[s].Y
     flux = kin_tab[s].FLUX
