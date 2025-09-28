@@ -266,6 +266,7 @@ def create_bins_file(dir,expr,grid):
     bins_file.write('#Counterrotaton_binning_version_1\n')
     bins_file.write('{0}\n'.format(int(s[0]*s[1])))
 
+    # write the flattened values 10 per line.
     for line in range(num_of_lines):
         string = '\t{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\n'.format(int(flattened[line*10]),int(flattened[line*10+1]),
                                                                                int(flattened[line*10+2]),int(flattened[line*10+3]),
