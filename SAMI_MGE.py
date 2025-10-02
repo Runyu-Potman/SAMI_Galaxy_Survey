@@ -241,7 +241,10 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     plt.pause(1)
 
     # final results.
-    total_counts, sigma, q_obs = m.sol
+    if twist:
+        total_counts, sigma, q_obs, pa = m.sol
+    else:
+        total_counts, sigma, q_obs = m.sol
 
     # the following steps are in preparation for the dynamical modeling, see readme_mge_fit_sectors.pdf for more details.
     # the total counts of each Gaussian can be converted into the corresponding peak surface brightness.
