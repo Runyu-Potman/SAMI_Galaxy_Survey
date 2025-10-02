@@ -201,9 +201,15 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
 
     # perform galaxy photometry.
     plt.clf()
-    s = mge.sectors_photometry(
-        cut_data, f.eps, f.theta, f.xpeak, f.ypeak,
-        minlevel = minlevel, mask = target_mask, plot = True)
+    if twist:
+        s = mge.sectors_photometry_twist(
+            cut_data, f.theta, f.xpeak, f.ypeak,
+            minlevel=minlevel, mask=target_mask, plot=True)
+    else:
+        s = mge.sectors_photometry(
+            cut_data, f.eps, f.theta, f.xpeak, f.ypeak,
+            minlevel=minlevel, mask=target_mask, plot=True)
+
     plt.pause(1)
 
     # do the MGE fit.
