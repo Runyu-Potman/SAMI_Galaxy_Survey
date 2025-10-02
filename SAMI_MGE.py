@@ -227,8 +227,13 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
 
     # show contour plots of the results.
     plt.clf()
-    mge.print_contours(cut_data, f.theta, f.xpeak, f.ypeak, m.sol, scale = scale,
-                       sigmapsf = sigmapsf, mask = target_mask, minlevel = minlevel)
+    if twist:
+        mge.print_contours_twist(cut_data, f.theta, f.xpeak, f.ypeak, m.sol, scale=scale,
+                                 sigmapsf=sigmapsf, mask=target_mask, minlevel=minlevel)
+
+    else:
+        mge.print_contours(cut_data, f.theta, f.xpeak, f.ypeak, m.sol, scale=scale,
+                           sigmapsf=sigmapsf, mask=target_mask, minlevel=minlevel)
 
     plt.xlim(-xlim, xlim)
     plt.ylim(-xlim, xlim)
