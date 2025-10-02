@@ -214,9 +214,15 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
 
     # do the MGE fit.
     plt.clf()
-    m = mge.fit_sectors_regularized(s.radius, s.angle, s.counts, f.eps,
-                        ngauss = ngauss, sigmapsf = sigmapsf,
-                        scale = scale, plot = True, linear = False)
+    if twist:
+        m = mge.fit_sectors_twist(s.radius, s.angle, s.counts, f.eps,
+                                  ngauss=ngauss, sigmapsf=sigmapsf,
+                                  scale=scale, plot=True)
+    else:
+        m = mge.fit_sectors_regularized(s.radius, s.angle, s.counts, f.eps,
+                                        ngauss=ngauss, sigmapsf=sigmapsf,
+                                        scale=scale, plot=True)
+
     plt.pause(1)
 
     # show contour plots of the results.
