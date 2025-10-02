@@ -264,6 +264,8 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
 
     print('surface density in Lsolar/pc^2', I)
     print('sigma in arcsec', sigma_arcsec)
+    if twist:
+        print('Gaussian component twist:', pa)
 
 #-----------------------------------------------------------------------------------
 # usage example.
