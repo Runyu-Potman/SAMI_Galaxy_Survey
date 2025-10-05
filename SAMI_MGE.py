@@ -33,6 +33,9 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     - vmax: colorbar plotting.
     - rotation: rotate the image to the traditional up north direction.
     - calibration: whether to calibrate the unit from nanomaggy to count or not, normally, no need to do that.
+    - align_major: whether to align the major axis of the image with the horizontal level or not.
+    - kin_pa: the kinematic position angle applied when using the align_major option, defined as staring from north,
+              counterclockwise.
 
     Return:
     - rotated_data: the data containing the brightness of all sources.
