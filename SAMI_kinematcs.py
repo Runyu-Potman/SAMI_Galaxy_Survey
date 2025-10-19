@@ -127,7 +127,7 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
             x2 = x0 - line_length * np.cos(PA_rad)
             y2 = y0 - line_length * np.sin(PA_rad)
 
-            ax.plot([x1, x2], [y1, y2], color = 'black', lw = 2)
+            ax.plot([x1, x2], [y1, y2], color = 'lightgreen', lw = 4)
 
     if plot_psf:
         radius = psffwhm / 2
