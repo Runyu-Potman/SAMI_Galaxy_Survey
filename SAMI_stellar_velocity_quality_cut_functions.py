@@ -126,6 +126,8 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     - sig_fits_path: str, path to the stellar velocity dispersion fits file.
     - output_file: str, path to the output file.
     - pixel_to_arc: bool, whether to transfer from pixel scale into arc scale.
+    - center_x: float, center x coordinate of the galaxy.
+    - center_y: float, center y coordinate of the galaxy.
 
     Returns:
     - None.
