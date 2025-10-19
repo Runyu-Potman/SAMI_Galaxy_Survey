@@ -31,6 +31,9 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     - background_alpha: alpha transparency for background layer.
     - PAs: list of position angles (in degree, counterclockwise from North, 0 to 360).
     - line_length: length of the line to plot, in arcsec.
+    - plot_psf: whether to plot the PSF or not.
+    - psffwhm: psf value.
+    - text_ul: text to use for PAs.
 
     Returns:
     - ax: the axis used for plotting
