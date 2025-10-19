@@ -190,7 +190,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
             f.write('x_arcsec,y_arcsec,vel,vel_err,sig\n')
         else:
             f.write('x_pixel,y_pixel,vel,vel_err,sig\n')
-        
+
         for entry in data_to_save:
             f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}, {entry[4]}\n')
 
