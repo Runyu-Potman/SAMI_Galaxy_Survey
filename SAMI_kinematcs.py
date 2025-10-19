@@ -24,12 +24,10 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     - bar_pad: bar padding for colorbar.
     - label_pad: x and y label padding.
     - ax: matplotlib.axes.Axes object. If None, creates a new figure.
-    - value_type: 'vel' or 'sig' — determines which column to plot
-    - cmap: colormap for imshow
-    - vmin, vmax: color scale limits
-    - title: plot title
-    - cbar_label: label for colorbar
-    - show_colorbar: whether to display colorbar
+    - vmin: colorbar min value.
+    - vmax: colorbar max value.
+    - title: add title.
+    - csv_path_uncut: path to CSV file without applying quality cuts.
     - background_alpha: alpha transparency for background layer.
     - PAs: list of position angles (in degree, counterclockwise from North, 0 to 360).
     - line_length: length of the line to plot, in arcsec.
