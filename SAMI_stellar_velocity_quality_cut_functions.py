@@ -180,8 +180,8 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
                     x_arcsec = (j - center_x) * 0.5
                     y_arcsec = (i - center_y) * 0.5
                 else:
-                    x_arcsec = j - 25
-                    y_arcsec = i - 25
+                    x_arcsec = j - center_x
+                    y_arcsec = i - center_y
 
                 print(f'{x_arcsec}, {y_arcsec}, {vel_data[i, j]}, {vel_err_data[i, j]}, {sig_data[i, j]}')
                 data_to_save.append((x_arcsec, y_arcsec, vel_data[i, j], vel_err_data[i, j], sig_data[i, j]))
