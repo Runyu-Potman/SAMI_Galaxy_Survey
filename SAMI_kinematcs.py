@@ -14,7 +14,15 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     Plot velocity or sigma map from CSV file on a given matplotlib axis.
 
     Parameters:
-    - csv_path: str, path to the CSV file (must include 'x_arcsec', 'y_arcsec', 'vel', 'sig')
+    - csv_path: str, path to the CSV file (must include 'x_arcsec', 'y_arcsec', 'vel', 'sig').
+    - cmap: colormap for imshow.
+    - cbar_label: label for colorbar.
+    - value_type: 'vel' or 'sig' — determines which column to plot.
+    - show_colorbar: whether to display colorbar.
+    - fontsize: fontsize for x, y, and colorbar label.
+    - bar_fraction: bar fraction for colorbar.
+    - bar_pad: bar padding for colorbar.
+    - label_pad: x and y label padding.
     - ax: matplotlib.axes.Axes object. If None, creates a new figure.
     - value_type: 'vel' or 'sig' — determines which column to plot
     - cmap: colormap for imshow
