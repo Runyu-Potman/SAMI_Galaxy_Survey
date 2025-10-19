@@ -117,7 +117,7 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     if PAs is not None:
         for PA in PAs:
             # convert pa from degrees to radians.
-            PA_rad = np.deg2rad(180 - PA)
+            PA_rad = np.deg2rad(PA + 90)
 
             # calculate the line coordinates based on the position angle.
             x0, y0 = 0, 0
