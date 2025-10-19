@@ -141,7 +141,19 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
     return ax
 
 #---------------------------------------------------------------------------------------
-def add_circle(ax, img):
+def add_circle(ax, img, linewidth = 1.5):
+    '''
+    Add a circle in the e.g. SDSS optical image to show e.g. the field of view of SAMI.
+
+    Parameters:
+    - ax: plot position, e.g., axs[0, 0].
+    - img: SDSS optical image path.
+    - linewidth: line width of the circle.
+
+    Returns:
+    - None
+
+    '''
     scale = 0.4  # arcsec/pixel
     radius = 15 / 2  # arcsec
     radius_pix = radius / scale  # pixel
