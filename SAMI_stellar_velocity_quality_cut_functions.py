@@ -177,8 +177,8 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
                     and not sig_data.mask[i, j] and not sig_err_data.mask[i, j] and not sig_SNR_data.mask[i, j]):
 
                 if pixel_to_arc:
-                    x_arcsec = (j - 25) * 0.5
-                    y_arcsec = (i - 25) * 0.5
+                    x_arcsec = (j - center_x) * 0.5
+                    y_arcsec = (i - center_y) * 0.5
                 else:
                     x_arcsec = j - 25
                     y_arcsec = i - 25
