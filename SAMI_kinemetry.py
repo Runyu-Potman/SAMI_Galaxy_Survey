@@ -335,7 +335,7 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
     else:
         axs[0].errorbar(k.rad * 0.5, k.pa, yerr = k.er_pa, fmt = 'o', color = 'black', ecolor = 'black',
                         capsize = 2, markersize = 2)
-        axs[0].plot(k.rad * 0.5, k.pa, color = 'black', linewidth = 1)
+        axs[0].plot(k.rad * 0.5, k.pa, color = 'grey', linewidth = 1)
 
     # two dashed line indicating the mean PA.
     axs[0].axhline(y = pa1, color = 'grey', linestyle = '--', linewidth = 1)
