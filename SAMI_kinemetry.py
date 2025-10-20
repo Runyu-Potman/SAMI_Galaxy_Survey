@@ -295,7 +295,8 @@ def plot_kinemetry_maps(xbin, ybin, velbin, k, sigma=False):
 
 
 #---------------------------------------------------------------
-def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, pa1, pa2, counter_rotating = False):
+def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
+                   pa1, pa2, counter_rotating = False, label_pad = None):
     '''
     After running Kinemetry, plot the k1 and PA radial profile, also use pa1 and pa2 to represent the mean PA within
     or outside a specific radius.
