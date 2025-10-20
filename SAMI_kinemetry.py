@@ -338,8 +338,8 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
         axs[0].plot(k.rad * 0.5, k.pa, color = 'grey', linewidth = 1)
 
     # two dashed line indicating the mean PA.
-    axs[0].axhline(y = pa1, color = 'grey', linestyle = '--', linewidth = 1)
-    axs[0].axhline(y = pa2, color = 'grey', linestyle = '--', linewidth = 1)
+    axs[0].axhline(y = pa1, color = 'grey', linestyle = 'dotted', linewidth = 1)
+    axs[0].axhline(y = pa2, color = 'grey', linestyle = 'dotted', linewidth = 1)
 
     # y label, lim and ticks.
     axs[0].set_ylabel(r'PA (degrees)', fontsize = 10)
