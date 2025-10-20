@@ -313,6 +313,7 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
     - pa1: first pa dashed line indicating the average pa within or outside a radius.
     - pa2: second pa dashed line indicating the average pa within or outside a radius
     - counter_rotating: if the kdc is counter rotating, shift the PA range to (-180, 180).
+    - label_pad: label pad for the label PA.
 
     Returns:
     - None
