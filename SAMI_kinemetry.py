@@ -330,8 +330,8 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, 
         pa = (k.pa + 180) % 360
         pa[pa > 180] -= 360
         axs[0].errorbar(k.rad * 0.5, pa, yerr = k.er_pa, fmt = 'o', color = 'black', ecolor = 'black',
-                        capsize = 2.5, markersize = 2.5)
-        axs[0].plot(k.rad * 0.5, pa, color = 'grey', linewidth = 1)
+                        capsize = 2, markersize = 2)
+        axs[0].plot(k.rad * 0.5, pa, color = 'black', linewidth = 1)
     else:
         axs[0].errorbar(k.rad * 0.5, k.pa, yerr = k.er_pa, fmt = 'o', color = 'black', ecolor = 'black',
                         capsize = 2.5, markersize = 2.5)
