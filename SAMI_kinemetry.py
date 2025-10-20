@@ -296,6 +296,27 @@ def plot_kinemetry_maps(xbin, ybin, velbin, k, sigma=False):
 
 #---------------------------------------------------------------
 def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick, pa1, pa2, counter_rotating = False):
+    '''
+    After running Kinemetry, plot the k1 and PA radial profile, also use pa1 and pa2 to represent the mean PA within
+    or outside a specific radius.
+
+    Parameters:
+    - k: k = kinemetry().
+    - axs: plot position, e,g, axs = [:, 0].
+    - ypa_lim: axs limit.
+    - ypa_tick: axs tick.
+    - yk1_lim: axs limit.
+    - yk1_tick: axs tick.
+    - x_lim: axs limit.
+    - x_tick: axs tick.
+    - pa1: first pa dashed line indicating the average pa within or outside a radius.
+    - pa2: second pa dashed line indicating the average pa within or outside a radius
+    - counter_rotating: if the kdc is counter rotating, shift the PA range to (-180, 180).
+
+    Returns:
+    - None
+
+    '''
 
     # k1 coefficient.
     k1 = np.sqrt(k.cf[:, 1] ** 2 + k.cf[:, 2] ** 2)
