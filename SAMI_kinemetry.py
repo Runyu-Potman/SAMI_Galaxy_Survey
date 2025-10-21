@@ -346,6 +346,13 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
     axs[0].axhline(y = pa1, color = 'grey', linestyle = 'dotted', linewidth = 1)
     axs[0].axhline(y = pa2, color = 'grey', linestyle = 'dotted', linewidth = 1)
 
+    # If errors provided, draw shaded ±err bands (use x_lim to create x-range).
+    xs = np.linspace(x_lim[0], x_lim[1], 1000)
+    if pa1_err is not None and pa1_err > 0:
+        axs[0].fill_between(xs, pa1 - pa1_err, pa1 + pa1_err, alpha = 0.1, edgecolor = None, facecolor = 'grey', linewidth = 0)
+    if pa2_err is not None and pa2_err > 0:
+        axs[0].fill_between(xs, pa2 - pa2_err, pa2 + pa2_err, alpha = 0.1, edgecolor = None, facecolor = 'grey', linewidth = 0)
+
     # y label, lim and ticks.
     axs[0].set_ylabel('PA (degrees)', fontsize = 10, labelpad = label_pad)
     axs[0].set_ylim(ypa_lim)
