@@ -7,6 +7,18 @@ from SAMI_data_cube_quality_cut_functions import data_cube_clean_snr
 
 #-------------------------------------------------------------------------------
 def nan_safe_gaussian_filter1d (data, sigma):
+    '''
+    Apply the gaussian filter1d on the data. The input data can have some NaN values, and NaN values will be handled safely.
+
+    Parameters:
+    - data: the input data (e.g. flux).
+    - sigma: standard deviation for gaussian kernel in pixel scale.
+
+    Returns:
+    - result: the convolved data.
+
+    '''
+
     # identify NaNs.
     nan_mask = np.isnan(data)
 
