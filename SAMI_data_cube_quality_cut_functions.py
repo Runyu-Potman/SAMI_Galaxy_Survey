@@ -132,6 +132,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, wavelength_slice_index, output_
     Parameters:
     - fits_path: str, path to the data cube fits file.
     - sn_threshold: float, minimum S/N required for a pixel to be kept.
+    - output_filename: str, output filename.
     - wavelength_slice_index: int, wavelength slice to visualize before cleaning and after cleaning.
     - output_filename: str, output filename.
     - wave_range: bool, whether to include wavelength range in rest frame to calculate S/N.
