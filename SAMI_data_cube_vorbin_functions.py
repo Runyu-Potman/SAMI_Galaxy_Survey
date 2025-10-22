@@ -75,6 +75,7 @@ def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename, fwhm
     # do the convolution to match the resolution of the red to the resolution of the blue.
     fwhm_conv = np.sqrt(fwhm_blue ** 2 - fwhm_red ** 2)
     sig_conv = fwhm_conv / (2 * np.sqrt(2 * np.log(2))) # convert to sigma
+    # to build a kernel, we need to know how many red pixels that corresponds to, so divide by the red cdelt3.
     sig_conv = sig_conv / red_header['CDELT3']  # transfer to pixel scale
 
     # do the interpolation on red wavelength based on the increment of blue wavelength.
