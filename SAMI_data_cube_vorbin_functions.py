@@ -49,6 +49,22 @@ def nan_safe_gaussian_filter1d (data, sigma):
 
 #------------------------------------------------------------------------------
 def vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename, fwhm_blue = 2.65, fwhm_red = 1.61):
+    '''
+    Match the resolution of the red to the resolution of the blue: 1) convolution; 2) interpolation; 3) combination.
+    This step should be done before applying the vorbin function.
+
+    Parameters:
+    - blue_cube_fits: path to the blue cube fits file.
+    - red_cube_fits: path to the red cube fits file.
+    - output_filename: path to the output file.
+    - fwhm_blue: resolution of the blue cube in Angstroms.
+    - fwhm_red: resolution of the red cube in Angstroms.
+
+    Returns:
+    - None
+
+    '''
+
     # open the blue data cube.
     with fits.open(blue_cube_fits) as blue_hdul:
         blue_flux_cube = blue_hdul[0].data
