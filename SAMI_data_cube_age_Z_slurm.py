@@ -65,6 +65,35 @@ def plot_spectrum(wavelength, spectrum):
     plt.ylabel('flux (10**(-16) erg/s/cm**2/angstrom/pixel)')
     plt.title('spectrum before log-rebin')
     plt.show()
+#-----------------------------------------------------------------------------------
+def nan_safe_gaussian_filter1d (data, sigma):
+    # identify NaNs.
+    nan_mask = np.isnan(data)
+
+    # replace NaNs with 0 temporarily, but keep track of them.
+    data_filled = np.nan_to_num(data, nan = 0)
+
+    # make a weight array: 1 where data is valid, 0 where it's NaN.
+    weights = (~nan_mask).astype(float)
+
+    # convolve both the filled data and the weights.
+    # after convolution, some initial NaN values can have valid value (if not all NaNs),
+    # because convolution is to make the spectrum broader.
+    smoothed_data = gaussian_filter1d(data_filled, sigma = sigma)
+    smoothed_weights = gaussian_filter1d(weights, sigma = sigma)
+
+    # so we track those stay NaN values (stay 0) after convolution.
+    # avoid division by zero by adding a small epsilon to the denominator.
+    epsilon = 1e-10
+    smoothed_weights = np.where(smoothed_weights == 0, epsilon, smoothed_weights)
+
+    # normalize the result by the weights.
+    result = smoothed_data / smoothed_weights
+
+    # where there was no valid data, set output to NaN.
+    result[smoothed_weights == epsilon] = np.nan
+
+    return result
 
 # --------------------------------------------------------------------------------
 def spectrum_template_convolve(flux, redshift, cdelt3, fwhm_blue = 2.65, fwhm_miles = 2.51):
