@@ -39,8 +39,11 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
         age_map[start_y:end_y, :] = age_part
         metal_map[start_y:end_y, :] = metal_part
 
-        age_std_map[start_x:end_x, :] = age_std_part
-        metal_std_map[start_x:end_x, :] = metal_std_part
+        age_std_map[start_y:end_y, :] = age_std_part
+        metal_std_map[start_y:end_y, :] = metal_std_part
+
+    age_full = age_map.copy()
+    metal_full = metal_map.copy()
 
     np.save(f'{base_dir}/age_map_full.npy', age_map)
     np.save(f'{base_dir}/metal_map_full.npy', metal_map)
