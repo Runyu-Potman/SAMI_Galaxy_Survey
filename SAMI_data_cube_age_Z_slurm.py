@@ -829,8 +829,8 @@ if __name__ == '__main__':
                 age_map_part[y - start_y, x] = age_mean
                 metal_map_part[y - start_y, x] = metallicity_mean
 
-                age_std_part[x - start_x, y] = age_std
-                metal_std_part[x - start_x, y] = metallicity_std
+                age_std_part[y - start_y, x] = age_std
+                metal_std_part[y - start_y, x] = metallicity_std
 
             except Exception as e:
                 print(f'[x = {x}, y = {y}] failed: {e}')
