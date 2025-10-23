@@ -32,8 +32,8 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
         metal_std_part = np.load(f'{base_dir}/output/metal_std_part_{job_id}.npy')
 
         # calculate the slice indices for inserting the data.
-        start_x = job_id * 2
-        end_x = start_x + age_part.shape[0]
+        start_y = job_id * 2
+        end_y = start_y + age_part.shape[0]
 
         # insert the partial maps into full maps.
         age_map[start_x:end_x, :] = age_part
