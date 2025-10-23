@@ -809,7 +809,7 @@ if __name__ == '__main__':
             blue_spectrum = blue_spectrum.filled(np.nan)
 
             try:
-                # combine the blue and red spectrum and do the log-rebin.
+                # do the log-rebin.
                 goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_data_cube(
                     blue_spectrum, blue_fits_path, red_spectrum, red_fits_path, plot = False
                 )
