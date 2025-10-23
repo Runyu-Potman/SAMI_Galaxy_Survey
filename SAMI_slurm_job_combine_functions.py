@@ -75,9 +75,8 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     age_map = age_map[valid]
     metal_map = metal_map[valid]
 
-    # fit linear regression: metal vs radius.
-    slope_metal, intercept_metal, r_value_metal, _, _ = linregress(r, metal_map)
-    fit_metal = slope_metal * r + intercept_metal
+    age_array = age_map.copy()
+    metal_array = metal_map.copy()
 
     # sort values for plotting the regression line smoothly.
     sort_idx = np.argsort(r)
