@@ -798,8 +798,8 @@ if __name__ == '__main__':
     for y in range(start_y, end_y):
         for x in range(50):
 
-            # if entire spectrum is masked in the blue cube or in the red cube, skip this pixel.
-            if blue_cleaned_data_cube.mask[:, x, y].all() or red_cleaned_data_cube.mask[:, x, y].all():
+            # if entire spectrum is masked in the combined cube, skip this pixel.
+            if blue_cleaned_data_cube.mask[:, y, x].all():
                 continue
 
             # extract the blue spectrum and corresponding red spectrum at each spatial location.
