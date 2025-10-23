@@ -842,5 +842,5 @@ if __name__ == '__main__':
     np.save(f'output/age_std_part_{job_id}.npy', age_std_part)
     np.save(f'output/metal_std_part_{job_id}.npy', metal_std_part)
 
-    print(f'Finished job {job_id}, saved rows {start_x}-{end_x - 1}')
+    print(f'Finished job {job_id}, saved rows {start_y}-{end_y - 1}')
     # ------------------------------------------------------------------------------------
