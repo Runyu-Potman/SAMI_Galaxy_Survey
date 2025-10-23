@@ -776,10 +776,6 @@ if __name__ == '__main__':
         blue_cube = hdul[0].data
         blue_cleaned_data_cube = np.ma.masked_invalid(blue_cube)
 
-    with fits.open(red_fits_path) as hdul:
-        red_cube = hdul[0].data
-        red_cleaned_data_cube = np.ma.masked_invalid(red_cube)
-
     # -----------------------------------------------------------------------------------
     noise_value = 0.022
 
