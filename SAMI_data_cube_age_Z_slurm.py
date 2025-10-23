@@ -817,6 +817,9 @@ if __name__ == '__main__':
                 #vel = c * np.log(1 + redshift)
                 #start = [[vel, 200.], [vel, 200.], [vel, 200.]]
 
+                # only for 7969!!!!!!!!!!!!!!
+                #fwhm_blue = 2.51 * (1 + redshift)
+
                 age_mean, metallicity_mean, age_std, metallicity_std = ppxf_age_z(
                     specNew=specNew, goodpixels_nan=goodpixels_nan, ln_lam=ln_lam,
                     noise_value=noise_value, redshift=redshift, filename=filename,
