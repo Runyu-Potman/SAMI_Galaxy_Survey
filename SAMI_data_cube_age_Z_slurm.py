@@ -833,7 +833,7 @@ if __name__ == '__main__':
                 metal_std_part[y - start_y, x] = metallicity_std
 
             except Exception as e:
-                print(f'[x = {x}, y = {y}] failed: {e}')
+                print(f'[y = {y}, x = {x}] failed: {e}')
                 continue
 
     np.save(f'output/age_map_part_{job_id}.npy', age_map_part)
