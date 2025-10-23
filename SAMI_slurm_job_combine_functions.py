@@ -58,12 +58,16 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     x_bar = x_bar + center_x
     y_bar = y_bar + center_y
 
-    # flatten all arrays.
-    r = r.flatten()
-    age_map = age_map.flatten()
-    metal_map = metal_map.flatten()
-    age_std_map = age_std_map.flatten()
-    metal_std_map = metal_std_map.flatten()
+    # find the nearest pixel.
+    x_bar = np.rint(x_bar).astype(int)
+    y_bar = np.rint(y_bar).astype(int)
+
+    r_all = np.sqrt((x_bar - center_x)** 2 + (y_bar - center_y) ** 2) * 0.5
+
+    age_map = age_map[y_bar, x_bar]
+    metal_map = metal_map[y_bar, x_bar]
+    age_std_map = age_std_map[y_bar, x_bar]
+    metal_std_map = metal_std_map[y_bar, x_bar]
 
     # mask invalid data.
     valid = ~np.isnan(age_map) & ~np.isnan(metal_map) & ~np.isnan(age_std_map) & ~np.isnan(metal_std_map)
