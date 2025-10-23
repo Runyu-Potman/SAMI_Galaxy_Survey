@@ -705,7 +705,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         plt.tight_layout()
 
         if pixel_coords is not None:
-            pixel_tag = f'x{pixel_coords[0]:02d}_y{pixel_coords[1]:02d}'
+            pixel_tag = f'x{pixel_coords[1]:02d}_y{pixel_coords[0]:02d}'
 
         else:
             pixel_tag = 'unknown_pixel'
