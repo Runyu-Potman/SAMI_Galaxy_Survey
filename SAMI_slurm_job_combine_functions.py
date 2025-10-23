@@ -74,12 +74,6 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     r_all = r_all[valid]
     age_map = age_map[valid]
     metal_map = metal_map[valid]
-    age_std_map = age_std_map[valid]
-    metal_std_map = metal_std_map[valid]
-
-    # fit linear regression: age vs radius.
-    slope_age, intercept_age, r_value_age, _, _ = linregress(r, age_map)
-    fit_age = slope_age * r + intercept_age
 
     # fit linear regression: metal vs radius.
     slope_metal, intercept_metal, r_value_metal, _, _ = linregress(r, metal_map)
