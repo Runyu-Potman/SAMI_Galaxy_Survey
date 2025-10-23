@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import linregress
 from matplotlib.ticker import AutoMinorLocator
 
-def slurm_job_combine(base_dir, center_x = 24, center_y = 24):
+def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     '''
 
     Parameters:
