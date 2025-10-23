@@ -50,36 +50,6 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     np.save(f'{base_dir}/age_std_map_full.npy', age_std_map)
     np.save(f'{base_dir}/metal_std_map_full.npy', metal_std_map)
 
-    plt.figure(figsize=(12, 5))
-
-    plt.subplot(1, 2, 1)
-    plt.imshow(age_map - 9, origin = 'lower', cmap = 'jet')
-    plt.colorbar(label = 'log(Age(Gyr))')
-    plt.title('spatially resolved log(Age(Gyr)) map')
-
-    plt.subplot(1, 2, 2)
-    plt.imshow(metal_map, origin  = 'lower', cmap = 'jet')
-    plt.colorbar(label = '[M/H]')
-    plt.title('spatially resolved metallicity map')
-
-    plt.tight_layout()
-    plt.savefig(f'{base_dir}/spatial_maps.png', dpi = 300)
-    plt.show()
-
-    plt.figure(figsize = (12, 5))
-    plt.subplot(1, 2, 1)
-    plt.imshow(age_std_map, origin = 'lower', cmap = 'jet')
-    plt.colorbar(label = 'log(Age(Gyr)) std')
-    plt.title('spatially resolved log(Age(Gyr)) standard deviation map')
-
-    plt.subplot(1, 2, 2)
-    plt.imshow(metal_std_map, origin = 'lower', cmap = 'jet')
-    plt.colorbar(label = '[M/H] std')
-    plt.title('spatially resolved metallicity standard deviation map')
-
-    plt.tight_layout()
-    plt.show()
-
     # begin making gradient plots.
     # create spatial grid and compute radius from center.
     x, y = np.meshgrid(np.arange(50), np.arange(50), indexing = 'ij')
