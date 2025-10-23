@@ -710,7 +710,7 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
         else:
             pixel_tag = 'unknown_pixel'
 
-        plot_filename = os.path.join('output/bootstrapping_plots', f'bootstrap_dist_{pixel_tag}.png')
+        plot_filename = os.path.join(plot_dir, f'bootstrap_dist_{pixel_tag}.png')
         plt.savefig(plot_filename, dpi = 150)
         plt.close()
 
