@@ -51,9 +51,12 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     np.save(f'{base_dir}/metal_std_map_full.npy', metal_std_map)
 
     # begin making gradient plots.
-    # create spatial grid and compute radius from center.
-    x, y = np.meshgrid(np.arange(50), np.arange(50), indexing = 'ij')
-    r = np.sqrt((x - center_x)**2 + (y - center_y)**2)
+    x_bar = np.load(f'{base_dir}/x_bar.npy')
+    y_bar = np.load(f'{base_dir}/y_bar.npy')
+
+    # shift the center back.
+    x_bar = x_bar + center_x
+    y_bar = y_bar + center_y
 
     # flatten all arrays.
     r = r.flatten()
