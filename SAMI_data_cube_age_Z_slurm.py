@@ -807,16 +807,6 @@ if __name__ == '__main__':
 
             # set masked regions to be NaN.
             blue_spectrum = blue_spectrum.filled(np.nan)
-            red_spectrum = red_spectrum.filled(np.nan)
-
-            # around NaN values, sometimes there will be some very small values.
-            # for each NaN value (e.g., at index a), set the adjacent values (a-1 and a+1) to NaN as well.
-            for spec in [blue_spectrum, red_spectrum]:
-                nan_idx = np.isnan(spec)
-                for idx in range(1, len(spec) - 1):
-                    if nan_idx[idx]:
-                        spec[idx - 1] = np.nan
-                        spec[idx + 1] = np.nan
 
             try:
                 # combine the blue and red spectrum and do the log-rebin.
