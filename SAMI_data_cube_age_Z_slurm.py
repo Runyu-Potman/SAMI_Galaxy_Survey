@@ -811,7 +811,7 @@ if __name__ == '__main__':
             try:
                 # do the log-rebin.
                 goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_data_cube(
-                    blue_spectrum, blue_fits_path, red_spectrum, red_fits_path, plot = False
+                    blue_spectrum, blue_fits_path, plot = False, convolve = False, wave_clip = True
                 )
 
                 #vel = c * np.log(1 + redshift)
