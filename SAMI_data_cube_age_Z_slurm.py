@@ -788,7 +788,7 @@ if __name__ == '__main__':
     # -----------------------------------------------------------------------------------
     # process the entire 50*50 spatial grid.
     # initialize empty arrays to store the age and metallicity maps.
-    age_map_part = np.full((end_x - start_x, 50), np.nan)
+    age_map_part = np.full((end_y - start_y, 50), np.nan)
     metal_map_part = np.full_like(age_map_part, np.nan)
 
     age_std_part = np.full_like(age_map_part, np.nan)
