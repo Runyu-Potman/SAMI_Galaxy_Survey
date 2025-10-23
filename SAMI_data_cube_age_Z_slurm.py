@@ -749,14 +749,8 @@ if __name__ == '__main__':
     job_id = int(sys.argv[1]) if len(sys.argv) > 1 else 0
     # each task handles 2 horizontal rows (50 rows / 25 tasks).
     rows_per_job = 2
-    start_x = job_id * rows_per_job
-    end_x = min(start_x + rows_per_job, 50)
-
-    # ----------------------------------------------------------------------------------
-    # define constants.
-    fwhm_blue = 2.65  # Å
-    fwhm_red = 1.61  # Å
-    c = 299792.458  # speed of light (km/s).
+    start_y = job_id * rows_per_job
+    end_y = min(start_y + rows_per_job, 50)
 
     # ------------------------------------------------------------------------------------
     '''
