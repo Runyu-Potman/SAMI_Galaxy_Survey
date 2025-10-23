@@ -78,65 +78,7 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     age_array = age_map.copy()
     metal_array = metal_map.copy()
 
-    # sort values for plotting the regression line smoothly.
-    sort_idx = np.argsort(r)
-    r_sorted = r[sort_idx]
-    fit_age_sorted = fit_age[sort_idx]
-    fit_metal_sorted = fit_metal[sort_idx]
-
-    # Plotting
-    plt.figure(figsize = (12, 5))
-
-    # Age Gradient
-    plt.subplot(1, 2, 1)
-    sc1 = plt.scatter(r, age_map - 9, c = r, cmap = 'viridis', s = 10, alpha = 0.7, label = 'Pixels')
-    plt.plot(r_sorted, fit_age_sorted - 9, 'r-', linewidth = 2, label = f'Fit: slope = {slope_age:.3f}')
-    plt.xlabel('radius (pixels)')
-    plt.ylabel('log(Age(Gyr))')
-    plt.title('age gradient')
-    plt.colorbar(sc1, ax = plt.gca(), label = 'Radius')
-    plt.legend()
-
-    # Metallicity Gradient
-    plt.subplot(1, 2, 2)
-    sc2 = plt.scatter(r, metal_map, c = r, cmap = 'viridis', s = 10, alpha = 0.7, label = 'Pixels')
-    plt.plot(r_sorted, fit_metal_sorted, 'r-', linewidth = 2, label = f'Fit: slope = {slope_metal:.3f}')
-    plt.xlabel('radius (pixels)')
-    plt.ylabel('[M/H]')
-    plt.title('metallicity gradient')
-    plt.colorbar(sc2, ax = plt.gca() ,label = 'Radius')
-    plt.legend()
-
-    plt.tight_layout()
-    plt.savefig(f'{base_dir}/gradients.png', dpi = 300)
-    plt.show()
-
-    # plots showing the error bar.
-    # Plotting
-    plt.figure(figsize = (12, 5))
-
-    # Age Gradient
-    plt.subplot(1, 2, 1)
-    plt.errorbar(r, age_map - 9, yerr = age_std_map, fmt = 'o', markersize = 3, alpha = 0.3, label= 'Pixels',
-                 color = 'blue')
-    plt.plot(r_sorted, fit_age_sorted - 9, 'r-', linewidth = 2, label = f'Fit: slope = {slope_age:.3f}')
-    plt.xlabel('radius (pixels)')
-    plt.ylabel('log(Age(Gyr))')
-    plt.title('age gradient')
-    plt.legend()
-
-    # Metallicity Gradient
-    plt.subplot(1, 2, 2)
-    plt.errorbar(r, metal_map, yerr = metal_std_map, fmt = 'o', markersize = 3, alpha = 0.3, label = 'Pixels',
-                 color = 'green')
-    plt.plot(r_sorted, fit_metal_sorted, 'r-', linewidth = 2, label = f'Fit: slope = {slope_metal:.3f}')
-    plt.xlabel('radius (pixels)')
-    plt.ylabel('[M/H]')
-    plt.title('metallicity gradient')
-    plt.legend()
-
-    plt.tight_layout()
-    plt.show()
+    return age_full, metal_full, age_array, metal_array, r_all
 #-----------------------------------------------------------------------------------
 base_dir = 'CATID_adap_binned_age_Z_v02'
 slurm_job_combine(base_dir)
