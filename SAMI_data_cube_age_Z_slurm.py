@@ -826,8 +826,8 @@ if __name__ == '__main__':
                     velscale=velscale, start=start, nrand=nrand, optimal_regul=100,
                     find_regul=False, plot=True, pixel_coords = (y, x))
 
-                age_map_part[x - start_x, y] = age_mean
-                metal_map_part[x - start_x, y] = metallicity_mean
+                age_map_part[y - start_y, x] = age_mean
+                metal_map_part[y - start_y, x] = metallicity_mean
 
                 age_std_part[x - start_x, y] = age_std
                 metal_std_part[x - start_x, y] = metallicity_std
