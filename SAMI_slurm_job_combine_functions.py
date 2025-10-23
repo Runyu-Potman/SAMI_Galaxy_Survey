@@ -36,8 +36,8 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
         end_y = start_y + age_part.shape[0]
 
         # insert the partial maps into full maps.
-        age_map[start_x:end_x, :] = age_part
-        metal_map[start_x:end_x, :] = metal_part
+        age_map[start_y:end_y, :] = age_part
+        metal_map[start_y:end_y, :] = metal_part
 
         age_std_map[start_x:end_x, :] = age_std_part
         metal_std_map[start_x:end_x, :] = metal_std_part
