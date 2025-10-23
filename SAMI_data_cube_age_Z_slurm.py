@@ -686,6 +686,10 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
 
         plt.figure(figsize=(10, 8))
 
+        # the bootstrapping directory.
+        plot_dir = os.path.join('output', 'bootstrapping_plots')
+        os.makedirs(plot_dir, exist_ok = True)
+
         # plot distribution of lg_age.
         plt.subplot(1, 2, 1)
         sns.histplot(ages, kde=True, color='skyblue', bins=20)
