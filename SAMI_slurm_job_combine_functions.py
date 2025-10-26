@@ -91,6 +91,33 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array,
                    label_pad = 0.85, bar_fraction = 0.0485, bar_pad = 0.02, fontsize = 10,
                    r_dash = None, vmin_age = None, vmax_age = None, vmin_z = None, vmax_z = None,
                    name = None, title = False, cmap_1_2 = 'RdYlBu_r', cmap_3_4 = 'viridis'):
+    '''
+    Plot the spatially resolved age and metal maps and gradient plots for three galaxies.
+
+    Paramters:
+    - axs_x: column of plot.
+    - age_full: full age map from slurm_job_combine function.
+    - metal_full: full metal map from slurm_job_combine function.
+    - r_all: radius in gradient plot relative to galaxy center from slurm_job_combine function.
+    - age_array: age array for gradient from slurm_job_combine function.
+    - metal_array: metal array from slurm_job_combine function.
+    - label_pad: label pad.
+    - bar_fraction: bar fraction for colorbar.
+    - bar_pad: bar pad for colorbar.
+    - fontsize: font size.
+    - r_dash: a vertical dash line indicating the radius of the KDC.
+    - vmin_age: age map vmin.
+    - vmax_age: age map vmax.
+    - vmin_z: metal map vmin.
+    - vmax_z: metal map vmax.
+    - name: galaxy name.
+    - title: plot title.
+    - cmap_1_2: color map for spatially resolved maps.
+    - cmap_3_4: color map for gradient plots.
+
+    Returns:
+    - None.
+    '''
 
     if vmin_age is None:
         vmin_age = np.nanmin(10 ** (age_full - 9))
