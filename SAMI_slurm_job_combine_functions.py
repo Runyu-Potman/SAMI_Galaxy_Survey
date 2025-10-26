@@ -82,5 +82,143 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
 
     return age_full, metal_full, age_array, metal_array, r_all
 #-----------------------------------------------------------------------------------
-base_dir = 'CATID_adap_binned_age_Z_v02'
-slurm_job_combine(base_dir)
+def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array,
+                   label_pad = 0.85, bar_fraction = 0.0485, bar_pad = 0.02, fontsize = 10,
+                   r_dash = None, vmin_age = None, vmax_age = None, vmin_z = None, vmax_z = None,
+                   name = None, title = False, cmap_1_2 = 'RdYlBu_r', cmap_3_4 = 'viridis'):
+
+    if vmin_age is None:
+        vmin_age = np.nanmin(10 ** (age_full - 9))
+    if vmax_age is None:
+        vmax_age = np.nanmax(10 ** (age_full - 9))
+
+    # age map (the first column).
+    im = axs[axs_x, 0].imshow(10 ** (age_full - 9), origin = 'lower', aspect = 'equal',
+                          cmap = cmap_1_2, extent = [-12.5, 12.5, -12.5, 12.5],
+                          vmin = vmin_age, vmax = vmax_age)
+
+    # set ticks (first column).
+    axs[axs_x, 0].set_xlim([-12.5, 12.5])
+    axs[axs_x, 0].set_ylim([-12.5, 12.5])
+
+    tick_locs = np.arange(-10, 11, 5)
+    axs[axs_x, 0].set_xticks(tick_locs)
+    axs[axs_x, 0].set_yticks(tick_locs)
+
+    # set labels (first column).
+    axs[axs_x, 0].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
+    axs[axs_x, 0].set_ylabel(f'{name}\nOffset (arcsec)', fontsize = fontsize, labelpad = label_pad)
+
+    # set color bar (first column).
+    cbar = plt.colorbar(im, ax = axs[axs_x, 0], fraction = bar_fraction, pad = bar_pad)
+    cbar.ax.yaxis.set_tick_params(direction = 'in')
+    cbar.set_label('Age(Gyr)', fontsize = fontsize, labelpad = 4)
+
+    # set titles (first column).
+    if title:
+        axs[axs_x, 0].set_title('Stellar Age Map', fontsize = fontsize)
+
+    # make these (major) ticks longer.
+    axs[axs_x, 0].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+
+    # add minor ticks (shorter, no labels).
+    axs[axs_x, 0].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 0].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+    if vmin_z is None:
+        vmin_z = np.nanmin(metal_full)
+    if vmax_z is None:
+        vmax_z = np.nanmax(metal_full)
+
+    # [M/H] map (second column).
+    im = axs[axs_x, 1].imshow(metal_full, origin = 'lower', aspect = 'equal',
+                          cmap = cmap_1_2, extent = [-12.5, 12.5, -12.5, 12.5], vmin = vmin_z, vmax = vmax_z)
+
+    # set ticks.
+    axs[axs_x, 1].set_xlim([-12.5, 12.5])
+    axs[axs_x, 1].set_ylim([-12.5, 12.5])
+
+    tick_locs = np.arange(-10, 11, 5)
+    axs[axs_x, 1].set_xticks(tick_locs)
+    axs[axs_x, 1].set_yticks(tick_locs)
+
+    # set labels.
+    axs[axs_x, 1].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
+    axs[axs_x, 1].set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = label_pad)
+
+    # set color bar.
+    cbar = plt.colorbar(im, ax = axs[axs_x, 1], fraction = bar_fraction, pad = bar_pad)
+    cbar.ax.yaxis.set_tick_params(direction = 'in')
+    cbar.set_label('[M/H]', fontsize = fontsize, labelpad = 4)
+
+    if title:
+        # set titles.
+        axs[axs_x, 1].set_title('Stellar Metallicity Map', fontsize = fontsize)
+
+    # make these (major) ticks longer.
+    axs[axs_x, 1].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+
+    # add minor ticks (shorter, no labels).
+    axs[axs_x, 1].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 1].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 1].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+    # age gradient (third column).
+    im = axs[axs_x, 2].scatter(r_all, 10 ** (age_array - 9), c = r_all, cmap = cmap_3_4, s = 10, alpha = 0.7)
+
+    # set ticks.
+    axs[axs_x, 2].set_xlim([0, 8.5])
+    axs[axs_x, 2].set_ylim([0, 14])
+
+    axs[axs_x, 2].set_xticks([0, 1, 2, 3, 4, 5, 6, 7, 8])
+    axs[axs_x, 2].set_yticks([0, 2, 4, 6, 8, 10, 12, 14])
+
+    # set labels.
+    axs[axs_x, 2].set_xlabel('Radius (arcsec)', fontsize = fontsize, labelpad = 8)
+    axs[axs_x, 2].set_ylabel('Age (Gyr)', fontsize = fontsize, labelpad = label_pad)
+
+    if r_dash is not None:
+        axs[axs_x, 2].axvline(r_dash, color = 'gray', linestyle = '--', linewidth = 1)
+
+    if title:
+        # set titles.
+        axs[axs_x, 2].set_title('Stellar Age Gradient', fontsize = fontsize)
+
+    # make these (major) ticks longer.
+    axs[axs_x, 2].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+
+    # add minor ticks (shorter, no labels).
+    axs[axs_x, 2].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 2].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 2].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+    # metal gradient (fourth column).
+    im = axs[axs_x, 3].scatter(r_all, metal_array, c = r_all, cmap = cmap_3_4, s = 10, alpha = 0.7)
+
+    # set ticks.
+    axs[axs_x, 3].set_xlim([0, 8.5])
+    axs[axs_x, 3].set_ylim([-1.5, 0.5])
+
+    axs[axs_x, 3].set_xticks([0, 1, 2, 3, 4, 5, 6, 7, 8])
+    axs[axs_x, 3].set_yticks([-1.5, -1, -0.5, 0, 0.5])
+
+    # set labels.
+    axs[axs_x, 3].set_xlabel('Radius (arcsec)', fontsize = fontsize, labelpad = 8)
+    axs[axs_x, 3].set_ylabel('[M/H]', fontsize = fontsize, labelpad = label_pad)
+
+    if r_dash is not None:
+        axs[axs_x, 3].axvline(r_dash, color = 'gray', linestyle = '--', linewidth = 1)
+
+    if title:
+        # set titles.
+        axs[axs_x, 3].set_title('Stellar Metallicity Gradient', fontsize = fontsize)
+
+    # make these (major) ticks longer.
+    axs[axs_x, 3].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+
+    # add minor ticks (shorter, no labels).
+    axs[axs_x, 3].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 3].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 3].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+#-------------------------------------------------------------------------------------
