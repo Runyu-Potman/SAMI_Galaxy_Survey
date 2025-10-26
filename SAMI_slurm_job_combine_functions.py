@@ -7,9 +7,9 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     '''
 
     Parameters:
-    - base_dir:
-    - center_x:
-    - center_y:
+    - base_dir: slurm jon result directory.
+    - center_x: center of galaxy.
+    - center_y: center of galaxy.
 
     Returns:
     - None
