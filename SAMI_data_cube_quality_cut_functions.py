@@ -334,6 +334,9 @@ def kdc_separation(x_center, y_center, a, b, pa, cleaned_vel_data, vmin, vmax):
     - a: semi-major axis of the ellipse (in pixels).
     - b: semi-minor axis of the ellipse (in pixels).
     - pa: position angle of the ellipse in degrees (starting from North, counter-clockwise to the receding side).
+    - cleaned_vel_data: simply for visualization, get from the stellar quality cut function.
+    - vmin: colorbar.
+    - vmax: colorbar.
 
     Returns:
     - ellipse_mask: a boolean mask for the ellipse region.
