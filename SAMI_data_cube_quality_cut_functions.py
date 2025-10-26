@@ -175,7 +175,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, output_filename = None, wavelen
         flux_cube_select = flux_cube[wave_mask, :, :]
         var_cube_select = var_cube[wave_mask, :, :]
         # S/N within the corresponding wavelength region.
-        sn_cube = flux_cube_select / np.sqrt(var_cube_select) # wave*50*50
+        sn_cube = flux_cube_select / np.ma.sqrt(var_cube_select) # wave*50*50
         # use the median value in emission-free region to represent the S/N for this spaxel.
         sn = np.ma.median(sn_cube, axis = 0)  # 50*50
         # we want to work with the data cube in whole wavelength range.
