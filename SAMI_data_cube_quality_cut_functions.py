@@ -340,7 +340,7 @@ def kdc_separation(x_center, y_center, a, b, pa, cleaned_vel_data, vmin, vmax):
     '''
 
     y, x = np.indices((50, 50))
-    pa = np.deg2rad(pa)
+    pa = np.deg2rad(pa - 90)
     x_rot = np.cos(pa) * (x - x_center) + np.sin(pa) * (y - y_center)
     y_rot = -np.sin(pa) * (x - x_center) + np.cos(pa) * (y - y_center)
     ellipse_mask = (x_rot**2 / a**2 + y_rot**2 / b**2) <= 1
