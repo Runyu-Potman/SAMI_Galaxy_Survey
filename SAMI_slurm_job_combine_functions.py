@@ -12,7 +12,11 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     - center_y: center of galaxy.
 
     Returns:
-    - None
+    - age_full: full age map.
+    - metal_full: full metal map.
+    - age_array: age array for gradient.
+    - metal_array: metal array for gradient.
+    - r_all: radius in gradient plot relative to galaxy center.
     '''
 
     # initialize the full maps for mean and standard deviation.
