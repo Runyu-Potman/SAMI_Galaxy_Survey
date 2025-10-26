@@ -183,7 +183,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, output_filename = None, wavelen
     else:
         # calculate the S/N along whole wavelength range.
         # compute S/N cube.
-        sn_cube = flux_cube / np.sqrt(var_cube)
+        sn_cube = flux_cube / np.ma.sqrt(var_cube)
         # the median value.
         sn = np.ma.median(sn_cube, axis = 0)  # 50*50
 
