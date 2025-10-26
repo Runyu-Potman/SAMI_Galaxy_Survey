@@ -326,7 +326,7 @@ def data_cube_clean_snr(fits_path, sn_threshold, output_filename = None, wavelen
     return cleaned_flux_cube
 
 #-----------------------------------------------------------------------------------------------
-def kdc_separation(x_center, y_center, a, b, pa):
+def kdc_separation(x_center, y_center, a, b, pa, cleaned_vel_data, vmin, vmax):
     '''
     Parameters:
     - x_center: center of the ellipse in x direction (in pixels).
