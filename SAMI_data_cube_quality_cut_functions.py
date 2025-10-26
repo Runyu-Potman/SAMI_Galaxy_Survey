@@ -234,6 +234,9 @@ def data_cube_clean_snr(fits_path, sn_threshold, output_filename = None, wavelen
     if vorbin and target_sn <= sn_threshold:
         raise ValueError('target_sn must be greater than sn_threshold.')
 
+    if vorbin and output_filename is None:
+        raise ValueError('output_filename must be provided for Voronoi binning.')
+
     if vorbin and (target_sn is not None):
         # prepare x, y coordinates for the Voronoi binning.
         n_y, n_x = cleaned_flux_cube.shape[1], cleaned_flux_cube.shape[2]
