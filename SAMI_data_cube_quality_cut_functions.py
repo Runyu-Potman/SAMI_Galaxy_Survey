@@ -333,7 +333,7 @@ def kdc_separation(x_center, y_center, a, b, pa):
     - y_center: center of the ellipse in y direction (in pixels).
     - a: semi-major axis of the ellipse (in pixels).
     - b: semi-minor axis of the ellipse (in pixels).
-    - pa: position angle of the ellipse in degrees (measured from the x-axis).
+    - pa: position angle of the ellipse in degrees (starting from North, counter-clockwise to the receding side).
 
     Returns:
     - ellipse_mask: a boolean mask for the ellipse region.
