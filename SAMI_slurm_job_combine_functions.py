@@ -5,6 +5,7 @@ from matplotlib.ticker import AutoMinorLocator
 
 def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     '''
+    combine the slurm jobs, do preparation for plotting.
 
     Parameters:
     - base_dir: slurm jon result directory.
