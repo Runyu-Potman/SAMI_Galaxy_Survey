@@ -100,7 +100,7 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
         cbar.ax.yaxis.set_tick_params(length = 4, width = 1, direction = 'in')
         cbar.ax.tick_params(labelsize = fontsize)
         if cbar_label:
-            cbar.set_label(cbar_label, fontsize = fontsize, labelpad = label_pad)
+            cbar.set_label(cbar_label, fontsize = fontsize, labelpad = 4)
 
     if title:
         ax.set_title(title)
