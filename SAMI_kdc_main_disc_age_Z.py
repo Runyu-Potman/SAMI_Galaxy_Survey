@@ -9,7 +9,7 @@ import numpy as np
 def spectrum_age_Z(vel_fits_file, sig_fits_file, combined_data_cube, ellipticity, a_pixel, pa, output_spectrum,
                    sn_threshold = 3, x_center = 25, y_center = 25, vmin = None, vmax = None, kdc = True):
     '''
-    Extract the co-added spectrum for the kdc region or outside the kdc region. Do the cleaning before the coadding
+    Extract the co-added spectrum for the kdc region or outside the kdc region. Do the cleaning before the co-adding
     process using the combined (blue and red) data cube.
 
     Parameters:
