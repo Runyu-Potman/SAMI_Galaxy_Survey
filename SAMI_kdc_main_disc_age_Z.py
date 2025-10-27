@@ -23,6 +23,7 @@ def spectrum_age_Z(vel_fits_file, sig_fits_file, combined_data_cube, ellipticity
     # b is also in pixel scale.
     b = a_pixel * b_a
 
+    # the mask separating kdc and main disc.
     ellipse_mask = kdc_separation(x_center = x_center, y_center = y_center,
                                   a = a_pixel, b = b, pa = pa, cleaned_vel_data = cleaned_vel_data,
                                   vmin = vmin, vmax = vmax)
