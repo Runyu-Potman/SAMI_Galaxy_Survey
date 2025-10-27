@@ -20,6 +20,7 @@ def spectrum_age_Z(vel_fits_file, sig_fits_file, combined_data_cube, ellipticity
     # kdc extraction.
     # the axis ratio b/a.
     b_a = 1 - ellipticity
+    # b is also in pixel scale.
     b = a_pixel * b_a
 
     ellipse_mask = kdc_separation(x_center = x_center, y_center = y_center,
