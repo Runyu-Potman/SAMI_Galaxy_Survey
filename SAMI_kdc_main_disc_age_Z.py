@@ -16,7 +16,7 @@ def spectrum_age_Z(vel_fits_file, sig_fits_file, combined_data_cube, ellipticity
     # clean the cube (the blue has already combined with the red).
     cleaned_data_cube = data_cube_clean_snr(fits_path = combined_data_cube,
                                             sn_threshold = sn_threshold)
-    # -------------------------------------------------------------------------------------------
+
     # kdc extraction.
     b_a = 1 - ellipticity
     # the value based on Kinemetry.
