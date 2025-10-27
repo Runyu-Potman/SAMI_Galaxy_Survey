@@ -18,6 +18,7 @@ def spectrum_age_Z(vel_fits_file, sig_fits_file, combined_data_cube, ellipticity
                                             sn_threshold = sn_threshold)
 
     # kdc extraction.
+    # the axis ratio b/a.
     b_a = 1 - ellipticity
     # the value based on Kinemetry.
     b = a_pixel * b_a
