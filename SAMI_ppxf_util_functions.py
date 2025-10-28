@@ -587,6 +587,7 @@ def emission_lines(ln_lam_temp, lam_range_gal, FWHM_gal, pixel=True,
 
     if limit_doublets:
 
+        '''
         # The line ratio of this doublet lam3727/lam3729 is constrained by
         # atomic physics to lie in the range 0.28--1.47 (e.g. fig.5.8 of
         # Osterbrock & Ferland (2006) https://www.amazon.co.uk/dp/1891389343/).
