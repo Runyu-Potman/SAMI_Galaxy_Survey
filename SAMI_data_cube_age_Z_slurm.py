@@ -3,7 +3,6 @@ from astropy.io import fits
 from ppxf.ppxf_util import log_rebin
 import matplotlib.pyplot as plt
 from ppxf.ppxf import ppxf
-import ppxf.ppxf_util as util
 import ppxf.sps_util as lib
 import seaborn as sns
 from scipy.ndimage import gaussian_filter1d
