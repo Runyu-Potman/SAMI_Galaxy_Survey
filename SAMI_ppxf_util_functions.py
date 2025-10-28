@@ -603,6 +603,7 @@ def emission_lines(ln_lam_temp, lam_range_gal, FWHM_gal, pixel=True,
         emission_lines = np.column_stack([emission_lines, doublets])
         line_names = np.append(line_names, names)
         line_wave = np.append(line_wave, wave)
+        '''
 
         # The line ratio of this doublet lam6717/lam6731 is constrained by
         # atomic physics to lie in the range 0.44--1.43 (e.g. fig.5.8 of
