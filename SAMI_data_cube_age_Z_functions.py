@@ -423,7 +423,8 @@ def ppxf_age_z(specNew, goodpixels_nan, ln_lam, noise_value, redshift, filename,
     # here we modified the emission_line functions to only fit Hgamma, Hbeta, Halpha, [NII], [SII], [OI] and [OIII].
     # see SAMI_ppxf_util_functions for more details.
     gas_templates, gas_names, line_wave = emission_lines(sps.ln_lam_temp, lam_range_gal,
-                                                              fwhm_gal, tie_balmer = 1)
+                                                              fwhm_gal, tie_balmer = 1,
+                                                         limit_doublets = 1)
 
     # combine the stellar and gaseous templates into a single array of templates.
     # during the pPXF fit they will be assigned a different kinematic component value.
