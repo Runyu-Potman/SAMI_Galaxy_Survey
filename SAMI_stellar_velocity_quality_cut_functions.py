@@ -526,6 +526,47 @@ def quality_cut_stellar_velocity_map_four_moment(
         h3_data = np.ma.masked_where(SNR_data <= 20.5, h3_data)
         h4_data = np.ma.masked_where(SNR_data <= 20.5, h4_data)
 
+    elif Q3 and Q3_downweight:
+        # apply Q1 and Q2 only and identify those which do not pass Q3.
+
+        # the Q3 mask.
+        vel_data_Q3 = np.ma.masked_where(SNR_data <= 20.5, vel_data)  # S/N > 20.5.
+        vel_data_Q3 = np.ma.masked_where(sig_data <= 70, vel_data)  # sig > 70 km/s.
+
+        # normal Q1 and Q2.
+        vel_data = np.ma.masked_where(SNR_data <= 5, vel_data)  # S/N > 5.
+        vel_data = np.ma.masked_where(sig_data <= 35, vel_data)  # sig > 35 km/s.
+        vel_data = np.ma.masked_where(vel_err_data >= 30, vel_data)  # vel_err < 30 km/s.
+        vel_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), vel_data)  # sig_err < sig * 0.1 + 25 km/s.
+
+        # the Q3 mask.
+        sig_data_Q3 = np.ma.masked_where(SNR_data <= 20.5, sig_data)
+        sig_data_Q3 = np.ma.masked_where(sig_data <= 70, sig_data)
+
+        # normal Q1 and Q2.
+        sig_data = np.ma.masked_where(SNR_data <= 5, sig_data)
+        sig_data = np.ma.masked_where(sig_data <= 35, sig_data)
+        sig_data = np.ma.masked_where(sig_err_data >= (sig_data * 0.1 + 25), sig_data)
+
+        # the Q3 mask.
+        h3_data_Q3 = np.ma.masked_where(SNR_data <= 20.5, h3_data)
+        h4_data_Q3 = np.ma.masked_where(SNR_data <= 20.5, h4_data)
+
+        # normal Q1 and Q2.
+        h3_data = np.ma.masked_where(SNR_data <= 5, h3_data)
+        h4_data = np.ma.masked_where(SNR_data <= 5, h4_data)
+
+        # the combined Q3 mask for down-weighting.
+        Q3_mask = np.ma.getmask(vel_data_Q3)
+        Q3_mask = np.ma.mask_or(Q3_mask, np.ma.getmask(sig_data_Q3))
+        Q3_mask = np.ma.mask_or(Q3_mask, np.ma.getmask(h3_data_Q3))
+        Q3_mask = np.ma.mask_or(Q3_mask, np.ma.getmask(h4_data_Q3))
+        Q3_mask = np.ma.mask_or(Q3_mask, np.ma.getmask(vel_data))
+        Q3_mask = np.ma.mask_or(Q3_mask, np.ma.getmask(sig_data))
+
+    elif not Q3 and Q3_downweight:
+        raise ValueError("please set Q3 to be True when using Q3_downweight.")
+
     else:
         # apply the two moments quality cut criteria.
         vel_data = np.ma.masked_where(SNR_data <= 5, vel_data)  # S/N > 5.
