@@ -608,6 +608,13 @@ def quality_cut_stellar_velocity_map_four_moment(
     cleaned_h4_data = np.ma.masked_array(h4_data, mask = combined_mask)
     cleaned_h4_err_data = np.ma.masked_array(h4_err_data, mask = combined_mask)
 
+    if Q3 and Q3_downweight:
+        if uncertainty_value is not None:
+            cleaned_h3_err_data[Q3_mask] += uncertainty_value
+            cleaned_h4_err_data[Q3_mask] += uncertainty_value
+        else:
+            raise ValueError("please give uncertainty_value when setting Q3_downweight.")
+
     if plot:
         def plot(data, title, label = None):
             plt.figure(figsize = (10, 8))
