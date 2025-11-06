@@ -512,7 +512,7 @@ def quality_cut_stellar_velocity_map_four_moment(
     else:
         raise ValueError("SNR are not the same across all input fits files, check the input data!")
 
-    if Q3 == True:
+    if Q3 and not Q3_downweight :
         # apply Q1, Q2 and Q3.
         vel_data = np.ma.masked_where(SNR_data <= 20.5, vel_data)  # S/N > 20.5.
         vel_data = np.ma.masked_where(sig_data <= 70, vel_data)  # sig > 70 km/s.
