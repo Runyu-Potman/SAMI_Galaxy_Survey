@@ -115,7 +115,7 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
         with open(output_file, 'w') as f:
             f.write('x_arcsec,y_arcsec,gas,gas_err\n')
             for entry in data_to_save:
-                f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}\n')
+                f.write(f'{entry[0]},{entry[1]},{entry[2]},{entry[3]}\n')
 
     return gas_data
 
