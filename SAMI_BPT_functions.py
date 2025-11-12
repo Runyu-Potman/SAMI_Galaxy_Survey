@@ -32,6 +32,8 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
 
     Returns:
     - gas_data: gas flux (after quality cut and/or dust corrected) data.
+    - gas_err_data: error in gas flux (after quality cut and/or dust corrected).
+    - mask: mask map.
 
     '''
 
