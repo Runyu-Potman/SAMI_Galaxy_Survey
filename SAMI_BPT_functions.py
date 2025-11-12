@@ -49,6 +49,10 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
     gas_data = np.ma.masked_invalid(gas_data)
     gas_err_data = np.ma.masked_invalid(gas_err_data)
 
+    # mask negative flux and error.
+    gas_data = np.ma.masked_where(gas_data < 0, gas_data)
+    gas_err_data = np.ma.masked_where(gas_err_data < 0, gas_err_data)
+
     # calculate the signal-to-noise ratio (SNR) for each emission line.
     '''
     be noticed that any pixel where err_map is masked will result in the corresponding 
