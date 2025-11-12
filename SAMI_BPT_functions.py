@@ -65,8 +65,11 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
         print(f'Gas_SNR: min = {np.min(gas_SNR)}, max = {np.max(gas_SNR)}.')
 
         # mask data points where SNR is below a specific threshold.
-        gas_data = np.ma.masked_where(gas_SNR < threshold, gas_data)
-        gas_err_data = np.ma.masked_where(gas_SNR < threshold, gas_err_data)
+        gas_data = np.ma.masked_where(gas_SNR <= threshold, gas_data)
+        gas_err_data = np.ma.masked_where(gas_SNR <= threshold, gas_err_data)
+
+    if dust_correction and dust_fits is None:
+        raise ValueError('Please provide the dust fits file when setting dust correction = True.')
 
     if dust_correction and dust_fits is not None:
         with fits.open(dust_fits) as dust:
