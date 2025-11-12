@@ -80,6 +80,10 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
 
         # correct for dust and get the intrinsic flux value.
         gas_data = gas_data * dust_data
+        gas_err_data = gas_err_data * dust_data
+
+    # get the mask for return.
+    mask = np.ma.getmask(gas_data)
 
     if csv and output_file is None:
         raise ValueError('Please provide the output file path when setting csv = True.')
