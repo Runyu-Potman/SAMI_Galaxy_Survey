@@ -117,7 +117,7 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
             for entry in data_to_save:
                 f.write(f'{entry[0]},{entry[1]},{entry[2]},{entry[3]}\n')
 
-    return gas_data
+    return gas_data, gas_err_data, mask
 
 #-----------------------------------------------------------------------------------------------------------------
 def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25):
