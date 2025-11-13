@@ -85,6 +85,10 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
         gas_data = gas_data * dust_data
         gas_err_data = gas_err_data * dust_data
 
+    if log_flux:
+        gas_data = np.ma.masked_where(gas_data == 0, gas_data)
+        gas_data = np.log10(gas_data)
+
     # get the mask for return.
     mask = np.ma.getmask(gas_data)
 
