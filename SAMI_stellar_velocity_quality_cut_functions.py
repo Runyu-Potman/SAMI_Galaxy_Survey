@@ -394,7 +394,7 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
     SNR_data = Halpha_data / Halpha_err_data
 
     # apply the quality cut criteria.
-    vel_data = np.ma.masked_where(SNR_data <= 5, vel_data) # S/N > 5.
+    vel_data = np.ma.masked_where(SNR_data <= threshold, vel_data) # S/N > 5.
     vel_data = np.ma.masked_where(vel_err_data >= 30, vel_data) # vel_err < 30 km/s.
 
     sig_data = np.ma.masked_where(SNR_data <= 5, sig_data)
