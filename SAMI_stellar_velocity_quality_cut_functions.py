@@ -343,6 +343,7 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
     - Halpha_fits_path: str, path to the Halpha flux fits file.
     - output_file: str, path to the output csv file.
     - pixel_to_arc: bool, whether to transfer pixel to arcsec.
+    - thershold: float, threshold to apply the S/N quality cut.
     - x_center: float, x-coordinate of the center of the galaxy in pixel.
     - y_center: float, y-coordinate of the center of the galaxy in pixel.
     - scale: float, pixel scale.
