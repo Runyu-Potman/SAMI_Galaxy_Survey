@@ -382,6 +382,13 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
     Halpha_data = np.ma.masked_invalid(Halpha_data)
     Halpha_err_data = np.ma.masked_invalid(Halpha_err_data)
 
+    # mask unphysical data.
+    sig_data = np.ma.masked_where(sig_data < 0, sig_data)
+    Halpha_data = np.ma.masked_where(Halpha_data < 0, Halpha_data)
+    vel_err_data = np.ma.masked_where(vel_err_data <= 0, vel_err_data)
+    sig_err_data = np.ma.masked_where(sig_err_data <= 0, sig_err_data)
+    Halpha_err_data = np.ma.masked_where(Halpha_err_data <= 0, Halpha_err_data)
+
     # calculate S/N.
     SNR_data = Halpha_data / Halpha_err_data
 
