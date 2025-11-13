@@ -414,8 +414,8 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
                     x_arcsec = (j - x_center) * scale
                     y_arcsec = (i - y_center) * scale
                 else:
-                    x_arcsec = j - 25
-                    y_arcsec = i - 25
+                    x_arcsec = j - x_center
+                    y_arcsec = i - y_center
 
                 print(f'{x_arcsec}, {y_arcsec}, {vel_data[i, j]}, {vel_err_data[i, j]}, {sig_data[i, j]}')
                 data_to_save.append((x_arcsec, y_arcsec, vel_data[i, j], vel_err_data[i, j], sig_data[i, j]))
