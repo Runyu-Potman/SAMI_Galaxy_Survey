@@ -411,8 +411,8 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
                     and not Halpha_data.mask[i, j] and not Halpha_err_data.mask[i, j]):
 
                 if pixel_to_arc:
-                    x_arcsec = (j - 25) * 0.5
-                    y_arcsec = (i - 25) * 0.5
+                    x_arcsec = (j - x_center) * scale
+                    y_arcsec = (i - y_center) * scale
                 else:
                     x_arcsec = j - 25
                     y_arcsec = i - 25
