@@ -129,8 +129,8 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
 
             # calculate the line coordinates based on the position angle.
             x0, y0 = 0, 0
-            x1 = x0 + line_length * np.cos(PA_rad)
-            y1 = y0 + line_length * np.sin(PA_rad)
+            x1 = x0 + ll * np.cos(PA_rad)
+            y1 = y0 + ll * np.sin(PA_rad)
 
             x2 = x0 - line_length * np.cos(PA_rad)
             y2 = y0 - line_length * np.sin(PA_rad)
