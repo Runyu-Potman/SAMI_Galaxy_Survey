@@ -115,7 +115,15 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
 
     # if PAs is provided, plot multiple lines.
     if PAs is not None:
-        for PA in PAs:
+        # allow line_length to be either a scalar (applies to all PAs) or an iterable with same length as PAs.
+        if np.isscalar(line_length):
+            lengths = [float(line_length)] * len(PAs)
+        else:
+            lengths = list(line_length)
+            if len(lengths) != len(PAs):
+                raise ValueError('If line_length is iterable it must have the same length as PAs.')
+
+        for PA, ll in zip(PAs, lengths):
             # convert pa from degrees to radians.
             PA_rad = np.deg2rad(PA + 90)
 
