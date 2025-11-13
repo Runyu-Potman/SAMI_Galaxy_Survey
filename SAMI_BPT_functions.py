@@ -13,7 +13,7 @@ from matplotlib.ticker import AutoMinorLocator
 from pafit.fit_kinematic_pa import fit_kinematic_pa
 #---------------------------------------------------------------------------------------------------------------------
 def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_correction = False, dust_fits = None,
-                     csv = True, x_center = 25, y_center = 25, scale = 0.5):
+                     csv = True, x_center = 25, y_center = 25, scale = 0.5, log_flux = False):
     '''
     This function do the preparation for creating the gas distribution (flux intensity) plot for the SAMI galaxies by
     doing the quality cut (e.g., S/N <= 5) and correcting for dust using the dust correction maps provided by SAMI.
