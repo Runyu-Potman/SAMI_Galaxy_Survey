@@ -635,7 +635,6 @@ def bpt(
     axs[0, 0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
     # add colorbar.
-
     cbar = fig.colorbar(im, ax = axs[0, 0], boundaries = bounds, ticks = [], pad = cbar_pad)
 
     # remove tick lines and set no ticks.
