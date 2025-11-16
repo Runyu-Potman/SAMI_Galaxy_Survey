@@ -229,6 +229,23 @@ def bpt(
     NII_map = np.ma.masked_invalid(NII_map)
     NII_err = np.ma.masked_invalid(NII_err)
 
+    # mask negative flux and error spaxels in all 14 maps.
+    Ha_map = np.ma.masked_where(Ha_map < 0, Ha_map)
+    Hb_map = np.ma.masked_where(Hb_map < 0, Hb_map)
+    OIII_map = np.ma.masked_where(OIII_map < 0, OIII_map)
+    OI_map = np.ma.masked_where(OI_map < 0, OI_map)
+    SII_6716_map = np.ma.masked_where(SII_6716_map < 0, SII_6716_map)
+    SII_6731_map = np.ma.masked_where(SII_6731_map < 0, SII_6731_map)
+    NII_map = np.ma.masked_where(NII_map < 0, NII_map)
+
+    Ha_err = np.ma.masked_where(Ha_err <= 0, Ha_err)
+    Hb_err = np.ma.masked_where(Hb_err <= 0, Hb_err)
+    OIII_err = np.ma.masked_where(OIII_err <= 0, OIII_err)
+    OI_err = np.ma.masked_where(OI_err <= 0, OI_err)
+    SII_6716_err = np.ma.masked_where(SII_6716_err <= 0, SII_6716_err)
+    SII_6731_err = np.ma.masked_where(SII_6731_err <= 0, SII_6731_err)
+    NII_err = np.ma.masked_where(NII_err <= 0, NII_err)
+
     # calculate the signal-to-noise ratio (SNR) for each emission line.
     '''
     be noticed that any pixel where err_map is masked will result in the corresponding 
