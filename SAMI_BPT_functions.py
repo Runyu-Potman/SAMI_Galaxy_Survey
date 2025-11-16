@@ -503,6 +503,7 @@ def bpt(
     boundary_4_values = boundary_4(boundary_4_range)
 
     # plot two boundaries.
+    axs[1, 1].plot(boundary_4_range, boundary_4_values, color='black', linestyle='-', linewidth=1, label='Ke01')
     axs[1, 1].plot(boundary_3_range, boundary_3_values, color = 'black', linestyle = '--', linewidth = 1, label = 'Ke06')
     axs[1, 1].plot(boundary_4_range, boundary_4_values, color = 'black', linestyle = '-', linewidth = 1, label = 'Ke01')
 
