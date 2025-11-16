@@ -129,6 +129,23 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
 
 #-----------------------------------------------------------------------------------------------------------------
 def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25):
+    '''
+    Function to plot the BPT with data points color coded by the distance to the galaxy center.
+
+    Parameters:
+    - Ha_map_clean: The cleaned Halpha map.
+    - ax: The axes on which the plot will be drawn.
+    - log_x: log(emission/Halpha).
+    - log_y: log(OIII/Hbeta)
+    - center_x: Center of the galaxy.
+    - center_y: Center of the galaxy.
+
+    Returns:
+    - sc: The BPT plot.
+    - center_x: Center of the galaxy.
+    - center_y: Center of the galaxy.
+
+    '''
     y, x = np.meshgrid(np.arange(Ha_map_clean.shape[0]), np.arange(Ha_map_clean.shape[1]))
     x = x[~Ha_map_clean.mask]
     y = y[~Ha_map_clean.mask]
