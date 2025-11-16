@@ -269,13 +269,13 @@ def bpt(
     print(f'NII_SNR: min = {np.min(NII_SNR)}, max = {np.max(NII_SNR)}.')
 
     # mask data points where SNR is below a specific threshold.
-    Ha_map = np.ma.masked_where(Ha_SNR < threshold, Ha_map)
-    Hb_map = np.ma.masked_where(Hb_SNR < threshold, Hb_map)
-    OIII_map = np.ma.masked_where(OIII_SNR < threshold, OIII_map)
-    OI_map = np.ma.masked_where(OI_SNR < threshold, OI_map)
-    SII_6716_map = np.ma.masked_where(SII_6716_SNR < threshold, SII_6716_map)
-    SII_6731_map = np.ma.masked_where(SII_6731_SNR < threshold, SII_6731_map)
-    NII_map = np.ma.masked_where(NII_SNR < threshold, NII_map)
+    Ha_map = np.ma.masked_where(Ha_SNR <= threshold, Ha_map)
+    Hb_map = np.ma.masked_where(Hb_SNR <= threshold, Hb_map)
+    OIII_map = np.ma.masked_where(OIII_SNR <= threshold, OIII_map)
+    OI_map = np.ma.masked_where(OI_SNR <= threshold, OI_map)
+    SII_6716_map = np.ma.masked_where(SII_6716_SNR <= threshold, SII_6716_map)
+    SII_6731_map = np.ma.masked_where(SII_6731_SNR <= threshold, SII_6731_map)
+    NII_map = np.ma.masked_where(NII_SNR <= threshold, NII_map)
 
     '''
     For the first BPT plot ([NII]/Ha verse [OIII]/Hb), if a data point is invalid (NaN or SNR < threshold)
