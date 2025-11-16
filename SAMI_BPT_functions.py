@@ -448,7 +448,7 @@ def bpt(
     # add labels for each region, ha = 'center' centers the text horizontally at the specified x position.
     axs[1, 0].text(-0.8, -0.8, 'SF', color = 'grey', fontsize = fontsize, ha = 'center')
     axs[1, 0].text(0.0, -1, 'Comp', color = 'salmon', rotation = 90, fontsize = fontsize, ha = 'center')
-    axs[1, 0].text(0.0, 0.8, 'AGN', color = 'purple', fontsize = fontsize, ha = 'center')
+    axs[1, 0].text(0.0, 0.808, 'AGN', color = 'purple', fontsize = fontsize, ha = 'center')
 
     # set axis labels, title, and limits.
     axs[1, 0].set_xlabel(r'log$_{10}$([NII]/H$\alpha$)', fontsize = fontsize, labelpad = labelpad_x)
