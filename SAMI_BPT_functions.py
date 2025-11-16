@@ -128,7 +128,7 @@ def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_c
     return gas_data, gas_err_data, mask
 
 #-----------------------------------------------------------------------------------------------------------------
-def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25):
+def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25, scale = 0.5):
     '''
     Function to plot the BPT with data points color coded by the distance to the galaxy center.
 
