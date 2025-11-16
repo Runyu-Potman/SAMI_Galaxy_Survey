@@ -679,7 +679,7 @@ def bpt(
 
     axs[0, 1].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = labelpad_x)
     axs[0, 1].set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = labelpad_y)
-    axs[0, 1].set_title(r'[OIII]/H$\beta$ vs [SII]/H$\alpha$', fontsize = fontsize)
+    axs[0, 1].set_title(r'Resolved [SII]-BPT', fontsize = fontsize)
 
     # add major ticks.
     axs[0, 1].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
