@@ -507,8 +507,8 @@ def bpt(
     axs[1, 1].text(-0.35, 0.8, 'AGN', color = 'purple', fontsize = fontsize, ha = 'center')
 
     # set axis labels, title, and limits.
-    axs[1, 1].set_xlabel(r'log([SII]/H$\alpha$)', fontsize = fontsize, labelpad = labelpad_x)
-    axs[1, 1].set_ylabel(r'log([OIII]/H$\beta$)', fontsize = fontsize, labelpad = labelpad_y)
+    axs[1, 1].set_xlabel(r'log$_{10}$([SII]/H$\alpha$)', fontsize = fontsize, labelpad = labelpad_x)
+    axs[1, 1].set_ylabel(r'log$_{10}$([OIII]/H$\beta$)', fontsize = fontsize, labelpad = labelpad_y)
 
     axs[1, 1].set_xlim(-1.4, 0.6)
     axs[1, 1].set_ylim(-1.4, 1.4)
