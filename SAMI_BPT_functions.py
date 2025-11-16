@@ -590,8 +590,8 @@ def bpt(
     # three spatial plots in the first row.
     ########################################################################
     # transfer from pixel size to arcsec.
-    y = (np.arange(Ha_map.shape[0]) - center_y) * 0.5
-    x = (np.arange(Ha_map.shape[1]) - center_x) * 0.5
+    y = (np.arange(Ha_map.shape[0]) - center_y) * scale
+    x = (np.arange(Ha_map.shape[1]) - center_x) * scale
 
     #######################################################################
     # first spatial plot (SF: grey, Comp: salmon, AGN: purple).
