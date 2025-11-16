@@ -171,6 +171,7 @@ def bpt(
 
     Returns:
     - None
+
     '''
 
     # load the optical emission line maps (primary map[0] and error map [1]) for each line.
