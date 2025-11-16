@@ -155,10 +155,19 @@ def bpt(
     Do the quality cut on emission line maps and make the BPT diagram.
 
     Parameters:
-    - vel_fits_path: str, path to the stellar velocity fits file.
-    - sig_fits_path: str, path to the stellar velocity dispersion fits file.
-    - vmin: int, minimum value for the color bar.
-    - vmax: int, maximum value for the color bar.
+    - Ha_fits_path: Path to the Halpha fits file.
+    - Hb_fits_path: Path to the Hbeta fits file.
+    - OIII_fits_path: Path to the OIII fits file.
+    - OI_fits_path: Path to the OI fits file.
+    - SII_6716_fits_path: Path to the SII 6716 fits file.
+    - SII_6731_fits_path: Path to the SII 6731 fits file.
+    - NII_fits_path: Path to the NII fits file.
+    - threshold: Threshold for applying the quality cut on emission line maps.
+    - fontsize: Font size for labels.
+    - cbar_pad: Pad for the colorbar.
+    - labelpad_x: Pad for the labels.
+    - labelpad_y: Pad for the labels.
+    - labelpad_cbar: Pad for the colorbar labels.
 
     Returns:
     - None
