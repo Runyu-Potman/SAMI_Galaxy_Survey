@@ -168,7 +168,7 @@ def bpt(
         Ha_fits_path, Hb_fits_path, OIII_fits_path, OI_fits_path,
         SII_6716_fits_path, SII_6731_fits_path, NII_fits_path,
         threshold, fontsize = 10, cbar_pad = 0.02, bar_fraction = 0.0468,
-        labelpad_x = 8, labelpad_y = 0.85, labelpad_cbar = 5
+        labelpad_x = 8, labelpad_y = 0.85, labelpad_cbar = 4, scale = 0.5
 ):
     '''
     Do the quality cut on emission line maps and make the BPT diagram.
