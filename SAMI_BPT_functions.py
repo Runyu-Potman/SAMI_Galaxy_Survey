@@ -687,7 +687,7 @@ def bpt(
 
     # add colorbar.
 
-    cbar = fig.colorbar(im, ax = axs[0, 1], boundaries = bounds, ticks = [], pad = cbar_pad)
+    cbar = fig.colorbar(im, ax = axs[0, 1], boundaries = bounds, ticks = [], pad = cbar_pad, fraction = bar_fraction)
 
     # remove tick lines and set no ticks.
     cbar.ax.tick_params(axis = 'y', which = 'both', length = 0)
