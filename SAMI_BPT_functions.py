@@ -516,6 +516,9 @@ def bpt(
     axs[1, 1].set_ylabel(r'log$_{10}$([OIII]/H$\beta$)', fontsize = fontsize, labelpad = labelpad_y)
     axs[1, 1].set_title(r'[SII]-BPT', fontsize = fontsize)
 
+    # add legend
+    axs[1, 1].legend(loc = 'upper left', fontsize = fontsize)
+
     axs[1, 1].set_xlim(-1.4, 0.6)
     axs[1, 1].set_ylim(-1.4, 1.4)
 
