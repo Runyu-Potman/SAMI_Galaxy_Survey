@@ -595,7 +595,7 @@ def bpt(
 
     #######################################################################
     # first spatial plot (SF: grey, Comp: salmon, AGN: purple).
-    cmap = ListedColormap(['salmon', 'purple'])
+    cmap = ListedColormap(['gray', 'salmon', 'purple'])
     log_y = np.log10(OIII_map_NII / Hb_map_NII)
     log_x = np.log10(NII_map_NII / Ha_map_NII)
 
