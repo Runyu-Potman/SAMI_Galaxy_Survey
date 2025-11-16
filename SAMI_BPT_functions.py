@@ -133,7 +133,7 @@ def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25):
     Function to plot the BPT with data points color coded by the distance to the galaxy center.
 
     Parameters:
-    - Ha_map_clean: The cleaned Halpha map.
+    - Ha_map_clean: The cleaned Halpha map for extracting shape and mask.
     - ax: The axes on which the plot will be drawn.
     - log_x: log(emission/Halpha).
     - log_y: log(OIII/Hbeta)
