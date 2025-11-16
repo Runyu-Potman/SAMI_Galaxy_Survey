@@ -148,7 +148,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array,
 
     # set titles (first column).
     if title:
-        axs[axs_x, 0].set_title('Stellar Age Map', fontsize = fontsize)
+        axs[axs_x, 0].set_title('Resolved Stellar Age', fontsize = fontsize)
 
     # make these (major) ticks longer.
     axs[axs_x, 0].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
