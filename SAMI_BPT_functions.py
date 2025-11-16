@@ -188,6 +188,7 @@ def bpt(
     - labelpad_x: Pad for the labels.
     - labelpad_y: Pad for the labels.
     - labelpad_cbar: Pad for the colorbar labels.
+    - scale: Pixel scale.
 
     Returns:
     - None
