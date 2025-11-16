@@ -144,6 +144,7 @@ def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25):
     - sc: The BPT plot.
     - center_x: Center of the galaxy.
     - center_y: Center of the galaxy.
+    - scale: Pixel scale.
 
     '''
     y, x = np.meshgrid(np.arange(Ha_map_clean.shape[0]), np.arange(Ha_map_clean.shape[1]))
