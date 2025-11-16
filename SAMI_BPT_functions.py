@@ -468,7 +468,7 @@ def bpt(
     axs[1, 0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
     # add color bar, showing the distance in arcsec.
-    cbar = fig.colorbar(sc, ax = axs[1, 0], pad = cbar_pad)
+    cbar = fig.colorbar(sc, ax = axs[1, 0], fraction = bar_fraction, pad = cbar_pad)
     cbar.set_label('Radius (arcsec)', fontsize = fontsize, labelpad = labelpad_cbar)
     cbar.ax.yaxis.set_tick_params(direction = 'in')
 
