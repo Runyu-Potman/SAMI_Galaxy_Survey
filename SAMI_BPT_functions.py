@@ -184,6 +184,7 @@ def bpt(
     - threshold: Threshold for applying the quality cut on emission line maps.
     - fontsize: Font size for labels.
     - cbar_pad: Pad for the colorbar.
+    - bar_fraction: Bar fraction for the colorbar.
     - labelpad_x: Pad for the labels.
     - labelpad_y: Pad for the labels.
     - labelpad_cbar: Pad for the colorbar labels.
