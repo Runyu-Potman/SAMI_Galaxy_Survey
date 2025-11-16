@@ -152,8 +152,7 @@ def bpt(
         threshold, fontsize = 10, cbar_pad = 0.04, labelpad_x = 8, labelpad_y = 0.85, labelpad_cbar = 5
 ):
     '''
-    Apply the quality cut criteria and make plot with x_axis and y_axis in pixel unit,
-    note that the center of the galaxy is located at around (25, 25).
+    Do the quality cut on emission line maps and make the BPT diagram.
 
     Parameters:
     - vel_fits_path: str, path to the stellar velocity fits file.
