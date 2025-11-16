@@ -442,8 +442,8 @@ def bpt(
     boundary_2_values = boundary_2(boundary_2_range)
 
     # plot two boundaries.
-    axs[1, 0].plot(boundary_1_range, boundary_1_values, color = 'black', linestyle = '-', linewidth = 1, label = 'Ke01')
-    axs[1, 0].plot(boundary_2_range, boundary_2_values, color = 'black', linestyle = '--', linewidth = 1, label = 'Ka03')
+    axs[1, 0].plot(boundary_1_range, boundary_1_values, color = 'red', linestyle = '-', linewidth = 1, label = 'Ke01')
+    axs[1, 0].plot(boundary_2_range, boundary_2_values, color = 'blue', linestyle = '--', linewidth = 1, label = 'Ka03')
 
     # add labels for each region, ha = 'center' centers the text horizontally at the specified x position.
     axs[1, 0].text(-0.8, -0.8, 'SF', color = 'grey', fontsize = fontsize, ha = 'center')
