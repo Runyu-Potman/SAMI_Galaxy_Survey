@@ -152,7 +152,7 @@ def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25):
     y = y[~Ha_map_clean.mask]
 
     # here we show the distance in arcsec.
-    distance = np.sqrt((x - center_x)**2 + (y - center_y)**2) * 0.5
+    distance = np.sqrt((x - center_x)**2 + (y - center_y)**2) * scale
 
     # normalize distance.
     #normalized_distance = (distance - np.min(distance)) / (np.max(distance) - np.min(distance))
