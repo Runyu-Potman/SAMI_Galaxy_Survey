@@ -159,7 +159,7 @@ def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25, scale
     #normalized_distance = (distance - np.min(distance)) / (np.max(distance) - np.min(distance))
 
     # plot the BPT diagram.
-    sc = ax.scatter(log_x, log_y, c = distance, cmap = plt.cm.coolwarm,
+    sc = ax.scatter(log_x, log_y, c = distance, cmap = 'coolwarm',
                     s = 8, alpha = 1) # s: marker size
 
     return sc, center_x, center_y
