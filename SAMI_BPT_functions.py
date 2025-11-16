@@ -168,7 +168,7 @@ def bpt_plot(Ha_map_clean, ax, log_x, log_y, center_x = 25, center_y = 25, scale
 def bpt(
         Ha_fits_path, Hb_fits_path, OIII_fits_path, OI_fits_path,
         SII_6716_fits_path, SII_6731_fits_path, NII_fits_path,
-        threshold, fontsize = 10, cbar_pad = 0.02, bar_fraction = 0.0466,
+        threshold, fontsize = 10, cbar_pad = 0.02, bar_fraction = 0.0467,
         labelpad_x = 8, labelpad_y = 0.85, labelpad_cbar = 4, scale = 0.5
 ):
     '''
