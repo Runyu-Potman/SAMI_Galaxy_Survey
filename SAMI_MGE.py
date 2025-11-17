@@ -77,7 +77,11 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
             print(f'Position angle (SPA) from header: {pa} degrees')
 
             if align_major:
-                rotated_data = rotate(cutout.data, -(pa + (90 - kin_pa)), reshape=True)
+                if counterclock:
+                    rotated_data = rotate(cutout.data, -(pa + (90 - kin_pa)), reshape=True)
+                else:
+                    rotated_data = rotate(cutout.data, -pa + kin_pa, reshape=True)
+
             else:
                 # rotate the image to make north-up.
                 rotated_data = rotate(cutout.data, -pa, reshape=True)
