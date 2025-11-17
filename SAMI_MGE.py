@@ -150,7 +150,7 @@ def mask_map_create(fits_path, target_label):
 
     return mask_map
 #-----------------------------------------------------------------------------------
-def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ngauss = 12, Msolar = 4.68, xlim = 24, mask_map = None):
+def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ngauss = 12, Msolar = 4.68, mask_map = None, twist = False, ax = None):
     '''
 
     Parameters:
