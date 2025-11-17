@@ -507,7 +507,7 @@ def bpt(
     axs[1, 1].plot(boundary_3_range, boundary_3_values, color = 'black', linestyle = '--', linewidth = 1, label = 'Ke06')
 
     # add labels for each region, ha = 'center' centers the text horizontally at the specified x position.
-    axs[1, 1].text(-0.8, -0.8, 'SF', color = 'grey', fontsize = fontsize, ha = 'center')
+    axs[1, 1].text(-0.8, -0.8, 'HII', color = 'grey', fontsize = fontsize, ha = 'center')
     axs[1, 1].text(0.3, -0.8, 'LINER', color = 'lightblue', fontsize = fontsize, ha = 'center')
     axs[1, 1].text(-0.3, 0.808, 'AGN', color = 'purple', fontsize = fontsize, ha = 'center')
 
