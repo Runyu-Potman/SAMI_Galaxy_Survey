@@ -702,9 +702,9 @@ def bpt(
     # remove tick lines and set no ticks.
     cbar.ax.tick_params(axis = 'y', which = 'both', length = 0)
 
-    cbar.ax.text(1.5, 0.5, 'SF', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
-    cbar.ax.text(1.5, 1.5, 'LINER', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
-    cbar.ax.text(1.5, 2.5, 'AGN', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+    cbar.ax.text(1.6, 0.5, 'SF', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+    cbar.ax.text(1.6, 1.5, 'LINER', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+    cbar.ax.text(1.6, 2.5, 'AGN', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
 
     #############################################################################
     '''
