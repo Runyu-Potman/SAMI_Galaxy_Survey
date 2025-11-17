@@ -17,7 +17,8 @@ version_03: 30/07/2025: convert the unit into Lsolar/pc2 in preparation for dyna
 version_04: 18/09/2025: allow twist in MGE/
 '''
 #----------------------------------------------------------------------------------------------------------------
-def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotation = False, calibration = False):
+def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotation = False, calibration = False,
+                 align_major = False, kin_pa = None, counterclock = True):
     '''
     The function can be used to do preparation for SEXTRACTOR or MGE. Large cut_size to identify stars and estimate PSF
     with SEXTRACTOR, then switch to small cut_size to apply MGE.
