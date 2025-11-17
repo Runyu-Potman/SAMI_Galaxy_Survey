@@ -115,7 +115,7 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
 
     return rotated_data
 #-----------------------------------------------------------------------------------
-def mask_map(fits_path, target_label):
+def mask_map_create(fits_path, target_label):
     '''
     After using the sextractor, we obtain a segmentation map where each star or galaxy would
     have a unique label, and the background would have a 0 value. After applying this function,
