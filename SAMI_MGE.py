@@ -5,7 +5,7 @@ from scipy.ndimage import rotate
 import matplotlib.pyplot as plt
 import numpy as np
 import mgefit as mge
-
+from matplotlib.ticker import AutoMinorLocator
 #----------------------------------------------------------------------------
 '''
 version_01: 11/07/2025: initial function.
