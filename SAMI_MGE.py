@@ -178,6 +178,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     - fontsize: label font size.
     - title: title of the plot.
     - Re_circle: whether to plot a circular region showing the effective radius.
+    - Re: effective radius in arcsec.
 
     Returns:
 
