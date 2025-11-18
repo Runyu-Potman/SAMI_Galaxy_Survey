@@ -103,7 +103,7 @@ def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'v
             cbar.set_label(cbar_label, fontsize = fontsize, labelpad = 4)
 
     if title:
-        ax.set_title(title)
+        ax.set_title(title, fontsize = fontsize)
 
     # make these (major) ticks longer.
     ax.tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
