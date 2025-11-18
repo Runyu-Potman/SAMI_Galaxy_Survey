@@ -166,17 +166,18 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     - ngauss: maximum number of Gaussians allowed in the MGE fit. Typical values are in
                 the range ``10 -- 20`` when ``linear=False`` (default: ``ngauss=12``) and
                 ``20**2 -- 40**2`` when ``linear=True`` (default: ``ngauss=30**2=900``).
-        Msolar: absolute magnitude of the sun (e.g., 4.68 for SDSS r band).
-        mask_map: the mask map given by mask_map function after using sextractor.
-        twist: whether to use the twist version of the MGE.
-        ax: matplotlib axes object.
-        label_pad: pad of the y axis label.
-        tick_lim: x and y tick range max value.
-        loc_min: tick interval setting (tick starting value).
-        loc_max: tick interval setting (tick ending value).
-        loc_step: tick interval setting (tick step).
-        fontsize: label font size.
-        title: title of the plot.
+    - Msolar: absolute magnitude of the sun (e.g., 4.68 for SDSS r band).
+    - mask_map: the mask map given by mask_map function after using sextractor.
+    - twist: whether to use the twist version of the MGE.
+    - ax: matplotlib axes object.
+    - label_pad: pad of the y axis label.
+    - tick_lim: x and y tick range max value.
+    - loc_min: tick interval setting (tick starting value).
+    - loc_max: tick interval setting (tick ending value).
+    - loc_step: tick interval setting (tick step).
+    - fontsize: label font size.
+    - title: title of the plot.
+    - Re_circle: whether to plot a circular region showing the effective radius.
 
     Returns:
 
