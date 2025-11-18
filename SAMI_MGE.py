@@ -176,6 +176,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
         loc_max: tick interval setting (tick ending value).
         loc_step: tick interval setting (tick step).
         fontsize: label font size.
+        title: title of the plot.
 
     Returns:
 
