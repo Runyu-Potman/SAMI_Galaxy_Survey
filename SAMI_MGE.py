@@ -163,7 +163,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     - skylev: the sky level in the unit of counts/pixel which will be subtracted from the input data.
     - scale: pixel scale in arcsec (e.g., 0.396 arcsec/pixel for SDSS), this is *only* used for the scale
                on the plots. It has no influence on the output.
-        ngauss: maximum number of Gaussians allowed in the MGE fit. Typical values are in
+    - ngauss: maximum number of Gaussians allowed in the MGE fit. Typical values are in
                 the range ``10 -- 20`` when ``linear=False`` (default: ``ngauss=12``) and
                 ``20**2 -- 40**2`` when ``linear=True`` (default: ``ngauss=30**2=900``).
         Msolar: absolute magnitude of the sun (e.g., 4.68 for SDSS r band).
