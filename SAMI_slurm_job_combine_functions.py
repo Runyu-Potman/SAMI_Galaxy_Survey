@@ -253,4 +253,32 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array,
     axs[axs_x, 3].xaxis.set_minor_locator(AutoMinorLocator())
     axs[axs_x, 3].yaxis.set_minor_locator(AutoMinorLocator())
     axs[axs_x, 3].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+#-------------------------------------------------------------------------
+def add_psf(ax, psffwhm):
+    '''
+    Add a psf circle in the left corner.
+
+    Parameters:
+    - ax: matplotlib axes.
+    - psffwhm: psf_fwhm in arcsec.
+
+    Returns:
+    - None
+
+    '''
+
+    # radius in arcsec.
+    radius = psffwhm / 2
+
+    # add a circle showing PSF.
+    circle = patches.Circle(
+        (-10, -10),  # position of the circle in arcsec
+        radius,
+        edgecolor = 'black',  # color of the circle's border
+        facecolor = 'none',  # no fill color
+        linewidth = 1.5,  # thickness of the circle's edge
+        linestyle = '-'
+    )
+
+    ax.add_patch(circle)
 #-------------------------------------------------------------------------------------
