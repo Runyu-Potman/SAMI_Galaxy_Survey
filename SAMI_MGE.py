@@ -243,6 +243,10 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
 
     plt.pause(1)
 
+    # set up plot.
+    if ax is None:
+        fig, ax = plt.subplots()
+
     # show contour plots of the results.
     plt.clf()
     if twist:
