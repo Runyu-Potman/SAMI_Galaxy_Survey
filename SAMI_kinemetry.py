@@ -387,6 +387,31 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
     axs[1].xaxis.set_minor_locator(AutoMinorLocator())
     axs[1].yaxis.set_minor_locator(AutoMinorLocator())
     axs[1].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+#--------------------------------------------------------------------------------
+def inv_var_mean(values, sigmas):
+    '''
+    Inverse-variance weighted mean.
+
+    Parameters:
+
+    - values : array-like Measurements.
+    - sigmas : array-like 1-sigma uncertainties for each measurement (same length as values).
+
+    Returns:
+
+    - mean : float, inverse-variance weighted mean.
+    - sigma_mean : float, 1-sigma uncertainty of the weighted mean.
+    '''
+
+    values = np.asarray(values, dtype = float)
+    sigmas = np.asarray(sigmas, dtype = float)
+
+    weights = 1.0 / (sigmas**2)
+
+    mean = (weights * values).sum() / weights.sum()
+    sigma_mean = (1.0 / weights.sum())**0.5
+
+    return mean, sigma_mean
 
 #-----------------------------------------------------------------
 csv_file = pd.read_csv('CATID/CATID_quality_cut_stellar_velocity_map.csv')
