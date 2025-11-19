@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import linregress
 from matplotlib.ticker import AutoMinorLocator
 import matplotlib.patches as patches
 
