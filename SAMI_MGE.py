@@ -248,7 +248,9 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
         fig, ax = plt.subplots()
 
     # show contour plots of the results.
-    plt.clf()
+    # activate the axs.
+    plt.sca(ax)
+
     if twist:
         mge.print_contours_twist(cut_data, f.theta, f.xpeak, f.ypeak, m.sol, scale=scale,
                                  sigmapsf=sigmapsf, mask=target_mask, minlevel=minlevel)
