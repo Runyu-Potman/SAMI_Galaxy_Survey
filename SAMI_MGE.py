@@ -255,6 +255,10 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     - yc: y position of the compass label.
     - pa: position angle of the compass label.
     - length: length of the compass label.
+    - N_x_pad: pad in the label N.
+    - N_y_pad: pad in the label N.
+    - E_x_pad: pad in the label E.
+    - E_y_pad: pad in the label E.
 
     Returns:
 
