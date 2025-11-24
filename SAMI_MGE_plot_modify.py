@@ -225,8 +225,8 @@ def mge_print_contours(img, ang, xc, yc, sol, binning=1, magrange=10, magstep=0.
         plt.xlabel("arcsec")
         plt.ylabel("arcsec")
 
-    cnt = ax.contour(img, levels, colors='k', linestyles='solid', extent=extent)
-    ax.contour(model, levels, colors='r', linestyles='solid', extent=extent)
+    cnt = ax.contour(img, levels, colors='dimgray', linestyles='solid', extent=extent, linewidths = 1)
+    ax.contour(model, levels, colors='r', linestyles='solid', extent=extent, linewidths=1.5)
     if mask is not None:
         a = np.ma.masked_array(mask, mask)
         ax.imshow(a, cmap='autumn_r', interpolation='nearest', origin='lower',
