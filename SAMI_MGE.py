@@ -381,7 +381,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
 
     # add a direction label.
     if compass:
-        add_NE_compass(ax = ax, xc = xc, yc = yc, pa_deg = pa, length = length, N_extra = N_extra, E_extra = E_extra)
+        add_NE_compass(ax = ax, xc = xc, yc = yc, pa_deg = pa, length = length)
 
     # large zorder for axis
     for spine in ax.spines.values():
