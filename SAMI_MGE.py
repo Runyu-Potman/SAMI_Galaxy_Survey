@@ -15,6 +15,7 @@ version_03: 30/07/2025: convert the unit into Lsolar/pc2 in preparation for dyna
             we conclude that there is no need to set the 'calibration' keyword. Just starting directly from nanomaggy and 
             using Pogson magnitude to convert the unit into mag/arcsec^2.
 version_04: 18/09/2025: allow twist in MGE/
+version_05: 18/11/2025: use a modified MGE contour function.
 '''
 #----------------------------------------------------------------------------------------------------------------
 def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, vmax = None, rotation = False, calibration = False,
