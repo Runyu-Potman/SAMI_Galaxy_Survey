@@ -286,7 +286,34 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     if title is not None:
         ax.set_title(title, fontsize = fontsize)
 
-    plt.pause(1)
+    # show the effective radius.
+    if Re_circle and Re is not None:
+        circle = patches.Circle((0, 0), Re, edgecolor = 'royalblue', facecolor = 'none',
+                                linestyle = '--', linewidth = 2, zorder = 2)
+        ax.add_patch(circle)
+
+    if plot_psf and psf_label_x is not None and psf_label_y is not None:
+        # half of the psf_FWHM in arcsec.
+        psf_half = fwhm * scale / 2
+
+        # PSF circle.
+        circle = patches.Circle((psf_label_x, psf_label_y),
+                                psf_half, edgecolor = 'black', facecolor = 'black', linewidth = 1.5,
+                                linestyle = '-', zorder = 2)
+
+        ax.add_patch(circle)
+
+    # add a direction label.
+    if compass:
+        add_NE_compass(ax = ax, xc = xc, yc = yc, pa_deg = pa, length = length)
+
+    # large zorder for axis
+    for spine in ax.spines.values():
+        spine.set_zorder(1000)
+
+    ax.tick_params(zorder=1001)
+
+    ax.set_axisbelow(False)
 
     # final results.
     if twist:
