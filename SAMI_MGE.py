@@ -233,7 +233,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     plt.pause(1)
 
     # do the MGE fit.
-    plt.clf()
+    tem = plt.figure()
     if twist:
         m = mge.fit_sectors_twist(s.radius, s.angle, s.counts, f.eps,
                                   ngauss=ngauss, sigmapsf=sigmapsf,
