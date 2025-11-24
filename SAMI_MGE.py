@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import mgefit as mge
 from matplotlib.ticker import AutoMinorLocator
+from SAMI_MGE_plot_modify import mge_print_contours
+import matplotlib.patches as patches
 #----------------------------------------------------------------------------
 '''
 version_01: 11/07/2025: initial function.
