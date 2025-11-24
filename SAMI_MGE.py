@@ -150,7 +150,70 @@ def mask_map_create(fits_path, target_label):
 
     return mask_map
 #-----------------------------------------------------------------------------------
-def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ngauss = 12, Msolar = 4.68, mask_map = None, twist = False, ax = None):
+def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 10, N_E_pad = 0.1):
+    '''
+    Add a compass label in the plot.
+
+    Parameters:
+    - ax: matplotlib axes object.
+    - xc: compass x coordinate.
+    - yc: compass y coordinate.
+    - pa_deg: compass position angle.
+    - length: compass length.
+    - fontsize: label font size.
+    - N_E_pad: pad in the label N and E.
+
+    Returns:
+
+    '''
+
+    th = np.deg2rad(pa_deg)
+
+    # North rotated vector.
+    Nx = -np.sin(th)
+    Ny =  np.cos(th)
+
+    # East rotated vector.
+    Ex = -np.cos(th)
+    Ey = -np.sin(th)
+
+    # Endpoints of the arrows.
+    xN = xc + length * Nx
+    yN = yc + length * Ny
+
+    xE = xc + length * Ex
+    yE = yc + length * Ey
+
+    # Shrink connector line so it does not extend into arrowheads.
+    shrink = 0.3 * length
+
+    ax.plot([xN - shrink*Nx, xc, xE - shrink*Ex],
+            [yN - shrink*Ny, yc, yE - shrink*Ey],
+            lw = 2, color = 'black')
+
+    # Arrowheads.
+    ax.annotate('', xy = (xN, yN), xytext = (xc, yc),
+                arrowprops = dict(arrowstyle = '-|>', lw = 1.5, color = 'black'))
+    ax.annotate('', xy = (xE, yE), xytext = (xc, yc),
+                arrowprops = dict(arrowstyle = '-|>', lw = 1.5, color = 'black'))
+
+    # shift labels a little beyond the arrow tip
+    pad = N_E_pad * length
+
+    ax.text(xN + pad * Nx, yN + pad * Ny, 'N',
+            ha = 'center', va = 'center', fontsize = fontsize, color = 'black',
+            rotation = pa_deg, rotation_mode = 'anchor')
+
+    ax.text(xE + pad * Ex, yE + pad * Ey, 'E',
+            ha = 'center', va = 'center', fontsize = fontsize, color = 'black',
+            rotation = pa_deg, rotation_mode = 'anchor')
+
+#----------------------------------------------------------------------------------
+def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ngauss = 12, Msolar = 4.68,
+              mask_map = None, twist = False, ax = None, label_pad = 0.85, tick_lim = 12.5, loc_min = -10,
+              loc_max = 11, loc_step = 5, fontsize = 10, title = None, Re_circle = True, Re = None, plot_psf = True,
+              psf_label_x = None, psf_label_y = None, extra_minlevel = 0, compass = False, xc = 0, yc = 0, pa = 0, length = 0
+              ):
     '''
     Apply the MGE and make the plot.
 
