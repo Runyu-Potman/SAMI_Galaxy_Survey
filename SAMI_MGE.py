@@ -259,8 +259,12 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
                                  sigmapsf=sigmapsf, mask=target_mask, minlevel=minlevel)
 
     else:
-        mge.print_contours(cut_data, f.theta, f.xpeak, f.ypeak, m.sol, scale=scale,
-                           sigmapsf=sigmapsf, mask=target_mask, minlevel=minlevel)
+        mge_print_contours(cut_data, f.theta, f.xpeak, f.ypeak, m.sol, scale=scale,
+                           sigmapsf=sigmapsf, mask=target_mask, minlevel=minlevel + extra_minlevel)
+
+    # tick setting.
+    ax.set_xlim([-tick_lim, tick_lim])
+    ax.set_ylim([-tick_lim, tick_lim])
 
     plt.xlim(-xlim, xlim)
     plt.ylim(-xlim, xlim)
