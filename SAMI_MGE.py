@@ -204,7 +204,7 @@ def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 10, N_E_pad = 0.
             ha = 'center', va = 'center', fontsize = fontsize, color = 'black',
             rotation = pa_deg, rotation_mode = 'default')
 
-    ax.text(xE + pad * Ex, yE + pad * Ey, 'E',
+    ax.text(xE + E_x_pad, yE + E_y_pad, 'E',
             ha = 'center', va = 'center', fontsize = fontsize, color = 'black',
             rotation = pa_deg, rotation_mode = 'default')
 
