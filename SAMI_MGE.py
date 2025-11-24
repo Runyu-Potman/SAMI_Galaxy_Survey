@@ -200,10 +200,7 @@ def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 10, N_E_pad = 0.
     ax.annotate('', xy = (xE, yE), xytext = (xc, yc),
                 arrowprops = dict(arrowstyle = '-|>', lw = 1.5, color = 'black'))
 
-    # shift labels a little beyond the arrow tip
-    pad = N_E_pad * length
-
-    ax.text(xN + pad * Nx, yN + pad * Ny, 'N',
+    ax.text(xN + N_x_pad, yN + N_y_pad, 'N',
             ha = 'center', va = 'center', fontsize = fontsize, color = 'black',
             rotation = pa_deg, rotation_mode = 'default')
 
