@@ -266,8 +266,25 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     ax.set_xlim([-tick_lim, tick_lim])
     ax.set_ylim([-tick_lim, tick_lim])
 
-    plt.xlim(-xlim, xlim)
-    plt.ylim(-xlim, xlim)
+    tick_locs = np.arange(loc_min, loc_max, loc_step)
+    ax.set_xticks(tick_locs)
+    ax.set_yticks(tick_locs)
+
+    # label settins.
+    ax.set_xlabel('Offset(arcsec)', fontsize = fontsize, labelpad = 2)
+    ax.set_ylabel('Offset(arcsec)', fontsize = fontsize, labelpad = label_pad)
+
+    # make these (major) ticks longer.
+    ax.tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+
+    # add minor ticks (shorter, no labels).
+    ax.xaxis.set_minor_locator(AutoMinorLocator())
+    ax.yaxis.set_minor_locator(AutoMinorLocator())
+    ax.tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+    # set title.
+    if title is not None:
+        ax.set_title(title, fontsize = fontsize)
 
     plt.pause(1)
 
