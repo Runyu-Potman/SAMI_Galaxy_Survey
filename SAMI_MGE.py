@@ -219,7 +219,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
         target_mask = None
 
     # perform galaxy photometry.
-    plt.clf()
+    tem = plt.figure()
     if twist:
         s = mge.sectors_photometry_twist(
             cut_data, f.theta, f.xpeak, f.ypeak,
