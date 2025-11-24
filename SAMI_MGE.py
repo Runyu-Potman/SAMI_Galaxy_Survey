@@ -209,7 +209,7 @@ def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 10, N_E_pad = 0.
 
     ax.text(xE + pad * Ex, yE + pad * Ey, 'E',
             ha = 'center', va = 'center', fontsize = fontsize, color = 'black',
-            rotation = pa_deg, rotation_mode = 'anchor')
+            rotation = pa_deg, rotation_mode = 'default')
 
 #----------------------------------------------------------------------------------
 def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ngauss = 12, Msolar = 4.68,
