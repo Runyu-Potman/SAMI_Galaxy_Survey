@@ -230,7 +230,7 @@ def mge_print_contours(img, ang, xc, yc, sol, binning=1, magrange=10, magstep=0.
     if mask is not None:
         a = np.ma.masked_array(mask, mask)
         ax.imshow(a, cmap='autumn_r', interpolation='nearest', origin='lower',
-                  extent=extent, zorder=3, alpha=0.7)
+                  extent=extent, zorder=2, alpha=0.7)
 
     return cnt
 
