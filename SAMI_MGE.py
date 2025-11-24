@@ -179,6 +179,15 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     - title: title of the plot.
     - Re_circle: whether to plot a circular region showing the effective radius.
     - Re: effective radius in arcsec.
+    - plot_psf: whether to plot the PSF of the photometric image.
+    - psf_label_x: the x position of the PSF label.
+    - psf_label_y: the y position of the PSF label.
+    - extra_minlevel: extral level to add in the photometric plot.
+    - compass: whether to plot compass lable.
+    - xc: x position of the compass label.
+    - yc: y position of the compass label.
+    - pa: position angle of the compass label.
+    - length: length of the compass label.
 
     Returns:
 
