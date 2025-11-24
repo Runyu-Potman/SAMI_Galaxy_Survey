@@ -298,7 +298,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
 
         # PSF circle.
         circle = patches.Circle((psf_label_x, psf_label_y),
-                                psf_half, edgecolor = 'black', facecolor = 'black', linewidth = 1.5,
+                                psf_half, edgecolor = 'black', facecolor = 'none', linewidth = 1.5,
                                 linestyle = '-', zorder = 2)
 
         ax.add_patch(circle)
