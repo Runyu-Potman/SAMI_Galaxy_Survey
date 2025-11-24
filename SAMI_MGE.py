@@ -243,6 +243,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
                                         ngauss=ngauss, sigmapsf=sigmapsf,
                                         scale=scale, plot=True)
 
+    tem.show()
     plt.pause(1)
 
     # set up plot.
