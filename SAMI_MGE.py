@@ -152,6 +152,7 @@ def mask_map_create(fits_path, target_label):
 #-----------------------------------------------------------------------------------
 def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ngauss = 12, Msolar = 4.68, mask_map = None, twist = False, ax = None):
     '''
+    Apply the MGE and make the plot.
 
     Parameters:
     - cut_data: the cutout data given by image_cutout function.
