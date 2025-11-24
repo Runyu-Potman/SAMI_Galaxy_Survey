@@ -153,7 +153,7 @@ def mask_map_create(fits_path, target_label):
 
     return mask_map
 #-----------------------------------------------------------------------------------
-def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 10, N_E_pad = 0.1):
+def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 10, N_x_pad = 1, N_y_pad = 1, E_x_pad = 1, E_y_pad = 1):
     '''
     Add a compass label in the plot.
 
