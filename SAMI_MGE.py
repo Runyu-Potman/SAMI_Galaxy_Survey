@@ -198,7 +198,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     sigmapsf = fwhm / 2.355
 
     # use the find_galaxy function.
-    plt.clf()
+    tem = plt.figure()
     f = mge.find_galaxy(img = cut_data, level = level, plot = True)
     plt.pause(1)
 
