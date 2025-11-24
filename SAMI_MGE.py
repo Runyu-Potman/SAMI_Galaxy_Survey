@@ -229,6 +229,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
             cut_data, f.eps, f.theta, f.xpeak, f.ypeak,
             minlevel=minlevel, mask=target_mask, plot=True)
 
+    tem.show()
     plt.pause(1)
 
     # do the MGE fit.
