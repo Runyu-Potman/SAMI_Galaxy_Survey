@@ -200,6 +200,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     # use the find_galaxy function.
     tem = plt.figure()
     f = mge.find_galaxy(img = cut_data, level = level, plot = True)
+    tem.show()
     plt.pause(1)
 
     if mask_map is not None:
