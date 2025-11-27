@@ -209,7 +209,7 @@ def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 10, N_x_pad = 1,
             rotation = pa_deg, rotation_mode = 'default')
 
 #----------------------------------------------------------------------------------
-def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ngauss = 12, Msolar = 4.68,
+def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ngauss = 12, Msolar = 4.65,
               mask_map = None, twist = False, ax = None, label_pad = 0.85, tick_lim = 12.5, loc_min = -10,
               loc_max = 11, loc_step = 5, fontsize = 10, title = None, Re_circle = True, Re = None, plot_psf = True,
               psf_label_x = None, psf_label_y = None, extra_minlevel = 0, compass = False, xc = 0, yc = 0, pa = 0, length = 0,
