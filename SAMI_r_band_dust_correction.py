@@ -22,6 +22,16 @@ q = 0.95
 kin_pa = 44.9
 #----------------------------------------------------------------
 def nMgy_to_mag(flux):
+    '''
+    Convert nanomaggy into Pogson magnitude.
+
+    Parameters:
+    - flux: flux in the unit of nanomaggy.
+
+    Returns:
+    - mag: Pogson magnitude.
+
+    '''
 
     mag = np.full_like(flux, np.nan, dtype = float)
 
