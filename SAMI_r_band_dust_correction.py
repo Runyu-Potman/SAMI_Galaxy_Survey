@@ -2,7 +2,6 @@ from astropy.io import fits
 from SAMI_MGE import image_cutout
 import numpy as np
 import matplotlib.pyplot as plt
-from SAMI_MGE import mask_map_create
 #----------------------------------------------------------------
 
 
