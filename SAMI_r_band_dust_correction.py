@@ -90,7 +90,8 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
 
     # visualization.
     plt.figure()
-    plt.imshow(g_i, origin = 'lower')
+    plt.imshow(g_i, origin = 'lower',  cmap = 'RdYlBu_r')
+    plt.colorbar()
     plt.title('g-i image')
     plt.show()
 
