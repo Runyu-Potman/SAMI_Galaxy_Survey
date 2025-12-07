@@ -3,8 +3,6 @@ from SAMI_MGE import image_cutout
 import numpy as np
 import matplotlib.pyplot as plt
 #----------------------------------------------------------------
-
-
 # some constants.
 ra = 212.85930
 dec = 1.28652
