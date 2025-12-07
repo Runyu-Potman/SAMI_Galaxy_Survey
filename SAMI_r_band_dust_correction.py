@@ -160,7 +160,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     ax.scatter(x, y, s = 18, marker = 'D', facecolors = 'none', edgecolors = 'k', linewidths = 0.6, alpha = 0.9)
     ax.plot(xr, yr, color = 'tab:red', lw = 2)
 
-    # labels & ticks like the example
+    # labels & ticks.
     ax.set_xlabel('log semi-major axis distance', fontsize = 10)
     ax.set_ylabel('g - i', fontsize = 10)
     ax.set_xlim(np.min(xr), np.max(xr))
