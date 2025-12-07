@@ -169,6 +169,12 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     plt.title('color excess image')
     plt.show()
 
+    # dusty pixels.
+    dust_mask = np.zeros_like(g_i, dtype = bool)
+    dust_mask[mask] = E_gi[mask] > float(E_thresh)
+
+    Ar = np.zeros_like(g_i, dtype = float)
+    Ar[dust_mask] = 1.15 * E_gi[dust_mask]
 
 
 
