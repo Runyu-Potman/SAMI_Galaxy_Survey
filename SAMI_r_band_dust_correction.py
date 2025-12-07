@@ -160,8 +160,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     color_pred = a * log_m + b
     # color excess.
     E_gi = np.full_like(g_i, np.nan)
-    finite_obs = np.isfinite(g_i)
-    E_gi[finite_obs] = g_i[finite_obs] - color_pred[finite_obs]
+    E_gi[mask] = g_i[mask] - color_pred[mask]
 
     # visualization.
     plt.figure()
