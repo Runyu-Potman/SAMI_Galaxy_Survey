@@ -102,7 +102,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     g_i = np.full_like(r_data, np.nan, dtype = float)
     g_i[good_pixel] = g_mag[good_pixel] - i_mag[good_pixel]
 
-    # visulization.
+    # visualization.
     plt.figure()
     plt.imshow(g_i, origin = 'lower')
     plt.title('g-i image')
