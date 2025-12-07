@@ -91,7 +91,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
 
     flux_good = (g_data > flux_frac * g_peak) & (r_data > flux_frac * r_peak) & (i_data > flux_frac * i_peak)
 
-    # good pixel mask.
+    # final good pixel mask.
     good_pixel = flux_good & galaxy_mask
 
     # convert from nMgy to Pogson magnitude.
