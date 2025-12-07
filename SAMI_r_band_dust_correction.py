@@ -156,7 +156,19 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     plt.tight_layout()
     plt.show()
 
-r_band_dust_correction(galaxy_name = 227266, target_label = 30, ra = ra, dec = dec, xc = xc, yc = yc, q = q, kin_pa = kin_pa)
+    # predicted intrinsic color.
+    color_pred = a * log_m + b
+    # color excess.
+    E_gi = np.full_like(g_i, np.nan)
+    finite_obs = np.isfinite(g_i)
+    E_gi[finite_obs] = g_i[finite_obs] - color_pred[finite_obs]
+
+    # visualization.
+    plt.figure()
+    plt.imshow(E_gi, origin = 'lower', cmap = 'RdYlBu_r')
+    plt.colorbar()
+    plt.title('color excess image')
+    plt.show()
 
 
 
