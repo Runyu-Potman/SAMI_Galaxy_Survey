@@ -63,6 +63,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
                           vmin = 0, vmax = 1, rotation = True,
                           align_major = True, kin_pa = kin_pa, counterclock = counterclock)
 
+    # debug.
     if not (seg.shape == g_data.shape == r_data.shape == i_data.shape):
         raise ValueError('data shape does not match!')
 
