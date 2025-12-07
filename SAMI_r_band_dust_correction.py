@@ -57,6 +57,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
 
     # mask map from sextractor.
     # be used to isolate the target galaxy.
+    # this map is based on the rotated r-band image.
     seg = fits.open(f'{galaxy_name}/MGE/segmentation.fits')[0].data.astype('int')
 
     # after using the image_cutout function, the galaxy would be rotated such that the major axis would be in the horizontal level.
