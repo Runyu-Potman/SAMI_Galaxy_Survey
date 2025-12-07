@@ -3,21 +3,6 @@ from SAMI_MGE import image_cutout
 import numpy as np
 import matplotlib.pyplot as plt
 #----------------------------------------------------------------
-# some constants.
-ra = 212.85930
-dec = 1.28652
-scale = 0.396
-cut_size = 200
-# some constants from find galaxy function based on the original image.
-# galaxy center.
-xc = 356.81
-yc = 356.79
-# ellipticity.
-q = 0.95
-# after shifting the north to the up direction, add another pa value such that the
-# major axis would be in the horizontal level.
-kin_pa = 44.9
-#----------------------------------------------------------------
 def nMgy_to_mag(flux):
     '''
     Convert nanomaggy into Pogson magnitude.
