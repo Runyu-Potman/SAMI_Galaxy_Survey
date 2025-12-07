@@ -84,7 +84,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     # the galaxy_mask is used to isolate the target galaxy.
     galaxy_mask = (seg == target_label)
 
-    # only consider those pixels with a flux value > 1% of the peak flux value.
+    # only consider those pixels with a flux value > e.g., 1% of the peak flux value.
     g_peak = np.nanmax(g_data[galaxy_mask])
     r_peak = np.nanmax(r_data[galaxy_mask])
     i_peak = np.nanmax(i_data[galaxy_mask])
