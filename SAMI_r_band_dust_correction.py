@@ -50,6 +50,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     r_fits_path = f'{galaxy_name}/MGE/{galaxy_name}_frame-r.fits'
     i_fits_path = f'{galaxy_name}/MGE/{galaxy_name}_frame-i.fits'
 
+    # cut output.
     g_output_path = f'{galaxy_name}/MGE/{galaxy_name}_cut_g.fits'
     r_output_path = f'{galaxy_name}/MGE/{galaxy_name}_cut_r.fits'
     i_output_path = f'{galaxy_name}/MGE/{galaxy_name}_cut_i.fits'
