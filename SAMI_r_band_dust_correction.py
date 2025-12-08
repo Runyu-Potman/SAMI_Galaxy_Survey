@@ -194,7 +194,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
         a, b = a_new, b_new
 
     # best fitting line.
-    xr = np.linspace(np.nanmin(x), np.nanmax(x), 400)
+    xr = np.linspace(np.nanmin(x), np.nanmax(x), 1000)
     yr = a * xr + b
 
     # visualization.
