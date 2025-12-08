@@ -256,20 +256,6 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
 
     print('Number of corrected pixels =', np.sum(r_mask))
 
-    # the A2 plot in Thater 2017.
-    frac = np.full_like(r_data, np.nan, dtype = float)
-    frac[r_mask] = (r_corr[r_mask] - r_data[r_mask]) / r_data[r_mask]
-
-    # visualization.
-    plt.figure()
-    plt.imshow(frac, origin = 'lower', cmap = 'RdYlBu_r',
-                       vmin = 0, vmax = np.nanpercentile(frac, 99))
-    plt.title('(r_corr − r) / r')
-    plt.colorbar()
-
-    plt.tight_layout()
-    plt.show()
-
     return r_corr
 #-----------------------------------------------------------------------------------
 
