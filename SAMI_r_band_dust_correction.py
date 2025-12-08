@@ -115,6 +115,19 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     # good pixel mask.
     good_pixel = flux_good & galaxy_mask
 
+    if convolve:
+        # resolution matching.
+        # convolve i data to match the resolution of g data.
+        if psf_g < psf_i:
+            raise ValueError('the convolution in the code assumes psf_g > psf_i!')
+
+        # sigma in pxiel.
+        sigma_g = psf_g / scale / (2 * np.sqrt(2 * np.log(2)))
+        sigma_i = psf_i / scale / (2 * np.sqrt(2 * np.log(2)))
+        sigma_diff = np.sqrt(sigma_g ** 2 - sigma_i ** 2)
+
+        i_data = gaussian_filter(i_data, sigma_diff)
+
     # convert from nMgy to Pogson magnitude.
     g_mag = nMgy_to_mag(g_data)
     i_mag = nMgy_to_mag(i_data)
