@@ -232,6 +232,12 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     Ar = np.zeros_like(g_i, dtype = float)
     Ar[dust_mask] = 1.15 * E_gi[dust_mask]
 
+    # correct r flux in the original unit (nanomaggy).
+    r_corr = r_data.copy()
+    r_mask = (r_data > 0) & np.isfinite(r_data) & dust_mask & np.isfinite(Ar)
+    r_corr[r_mask] = r_data[r_mask] * (10 ** (0.4 * Ar[r_mask]))
+
+    return r_corr
 
 
 
