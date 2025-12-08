@@ -65,9 +65,9 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     i_fits_path = f'{galaxy_name}/MGE/{galaxy_name}_frame-i.fits'
 
     # cut output.
-    g_output_path = f'{galaxy_name}/MGE/{galaxy_name}_cut_g.fits'
-    r_output_path = f'{galaxy_name}/MGE/{galaxy_name}_cut_r.fits'
-    i_output_path = f'{galaxy_name}/MGE/{galaxy_name}_cut_i.fits'
+    g_output_path = f'{galaxy_name}/MGE/{galaxy_name}_cut_g_dust_corr.fits'
+    r_output_path = f'{galaxy_name}/MGE/{galaxy_name}_cut_r_dust_corr.fits'
+    i_output_path = f'{galaxy_name}/MGE/{galaxy_name}_cut_i_dust_corr.fits'
 
     # mask map from sextractor.
     # be used to isolate the target galaxy.
