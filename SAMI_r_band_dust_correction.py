@@ -154,7 +154,9 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     dy = yy - yc
 
     # semi-major radius m.
-    m = np.sqrt(dx ** 2 + (dy / q) ** 2)
+    m_pix = np.sqrt(dx ** 2 + (dy / q) ** 2)
+    # transfer into arcsec scale.
+    m = m_pix * scale
     log_m = np.log10(np.maximum(m, 1e-3))
 
     # final mask used for fitting.
