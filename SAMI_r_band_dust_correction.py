@@ -205,7 +205,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     ax.scatter(x, y, s = 18, marker = 'D', facecolors = 'none', edgecolors = 'k', linewidths = 0.6, alpha = 0.9)
     ax.plot(xr, yr, color = 'tab:red', lw = 2)
     # threshold line.
-    ax.plot(xr, yr + E_thresh, color ='blue', lw = 2, linestyle = '--')
+    ax.plot(xr, yr + E_thresh, color = 'blue', lw = 2, linestyle = '--')
     if logm_max is not None:
         plt.axvline(logm_max, color = 'grey', linestyle = '--', linewidth = 2)
 
