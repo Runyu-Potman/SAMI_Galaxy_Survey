@@ -155,7 +155,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     m = np.sqrt(dx ** 2 + (dy / q) ** 2)
     log_m = np.log10(np.maximum(m, 1e-3))
 
-    # final mask.
+    # final mask used for fitting.
     mask = np.isfinite(g_i) & np.isfinite(log_m) & good_pixel
 
     # prepare arrays for fit.
