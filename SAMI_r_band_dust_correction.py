@@ -248,6 +248,12 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     r_mask = (r_data > 0) & np.isfinite(r_data) & dust_mask & np.isfinite(E_gi) & np.isfinite(Ar)
     r_corr[r_mask] = r_data[r_mask] * (10 ** (0.4 * Ar[r_mask]))
 
+    # visualization.
+    plt.figure()
+    plt.imshow(r_mask, origin = 'lower')
+    plt.title('pixels which will be corrected for dust')
+    plt.show()
+
     print('Number of corrected pixels =', np.sum(r_mask))
 
     # the A2 plot in Thater 2017.
