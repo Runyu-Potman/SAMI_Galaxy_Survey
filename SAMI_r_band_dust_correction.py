@@ -231,6 +231,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     dust_mask = np.zeros_like(g_i, dtype = bool)
     dust_mask[mask] = E_gi[mask] > float(E_thresh)
 
+    # r-band extinction.
     Ar = np.zeros_like(g_i, np.nan)
     Ar[dust_mask] = 1.15 * E_gi[dust_mask]
 
