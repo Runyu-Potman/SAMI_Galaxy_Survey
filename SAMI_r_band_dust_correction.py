@@ -158,7 +158,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     # final mask used for fitting.
     mask = np.isfinite(g_i) & np.isfinite(log_m) & good_pixel
 
-    # prepare arrays for fit.
+    # prepare arrays for fitting.
     x = log_m[mask]
     y = g_i[mask]
 
