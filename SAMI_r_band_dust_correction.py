@@ -177,6 +177,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
         a_new, b_new = np.polyfit(x[fit_mask], y[fit_mask], 1)
         resid = y - (a_new * x + b_new)
         sigma = np.nanstd(resid[fit_mask])
+
         if sigma == 0:
             a, b = a_new, b_new
             break
