@@ -122,7 +122,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     if convolve:
         # resolution matching.
         # convolve i data to match the resolution of g data.
-        if psf_g < psf_i:
+        if psf_g <= psf_i:
             raise ValueError('the convolution in the code assumes psf_g > psf_i!')
 
         # sigma in pxiel.
