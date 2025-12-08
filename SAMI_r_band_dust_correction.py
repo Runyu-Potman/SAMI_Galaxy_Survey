@@ -187,6 +187,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
         if np.array_equal(keep, fit_mask):
             a, b = a_new, b_new
             break
+
         fit_mask = keep
         a, b = a_new, b_new
 
