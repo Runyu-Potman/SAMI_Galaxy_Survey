@@ -207,7 +207,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     ax.set_xlabel('log semi-major axis distance', fontsize = 10)
     ax.set_ylabel('g - i', fontsize = 10)
     ax.set_xlim(np.min(xr), np.max(xr))
-    ax.set_ylim(np.nanmin(y) - 0.1, np.nanmax(y) + 0.1)
+    ax.set_ylim(np.nanmin(y), np.nanmax(y))
 
     plt.tight_layout()
     plt.show()
