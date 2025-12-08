@@ -207,7 +207,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     # threshold line.
     ax.plot(xr, yr + E_thresh, color ='blue', lw = 2, linestyle = '--')
     if logm_max is not None:
-        plt.axvline(logm_max, color='grey', linestyle='--', linewidth=2)
+        plt.axvline(logm_max, color='grey', linestyle = '--', linewidth = 2)
 
     # labels & ticks.
     ax.set_xlabel('log semi-major axis distance (arcsec)', fontsize = 10)
