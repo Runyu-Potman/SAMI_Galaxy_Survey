@@ -13,6 +13,7 @@ def nMgy_to_mag(flux):
 
     Returns:
     - mag: Pogson magnitude.
+
     '''
 
     mag = np.full_like(flux, np.nan, dtype = float)
