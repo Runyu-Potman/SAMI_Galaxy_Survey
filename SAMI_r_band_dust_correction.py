@@ -44,6 +44,8 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
               after aligning the north to the up direction.
     - psf_g: g band fwhm_psf in arcsec (the convolution in the code assumes psf_g > psf_i).
     - psf_i: i band fwhm_psf in arcsec (the convolution in the code assumes psf_g > psf_i).
+    - convolve: whether or not to convolve the photometric i band data to match the resolution of g band data
+                before constructing the g-i plot.
     - scale: pixel size (SDSS: 0.396 arcsec/pixel).
     - cut_size: cutsize in arcsec.
     - counterclock: whether to apply the additional PA counterclockwise or not, default is True.
