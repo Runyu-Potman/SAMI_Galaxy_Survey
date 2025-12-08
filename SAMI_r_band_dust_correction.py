@@ -27,8 +27,36 @@ def nMgy_to_mag(flux):
     return mag
 #----------------------------------------------------------------
 def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa,
-                           scale = 0.396, cut_size = 200, counterclock = True,
-                           flux_frac = 0.01, max_iter = 10, sigma_clip = 3):
+                           psf_g, psf_i, scale = 0.396, cut_size = 200, counterclock = True,
+                           flux_frac = 0.005, max_iter = 10, sigma_clip = 3, E_thresh = 0.1):
+    '''
+    Apply the dust correction on the r band photometric data based on Scott 2013 paper.
+
+    Parameters:
+    - galaxy_name: SAMI CATID.
+    - target_label: target galaxy label in the segmentation map from SEXTRACTOR.
+    - ra: right ascension in degrees.
+    - dec: declination in degrees.
+    - xc: galaxy center in pixel.
+    - yc: galaxy center in pixel.
+    - q: axis ratio based on ellipticity.
+    - kin_pa: additional position angle to align the photometric major axis to the horizontal level
+              after aligning the north to the up direction.
+    - psf_g: g band fwhm_psf in arcsec.
+    - psf_i: i band fwhm_psf in arcsec.
+    - scale: pixel size (SDSS: 0.396 arcsec/pixel).
+    - cut_size: cutsize in arcsec.
+    - counterclock: whether to apply the additional PA counterclockwise or not, default is True.
+    - flux_frac: quality cut, g and i band pixels with flux value smaller than flux_frac * peak flux will be excluded.
+    - max_iter: iteration number for the robust linear fitting.
+    - sigma_clip: sigma clipping factor, default is 3 (pixels with the residual < 3 * sigma will be kept).
+    - E_thresh: color excess threshold, pixel above this threshold in the color excess plot will be corrected for dust.
+
+    Returns:
+    - r_corr: corrected r band photometric data in nanomaggy.
+
+    '''
+
     # data preparation.
     # g, r, i bands.
     # input.
