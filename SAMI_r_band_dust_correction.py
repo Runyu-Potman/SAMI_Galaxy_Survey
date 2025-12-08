@@ -47,7 +47,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     - scale: pixel size (SDSS: 0.396 arcsec/pixel).
     - cut_size: cutsize in arcsec.
     - counterclock: whether to apply the additional PA counterclockwise or not, default is True.
-    - flux_frac: quality cut, g and i band pixels with flux value smaller than flux_frac * peak flux will be excluded.
+    - flux_frac: quality cut, g, r, and i band pixels with flux value smaller than flux_frac * peak flux will be excluded.
     - max_iter: iteration number for the robust linear fitting.
     - sigma_clip: sigma clipping factor, default is 3 (pixels with the residual < 3 * sigma will be kept).
     - E_thresh: color excess threshold, pixel above this threshold in the color excess plot will be corrected for dust.
