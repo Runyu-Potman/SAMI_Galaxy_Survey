@@ -235,6 +235,10 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     Ar = np.full_like(g_i, np.nan)
     Ar[dust_mask] = 1.15 * E_gi[dust_mask]
 
+    # only spaxels with logm < logm_max will be corrected for dust.
+    if logm_max is not None:
+        dust_mask &= (log_m <= float(logm_max))
+
     # correct r flux in the original unit (nanomaggy).
     r_corr = r_data.copy()
     r_mask = (r_data > 0) & np.isfinite(r_data) & dust_mask & np.isfinite(E_gi) & np.isfinite(Ar)
