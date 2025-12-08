@@ -127,7 +127,8 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
         sigma_i = psf_i / scale / (2 * np.sqrt(2 * np.log(2)))
         sigma_diff = np.sqrt(sigma_g ** 2 - sigma_i ** 2)
 
-        i_data = gaussian_filter(i_data, sigma_diff)
+        convolved_mask = (i_data > 0) & (np.isfinite(i_data))
+        i_data[convolved_mask] = gaussian_filter(i_data[convolved_mask], sigma_diff)
 
     # convert from nMgy to Pogson magnitude.
     g_mag = nMgy_to_mag(g_data)
