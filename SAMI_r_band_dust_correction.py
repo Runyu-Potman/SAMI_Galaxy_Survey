@@ -196,7 +196,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     yr = a * xr + b
 
     # visualization.
-    plt.figure(figsize=(10, 9))
+    plt.figure(figsize = (10, 9))
     ax = plt.gca()
     ax.scatter(x, y, s = 18, marker = 'D', facecolors = 'none', edgecolors = 'k', linewidths = 0.6, alpha = 0.9)
     ax.plot(xr, yr, color = 'tab:red', lw = 2)
