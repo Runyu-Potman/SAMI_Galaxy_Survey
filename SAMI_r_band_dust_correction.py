@@ -248,7 +248,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     r_mask = (r_data > 0) & np.isfinite(r_data) & dust_mask & np.isfinite(E_gi) & np.isfinite(Ar)
     r_corr[r_mask] = r_data[r_mask] * (10 ** (0.4 * Ar[r_mask]))
 
-    print("Number of corrected pixels =", np.sum(r_mask))
+    print('Number of corrected pixels =', np.sum(r_mask))
 
     return r_corr
 #-----------------------------------------------------------------------------------
