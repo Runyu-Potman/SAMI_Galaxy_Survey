@@ -245,6 +245,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     r_corr[r_mask] = r_data[r_mask] * (10 ** (0.4 * Ar[r_mask]))
 
     return r_corr
+#-----------------------------------------------------------------------------------
 
 
 
