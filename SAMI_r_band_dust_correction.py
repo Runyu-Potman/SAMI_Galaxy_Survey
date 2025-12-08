@@ -2,6 +2,7 @@ from astropy.io import fits
 from SAMI_MGE import image_cutout
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.ndimage import gaussian_filter
 #----------------------------------------------------------------
 def nMgy_to_mag(flux):
     '''
