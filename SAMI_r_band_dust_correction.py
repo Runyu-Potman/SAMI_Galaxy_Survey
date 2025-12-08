@@ -117,7 +117,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     # good pixel mask.
     good_pixel = flux_good & galaxy_mask
 
-    # whether to do the convolution before constructing the g-i plot.
+    # whether or not to do the convolution before constructing the g-i plot.
     # convolution ensures both bands show dust the same way.
     if convolve:
         # resolution matching.
