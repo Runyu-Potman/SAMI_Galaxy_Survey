@@ -3,6 +3,11 @@ from SAMI_MGE import image_cutout
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter
+
+'''
+version_01: 09/12/2025: new function defined for r band dust correction.
+'''
+
 #----------------------------------------------------------------
 def nMgy_to_mag(flux):
     '''
