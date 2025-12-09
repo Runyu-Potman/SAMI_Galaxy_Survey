@@ -55,6 +55,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
     - sigma_clip: sigma clipping factor, default is 3 (pixels with the residual < 3 * sigma will be kept).
     - E_thresh: color excess threshold, pixel above this threshold in the color excess plot will be corrected for dust.
     - logm_max: only correct for pixels with logm < logm_max (logm in the unit of arcsec).
+    - correct_for_dust: whether or not to correct for the r band dust.
 
     Returns:
     - r_corr: corrected r band photometric data in nanomaggy.
