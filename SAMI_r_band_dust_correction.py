@@ -59,6 +59,7 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
 
     Returns:
     - r_corr: corrected r band photometric data in nanomaggy.
+    - r_mask: the final mask for pixels which are heavily affected by dust in the r band photometric data.
 
     '''
 
