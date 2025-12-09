@@ -287,6 +287,9 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
         # false values are masked and ignored in the photometry.
         target_mask = mask_map == 0
 
+        if extra_mask is not None:
+            target_mask &= (~extra_mask)
+
         # create a mask for the kdc region.
         # radius_pixel = 30
         # y, x = np.indices(cut_data.shape)
