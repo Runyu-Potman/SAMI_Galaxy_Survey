@@ -29,7 +29,7 @@ def nMgy_to_mag(flux):
 def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa,
                            psf_g, psf_i, convolve = True, scale = 0.396, cut_size = 200,
                            counterclock = True, flux_frac = 0.01, max_iter = 10,
-                           sigma_clip = 3, E_thresh = 0.1, logm_max = None):
+                           sigma_clip = 3, E_thresh = 0.1, logm_max = None, correct_for_dust = True):
     '''
     Apply the dust correction on the r band photometric data based on Scott 2013 paper.
 
