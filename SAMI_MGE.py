@@ -256,6 +256,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     - N_y_pad: pad in the label N.
     - E_x_pad: pad in the label E.
     - E_y_pad: pad in the label E.
+    - extra_mask: the mask in addition to the mask map.
 
     Returns:
 
