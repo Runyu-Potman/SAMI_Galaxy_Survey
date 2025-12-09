@@ -264,7 +264,10 @@ def r_band_dust_correction(galaxy_name, target_label, ra, dec, xc, yc, q, kin_pa
 
     print('Number of corrected pixels =', np.sum(r_mask))
 
-    return r_corr
+    # the final rotated (dust corrected) r band photometric data.
+    fits.PrimaryHDU(data = r_corr).writeto(f'{galaxy_name}/MGE/{galaxy_name}_cut_image_200_arc.fits', overwrite = True)
+
+    return r_corr, r_mask
 #-----------------------------------------------------------------------------------
 
 
