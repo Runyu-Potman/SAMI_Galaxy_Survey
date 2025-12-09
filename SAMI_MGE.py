@@ -297,7 +297,10 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
 
         # target_mask = kdc_mask & target_mask
     else:
-        target_mask = None
+        if extra_mask is not None:
+            target_mask = ~extra_mask
+        else:
+            target_mask = None
 
     # perform galaxy photometry.
     tem = plt.figure()
