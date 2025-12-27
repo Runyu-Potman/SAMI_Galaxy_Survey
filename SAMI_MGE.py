@@ -417,7 +417,7 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     u = 22.5 - 2.5 * np.log10(C0/scale**2) - Ar
 
     # convert to surface density in Lsolar/pc^2.
-    I = (64800/np.pi)**2 * 10**(0.4*(Msolar - u))
+    I = ((64800/np.pi)**2) * 10**(0.4*(Msolar - u))
 
     # sigma in arcsec, in preparation for dynamical modeling.
     sigma_arcsec = sigma * scale
