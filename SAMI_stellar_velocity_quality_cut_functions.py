@@ -554,7 +554,7 @@ def quality_cut_stellar_velocity_map_four_moment(
 
         # the Q3 mask.
         sig_data_Q3 = np.ma.masked_where(SNR_data <= 20.5, sig_data)
-        sig_data_Q3 = np.ma.masked_where(sig_data <= 70, sig_data)
+        sig_data_Q3 = np.ma.masked_where(sig_data <= 70, sig_data_Q3)
 
         # normal Q1 and Q2.
         sig_data = np.ma.masked_where(SNR_data <= 5, sig_data)
