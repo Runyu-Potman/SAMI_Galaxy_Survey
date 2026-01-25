@@ -240,7 +240,7 @@ def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70,
 
     '''
 
-    # sum all flux spaxels in the Ha flux map.
+    # sum all flux spaxels in the cleaned and dust corrected Ha flux map.
     # the total flux would have the value of erg/s/cm^2.
     aperture = CircularAperture((xc, yc), radius)
     phot_table = aperture_photometry(Ha_data, aperture, error = Ha_err_data, mask = mask)
