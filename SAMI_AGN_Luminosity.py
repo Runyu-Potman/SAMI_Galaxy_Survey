@@ -376,7 +376,4 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     mass = (0.5 * pc_scale)**2 * surf_density * number
     print(f'Integrated melocular mass = {mass} Msolar')
 
-
-
-
 #------------------------------------------------------------------------
