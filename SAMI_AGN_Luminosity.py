@@ -257,20 +257,6 @@ def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70,
     DL_cm = cosmo.luminosity_distance(redshift).to('cm').value
     print('sfr:', 8 * 10**(-42) * 4*np.pi*DL_cm**2*total_flux)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #---------------------------------------------------------------------------------------------
 def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
                  xc=25, yc=25, factor=10 ** (-16), radius = 25, K_Ha = 2.53, K_Hb = 3.61,
