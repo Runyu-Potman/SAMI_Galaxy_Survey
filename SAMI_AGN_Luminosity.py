@@ -370,7 +370,8 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     else:
         raise ValueError('Invalid Ha or Hb flux encountered!')
 
-    surf_density = 26 * Av * (1 - ellipticity)
+    # this form is derived based on low-inclination galaxies, we can also use 26 with ellipticity correction.
+    surf_density = 23 * Av
 
     mass = (0.5 * pc_scale)**2 * surf_density * number
     print(f'Integrated melocular mass = {mass} Msolar')
