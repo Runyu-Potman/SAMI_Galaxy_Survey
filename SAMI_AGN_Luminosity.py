@@ -335,10 +335,8 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(Hb_err))
 
     # apply the combined mask.
-
-
-    Ha_map = np.ma.masked_array(Ha_map, mask=combined_mask)
-    Ha_err = np.ma.masked_array(Ha_err, mask=combined_mask)
+    Ha_map = np.ma.masked_array(Ha_map, mask = combined_mask)
+    Ha_err = np.ma.masked_array(Ha_err, mask = combined_mask)
 
     Hb_map = np.ma.masked_array(Hb_map, mask=combined_mask)
     Hb_err = np.ma.masked_array(Hb_err, mask=combined_mask)
