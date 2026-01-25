@@ -225,11 +225,10 @@ def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70,
     - factor: flux factor (e.g., for SAMI, the unit in the emission line maps is 10^(-16) erg/s/cm^2/pixel).
     - H0: Hubble constant at redshift = 0 in km/s/Mpc.
     - om0: Omega matter: density of non-relativistic matter in units of the critical density at redshift = 0.
-    - dust_correction: bool, whether to apply dust correction.
-    - Bassani: bool, if dust_correction is true, one can choose whether to apply Bassani dust correction.
-    - dust_fits_path: if dust_correction is true and Bassani dust correction is not applied, then one can
-                      choose to provide the path to the dust fits file (e.g., products given by SAMI).
-    - Bolometric: bool, whether to transform the dust corrected luminosity to Bolometric luminosity.
+    - radius: the radius in the unit of arcsec to integrate the flux.
+    - Ha_err_data: cleaned and dust corrected error in Ha_data.
+    - mask: mask from cleaned function.
+    - ne: electron density in cm^(-3).
 
     Returns:
 
