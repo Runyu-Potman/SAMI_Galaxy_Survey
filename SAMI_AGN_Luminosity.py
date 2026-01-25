@@ -352,7 +352,7 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     flux_Ha = phot_table_Ha['aperture_sum'][0] * factor
     print(f'Integrated observed Ha flux: {flux_Ha} erg/s/cm^2')
 
-    phot_table_Hb = aperture_photometry(Hb_map, aperture, error=Hb_err, mask=combined_mask)
+    phot_table_Hb = aperture_photometry(Hb_map, aperture, error = Hb_err, mask = combined_mask)
     flux_Hb = phot_table_Hb['aperture_sum'][0] * factor
     print(f'Integrated observed Hb flux: {flux_Hb} erg/s/cm^2')
 
