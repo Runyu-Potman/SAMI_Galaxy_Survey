@@ -321,7 +321,6 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     Ha_SNR = Ha_map / Ha_err
     Hb_SNR = Hb_map / Hb_err
 
-
     print(f'Ha_SNR: min = {np.min(Ha_SNR)}, max = {np.max(Ha_SNR)}.')
     print(f'Hb_SNR: min = {np.min(Hb_SNR)}, max = {np.max(Hb_SNR)}.')
 
