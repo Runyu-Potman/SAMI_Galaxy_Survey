@@ -303,7 +303,7 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     Ha_map = Ha_map[0, :, :]
     Ha_err = Ha_err[0, :, :]
 
-    # mask NaN values in all 6 maps.
+    # mask NaN values in all 4 maps.
     Ha_map = np.ma.masked_invalid(Ha_map)
     Ha_err = np.ma.masked_invalid(Ha_err)
 
