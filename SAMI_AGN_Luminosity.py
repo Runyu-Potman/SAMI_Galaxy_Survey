@@ -341,7 +341,7 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     Hb_map = np.ma.masked_array(Hb_map, mask = combined_mask)
     Hb_err = np.ma.masked_array(Hb_err, mask = combined_mask)
 
-    # number of valid spaxels.
+    # number of valid spaxels for latter integration.
     number = np.count_nonzero(~combined_mask)
     print(f'Number of valid pixels in Ha: {number}')
     print('test:', np.count_nonzero(~Ha_map.mask))
