@@ -330,7 +330,6 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
 
     # if a spaxel is invalid in any map, it would be excluded entirely.
     combined_mask = np.ma.getmask(Ha_map)
-
     combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(Ha_err))
 
     combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(Hb_map))
