@@ -345,10 +345,6 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     number = np.count_nonzero(~combined_mask)
     print(f'Number of valid pixels in Ha: {number}')
 
-    # the next step is to transfer the flux into luminosity.
-    # first of all, calculate the total flux within an aperture with radius being 2 * PSF_FWHM.
-
-
     # calculate the total flux within the radius.
     aperture = CircularAperture((xc, yc), radius)
 
