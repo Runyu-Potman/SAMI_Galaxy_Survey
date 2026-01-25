@@ -215,7 +215,7 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
 def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70, om0 = 0.3,
              radius = None, Ha_err_data = None, mask = None, ne = 1000):
     '''
-    Caculate the HII mass.
+    Calculate the HII mass.
 
     Parameter:
     - Ha_data: cleaned Ha_data after quality cut and dust correction.
