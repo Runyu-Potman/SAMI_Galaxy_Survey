@@ -211,4 +211,207 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
         else:
             raise ValueError('No Bolometric correction will be applied, set Bolometric to be False.')
 
+#__________________________________________________________________________________________________________________
+def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70, om0 = 0.3,
+             radius = None, Ha_err_data = None, mask = None, ne = 1000):
+    '''
+    Caculate the AGN luminosity using [OIII].
+
+    Parameter:
+    - Ha_dara: cleaned Ha_data after quality cut and dust correction.
+    - Ha_fits_path: str, path to the Ha fits file.
+    - Hb_fits_path: str, path to the Hb fits file.
+    - threshold: exclude spaxels in all emission maps where S/N < threshold.
+    - psf_fwhm: float, FWHM of the PSF in arcseconds.
+    - redshift: redshift value to calculate luminosity distance.
+    - scale: pixel scale (e.g., 0.5 arcsec/pixel for SAMI).
+    - xc: galaxy center in pixel.
+    - yc: galaxy center in pixel.
+    - factor: flux factor (e.g., for SAMI, the unit in the emission line maps is 10^(-16) erg/s/cm^2/pixel).
+    - H0: Hubble constant at redshift = 0 in km/s/Mpc.
+    - om0: Omega matter: density of non-relativistic matter in units of the critical density at redshift = 0.
+    - dust_correction: bool, whether to apply dust correction.
+    - Bassani: bool, if dust_correction is true, one can choose whether to apply Bassani dust correction.
+    - dust_fits_path: if dust_correction is true and Bassani dust correction is not applied, then one can
+                      choose to provide the path to the dust fits file (e.g., products given by SAMI).
+    - Bolometric: bool, whether to transform the dust corrected luminosity to Bolometric luminosity.
+
+    Returns:
+
+    '''
+
+    # sum all flux spaxels in the Ha flux map.
+    # the total flux would have the value of erg/s/cm^2.
+    aperture = CircularAperture((xc, yc), radius)
+    phot_table = aperture_photometry(Ha_data, aperture, error = Ha_err_data, mask = mask)
+    total_flux = phot_table['aperture_sum'][0] * factor
+    print(f'Integrated intrinsic Ha flux: {total_flux} erg/s/cm^2')
+
+    # next step is to transform the integrated Ha flux into HII mass.
+    # the assumed cosmology.
+    cosmo = FlatLambdaCDM(H0 = H0, Om0 = om0)
+
+    # The luminosity distance in Mpc at the redshift.
+    DL_mpc = cosmo.luminosity_distance(redshift).value
+    print('Luminosity distance in Mpc:', DL_mpc)
+
+    # the HII mass.
+    HII_mass = (2.8 * 10**2 * (DL_mpc / 10)**2) * (total_flux / 10**(-14)) * (10**3 / ne)
+
+    print(f'the HII mass: {HII_mass:} Msolar.')
+
+    DL_cm = cosmo.luminosity_distance(redshift).to('cm').value
+    print('sfr:', 8 * 10**(-42) * 4*np.pi*DL_cm**2*total_flux)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#---------------------------------------------------------------------------------------------
+def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
+                 xc=25, yc=25, factor=10 ** (-16), radius = 25, K_Ha = 2.53, K_Hb = 3.61,
+                   ellipticity = 0.113, pc_scale = 504
+                  ):
+    '''
+    Caculate the AGN luminosity using [OIII].
+
+    Parameter:
+    - OIII_fits_path: str, path to the OIII fits file.
+    - Ha_fits_path: str, path to the Ha fits file.
+    - Hb_fits_path: str, path to the Hb fits file.
+    - threshold: exclude spaxels in all emission maps where S/N < threshold.
+    - psf_fwhm: float, FWHM of the PSF in arcseconds.
+    - redshift: redshift value to calculate luminosity distance.
+    - scale: pixel scale (e.g., 0.5 arcsec/pixel for SAMI).
+    - xc: galaxy center in pixel.
+    - yc: galaxy center in pixel.
+    - factor: flux factor (e.g., for SAMI, the unit in the emission line maps is 10^(-16) erg/s/cm^2/pixel).
+    - H0: Hubble constant at redshift = 0 in km/s/Mpc.
+    - om0: Omega matter: density of non-relativistic matter in units of the critical density at redshift = 0.
+    - dust_correction: bool, whether to apply dust correction.
+    - Bassani: bool, if dust_correction is true, one can choose whether to apply Bassani dust correction.
+    - dust_fits_path: if dust_correction is true and Bassani dust correction is not applied, then one can
+                      choose to provide the path to the dust fits file (e.g., products given by SAMI).
+    - Bolometric: bool, whether to transform the dust corrected luminosity to Bolometric luminosity.
+
+    Returns:
+
+    '''
+
+    # load the optical emission line maps (primary map[0] and error map [1]) for each line.
+    # Ha and Hb would be used to calculate the Balmer decrement.
+    with fits.open(Ha_fits_path) as Ha:
+        Ha_map = Ha[0].data
+        Ha_err = Ha[1].data
+
+    with fits.open(Hb_fits_path) as Hb:
+        Hb_map = Hb[0].data
+        Hb_err = Hb[1].data
+
+    # extract the total component (0) of Ha (50*50*4 -> 50*50).
+    Ha_map = Ha_map[0, :, :]
+    Ha_err = Ha_err[0, :, :]
+
+    # mask NaN values in all 6 maps.
+    Ha_map = np.ma.masked_invalid(Ha_map)
+    Ha_err = np.ma.masked_invalid(Ha_err)
+
+    Hb_map = np.ma.masked_invalid(Hb_map)
+    Hb_err = np.ma.masked_invalid(Hb_err)
+
+    # mask spaxels with negative flux or error value in all 6 maps.
+
+    Ha_map = np.ma.masked_where(Ha_map < 0, Ha_map)
+    Hb_map = np.ma.masked_where(Hb_map < 0, Hb_map)
+
+    Ha_err = np.ma.masked_where(Ha_err <= 0, Ha_err)
+    Hb_err = np.ma.masked_where(Hb_err <= 0, Hb_err)
+
+    # calculate the signal-to-noise ratio (SNR) for each emission line.
+
+    Ha_SNR = Ha_map / Ha_err
+    Hb_SNR = Hb_map / Hb_err
+
+
+    print(f'Ha_SNR: min = {np.min(Ha_SNR)}, max = {np.max(Ha_SNR)}.')
+    print(f'Hb_SNR: min = {np.min(Hb_SNR)}, max = {np.max(Hb_SNR)}.')
+
+    # mask data points where SNR is below a specific threshold.
+
+    Ha_map = np.ma.masked_where(Ha_SNR < threshold, Ha_map)
+    Hb_map = np.ma.masked_where(Hb_SNR < threshold, Hb_map)
+
+    # if a spaxel is invalid in any map, it would be excluded entirely.
+    combined_mask = np.ma.getmask(Ha_map)
+
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(Ha_err))
+
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(Hb_map))
+    combined_mask = np.ma.mask_or(combined_mask, np.ma.getmask(Hb_err))
+
+    # apply the combined mask.
+
+
+    Ha_map = np.ma.masked_array(Ha_map, mask=combined_mask)
+    Ha_err = np.ma.masked_array(Ha_err, mask=combined_mask)
+
+    Hb_map = np.ma.masked_array(Hb_map, mask=combined_mask)
+    Hb_err = np.ma.masked_array(Hb_err, mask=combined_mask)
+
+
+
+
+    # number of valid spaxels.
+    number = np.count_nonzero(~combined_mask)
+    print(f'Number of valid pixels in Ha: {number}')
+    print('test:', np.count_nonzero(~Ha_map.mask))
+
+
+    # the next step is to transfer the flux into luminosity.
+    # first of all, calculate the total flux within an aperture with radius being 2 * PSF_FWHM.
+
+
+    # calculate the total flux within the radius.
+    aperture = CircularAperture((xc, yc), radius)
+
+    phot_table_Ha = aperture_photometry(Ha_map, aperture, error=Ha_err, mask=combined_mask)
+    flux_Ha = phot_table_Ha['aperture_sum'][0] * factor
+    print(f'Integrated observed Ha flux: {flux_Ha} erg/s/cm^2')
+
+    phot_table_Hb = aperture_photometry(Hb_map, aperture, error=Hb_err, mask=combined_mask)
+    flux_Hb = phot_table_Hb['aperture_sum'][0] * factor
+    print(f'Integrated observed Hb flux: {flux_Hb} erg/s/cm^2')
+
+    if flux_Hb > 0 and flux_Ha >= 0:
+        if (flux_Ha / flux_Hb) >= 2.86:
+            A_Ha = K_Ha / (-0.4 * (K_Ha - K_Hb)) * np.log((flux_Ha / flux_Hb) / 2.86)
+            print(f'the dust attenuation for Ha emission line A_Ha = {A_Ha}')
+
+            Av = A_Ha / 0.817
+            print(f'the optical extinction Av = {Av}')
+        else:
+            raise ValueError('flux_Ha / flux_Hb is smaller than 2.86!')
+
+
+    else:
+        raise ValueError('Invalid Ha or Hb flux encountered!')
+
+    surf_density = 26 * Av * (1 - ellipticity)
+
+    mass = (0.5 * pc_scale)**2 * surf_density * number
+    print(f'Integrated melocular mass = {mass} Msolar')
+
+
+
+
 #------------------------------------------------------------------------
