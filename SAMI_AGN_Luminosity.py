@@ -281,7 +281,6 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold, scale = 0.5,
 
     Returns:
     None
-
     '''
 
     # load the optical emission line maps (primary map[0] and error map [1]) for each line.
