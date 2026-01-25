@@ -280,6 +280,7 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold, scale = 0.5,
     - pc_scale: physical pixel scale in the unit of pc/'' based on assumed cosmology.
 
     Returns:
+    None
 
     '''
 
