@@ -225,7 +225,7 @@ def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70,
     - factor: flux factor (e.g., for SAMI, the unit in the emission line maps is 10^(-16) erg/s/cm^2/pixel).
     - H0: Hubble constant at redshift = 0 in km/s/Mpc.
     - om0: Omega matter: density of non-relativistic matter in units of the critical density at redshift = 0.
-    - radius: the radius in the unit of arcsec to integrate the flux.
+    - radius: the radius in the unit of pixel to integrate the flux.
     - Ha_err_data: cleaned and dust corrected error in Ha_data.
     - mask: mask from cleaned function.
     - ne: electron density in cm^(-3).
