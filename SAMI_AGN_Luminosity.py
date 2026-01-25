@@ -220,7 +220,6 @@ def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70,
     Parameter:
     - Ha_data: cleaned Ha_data after quality cut and dust correction.
     - redshift: redshift value to calculate luminosity distance.
-    - scale: pixel scale (e.g., 0.5 arcsec/pixel for SAMI).
     - xc: galaxy center in pixel.
     - yc: galaxy center in pixel.
     - factor: flux factor (e.g., for SAMI, the unit in the emission line maps is 10^(-16) erg/s/cm^2/pixel).
