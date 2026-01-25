@@ -218,11 +218,7 @@ def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70,
     Caculate the HII mass.
 
     Parameter:
-    - Ha_dara: cleaned Ha_data after quality cut and dust correction.
-    - Ha_fits_path: str, path to the Ha fits file.
-    - Hb_fits_path: str, path to the Hb fits file.
-    - threshold: exclude spaxels in all emission maps where S/N < threshold.
-    - psf_fwhm: float, FWHM of the PSF in arcseconds.
+    - Ha_data: cleaned Ha_data after quality cut and dust correction.
     - redshift: redshift value to calculate luminosity distance.
     - scale: pixel scale (e.g., 0.5 arcsec/pixel for SAMI).
     - xc: galaxy center in pixel.
