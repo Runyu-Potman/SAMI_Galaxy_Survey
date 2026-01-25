@@ -267,7 +267,6 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold, scale = 0.5,
     Caculate the molecular gas mass based on Barrera et al. 2020.
 
     Parameter:
-    - OIII_fits_path: str, path to the OIII fits file.
     - Ha_fits_path: str, path to the Ha fits file.
     - Hb_fits_path: str, path to the Hb fits file.
     - threshold: exclude spaxels in all emission maps where S/N < threshold.
