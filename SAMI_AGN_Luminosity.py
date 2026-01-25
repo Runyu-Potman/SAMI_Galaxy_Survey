@@ -344,8 +344,6 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     # number of valid spaxels for latter integration.
     number = np.count_nonzero(~combined_mask)
     print(f'Number of valid pixels in Ha: {number}')
-    print('test:', np.count_nonzero(~Ha_map.mask))
-
 
     # the next step is to transfer the flux into luminosity.
     # first of all, calculate the total flux within an aperture with radius being 2 * PSF_FWHM.
