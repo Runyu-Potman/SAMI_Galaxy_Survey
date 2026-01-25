@@ -348,7 +348,7 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     # calculate the total flux within the radius.
     aperture = CircularAperture((xc, yc), radius)
 
-    phot_table_Ha = aperture_photometry(Ha_map, aperture, error=Ha_err, mask=combined_mask)
+    phot_table_Ha = aperture_photometry(Ha_map, aperture, error = Ha_err, mask = combined_mask)
     flux_Ha = phot_table_Ha['aperture_sum'][0] * factor
     print(f'Integrated observed Ha flux: {flux_Ha} erg/s/cm^2')
 
