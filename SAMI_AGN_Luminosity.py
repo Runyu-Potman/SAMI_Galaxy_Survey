@@ -310,8 +310,7 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     Hb_map = np.ma.masked_invalid(Hb_map)
     Hb_err = np.ma.masked_invalid(Hb_err)
 
-    # mask spaxels with negative flux or error value in all 6 maps.
-
+    # mask spaxels with negative flux or error value in all 4 maps.
     Ha_map = np.ma.masked_where(Ha_map < 0, Ha_map)
     Hb_map = np.ma.masked_where(Hb_map < 0, Hb_map)
 
