@@ -259,10 +259,10 @@ def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70,
     print('sfr:', 8 * 10**(-42) * 4*np.pi*DL_cm**2*total_flux)
 
 #---------------------------------------------------------------------------------------------
-def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
-                 xc=25, yc=25, factor=10 ** (-16), radius = 25, K_Ha = 2.53, K_Hb = 3.61,
-                   ellipticity = 0.113, pc_scale = 504
-                  ):
+def molecular_mass(Ha_fits_path, Hb_fits_path, threshold, scale = 0.5,
+                 xc = 25, yc = 25, factor = 10 ** (-16), radius = 25,
+                 K_Ha = 2.53, K_Hb = 3.61, pc_scale = 504
+                 ):
     '''
     Caculate the AGN luminosity using [OIII].
 
