@@ -318,7 +318,6 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold,
     Hb_err = np.ma.masked_where(Hb_err <= 0, Hb_err)
 
     # calculate the signal-to-noise ratio (SNR) for each emission line.
-
     Ha_SNR = Ha_map / Ha_err
     Hb_SNR = Hb_map / Hb_err
 
