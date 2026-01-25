@@ -264,7 +264,7 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold, scale = 0.5,
                  K_Ha = 2.53, K_Hb = 3.61, pc_scale = 504
                  ):
     '''
-    Caculate the AGN luminosity using [OIII].
+    Caculate the molecular gas mass based on Barrera et al. 2020.
 
     Parameter:
     - OIII_fits_path: str, path to the OIII fits file.
