@@ -360,7 +360,6 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold = 5, scale = 0.5,
         else:
             raise ValueError('flux_Ha / flux_Hb is smaller than 2.86!')
 
-
     else:
         raise ValueError('Invalid Ha or Hb flux encountered!')
 
