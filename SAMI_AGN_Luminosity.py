@@ -269,9 +269,7 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold, scale = 0.5,
     Parameter:
     - Ha_fits_path: str, path to the Ha fits file.
     - Hb_fits_path: str, path to the Hb fits file.
-    - threshold: exclude spaxels in all emission maps where S/N < threshold.
-    - psf_fwhm: float, FWHM of the PSF in arcseconds.
-    - redshift: redshift value to calculate luminosity distance.
+    - threshold: exclude spaxels in all emission maps where S/N <= threshold.
     - scale: pixel scale (e.g., 0.5 arcsec/pixel for SAMI).
     - xc: galaxy center in pixel.
     - yc: galaxy center in pixel.
