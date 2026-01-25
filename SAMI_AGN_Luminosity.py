@@ -254,6 +254,7 @@ def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70,
 
     print(f'the HII mass: {HII_mass:} Msolar.')
 
+    # star formation rate estimation.
     DL_cm = cosmo.luminosity_distance(redshift).to('cm').value
     print('sfr:', 8 * 10**(-42) * 4*np.pi*DL_cm**2*total_flux)
 
