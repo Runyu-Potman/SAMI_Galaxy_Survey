@@ -5,9 +5,11 @@ from matplotlib.ticker import AutoMinorLocator
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map_csv, quality_cut_gaseous_velocity_map_csv
 import matplotlib.patches as patches
 from PIL import Image
-#---------------------------------------------------------------
-def plot_vel_or_sig(csv_path, cmap = 'jet', cbar_label = 'km/s', value_type = 'vel',
-                    show_colorbar = True, fontsize = 10, bar_fraction = 0.046, bar_pad = 0.04, label_pad = 0.85,
+from pafit.fit_kinematic_pa import fit_kinematic_pa
+import cmasher as cmr
+#------------------------------------------------------------------
+def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = 'km/s', value_type = 'vel',
+                    show_colorbar = True, fontsize = 10, bar_fraction = 0.0468, bar_pad = 0.02, label_pad = 0.85,
                     ax = None, vmin = None, vmax = None, title = None, csv_path_uncut = None,
                     background_alpha = 0.3, PAs = None, line_length = 12.5, line_styles = None,
                     plot_psf = False, psffwhm = 2, text_ul = None):
