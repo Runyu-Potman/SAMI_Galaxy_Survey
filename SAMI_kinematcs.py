@@ -126,7 +126,15 @@ def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = 'km/s', value_type =
             if len(lengths) != len(PAs):
                 raise ValueError('If line_length is iterable it must have the same length as PAs.')
 
-        for PA, ll in zip(PAs, lengths):
+        # if user gives multiple styles, use them; otherwise default to solid
+        if line_styles is None:
+            line_styles = ['-'] * len(PAs)
+        elif isinstance(line_styles, str):
+            line_styles = [line_styles] * len(PAs)
+        elif len(line_styles) != len(PAs):
+            raise ValueError('line_styles must be a string or a list with the same length as PAs.')
+
+        for PA, ll, ls in zip(PAs, lengths, line_styles):
             # convert pa from degrees to radians.
             PA_rad = np.deg2rad(PA + 90)
 
