@@ -216,7 +216,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array,
 
     if title:
         # set titles.
-        axs[axs_x, 2].set_title('Stellar Age Gradient', fontsize = fontsize)
+        axs[axs_x, 2].set_title('Stellar Age Radial Profile', fontsize = fontsize)
 
     # make these (major) ticks longer.
     axs[axs_x, 2].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
