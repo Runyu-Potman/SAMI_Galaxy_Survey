@@ -139,7 +139,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array,
 
     # set labels (first column).
     axs[axs_x, 0].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
-    axs[axs_x, 0].set_ylabel(f'{name}\nOffset (arcsec)', fontsize = fontsize, labelpad = label_pad)
+    axs[axs_x, 0].set_ylabel(f'Galaxy {name}\nOffset (arcsec)', fontsize = fontsize, labelpad = label_pad)
 
     # set color bar (first column).
     cbar = plt.colorbar(im, ax = axs[axs_x, 0], fraction = bar_fraction, pad = bar_pad)
