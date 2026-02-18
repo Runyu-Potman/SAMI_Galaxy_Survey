@@ -292,6 +292,13 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
             vel_data = np.ma.masked_array(vel_data, mask = combined_mask)
 
             # plot the quality cut stellar velocity map.
+            # get 1D array of unmasked values
+            vals = vel_data.compressed()
+
+            if vals.size == 0:
+                print(f'All pixels masked for {base_name}. Skipping plot.')
+                continue
+
             plt.figure(figsize = (10, 8))
 
             plt.imshow(
