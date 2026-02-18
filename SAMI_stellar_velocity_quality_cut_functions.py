@@ -323,15 +323,6 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
             vel_map.close()
             sig_map.close()
 
-# example usage:
-#cwd = os.getcwd()
-# ifs_velocity contains 3068 galaxy directories.
-#vel_base_dir = os.path.join(cwd, 'ifs_velocity')
-# ifs_velocity_dispersion contains 3068 galaxy directories.
-#sig_base_dir = os.path.join(cwd, 'ifs_velocity_dispersion')
-#output_dir = cwd
-
-#quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_dir)
 #---------------------------------------------------------------------------------------------------
 def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fits_path, output_file, pixel_to_arc = True,
                                          threshold = 5, x_center = 25, y_center = 25, scale = 0.5):
