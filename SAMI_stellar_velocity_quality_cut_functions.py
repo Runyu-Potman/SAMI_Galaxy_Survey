@@ -196,7 +196,7 @@ def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_fi
     sig_map.close()
 
 #--------------------------------------------------------------------------------------------------
-def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_dir):
+def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_dir, map_label = 'A'):
     '''
     This script can be used to do the quality cut process for stellar velocity maps of all the galaxy samples
     in SAMI galaxy survey (3068 in total for DR3), the same quality cut criteria is applied (Q1 + Q2).
