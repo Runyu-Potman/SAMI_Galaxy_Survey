@@ -230,7 +230,7 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
 
         # get the list of stellar velocity fits files for the current galaxy.
         # update the pattern to account for the 'A' in the filename, change to _B/_C/_D/_E in the case where one galaxy has multiple fits files.
-        vel_fits = glob.glob(os.path.join(vel_dir_full, f'{gal_dir}_A_stellar-velocity_default_two-moment.fits'))
+        vel_fits = glob.glob(os.path.join(vel_dir_full, f'{gal_dir}_{map_label}_stellar-velocity_default_two-moment.fits'))
 
         # if no stellar velocity files are found, skip this galaxy.
         if not vel_fits:
