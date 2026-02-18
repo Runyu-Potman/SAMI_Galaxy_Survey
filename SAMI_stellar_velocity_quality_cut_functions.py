@@ -212,6 +212,7 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
     - vel_base_dir: str, path to the velocity base directory.
     - sig_base_dir: str, path to the velocity dispersion base directory.
     - output_dir: str, path to the directory where the output PNG files will be saved.
+    - map_label: str, label of the map to use (_A_, _B_, ...).
 
     Returns:
     - None
