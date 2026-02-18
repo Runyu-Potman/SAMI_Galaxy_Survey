@@ -315,7 +315,7 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
             plt.xlabel('SPAXEL')
             plt.ylabel('SPAXEL')
 
-            plot_filename = os.path.join(output_dir, f'{base_name}_A_quality_cut_stellar_velocity_map.png')
+            plot_filename = os.path.join(output_dir, f'{base_name}_{map_label}_quality_cut_stellar_velocity_map.png')
 
             plt.savefig(plot_filename)
             plt.close()
