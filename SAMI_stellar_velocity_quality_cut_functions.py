@@ -301,8 +301,7 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
 
             plt.figure(figsize = (10, 8))
 
-            vmin = 0.9 * vals.min()
-            vmax = 0.9 * vals.max()
+            vmin, vmax = np.percentile(vals, [5, 95])
 
             plt.imshow(
                 vel_data, origin = 'lower', aspect = 'auto',
