@@ -244,7 +244,7 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
 
             # correct the filename pattern to match the dispersion filename.
             # explicitly append '_A' to the base name when searching for the dispersion file, change to _B/_C/_D/_E in the case where one galaxy has multiple fits files.
-            sig_file = os.path.join(sig_dir_full, f'{base_name}_A_stellar-velocity-dispersion_default_two-moment.fits')
+            sig_file = os.path.join(sig_dir_full, f'{base_name}_{map_label}_stellar-velocity-dispersion_default_two-moment.fits')
 
             if not os.path.exists(sig_file):
                 print(f'Warning: Corresponding dispersion fits file for {vel_file} not found. Skipping.')
