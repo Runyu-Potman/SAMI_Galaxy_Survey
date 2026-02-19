@@ -435,8 +435,8 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
 #-------------------------------------------------------------------------------------------------------------------
 def quality_cut_stellar_velocity_map_four_moment(
         vel_fits_path, sig_fits_path, h3_fits_path, h4_fits_path, output_filename,
-        Q3 = False, plot = False, dynamite = False, center_x = 25, center_y = 25,
-        vmin=None, vmax=None):
+        Q3 = False, Q3_downweight = False, uncertainty_value = None, plot = False,
+        dynamite = False, center_x = 25, center_y = 25, vmin=None, vmax=None):
     '''
     Apply the quality cut criteria and make plot with x_axis and y_axis in pixel unit,
     note that the center of the galaxy is located at around (25, 25).If dynamite = True,
