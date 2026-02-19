@@ -88,7 +88,7 @@ def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin = None, 
 
     plt.imshow(
         cleaned_vel_data, origin = 'lower', aspect = 'auto',
-        cmap = 'jet', vmin = vmin, vmax = vmax
+        cmap = 'RdBu_r', vmin = vmin, vmax = vmax
     )
 
     plt.colorbar(label = 'km/s')
