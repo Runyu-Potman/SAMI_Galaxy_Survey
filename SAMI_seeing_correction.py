@@ -34,7 +34,7 @@ lambda_7969, ellipticity_7969 = correct_lambda_R(0.044866167, 2.8588330746, 0.09
 
 lambda_227266, ellipticity_227266 = correct_lambda_R(0.052233588, 7.1361637115, 0.1131600142, 4.0948, fwhm = 2.108)
 
-lambda_227266, ellipticity_227266 = correct_lambda_R(0.052, 7.136, 0.113, 4.095, fwhm = 2.108)
+lambda_230776, ellipticity_230776 = correct_lambda_R(0.1039459258, 23.8104171753, 0.342273891, 3.6609, fwhm = 2.144)
 
 lambda_230776, ellipticity_230776 = correct_lambda_R(0.104, 23.81, 0.342, 3.661, fwhm = 2.144)
 
