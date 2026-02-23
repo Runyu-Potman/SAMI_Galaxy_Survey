@@ -635,7 +635,7 @@ if __name__ == '__main__':
     output_path = '143287/MGE/143287_cut_image_200_arc.fits'
 
     cut_data = image_cutout(fits_path = fits_path, ra = ra, dec = dec, scale = scale, cut_size = cut_size,
-                            output_path = output_path, vmin = 0, vmax = 0.5, rotation = True, align_major = True,
+                            output_path = output_path, vmin = 0, vmax = 0.4, rotation = True, align_major = True,
                             kin_pa = 35.2)
 
     # --------------------------------------------------------------------------------
