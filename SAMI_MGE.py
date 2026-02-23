@@ -660,7 +660,6 @@ if __name__ == '__main__':
               ax = axs[1, 1], tick_lim = 7.5, loc_min = -7.5, loc_max = 7.6, loc_step = 2.5,
               Re = 4.025, psf_label_x = -6.5, psf_label_y = -6.5, extra_mask = extra_mask)
 
-
     #-----------------------------------------------------------------------------------
 
     '''
