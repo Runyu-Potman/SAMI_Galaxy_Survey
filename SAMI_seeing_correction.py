@@ -38,7 +38,7 @@ lambda_227266, ellipticity_227266 = correct_lambda_R(0.052233588, 7.1361637115, 
 
 lambda_230776, ellipticity_230776 = correct_lambda_R(0.1039459258, 23.8104171753, 0.342273891, 3.6609, fwhm = 2.144)
 
-lambda_230776, ellipticity_230776 = correct_lambda_R(0.104, 23.81, 0.342, 3.661, fwhm = 2.144)
+print('intrinsic lambda value:', lambda_7969, lambda_143287, lambda_227266, lambda_230776)
 
 # make the lambda_re verse ellipticity plot.
 # Axes limits
