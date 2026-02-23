@@ -654,13 +654,6 @@ if __name__ == '__main__':
               compass = True, xc = -12.5, yc = 12.5, length = 5, pa = 54.8,
               N_x_pad = -0.4, N_y_pad = 0.5, E_x_pad = 0, E_y_pad = -0.3, extra_mask = extra_mask)
 
-
-
-
-
-
-
-
     # zoom in
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.07, minlevel = 0.07,
               fwhm = 3.27084596, ngauss = 12, Ar = 0.03706482, twist = False,
