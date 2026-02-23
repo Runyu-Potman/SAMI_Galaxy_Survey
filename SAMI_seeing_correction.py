@@ -32,6 +32,8 @@ def correct_lambda_R(lambda_R_obs, Re_arcsec, ellipticity, sersic_n, fwhm=2.1):
 
 lambda_7969, ellipticity_7969 = correct_lambda_R(0.044866167, 2.8588330746, 0.0979065374, 5.0729, fwhm = 1.561)
 
+lambda_143287, ellipticity_143287 = correct_lambda_R(0.0901416391, 3.1987638474, 0.3684091866, 8.7399, fwhm = 2.250)
+
 lambda_227266, ellipticity_227266 = correct_lambda_R(0.052233588, 7.1361637115, 0.1131600142, 4.0948, fwhm = 2.108)
 
 lambda_230776, ellipticity_230776 = correct_lambda_R(0.1039459258, 23.8104171753, 0.342273891, 3.6609, fwhm = 2.144)
