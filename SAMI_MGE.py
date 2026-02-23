@@ -153,6 +153,27 @@ def mask_map_create(fits_path, target_label):
 
     return mask_map
 #-----------------------------------------------------------------------------------
+def make_circular_extra_mask(image_shape, x, y, radius):
+    '''
+    Sometimes the sextractor can not extract all the contamination sources, so we mask
+    those sources manually in the rotated image.
+    Parameters:
+    - image_shape: (ny, nx) from rotated data.
+    - x: contamination soruce coordinate.
+    - y: contamination soruce coordinate.
+    - radius: raidus in pixel.
+
+    Returns:
+    - manual_mask: mask which can be added using extra_mask.
+    '''
+
+    ny, nx = image_shape
+    yy, xx = np.indices((ny, nx))
+    mask = ((xx - x)**2 + (yy - y)**2) <= radius**2
+
+    return mask.astype(bool)
+
+#----------------------------------------------------------------------------------
 def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 10, N_x_pad = 1, N_y_pad = 1, E_x_pad = 1, E_y_pad = 1):
     '''
     Add a compass label in the plot.
