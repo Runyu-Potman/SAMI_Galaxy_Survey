@@ -662,8 +662,6 @@ if __name__ == '__main__':
               Re = 4.025, psf_label_x = -6.5, psf_label_y = -6.5, extra_mask = extra_mask)
 
     #-----------------------------------------------------------------------------------
-
-    '''
     # use the find_galaxy function.
     vel_fits_path = '7969/dynamite/7969_A_stellar-velocity_default_four-moment.fits'
 
