@@ -459,12 +459,124 @@ def create_kin_input(galaxy, file, dyn_model_dir, expr='', angle_deg=0,
         kin_file(dyn_model_dir, expr, data)
 
 #--------------------------------------------------------------------------------------
-vel_fits_path = '227266/227266_A_stellar-velocity_default_four-moment.fits'
-sig_fits_path = '227266/227266_A_stellar-velocity-dispersion_default_four-moment.fits'
-h3_fits_path = '227266/227266_A_stellar-velocity-h3_default_four-moment.fits'
-h4_fits_path = '227266/227266_A_stellar-velocity-h4_default_four-moment.fits'
-output_filename = '227266/227266_input_for_dynamite.fits'
-quality_cut_stellar_velocity_map_four_moment(
-    vel_fits_path = vel_fits_path, sig_fits_path = sig_fits_path,
-    h3_fits_path = h3_fits_path, h4_fits_path = h4_fits_path,
-    output_filename = output_filename, plot = True, dynamite = True)
+if __name__ == '__main__':
+
+    '''
+    ##############################################################################################
+    # 227266
+    #############################################################################################
+
+    # Gaussian Hermit maps.
+    vel_fits_path = '227266/dynamite/227266_A_stellar-velocity_default_four-moment.fits'
+    sig_fits_path = '227266/dynamite/227266_A_stellar-velocity-dispersion_default_four-moment.fits'
+    h3_fits_path = '227266/dynamite/227266_A_stellar-velocity-h3_default_four-moment.fits'
+    h4_fits_path = '227266/dynamite/227266_A_stellar-velocity-h4_default_four-moment.fits'
+
+    output_filename = '227266/dynamite/227266_input_for_dynamite.fits'
+
+    quality_cut_stellar_velocity_map_four_moment(
+        vel_fits_path=vel_fits_path, sig_fits_path=sig_fits_path,
+        h3_fits_path=h3_fits_path, h4_fits_path=h4_fits_path,
+        output_filename=output_filename, plot=True, dynamite=True, Q3 = True, Q3_downweight = True, uncertainty_value = 0.1)
+
+    # ----------------------------------------------------------------------------------
+    # the kinematic fits file.
+    in_file = output_filename
+
+    # the output will be placed here.
+    out_dir = '227266/dynamite/dynamite_input/'
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
+    # convert file to ECSV, fit the kinematic PA.
+    # write aperture.dat and bins.dat files.
+    # angle degree is from find_galaxy using the total flux map.
+    create_kin_input('227266', in_file, out_dir, expr = '',
+                     fit_PA = False, kin_input = 'SAMI', plot = True, angle_deg = 80.4)
+
+    # add the PSF to the header of the kinematic file.
+    gh = dyn.kinematics.GaussHermite()
+    gh.add_psf_to_datafile(sigma=[0.895], weight=[1.0],
+                           datafile=f'{out_dir}/gauss_hermite_kins.ecsv')
+
+
+    '''
+    '''
+
+    ##################################################################################################
+    # 230776
+    ###################################################################################################
+    # Gaussian Hermit maps.
+    vel_fits_path = '230776/dynamite/230776_A_stellar-velocity_default_four-moment.fits'
+    sig_fits_path = '230776/dynamite/230776_A_stellar-velocity-dispersion_default_four-moment.fits'
+    h3_fits_path = '230776/dynamite/230776_A_stellar-velocity-h3_default_four-moment.fits'
+    h4_fits_path = '230776/dynamite/230776_A_stellar-velocity-h4_default_four-moment.fits'
+
+    output_filename = '230776/dynamite/230776_input_for_dynamite.fits'
+
+    quality_cut_stellar_velocity_map_four_moment(
+        vel_fits_path=vel_fits_path, sig_fits_path=sig_fits_path,
+        h3_fits_path=h3_fits_path, h4_fits_path=h4_fits_path,
+        output_filename=output_filename, plot=True, dynamite=True, Q3 = True, Q3_downweight = False)
+
+    # ----------------------------------------------------------------------------------
+    # the kinematic fits file.
+    in_file = output_filename
+
+    # the output will be placed here.
+    out_dir = '230776/dynamite/dynamite_input/'
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
+    # convert file to ECSV, fit the kinematic PA.
+    # write aperture.dat and bins.dat files.
+    # angle degree is from find_galaxy using the total flux map.
+    create_kin_input('230776', in_file, out_dir, expr = '',
+                     fit_PA = False, kin_input = 'SAMI', plot = True, angle_deg = 104.9)
+
+    # add the PSF to the header of the kinematic file.
+    gh = dyn.kinematics.GaussHermite()
+    gh.add_psf_to_datafile(sigma=[0.9105], weight=[1.0],
+                           datafile=f'{out_dir}/gauss_hermite_kins.ecsv')
+
+
+    '''
+    '''
+    #---------------------------------------------------------------------------------------------------
+    ##################################################################################################
+    # 7969
+    ###################################################################################################
+    # Gaussian Hermit maps.
+    vel_fits_path = '7969/dynamite/7969_A_stellar-velocity_default_four-moment.fits'
+    sig_fits_path = '7969/dynamite/7969_A_stellar-velocity-dispersion_default_four-moment.fits'
+    h3_fits_path = '7969/dynamite/7969_A_stellar-velocity-h3_default_four-moment.fits'
+    h4_fits_path = '7969/dynamite/7969_A_stellar-velocity-h4_default_four-moment.fits'
+
+    output_filename = '7969/dynamite/7969_input_for_dynamite.fits'
+
+    quality_cut_stellar_velocity_map_four_moment(
+        vel_fits_path = vel_fits_path, sig_fits_path = sig_fits_path,
+        h3_fits_path = h3_fits_path, h4_fits_path = h4_fits_path,
+        output_filename = output_filename, plot = True, dynamite = True,
+        Q3 = True, Q3_downweight = True, uncertainty_value = 0.1)
+
+    # ----------------------------------------------------------------------------------
+    # the kinematic fits file.
+    in_file = output_filename
+
+    # the output will be placed here.
+    out_dir = '7969/dynamite/dynamite_input/'
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
+    # convert file to ECSV, fit the kinematic PA.
+    # write aperture.dat and bins.dat files.
+    # angle degree is from find_galaxy using the total flux map.
+    create_kin_input('7969', in_file, out_dir, expr = '',
+                     fit_PA = False, kin_input = 'SAMI', plot = True, angle_deg = 153.8)
+
+    # add the PSF to the header of the kinematic file.
+    gh = dyn.kinematics.GaussHermite()
+    gh.add_psf_to_datafile(sigma=[0.6629], weight=[1.0],
+                           datafile=f'{out_dir}/gauss_hermite_kins.ecsv')
+    '''
