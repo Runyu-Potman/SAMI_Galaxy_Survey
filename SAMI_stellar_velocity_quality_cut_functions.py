@@ -634,7 +634,7 @@ def quality_cut_stellar_velocity_map_four_moment(
             plt.figure(figsize = (10, 8))
 
             plt.imshow(data, origin = 'lower', aspect = 'auto',
-                       cmap = 'jet', vmin = vmin, vmax = vmax)
+                       cmap = 'RdBu_r', vmin = vmin, vmax = vmax)
 
             plt.colorbar(label = label)
             plt.title(title)
