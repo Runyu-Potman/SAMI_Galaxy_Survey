@@ -672,7 +672,7 @@ if __name__ == '__main__':
     plt.clf()
     f = mge.find_galaxy(img = flux_map, level = 0.005, plot = True)
     plt.pause(1)
-    '''
+
 
 
 
