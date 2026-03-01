@@ -15,6 +15,7 @@ def correct_lambda_R(lambda_R_obs, Re_arcsec, ellipticity, sersic_n, fwhm=2.1):
 
     # Step 2: Compute x
     x = sigma_psf / Re_arcsec
+    print('sigma_psf/Re', x)
 
     # Step 3: Compute f(x)
     fx = 7.44 / (1 + np.exp(4.87 * x ** 1.68 + 3.03)) - 0.34
