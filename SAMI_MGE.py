@@ -661,7 +661,8 @@ if __name__ == '__main__':
               fwhm = 3.27084596, ngauss = 12, Ar = 0.03706482, twist = False,
               ax = axs[1, 1], tick_lim = 7.5, loc_min = -7.5, loc_max = 7.6, loc_step = 2.5,
               Re = 4.025, psf_label_x = -6.5, psf_label_y = -6.5, extra_mask = extra_mask)
-
+    
+    '''
     #-----------------------------------------------------------------------------------
     # use the find_galaxy function.
     vel_fits_path = '143287/dynamite/143287_A_stellar-velocity_default_four-moment.fits'
