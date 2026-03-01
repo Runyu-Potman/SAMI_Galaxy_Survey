@@ -11,6 +11,7 @@ def correct_lambda_R(lambda_R_obs, Re_arcsec, ellipticity, sersic_n, fwhm=2.1):
 
     # transform circularized effective radius to effective radius.
     Re_arcsec = Re_arcsec / np.sqrt(1 - ellipticity)
+    print(Re_arcsec)
 
     # Step 2: Compute x
     x = sigma_psf / Re_arcsec
