@@ -7,7 +7,7 @@ mpl.rcParams['text.usetex'] = True
 
 def correct_lambda_R(lambda_R_obs, Re_arcsec, ellipticity, sersic_n, fwhm=2.1):
     # Step 1: Convert FWHM to sigma_PSF
-    sigma_psf = fwhm / 2.355
+    sigma_psf = fwhm / (2 * np.sqrt(2 * np.log(2)))
 
     # transform circularized effective radius to effective radius.
     Re_arcsec = Re_arcsec / np.sqrt(1 - ellipticity)
