@@ -695,7 +695,7 @@ if __name__ == '__main__':
 
     cut_data = image_cutout(fits_path = fits_path, ra = ra, dec = dec, scale = scale, cut_size = cut_size,
                             output_path = output_path, vmin = 0, vmax = 2, rotation = True, align_major = True,
-                            kin_pa = 90)
+                            kin_pa = 33.417)
     # --------------------------------------------------------------------------------
     # step two: prepare the mask map.
     fits_path = '9239900248/MGE/segmentation.fits'
