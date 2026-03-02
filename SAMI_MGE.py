@@ -704,10 +704,10 @@ if __name__ == '__main__':
     # third step: apply the MGE.
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1,
               fwhm = 2.643795455, ngauss = 12, Ar = 0.07838505, twist = False,
-              ax = axs[0, 4], tick_lim = 20, loc_min = -20, loc_max = 25, loc_step = 10,
-              title = 'Galaxy 9239900248', Re = 2.3038685322, psf_label_x = -18, psf_label_y = -18,
-              compass = True, xc = -12.5, yc = 12.5, length = 5, pa = 109.06,
-              N_x_pad = -0.75, N_y_pad = 0.15, E_x_pad = 0.1, E_y_pad = 0)
+              ax = axs[0, 4], tick_lim = 16, loc_min = -16, loc_max = 17, loc_step = 8,
+              title = 'Galaxy 9239900248', Re = 2.3038685322, psf_label_x = -14, psf_label_y = -14,
+              compass = True, xc = -10, yc = 10, length = 4, pa = 56.583,
+              N_x_pad = -0.47, N_y_pad = 0.45, E_x_pad = -0.1, E_y_pad = -0.3)
 
     # zoom in
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1,
