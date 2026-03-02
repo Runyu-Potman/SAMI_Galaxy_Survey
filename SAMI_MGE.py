@@ -689,7 +689,7 @@ if __name__ == '__main__':
 
     scale = 0.396
 
-    cut_size = 80
+    cut_size = 50
 
     output_path = '9239900248/MGE/9239900248_cut_image_200_arc.fits'
 
