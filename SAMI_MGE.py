@@ -718,7 +718,7 @@ if __name__ == '__main__':
 
     '''
     # use the find_galaxy function.
-    vel_fits_path = '7969/dynamite/7969_A_stellar-velocity_default_four-moment.fits'
+    vel_fits_path = '9239900248/dynamite/9239900248_A_stellar-velocity_default_four-moment.fits'
 
     with fits.open(vel_fits_path) as vel_map:
         flux_map = vel_map[2].data
