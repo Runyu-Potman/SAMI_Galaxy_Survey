@@ -725,7 +725,7 @@ if __name__ == '__main__':
         flux_map = np.ma.masked_invalid(flux_map)
 
     plt.clf()
-    f = mge.find_galaxy(img = flux_map, level = 0.005, plot = True)
+    f = mge.find_galaxy(img = flux_map, level = 0.014, plot = True)
     plt.pause(1)
     '''
 
