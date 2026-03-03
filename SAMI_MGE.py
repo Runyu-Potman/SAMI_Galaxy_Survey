@@ -715,7 +715,6 @@ if __name__ == '__main__':
               ax = axs[1, 4], tick_lim = 7.5, loc_min = -7.5, loc_max = 7.6, loc_step = 2.5,
               Re = 2.3038685322, psf_label_x = -6.5, psf_label_y = -6.5)
     #-----------------------------------------------------------------------------------
-
     '''
     # use the find_galaxy function.
     vel_fits_path = '9239900248/dynamite/9239900248_A_stellar-velocity_default_four-moment.fits'
