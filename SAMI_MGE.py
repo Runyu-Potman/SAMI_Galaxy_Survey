@@ -728,7 +728,6 @@ if __name__ == '__main__':
     f = mge.find_galaxy(img = flux_map, level = 0.014, plot = True)
     plt.pause(1)
     '''
-
     #------------------------------------------------------------------------------------
     # save
     # same axis ratio.
