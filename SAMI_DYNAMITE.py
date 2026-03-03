@@ -634,7 +634,7 @@ if __name__ == '__main__':
     quality_cut_stellar_velocity_map_four_moment(
         vel_fits_path = vel_fits_path, sig_fits_path = sig_fits_path,
         h3_fits_path = h3_fits_path, h4_fits_path = h4_fits_path,
-        output_filename = output_filename, plot = True, dynamite = True, Q3 = True, Q3_downweight = False, uncertainty_value = 0.1)
+        output_filename = output_filename, plot = True, dynamite = True, Q3 = True, Q3_downweight = True, uncertainty_value = 0.1)
 
     # ----------------------------------------------------------------------------------
     # the kinematic fits file.
