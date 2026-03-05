@@ -491,7 +491,7 @@ if __name__ == '__main__':
               tick_lim = 40, loc_min = -40, loc_max = 45, loc_step = 20, title = 'Galaxy 227266',
               Re = 7.1361637115, psf_label_x = -35, psf_label_y = -35,
               compass = True, xc = -25, yc = 25, length = 10, pa = 42.21,
-              N_x_pad = -0.6, N_y_pad = 1.2, E_x_pad = -0.2, E_y_pad = -0.6, extra_mask = r_mask)
+              N_x_pad = -0.8, N_y_pad = 1.2, E_x_pad = -0.2, E_y_pad = -0.6, extra_mask = r_mask)
 
     #-----------------------------------------------------------------------------------
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.11, minlevel = 0.11,
