@@ -542,7 +542,7 @@ if __name__ == '__main__':
               tick_lim = 80, loc_min = -80, loc_max = 85, loc_step = 40, title = 'Galaxy 230776',
               Re = 23.8104171753, psf_label_x = -70, psf_label_y = -70,
               compass = True, xc = -50, yc = 50, length = 20, pa = -11.3,
-              N_x_pad = 0, N_y_pad = 1.5, E_x_pad = -1.9, E_y_pad = -0.9)
+              N_x_pad = 0, N_y_pad = 3.0, E_x_pad = -2.9, E_y_pad = -0.6)
 
     # zoom in.
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.15, minlevel = 0.15,
