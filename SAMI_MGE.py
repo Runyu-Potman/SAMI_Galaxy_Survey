@@ -540,7 +540,7 @@ if __name__ == '__main__':
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.15, minlevel = 0.15,
               fwhm = 3.31633, ngauss = 12, Ar = 0.06149926, twist = False, ax = axs[0, 2],
               tick_lim = 80, loc_min = -80, loc_max = 85, loc_step = 40, title = 'Galaxy 230776',
-              Re = 29.360, psf_label_x = -70, psf_label_y = -70,
+              Re = 23.8104171753, psf_label_x = -70, psf_label_y = -70,
               compass = True, xc = -50, yc = 50, length = 20, pa = -11.3,
               N_x_pad = 0, N_y_pad = 1.5, E_x_pad = -1.9, E_y_pad = -0.9)
 
