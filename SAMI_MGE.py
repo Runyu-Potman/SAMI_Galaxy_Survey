@@ -652,7 +652,7 @@ if __name__ == '__main__':
               ax = axs[0, 1], tick_lim = 20, loc_min = -20, loc_max = 25, loc_step = 10,
               title = 'Galaxy 143287', Re = 3.1987638474, psf_label_x = -18, psf_label_y = -18,
               compass = True, xc = -12.5, yc = 12.5, length = 5, pa = 54.8,
-              N_x_pad = -0.4, N_y_pad = 0.5, E_x_pad = 0, E_y_pad = -0.3, extra_mask = extra_mask)
+              N_x_pad = -0.4, N_y_pad = 0.5, E_x_pad = -0.1, E_y_pad = -0.3, extra_mask = extra_mask)
 
     # zoom in
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.07, minlevel = 0.07,
