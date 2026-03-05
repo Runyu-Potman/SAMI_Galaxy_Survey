@@ -497,7 +497,7 @@ if __name__ == '__main__':
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.11, minlevel = 0.11,
               fwhm = 2.828, ngauss = 12, Ar = 0.08768186, twist = False, ax = axs[1, 1],
               tick_lim = 7.5, loc_min = -7.5, loc_max = 7.6, loc_step = 2.5,
-              Re = 7.578, psf_label_x = -6.5, psf_label_y = -6.5, extra_mask = r_mask)
+              Re = 7.1361637115, psf_label_x = -6.5, psf_label_y = -6.5, extra_mask = r_mask)
 
     '''
     # use the find_galaxy function.
