@@ -219,10 +219,15 @@ if __name__ == '__main__':
     star_sig_230776 = '230776/kinematic/230776_A_stellar-velocity-dispersion_default_two-moment.fits'
     star_output_file_230776 = '230776/kinematic/230776_quality_cut_stellar_velocity_map.csv'
 
-
-
-
-#----------------------------------------------------------------
+    # 230776 stellar quality cut.
+    quality_cut_stellar_velocity_map_csv(star_vel_230776, star_sig_230776, star_output_file_230776, pixel_to_arc = True)
+    # ------------------------------------------------------------------------------------------------
+    # the total plot.
+    fig, axs = plt.subplots(5, 3, figsize=(10, 15))
+    # introduce a new colormap consistent with DYNAMITE.
+    vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
+    vel_cmap_7969 = cmr.get_sub_cmap('twilight_shifted', 0, 0.85)
+    vel_cmap_230776 = cmr.get_sub_cmap('twilight_shifted', 0, 0.71)
 
 # 12 CSV file paths, ordered as: vel1, sig1, vel2, sig2, ..., vel6, sig6
 csv_vel_sig_files = [
