@@ -240,8 +240,11 @@ if __name__ == '__main__':
     add_circle(axs[0, 0], optical_7969, linewidth = 1.5)
     axs[0, 0].set_title('SDSS Optical Image', fontsize = 10)
 
-# Set up the 3x4 figure
-fig, axs = plt.subplots(3, 4, figsize=(18, 12))
+    # 7969 kinematics.
+    plot_vel_or_sig(csv_path = star_output_file_7969, value_type = 'vel', ax = axs[0, 1], cmap = vel_cmap_7969, cbar_label= 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 1.561, vmin = -75, vmax = 75)
+    plot_vel_or_sig(csv_path = star_output_file_7969, value_type = 'sig', ax = axs[0, 2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 1.561, vmin = 140, vmax = 280)
+    axs[0, 1].set_title('Stellar Velocity', fontsize = 10)
+    axs[0, 2].set_title('Stellar Velocity Dispersion', fontsize = 10)
 
 # Row 0
 plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[0], ax=axs[0, 0], value_type='vel', title='Galaxy 1 Velocity', cbar_label='km/s')
