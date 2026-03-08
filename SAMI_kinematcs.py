@@ -227,7 +227,7 @@ if __name__ == '__main__':
     # introduce a new colormap consistent with DYNAMITE.
     vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
     vel_cmap_7969 = cmr.get_sub_cmap('twilight_shifted', 0, 0.85)
-    vel_cmap_230776 = cmr.get_sub_cmap('twilight_shifted', 0, 0.71)
+    vel_cmap_230776 = cmr.get_sub_cmap('twilight_shifted', 0, 0.70)
 
     sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
     # ------------------------------------------------------------------------------------------
