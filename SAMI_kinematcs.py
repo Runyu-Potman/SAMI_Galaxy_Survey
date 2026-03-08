@@ -256,7 +256,7 @@ if __name__ == '__main__':
     add_circle(axs[2, 0], optical_227266, linewidth = 1.5)
 
     # 227266 kinematics.
-    plot_vel_or_sig(csv_path = star_output_file_227266, value_type = 'vel', ax = axs[2, 1], cmap = vel_cmap, cbar_label = 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108)
+    plot_vel_or_sig(csv_path = star_output_file_227266, value_type = 'vel', ax = axs[2, 1], cmap = vel_cmap, cbar_label = 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = -55, vmax = 55)
     plot_vel_or_sig(csv_path = star_output_file_227266, value_type = 'sig', ax = axs[2, 2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108)
     # ------------------------------------------------------------------------------------------
     # 230776 optical.
