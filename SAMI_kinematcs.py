@@ -211,6 +211,13 @@ if __name__ == '__main__':
     star_sig_227266 = '227266/kinematic/227266_A_stellar-velocity-dispersion_default_two-moment.fits'
     star_output_file_227266 = '227266/kinematic/227266_quality_cut_stellar_velocity_map.csv'
 
+    # 227266 stellar quality cut.
+    quality_cut_stellar_velocity_map_csv(star_vel_227266, star_sig_227266, star_output_file_227266, pixel_to_arc = True)
+    # -------------------------------------------------------------------------------------------
+    # 230776 stellar kinematic files.
+    star_vel_230776 = '230776/kinematic/230776_A_stellar-velocity_default_two-moment.fits'
+    star_sig_230776 = '230776/kinematic/230776_A_stellar-velocity-dispersion_default_two-moment.fits'
+    star_output_file_230776 = '230776/kinematic/230776_quality_cut_stellar_velocity_map.csv'
 
 
 
