@@ -229,15 +229,16 @@ if __name__ == '__main__':
     vel_cmap_7969 = cmr.get_sub_cmap('twilight_shifted', 0, 0.85)
     vel_cmap_230776 = cmr.get_sub_cmap('twilight_shifted', 0, 0.71)
 
-# 12 CSV file paths, ordered as: vel1, sig1, vel2, sig2, ..., vel6, sig6
-csv_vel_sig_files = [
-    "gal1_vel.csv", "gal1_sig.csv",
-    "gal2_vel.csv", "gal2_sig.csv",
-    "gal3_vel.csv", "gal3_sig.csv",
-    "gal4_vel.csv", "gal4_sig.csv",
-    "gal5_vel.csv", "gal5_sig.csv",
-    "gal6_vel.csv", "gal6_sig.csv"
-]
+    sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
+    # ------------------------------------------------------------------------------------------
+    # 7969 optical.
+    optical_7969 = Image.open('7969/optical/7969_optical_image.jpg')
+    axs[0, 0].imshow(optical_7969)
+    axs[0, 0].set_xticks([])
+    axs[0, 0].set_yticks([])
+    axs[0, 0].set_ylabel('Galaxy 7969', fontsize = 10, labelpad = 0.85)
+    add_circle(axs[0, 0], optical_7969, linewidth = 1.5)
+    axs[0, 0].set_title('SDSS Optical Image', fontsize = 10)
 
 # Set up the 3x4 figure
 fig, axs = plt.subplots(3, 4, figsize=(18, 12))
