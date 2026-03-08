@@ -192,6 +192,7 @@ def add_circle(ax, img, linewidth = 1.5):
     center_x = width / 2
     center_y = height / 2
 
+    # add a circle showing FoV.
     circle = patches.Circle((center_x, center_y), radius_pix,
                             edgecolor = 'white', facecolor = 'none',
                             linestyle = '--', linewidth = linewidth)
