@@ -196,7 +196,12 @@ def add_circle(ax, img, linewidth = 1.5):
                             linestyle = '--', linewidth = linewidth)
     ax.add_patch(circle)
 
-
+#-------------------------------------------------------------------------------------------
+if __name__ == '__main__':
+    # 7969 stellar kinematic files.
+    star_vel_7969 = '7969/kinematic/7969_A_stellar-velocity_default_two-moment.fits'
+    star_sig_7969 = '7969/kinematic/7969_A_stellar-velocity-dispersion_default_two-moment.fits'
+    star_output_file_7969 = '7969/kinematic/7969_quality_cut_stellar_velocity_map.csv'
 
 
 
