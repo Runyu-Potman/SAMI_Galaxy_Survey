@@ -267,51 +267,27 @@ if __name__ == '__main__':
     axs[3, 0].set_ylabel('Galaxy 230776', fontsize = 10, labelpad = 0.85)
     add_circle(axs[3, 0], optical_230776, linewidth = 1.5)
 
-# Row 2
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[8], ax=axs[2, 0], value_type='vel', title='Galaxy 5 Velocity', cbar_label='km/s')
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[9], ax=axs[2, 1], value_type='sig', title='Galaxy 5 Sigma', cbar_label='km/s')
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[10], ax=axs[2, 2], value_type='vel', title='Galaxy 6 Velocity', cbar_label='km/s')
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[11], ax=axs[2, 3], value_type='sig', title='Galaxy 6 Sigma', cbar_label='km/s')
-
-# Final layout adjustment and display
-plt.tight_layout()
-plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#---------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # 230776 kinematics.
+    plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'vel', ax = axs[3, 1], cmap = vel_cmap_230776, cbar_label = 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.144)
+    plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'sig', ax = axs[3, 2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.144)
+    # --------------------------------------------------------------------------------------------
+    # same axis ratio.
+    axs[0, 0].set_box_aspect(1)
+    axs[0, 1].set_box_aspect(1)
+    axs[0, 2].set_box_aspect(1)
+    axs[1, 0].set_box_aspect(1)
+    axs[1, 1].set_box_aspect(1)
+    axs[1, 2].set_box_aspect(1)
+    axs[2, 0].set_box_aspect(1)
+    axs[2, 1].set_box_aspect(1)
+    axs[2, 2].set_box_aspect(1)
+    axs[3, 0].set_box_aspect(1)
+    axs[3, 1].set_box_aspect(1)
+    axs[3, 2].set_box_aspect(1)
+    axs[4, 0].set_box_aspect(1)
+    axs[4, 1].set_box_aspect(1)
+    axs[4, 2].set_box_aspect(1)
+    #---------------------------------------------------
+    plt.tight_layout(h_pad = 0.85, w_pad = 0.85)
+    plt.savefig('final/stellar_kinematic_image.png', dpi = 1000, bbox_inches = 'tight')
+    plt.show()
