@@ -246,11 +246,14 @@ if __name__ == '__main__':
     axs[0, 1].set_title('Stellar Velocity', fontsize = 10)
     axs[0, 2].set_title('Stellar Velocity Dispersion', fontsize = 10)
 
-# Row 0
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[0], ax=axs[0, 0], value_type='vel', title='Galaxy 1 Velocity', cbar_label='km/s')
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[1], ax=axs[0, 1], value_type='sig', title='Galaxy 1 Sigma', cbar_label='km/s')
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[2], ax=axs[0, 2], value_type='vel', title='Galaxy 2 Velocity', cbar_label='km/s')
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[3], ax=axs[0, 3], value_type='sig', title='Galaxy 2 Sigma', cbar_label='km/s')
+    # ------------------------------------------------------------------------------------------
+    # 227266 optical.
+    optical_227266 = Image.open('227266/optical/227266_optical_image.jpg')
+    axs[2, 0].imshow(optical_227266)
+    axs[2, 0].set_xticks([])
+    axs[2, 0].set_yticks([])
+    axs[2, 0].set_ylabel('Galaxy 227266', fontsize = 10, labelpad = 0.85)
+    add_circle(axs[2, 0], optical_227266, linewidth = 1.5)
 
 # Row 1
 plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[4], ax=axs[1, 0], value_type='vel', title='Galaxy 3 Velocity', cbar_label='km/s')
