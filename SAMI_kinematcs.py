@@ -255,11 +255,17 @@ if __name__ == '__main__':
     axs[2, 0].set_ylabel('Galaxy 227266', fontsize = 10, labelpad = 0.85)
     add_circle(axs[2, 0], optical_227266, linewidth = 1.5)
 
-# Row 1
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[4], ax=axs[1, 0], value_type='vel', title='Galaxy 3 Velocity', cbar_label='km/s')
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[5], ax=axs[1, 1], value_type='sig', title='Galaxy 3 Sigma', cbar_label='km/s')
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[6], ax=axs[1, 2], value_type='vel', title='Galaxy 4 Velocity', cbar_label='km/s')
-plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[7], ax=axs[1, 3], value_type='sig', title='Galaxy 4 Sigma', cbar_label='km/s')
+    # 227266 kinematics.
+    plot_vel_or_sig(csv_path = star_output_file_227266, value_type = 'vel', ax = axs[2, 1], cmap = vel_cmap, cbar_label = 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108)
+    plot_vel_or_sig(csv_path = star_output_file_227266, value_type = 'sig', ax = axs[2, 2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108)
+    # ------------------------------------------------------------------------------------------
+    # 230776 optical.
+    optical_230776 = Image.open('230776/optical/230776_optical_image.jpg')
+    axs[3, 0].imshow(optical_230776)
+    axs[3, 0].set_xticks([])
+    axs[3, 0].set_yticks([])
+    axs[3, 0].set_ylabel('Galaxy 230776', fontsize = 10, labelpad = 0.85)
+    add_circle(axs[3, 0], optical_230776, linewidth = 1.5)
 
 # Row 2
 plot_velocity_or_sigma_map_from_csv(csv_vel_sig_files[8], ax=axs[2, 0], value_type='vel', title='Galaxy 5 Velocity', cbar_label='km/s')
