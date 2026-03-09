@@ -191,7 +191,7 @@ def add_circle(ax, img, linewidth = 1.5):
     '''
 
     # radius in pixel scale.
-    radius_pix = radius / scale  # pixel
+    radius_pix = radius / scale
 
     # the shape of the optical image in pixel scale.
     width, height = img.size
