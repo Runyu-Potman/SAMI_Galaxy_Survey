@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
-from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map_csv, quality_cut_gaseous_velocity_map_csv
+from SAMI_stellar_velocity_quality_cut_functions import quality_cut_stellar_velocity_map_csv
 import matplotlib.patches as patches
 from PIL import Image
 import cmasher as cmr
