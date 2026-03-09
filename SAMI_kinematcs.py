@@ -178,7 +178,7 @@ def add_circle(ax, img, linewidth = 1.5):
     - ax: plot position, e.g., axs[0, 0].
     - img: SDSS optical image path.
     - linewidth: line width of the circle and the scale bar.
-    - scale: pixel scale (0.4''/pixel by default).
+    - scale: pixel scale of the sdss optical image (0.4''/pixel by default).
 
     Returns:
     - None
