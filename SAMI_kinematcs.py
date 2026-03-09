@@ -179,6 +179,8 @@ def add_circle(ax, img, linewidth = 1.5):
     - img: SDSS optical image path.
     - linewidth: line width of the circle and the scale bar.
     - scale: pixel scale of the sdss optical image (0.4''/pixel by default).
+    - label: whether to add the '|-|' label showing the pixel scale or not.
+    - tick_num: number of ticks to add to the image. Default is 11.
 
     Returns:
     - None
