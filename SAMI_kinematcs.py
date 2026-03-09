@@ -189,6 +189,7 @@ def add_circle(ax, img, linewidth = 1.5):
     radius = 15 / 2  # arcsec
     radius_pix = radius / scale  # pixel
 
+    # the shape of the optical image in pixel scale.
     width, height = img.size
     center_x = width / 2
     center_y = height / 2
