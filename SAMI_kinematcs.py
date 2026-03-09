@@ -190,8 +190,7 @@ def add_circle(ax, img, linewidth = 1.5):
 
     '''
 
-    # this is specially designed for SAMI with of FoV of 15'' in diameter.
-    radius = 15 / 2  # arcsec
+    # radius in pixel scale.
     radius_pix = radius / scale  # pixel
 
     # the shape of the optical image in pixel scale.
