@@ -302,7 +302,7 @@ if __name__ == '__main__':
     optical_7969 = Image.open('7969/optical/7969_optical_image.jpg')
     axs[0, 0].imshow(optical_7969)
     axs[0, 0].set_ylabel('Galaxy 7969', fontsize = 10, labelpad = 0.85)
-    add_circle(axs[0, 0], optical_7969, linewidth = 1.5)
+    add_circle(axs[0, 0], optical_7969, linewidth = 1, label = True, E_bar = 1.6)
     axs[0, 0].set_title('SDSS Optical Image', fontsize = 10)
 
     # 7969 kinematics.
