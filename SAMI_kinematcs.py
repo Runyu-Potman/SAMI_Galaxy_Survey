@@ -169,7 +169,7 @@ def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = 'km/s', value_type =
     return ax
 
 #---------------------------------------------------------------------------------------
-def add_circle(ax, img, linewidth = 1.5):
+def add_circle(ax, img, radius = 7.5, linewidth = 1, scale = 0.4, label = False, tick_num = 11, E_bar = 5):
     '''
     Add a circle in the e.g. SDSS optical image to show e.g. the field of view of SAMI.
     Optionally, add direction, scale labels |-|, and border ticks to the image. Note that the input
