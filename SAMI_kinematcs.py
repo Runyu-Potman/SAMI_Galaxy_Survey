@@ -184,6 +184,7 @@ def add_circle(ax, img, radius = 7.5, linewidth = 1, scale = 0.4, label = False,
     - scale: pixel scale of the sdss optical image (0.4''/pixel by default).
     - label: whether to add other features or not (scale label, compass, and ticks).
     - tick_num: number of ticks to add to the image. Default is 11.
+    - E_bar: sometimes the label 'E' can not align perfectly with the horizontal line, so we adjust manually.
 
     Returns:
     - None
