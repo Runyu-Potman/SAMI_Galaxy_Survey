@@ -205,6 +205,60 @@ def add_circle(ax, img, radius = 7.5, linewidth = 1, scale = 0.4, label = False,
                             linestyle = '--', linewidth = linewidth)
     ax.add_patch(circle)
 
+    # optionally, add a label showing the scale of the pixel size, border tick labels showing the extent, and a compass showing the direction.
+    if label:
+        # choose scale automatically.
+        bar_pix = width * (1 / (tick_num - 1))
+        bar_arcsec = bar_pix * scale
+
+        # round to nice number (10,20,50...).
+        bar_arcsec = round(bar_arcsec / 10) * 10
+        bar_pix = bar_arcsec / scale
+
+        # the place to put the scale bar.
+        x0 = width * (1 / (tick_num - 1))
+        y0 = height * (1 / (tick_num - 1))
+
+        # the half-length of the vertical cap for the scale bar.
+        cap = y0 * (1 / (tick_num - 1))
+
+        # horizontal bar.
+        ax.plot([x0, x0 + bar_pix], [y0, y0], color = 'white', lw = linewidth)
+
+        # vertical caps  |-|.
+        ax.plot([x0, x0], [y0 - cap, y0 + cap], color = 'white', lw = linewidth)
+        ax.plot([x0 + bar_pix, x0 + bar_pix], [y0 - cap, y0 + cap], color = 'white', lw = linewidth)
+
+        # text label.
+        ax.text(x0 + bar_pix/1.8, y0,
+                f'{int(bar_arcsec)}"', color = 'white',
+                ha = 'center', va = 'bottom', fontsize = 10)
+
+        # add tick labels (assume the input image is a square).
+        ticks = np.linspace(0, width - 1, tick_num, dtype = int)
+        ax.set_xticks(ticks)
+        ax.set_yticks(ticks)
+
+        ax.tick_params(axis = 'both', which = 'both', direction = 'in',
+                       color = 'white', length = 4, width = 1,
+                       top = True, right = True,
+                       labelbottom = False, labeltop = False,
+                       labelleft = False, labelright = False)
+
+        # ensure square aspect so ticks look symmetric for square images.
+        ax.set_aspect('equal', adjustable = 'box')
+
+        # add compass.
+        ax.plot([center_x, center_x], [center_y - bar_pix, center_y - bar_pix * 3],
+                color = 'white', lw = linewidth, solid_capstyle = 'butt')
+        ax.text(center_x, center_y - bar_pix * 3.2, 'N', color = 'white',
+                ha = 'center', va = 'bottom', fontsize = 10)
+
+        ax.plot([center_x - bar_pix * 3, center_x - bar_pix], [center_y, center_y],
+                color = 'white', lw = linewidth, solid_capstyle = 'butt')
+        ax.text(center_x - bar_pix * 3.2, center_y + E_bar, 'E', color = 'white',
+                ha = 'right', va = 'center', fontsize = 10)
+
 #-------------------------------------------------------------------------------------------
 if __name__ == '__main__':
     # 7969 stellar kinematic files.
