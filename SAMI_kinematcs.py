@@ -196,6 +196,10 @@ def add_circle(ax, img, radius = 7.5, linewidth = 1, scale = 0.4, label = False,
 
     # the shape of the optical image in pixel scale.
     width, height = img.size
+
+    if width != height:
+        raise ValueError('Image must be square with the same width and height.')
+
     center_x = width / 2
     center_y = height / 2
 
