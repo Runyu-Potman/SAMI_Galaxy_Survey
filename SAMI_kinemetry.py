@@ -474,7 +474,11 @@ ybin = csv_file['y_arcsec'].values
 velbin = csv_file['vel'].values
 er_velbin = csv_file['vel_err'].values
 
-k = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = 0, y0 = 0, scale = 0.5, rangeQ= [0.3, 0.8], npa = 41, nq = 41, plot = True)
+k_230776 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = 0, y0 = 0, rangeQ = [0.56, 0.76],
+                     rangePA = [-90, 90], npa = 41, nq = 41, plot = False, scale = 1, ring = 1.8)
+
+print('230776 PA:', k_230776.pa)
+print('230776 PA sigma:', k_230776.er_pa)
 
 plot_kinemetry_profiles_velocity(k)
 plot_kinemetry_maps(xbin, ybin, velbin, k)
