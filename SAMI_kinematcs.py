@@ -328,6 +328,16 @@ if __name__ == '__main__':
     axs[0, 2].set_title('Stellar Velocity Dispersion', fontsize = 10)
 
     # ------------------------------------------------------------------------------------------
+    # 143287 optical.
+    optical_143287 = Image.open('143287/optical/143287_optical_image.jpg')
+    axs[1, 0].imshow(optical_143287)
+    axs[1, 0].set_ylabel('Galaxy 143287', fontsize = 10, labelpad = 0.85)
+    add_circle(axs[1, 0], optical_143287, linewidth = 1, label = True, E_bar = 1.5)
+
+    # 143287 kinematics.
+    plot_vel_or_sig(csv_path = star_output_file_143287, value_type = 'vel', ax = axs[1, 1], cmap = vel_cmap_143287, cbar_label = 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.250)
+    plot_vel_or_sig(csv_path = star_output_file_143287, value_type = 'sig', ax = axs[1, 2], cmap = sig_cmap_143287, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.250, vmin = 55, vmax = 165)
+    #--------------------------------------------------------------------------------------------
     # 227266 optical.
     optical_227266 = Image.open('227266/optical/227266_optical_image.jpg')
     axs[2, 0].imshow(optical_227266)
