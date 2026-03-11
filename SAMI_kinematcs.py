@@ -297,6 +297,14 @@ if __name__ == '__main__':
     # 230776 stellar quality cut.
     quality_cut_stellar_velocity_map_csv(star_vel_230776, star_sig_230776, star_output_file_230776, pixel_to_arc = True)
     # ------------------------------------------------------------------------------------------------
+    # 9239900248 stellar kinematic files.
+    star_vel_9239900248 = '9239900248/kinematic/9239900248_A_stellar-velocity_default_two-moment.fits'
+    star_sig_9239900248 = '9239900248/kinematic/9239900248_A_stellar-velocity-dispersion_default_two-moment.fits'
+    star_output_file_9239900248 = '9239900248/kinematic/9239900248_quality_cut_stellar_velocity_map.csv'
+
+    # 9239900248 stellar quality cut.
+    quality_cut_stellar_velocity_map_csv(star_vel_9239900248, star_sig_9239900248, star_output_file_9239900248, pixel_to_arc = True)
+    #-------------------------------------------------------------------------------------------------
     # the total plot.
     fig, axs = plt.subplots(5, 3, figsize=(10, 15))
     # introduce a new colormap consistent with DYNAMITE.
