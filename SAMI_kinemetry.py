@@ -354,7 +354,7 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
         axs[0].fill_between(xs, pa2 - pa2_err, pa2 + pa2_err, alpha = 0.1, edgecolor = None, facecolor = 'grey', linewidth = 0)
 
     # y label, lim and ticks.
-    axs[0].set_ylabel('PA (degrees)', fontsize = 10, labelpad = label_pad)
+    axs[0].set_ylabel(r'$\mathrm{PA}_\bigstar$ (degrees)', fontsize = 10, labelpad = label_pad)
     axs[0].set_ylim(ypa_lim)
     axs[0].set_yticks(np.arange(*ypa_tick))
 
