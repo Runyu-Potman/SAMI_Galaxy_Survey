@@ -417,7 +417,57 @@ def inv_var_mean(values, sigmas):
     return mean, sigma_mean
 
 #-----------------------------------------------------------------
-csv_file = pd.read_csv('CATID/CATID_quality_cut_stellar_velocity_map.csv')
+fig, axs = plt.subplots(2, 3, figsize = (10, 5.4054), gridspec_kw = {'hspace': 0, 'wspace': 0.35})
+
+#---------------------------------------------------------------
+# 7969.
+csv_file = pd.read_csv('7969/kinematic/7969_quality_cut_stellar_velocity_map.csv')
+
+xbin = csv_file['x_arcsec'].values
+ybin = csv_file['y_arcsec'].values
+velbin = csv_file['vel'].values
+er_velbin = csv_file['vel_err'].values
+
+k_7969 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = 0, y0 = 0, rangeQ = [0.7, 1],
+                   rangePA = [-180, 180], npa = 41, nq = 41, plot = False, scale = 1, ring = 1, cover = 0.75)
+print('7969 PA:', k_7969.pa)
+print('7969 PA sigma:', k_7969.er_pa)
+
+#plot_kinemetry_profiles_velocity(k_7969)
+#plot_kinemetry_maps(xbin, ybin, velbin, k_7969)
+#plt.show()
+
+pa_and_k1_plot(k_7969, axs = axs[:, 0], ypa_lim = [-100, 175], ypa_tick = (-100, 175, 50), yk1_lim = [0, 35], yk1_tick = (0, 35, 5),
+               x_lim = [0, 4.5], x_tick = (0, 5, 1), pa1 = 131.55, pa2 = -66.83, counter_rotating = True, pa1_err = 16.86, pa2_err = 6.09, label_pad=0)
+axs[0, 0].set_title('Galaxy 7969', fontsize = 10)
+
+#-------------------------------------------------------------------------------------------------------------------
+# 227266.
+csv_file = pd.read_csv('227266/kinematic/227266_quality_cut_stellar_velocity_map.csv')
+
+xbin = csv_file['x_arcsec'].values
+ybin = csv_file['y_arcsec'].values
+velbin = csv_file['vel'].values
+er_velbin = csv_file['vel_err'].values
+
+k_227266 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = 0, y0 = 0, rangeQ = [0.8, 1],
+                     rangePA = [0, 180], npa = 41, nq = 41, plot = False, scale = 1, ring = 2.2)
+
+print('227266 PA:', k_227266.pa)
+print('227266 PA sigma:', k_227266.er_pa)
+
+#plot_kinemetry_profiles_velocity(k_227266)
+#plot_kinemetry_maps(xbin, ybin, velbin, k_227266)
+#plt.show()
+
+pa_and_k1_plot(k_227266, axs = axs[:, 1], ypa_lim = [0, 185], ypa_tick = (0, 185, 50), yk1_lim = [0, 25], yk1_tick = (0, 25, 5),
+               x_lim = [0, 7.5], x_tick = (0, 7.5, 1), pa1 = 148.56, pa2 = 34.53, pa1_err = 18.44, pa2_err = 8.77)
+axs[0, 1].set_title('Galaxy 227266', fontsize = 10)
+
+
+#----------------------------------------------------------------------------------------------------------------------
+# 230776.
+csv_file = pd.read_csv('230776/kinematic/230776_quality_cut_stellar_velocity_map.csv')
 
 xbin = csv_file['x_arcsec'].values
 ybin = csv_file['y_arcsec'].values
