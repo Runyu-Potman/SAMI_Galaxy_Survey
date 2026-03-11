@@ -315,7 +315,7 @@ if __name__ == '__main__':
     vel_cmap_9239900248 = cmr.get_sub_cmap('twilight_shifted', 0.15, 0.95)
 
     sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
-    sig_cmap_143287 = cmr.get_sub_cmap('twilight_shifted', 0.1, 0.6)
+    sig_cmap_143287 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.7)
     sig_cmap_9239900248 = cmr.get_sub_cmap('twilight_shifted', 0.1, 0.6)
     # ------------------------------------------------------------------------------------------
     # 7969 optical.
