@@ -34,7 +34,7 @@ def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = 'km/s', value_type =
     - PAs: list of position angles (in degree, counterclockwise from North, 0 to 360).
     - line_length: length of the line to plot, in arcsec.
     - plot_psf: whether to plot the PSF or not.
-    - psffwhm: psf value.
+    - psffwhm: psf value in arcsec.
     - text_ul: text to use for PAs.
 
     Returns:
