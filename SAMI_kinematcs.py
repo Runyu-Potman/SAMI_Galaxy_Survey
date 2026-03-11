@@ -360,7 +360,7 @@ if __name__ == '__main__':
 
     # 230776 kinematics.
     plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'vel', ax = axs[3, 1], cmap = vel_cmap_230776, cbar_label = 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.144, vmin = -35, vmax = 35)
-    plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'sig', ax = axs[3, 2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.144)
+    plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'sig', ax = axs[3, 2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.144, vmin = 270, vmax = 350)
     # --------------------------------------------------------------------------------------------
     # 9239900248 optical.
     optical_9239900248 = Image.open('9239900248/optical/9239900248_optical_image.jpg')
