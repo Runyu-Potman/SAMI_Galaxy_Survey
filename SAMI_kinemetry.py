@@ -492,4 +492,11 @@ axs[0, 2].set_title('Galaxy 230776', fontsize = 10)
 plt.savefig('final/kdc_size.png', dpi = 1000, bbox_inches = 'tight')
 plt.show()
 
+#-----------------------------------------------------------------------------------------------------------------------
+# mean and std.
+kdc_7969 = [-33.49573138, -39.84164585, -72.]
+print('kdc 7969:', 180 + np.mean(kdc_7969), np.std(kdc_7969))
+
+main_7969 = [104.5660269, 117.28435004, 117.6578444]
+print('main 7969:', np.mean(main_7969) - 180, np.std(main_7969))
 
