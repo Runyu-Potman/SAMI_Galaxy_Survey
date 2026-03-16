@@ -595,7 +595,7 @@ print('9239900248 PA:', k_9239900248_extra.pa)
 print('9239900248 PA sigma:', k_9239900248_extra.er_pa)
 
 plot_kinemetry_profiles_velocity(k_9239900248_extra)
-plot_kinemetry_maps(xbin, ybin, velbin, k_9239900248_extra)
+#plot_kinemetry_maps(xbin, ybin, velbin, k_9239900248_extra)
 plt.show()
 
 pa_and_k1_plot(k_9239900248, axs = axs[:, 4], ypa_lim = [-150, 42.5], ypa_tick = (-150, 35, 50), yk1_lim = [0, 100], yk1_tick = (0, 100, 20),
