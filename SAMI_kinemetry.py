@@ -549,6 +549,56 @@ print('230776 PA sigma:', k_230776.er_pa)
 pa_and_k1_plot(k_230776, axs = axs[:, 2], ypa_lim = [-100, 25], ypa_tick = (-100, 25, 50), yk1_lim = [0, 30], yk1_tick = (0, 30, 5),
                x_lim = [0, 8.5], x_tick = (0, 8.5, 1), pa1 = 5.14, pa2 = -74.38, pa1_err = 4.13, pa2_err = 7.79, label_pad=0)
 axs[0, 2].set_title('Galaxy 230776', fontsize = 10)
+'''
+#-----------------------------------------------------------------------------------------------------------------------
+# 9239900248
+csv_file = pd.read_csv('9239900248/kinematic/9239900248_quality_cut_stellar_velocity_map.csv')
+
+xbin = csv_file['x_arcsec'].values
+ybin = csv_file['y_arcsec'].values
+velbin = csv_file['vel'].values
+er_velbin = csv_file['vel_err'].values
+
+'''
+mask = inside_radius_mask(xbin, ybin, 6)
+
+x_mask = xbin[~mask]
+y_mask = ybin[~mask]
+vel_mask = velbin[~mask]
+er_vel_mask = er_velbin[~mask]
+
+vel_corr = vel_mask - np.median(vel_mask)
+
+plt.clf()
+
+fit_kinematic_pa(x = x_mask, y = y_mask, vel = vel_corr, dvel = er_vel_mask, plot = True, quiet = False, debug = False)
+plt.pause(1)
+'''
+
+# by using the fit_kinematic_pa code, we estimate the pa in the CRC to be 38.0 +/- 18.2 degrees and the pa for the main stellar body to be 32.5 +/- 89.8 degrees.
+k_9239900248 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.47, 0.67],
+                         rangePA = [30, 50], npa = 41, nq = 41, plot = True, scale = 1, ring = 2, cover = 0.60)
+
+print('9239900248 PA:', k_9239900248.pa)
+print('9239900248 PA sigma:', k_9239900248.er_pa)
+
+plot_kinemetry_profiles_velocity(k_9239900248)
+plot_kinemetry_maps(xbin, ybin, velbin, k_9239900248)
+plt.show()
+
+k_9239900248_extra = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.47, 0.67],
+                         rangePA = [-150, -130], npa = 41, nq = 41, plot = True, scale = 1, ring = 2, cover = 0.60)
+
+print('9239900248 PA:', k_9239900248_extra.pa)
+print('9239900248 PA sigma:', k_9239900248_extra.er_pa)
+
+plot_kinemetry_profiles_velocity(k_9239900248_extra)
+plot_kinemetry_maps(xbin, ybin, velbin, k_9239900248_extra)
+plt.show()
+
+pa_and_k1_plot(k_9239900248, axs = axs[:, 4], ypa_lim = [-150, 42.5], ypa_tick = (-150, 35, 50), yk1_lim = [0, 100], yk1_tick = (0, 100, 20),
+               x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = -131.83, pa2 = 30.47, pa1_err = 2.72, pa2_err = 0.41, label_pad = 0,
+               k_extra = k_9239900248_extra, r_extra = 8, counter_rotating = True)
 
 #-----------------------------------------------------------------------------------------------------------------------
 plt.savefig('final/kdc_size.png', dpi = 1000, bbox_inches = 'tight')
