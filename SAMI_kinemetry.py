@@ -598,7 +598,7 @@ print('9239900248 PA sigma:', k_9239900248_extra.er_pa)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_9239900248_extra)
 #plt.show()
 
-pa_and_k1_plot(k_9239900248, axs = axs[:, 4], ypa_lim = [-150, 42.5], ypa_tick = (-150, 35, 50), yk1_lim = [0, 100], yk1_tick = (0, 100, 20),
+pa_and_k1_plot(k_9239900248, axs = axs[:, 4], ypa_lim = [-150, 50], ypa_tick = (-150, 55, 50), yk1_lim = [0, 200], yk1_tick = (0, 200, 50),
                x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = -131.83, pa2 = 30.47, pa1_err = 2.72, pa2_err = 0.41, label_pad = 0,
                k_extra = k_9239900248_extra, r_extra = 8, counter_rotating = True)
 
