@@ -338,6 +338,37 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
     # error of k1.
     erk1 = (np.sqrt((k.cf[:, 1] * k.er_cf[:, 1]) ** 2 + (k.cf[:, 2] * k.er_cf[:, 2]) ** 2)) / k1
 
+    # another kinemetry run to deal with CRC in a flat velocity field in which only one kinemetry run may find it difficult to switch the PA.
+    if (k_extra is not None) and (r_extra is not None):
+        # prepare pa and er_pa arrays for merging.
+        rad_ini = np.asarray(k.rad).copy()
+        pa_ini = np.asarray(k.pa).copy()
+        er_pa_ini = np.asarray(k.er_pa).copy()
+
+        # the corresponding values for a second kinemetry run for replacing.
+        rad_extra = np.asarray(k_extra.rad)
+        pa_extra = np.asarray(k_extra.pa)
+        er_pa_extra = np.asarray(k_extra.er_pa)
+
+        # make sure that the radial steps are consistent across two kinemetry runs.
+        if rad_ini.shape == rad_extra.shape and np.allclose(rad_ini, rad_extra, atol = 1e-6, rtol = 1e-6):
+            # replace the results of k outside r_extra with the corresponding results of k_extra.
+            mask_replace = rad_ini > r_extra
+
+            # check if a reasonable r_extra value is provided and make the replacement.
+            if np.any(mask_replace):
+                pa_ini[mask_replace] = pa_extra[mask_replace]
+                er_pa_ini[mask_replace] = er_pa_extra[mask_replace]
+
+                k.pa = pa_ini
+                k.er_pa = er_pa_ini
+
+            else:
+                raise ValueError('no k.rad > r_extra. Please use a smaller r_extra value.')
+
+        else:
+            raise ValueError('the radial steps of the two kinemetry runs do not match!')
+
     # pa in kinemetry is defined from north to receding side.
     if counter_rotating:
         # shift PA by 180 degrees and wrap into [-180, 180].
