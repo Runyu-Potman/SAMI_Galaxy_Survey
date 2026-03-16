@@ -323,6 +323,9 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
     - label_pad: label pad for the label PA.
     - pa1_err: error bar on the PA1 range.
     - pa2_err: error bar on the PA2 range.
+    - k_extra: an extra kinemetry run focusing on the velocity field outside a specific radius of r_extra.
+    - r_extra: when k_extra is not None, replace the k.pa and k.er_pa with the corresponding values
+               given by k_extra when k.rad > r_extra. r_extra is in the unit of pixel.
 
     Returns:
     - None
