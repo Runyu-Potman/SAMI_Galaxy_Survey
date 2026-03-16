@@ -308,6 +308,8 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
     will be replaced by the corresponding values of k_extra. When using k_extra to deal with CRC in a flat velocity field,
     please check that if k.rad = k_extra.rad or not.
 
+    After running two kinemetry runs, please also check if the local minimum in k1 profiles in two runs are consistent or not.
+
     Parameters:
     - k: k = kinemetry().
     - axs: plot position, e,g, axs = [:, 0].
