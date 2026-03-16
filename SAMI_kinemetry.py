@@ -299,8 +299,14 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
                    pa1, pa2, counter_rotating = False, label_pad = None,
                    pa1_err = None, pa2_err = None, k_extra = None, r_extra = None):
     '''
-    After running Kinemetry, plot the k1 and PA radial profile, also use pa1 and pa2 to represent the mean PA within
-    or outside a specific radius.
+    After running kinemetry, plot the k1 and PA radial profile, also use pa1 and pa2 to represent the mean PA within
+    or outside a specific radius and use pa1_err and pa2_err to represent the standard deviation from the mean PA.
+
+    If the velocity field is flat and contains a CRC, then the kinemetry may find it difficult to switch the PA.
+    So we run kienemtry for two times, with k represent the results inside the CRC and k_extra represents the results
+    outside the CRC. The radius of the CRC can be predefined using r_extra such that the results of k outside r_extra
+    will be replaced by the corresponding values of k_extra. When using k_extra to deal with CRC in a flat velocity field,
+    please check that if k.rad = k_extra.rad or not.
 
     Parameters:
     - k: k = kinemetry().
