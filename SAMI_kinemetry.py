@@ -9,7 +9,7 @@ mpl.rcParams['xtick.direction'] = 'in'
 mpl.rcParams['ytick.direction'] = 'in'
 from kinemetry import kinemetry
 from matplotlib.ticker import AutoMinorLocator
-
+from pafit.fit_kinematic_pa import fit_kinematic_pa
 #------------------------------------------------------------
 def plot_kinemetry_profiles_velocity(k, fitcentre=False, name=None):
     """
