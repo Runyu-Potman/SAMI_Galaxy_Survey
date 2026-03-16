@@ -506,6 +506,57 @@ pa_and_k1_plot(k_7969, axs = axs[:, 0], ypa_lim = [-100, 175], ypa_tick = (-100,
 axs[0, 0].set_title('Galaxy 7969', fontsize = 10)
 
 #-------------------------------------------------------------------------------------------------------------------
+'''
+
+# 143287
+csv_file = pd.read_csv('143287/kinematic/143287_quality_cut_stellar_velocity_map.csv')
+
+xbin = csv_file['x_arcsec'].values
+ybin = csv_file['y_arcsec'].values
+velbin = csv_file['vel'].values
+er_velbin = csv_file['vel_err'].values
+
+'''
+mask = inside_radius_mask(xbin, ybin, 6)
+
+x_mask = xbin[~mask]
+y_mask = ybin[~mask]
+vel_mask = velbin[~mask]
+er_vel_mask = er_velbin[~mask]
+
+vel_corr = vel_mask - np.median(vel_mask)
+
+plt.clf()
+
+fit_kinematic_pa(x = x_mask, y = y_mask, vel = vel_corr, dvel = er_vel_mask, plot = True, quiet = False, debug = False)
+plt.pause(1)
+'''
+
+# by using the fit_kinematic_pa code, we estimate the pa in the CRC to be 34 +/- 33 degrees and the pa for the main stellar body to be 20 +/- 55.5 degrees.
+k_143287 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.53, 0.73],
+                     rangePA = [10, 50], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.96, cover = 0.8)
+print('143287 PA:', k_143287.pa)
+print('143287 PA sigma:', k_143287.er_pa)
+
+#plot_kinemetry_profiles_velocity(k_143287)
+#plot_kinemetry_maps(xbin, ybin, velbin, k_143287)
+#plt.show()
+
+k_143287_extra = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.53, 0.73],
+                     rangePA = [-170, -130], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.96, cover = 0.8)
+print('143287 PA:', k_143287_extra.pa)
+print('143287 PA sigma:', k_143287_extra.er_pa)
+
+#plot_kinemetry_profiles_velocity(k_143287_extra)
+#plot_kinemetry_maps(xbin, ybin, velbin, k_143287_extra)
+#plt.show()
+
+pa_and_k1_plot(k_143287, axs = axs[:, 1], ypa_lim = [-200, 75], ypa_tick = (-200, 76, 50), yk1_lim = [0, 60], yk1_tick = (0, 60, 10),
+               x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = 43.13, pa2 = -161.73, pa1_err = 9.99, pa2_err = 3.07, label_pad = 0,
+               k_extra = k_143287_extra, r_extra = 6)
+
+'''
+#------------------------------------------------------------------------------------------------------------------
 # 227266.
 csv_file = pd.read_csv('227266/kinematic/227266_quality_cut_stellar_velocity_map.csv')
 
