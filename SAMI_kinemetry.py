@@ -456,6 +456,28 @@ def inv_var_mean(values, sigmas):
 
     return mean, sigma_mean
 
+#----------------------------------------------------------------
+def inside_radius_mask(x, y, radius, center = (0, 0)):
+    '''
+    Before using k_extra, it would be better to use this function to mask the CRC or the main stellar body and get an
+    estimation of the pa for the corresponding regions using the fit_kinematic_pa code, which would be convenient for
+    setting the range of PA when using kinemetry.
+
+    Parameters:
+    - x: x-coordinate in pixel.
+    - y: y-coordinate in pixel.
+    - radius: within this radius of the circle, the data will be extracted. The unit is in pixel.
+    - center: galaxy center coordinate in pixel.
+
+    Returns:
+    - the mask.
+    '''
+
+    x0, y0 = center
+    r = np.sqrt((x - x0)**2 + (y - y0)**2)
+
+    return r <= radius
+
 #-----------------------------------------------------------------
 fig, axs = plt.subplots(2, 3, figsize = (10, 5.4054), gridspec_kw = {'hspace': 0, 'wspace': 0.35})
 
