@@ -584,7 +584,7 @@ k_9239900248 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_v
 print('9239900248 PA:', k_9239900248.pa)
 print('9239900248 PA sigma:', k_9239900248.er_pa)
 
-plot_kinemetry_profiles_velocity(k_9239900248)
+#plot_kinemetry_profiles_velocity(k_9239900248)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_9239900248)
 plt.show()
 
