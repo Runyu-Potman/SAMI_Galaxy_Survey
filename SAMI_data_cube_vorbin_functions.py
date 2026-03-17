@@ -289,6 +289,9 @@ if __name__ == "__main__":
         fits_path = fits_path, sn_threshold = sn_threshold, output_filename = output_filename,
         vorbin = True, target_sn = target_sn)
 
+    np.save('230776/age_z/binNum.npy', binNum)
+    np.save('230776/age_z/x_bar.npy', x_bar)
+    np.save('230776/age_z/y_bar.npy', y_bar)
 
 
 
