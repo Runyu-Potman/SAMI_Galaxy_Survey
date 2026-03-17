@@ -297,6 +297,13 @@ if __name__ == "__main__":
     plt.scatter(x_gen + 25, y_gen + 25, c = 'black', s = 20, label = 'All spaxels')  # All spaxels
     plt.scatter(x_bar + 25, y_bar + 25, c = 'red', s = 40, marker = 'x', label = 'Bin centers')  # One per bin
 
-
-
-
+    plt.xlim(-1, 51)
+    plt.ylim(-1, 51)
+    plt.gca().set_aspect('equal')
+    plt.gca().invert_yaxis()
+    plt.title('Spaxels and Bin Centers')
+    plt.xlabel('x (pixels)')
+    plt.ylabel('y (pixels)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
