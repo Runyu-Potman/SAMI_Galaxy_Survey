@@ -506,7 +506,6 @@ pa_and_k1_plot(k_7969, axs = axs[:, 0], ypa_lim = [-100, 175], ypa_tick = (-100,
 axs[0, 0].set_title('Galaxy 7969', fontsize = 10)
 
 #-------------------------------------------------------------------------------------------------------------------
-'''
 # 143287
 csv_file = pd.read_csv('143287/kinematic/143287_quality_cut_stellar_velocity_map.csv')
 
