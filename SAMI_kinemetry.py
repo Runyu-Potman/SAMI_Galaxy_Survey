@@ -651,6 +651,18 @@ pa_and_k1_plot(k_9239900248, axs = axs[:, 4], ypa_lim = [-180, 45], ypa_tick = (
 axs[0, 4].set_title('Galaxy 9239900248', fontsize = 10)
 
 #-----------------------------------------------------------------------------------------------------------------------
+# same axis ratio.
+axs[0, 0].set_box_aspect(1)
+axs[0, 1].set_box_aspect(1)
+axs[0, 2].set_box_aspect(1)
+axs[0, 3].set_box_aspect(1)
+axs[0, 4].set_box_aspect(1)
+axs[1, 0].set_box_aspect(1)
+axs[1, 1].set_box_aspect(1)
+axs[1, 2].set_box_aspect(1)
+axs[1, 3].set_box_aspect(1)
+axs[1, 4].set_box_aspect(1)
+
 plt.savefig('final/kdc_size.png', dpi = 1000, bbox_inches = 'tight')
 plt.show()
 
