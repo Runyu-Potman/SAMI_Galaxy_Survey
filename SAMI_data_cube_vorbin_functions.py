@@ -272,9 +272,10 @@ if __name__ == "__main__":
     # 230776
     #------------------------------------------------------
     #------------------------------------------------------------------
-    blue_cube_fits = 'CATID_A_cube_blue.fits'
-    red_cube_fits = 'CATID_A_cube_red.fits'
-    output_filename = 'CATID_A_cube_combined_pre_vorbin.fits'
+    # first step: combine blue and red in preparation for vorbin.
+    blue_cube_fits = '230776/age_z/230776_A_cube_blue.fits'
+    red_cube_fits = '230776/age_z/230776_A_cube_red.fits'
+    output_filename = '230776/age_z/230776_A_cube_combined_pre_vorbin.fits'
     vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename)
 
     #-------------------------------------------------------------------
