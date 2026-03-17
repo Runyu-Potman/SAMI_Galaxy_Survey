@@ -597,8 +597,8 @@ print('230776 PA sigma:', k_230776.er_pa)
 
 pa_and_k1_plot(k_230776, axs = axs[:, 2], ypa_lim = [-100, 25], ypa_tick = (-100, 25, 50), yk1_lim = [0, 30], yk1_tick = (0, 30, 5),
                x_lim = [0, 8.5], x_tick = (0, 8.5, 1), pa1 = 5.14, pa2 = -74.38, pa1_err = 4.13, pa2_err = 7.79, label_pad=0)
-axs[0, 2].set_title('Galaxy 230776', fontsize = 10)
-'''
+axs[0, 3].set_title('Galaxy 230776', fontsize = 10)
+
 #-----------------------------------------------------------------------------------------------------------------------
 # 9239900248
 csv_file = pd.read_csv('9239900248/kinematic/9239900248_quality_cut_stellar_velocity_map.csv')
