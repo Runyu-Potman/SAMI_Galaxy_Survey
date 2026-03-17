@@ -253,6 +253,24 @@ if __name__ == "__main__":
     np.save('227266/age_z/x_bar.npy', x_bar)
     np.save('227266/age_z/y_bar.npy', y_bar)
 
+    plt.figure(figsize=(6, 6))
+    plt.scatter(x_gen + 25, y_gen + 25, c = 'black', s = 20, label = 'All spaxels')  # All spaxels
+    plt.scatter(x_bar + 25, y_bar + 25, c = 'red', s = 40, marker = 'x', label = 'Bin centers')  # One per bin
+
+    plt.xlim(-1, 51)
+    plt.ylim(-1, 51)
+    plt.gca().set_aspect('equal')
+    plt.gca().invert_yaxis()
+    plt.title('Spaxels and Bin Centers')
+    plt.xlabel('x (pixels)')
+    plt.ylabel('y (pixels)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+    #------------------------------------------------------
+    # 230776
+    #------------------------------------------------------
     #------------------------------------------------------------------
     blue_cube_fits = 'CATID_A_cube_blue.fits'
     red_cube_fits = 'CATID_A_cube_red.fits'
