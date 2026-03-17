@@ -279,11 +279,9 @@ if __name__ == "__main__":
     vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename)
 
     #-------------------------------------------------------------------
-    fits_path = 'CATID_A_cube_combined_pre_vorbin.fits'
-    #fits_path = 'binned_data_cube_s_n_20.fits'
-    #fits_path = 'CATID_A_adaptive_blue.fits'
-
-    output_filename = 'CATID_A_cube_combined_vorbin_20.fits'
+    # second step: apply vorbin to reach target s/n.
+    fits_path = '230776/age_z/230776_A_cube_combined_pre_vorbin.fits'
+    output_filename = '230776/age_z/230776_A_cube_combined_vorbin_20.fits'
 
     sn_threshold = 3
     target_sn = 20
