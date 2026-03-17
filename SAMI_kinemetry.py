@@ -306,7 +306,7 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
     So we run kienemtry for two times, with k represent the results inside the CRC and k_extra represents the results
     outside the CRC. The radius of the CRC can be predefined using r_extra such that the results of k outside r_extra
     will be replaced by the corresponding values of k_extra. When using k_extra to deal with CRC in a flat velocity field,
-    please check that if k.rad = k_extra.rad or not.
+    please make sure k.rad = k_extra.rad.
 
     After running two kinemetry runs, please also check if the local minimum in k1 profiles in two runs are consistent or not.
 
