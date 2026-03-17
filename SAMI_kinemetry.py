@@ -572,7 +572,7 @@ print('227266 PA sigma:', k_227266.er_pa)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_227266)
 #plt.show()
 
-pa_and_k1_plot(k_227266, axs = axs[:, 1], ypa_lim = [0, 185], ypa_tick = (0, 185, 50), yk1_lim = [0, 25], yk1_tick = (0, 25, 5),
+pa_and_k1_plot(k_227266, axs = axs[:, 2], ypa_lim = [0, 200], ypa_tick = (0, 205, 50), yk1_lim = [0, 25], yk1_tick = (0, 25, 5),
                x_lim = [0, 7.5], x_tick = (0, 7.5, 1), pa1 = 148.56, pa2 = 34.53, pa1_err = 18.44, pa2_err = 8.77)
 axs[0, 2].set_title('Galaxy 227266', fontsize = 10)
 
