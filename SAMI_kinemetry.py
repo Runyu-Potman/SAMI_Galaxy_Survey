@@ -481,8 +481,7 @@ def inside_radius_mask(x, y, radius, center = (0, 0)):
     return r <= radius
 
 #-----------------------------------------------------------------
-fig, axs = plt.subplots(2, 3, figsize = (10, 5.4054), gridspec_kw = {'hspace': 0, 'wspace': 0.35})
-
+fig, axs = plt.subplots(2, 5, figsize = (50/3, 5.20833), gridspec_kw = {'hspace': 0, 'wspace': 0.35})
 #---------------------------------------------------------------
 # 7969.
 csv_file = pd.read_csv('7969/kinematic/7969_quality_cut_stellar_velocity_map.csv')
