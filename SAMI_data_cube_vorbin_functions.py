@@ -242,6 +242,32 @@ if __name__ == "__main__":
     fits_path = '143287/age_z/143287_A_cube_combined_pre_vorbin.fits'
     output_filename = '143287/age_z/143287_A_cube_combined_vorbin_20.fits'
 
+    sn_threshold = 3
+    target_sn = 20.5 # S/N per_angstrom = 20, S/N = 20.5
+    cleaned_data_cube, binNum, x_gen, y_gen, x_bar, y_bar, sn, nPixels, scale = data_cube_clean_snr(
+        fits_path = fits_path, sn_threshold = sn_threshold, output_filename = output_filename,
+        vorbin = True, target_sn = target_sn)
+
+    np.save('143287/age_z/binNum.npy', binNum)
+    np.save('143287/age_z/x_bar.npy', x_bar)
+    np.save('143287/age_z/y_bar.npy', y_bar)
+
+    plt.figure(figsize=(6, 6))
+    plt.scatter(x_gen + 25, y_gen + 25, c = 'black', s = 20, label = 'All spaxels')  # All spaxels
+    plt.scatter(x_bar + 25, y_bar + 25, c = 'red', s = 40, marker = 'x', label = 'Bin centers')  # One per bin
+
+    plt.xlim(-1, 51)
+    plt.ylim(-1, 51)
+    plt.gca().set_aspect('equal')
+    #plt.gca().invert_yaxis()
+    plt.title('Spaxels and Bin Centers')
+    plt.xlabel('x (pixels)')
+    plt.ylabel('y (pixels)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+    '''
     #-------------------------------------------------------------------
     # 227266
     #-------------------------------------------------------------------
