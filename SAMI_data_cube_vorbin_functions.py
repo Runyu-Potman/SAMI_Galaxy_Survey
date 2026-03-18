@@ -380,7 +380,7 @@ if __name__ == "__main__":
     plt.xlim(-1, 51)
     plt.ylim(-1, 51)
     plt.gca().set_aspect('equal')
-    plt.gca().invert_yaxis()
+    #plt.gca().invert_yaxis()
     plt.title('Spaxels and Bin Centers')
     plt.xlabel('x (pixels)')
     plt.ylabel('y (pixels)')
