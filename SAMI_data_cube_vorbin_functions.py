@@ -227,6 +227,20 @@ if __name__ == "__main__":
     plt.legend()
     plt.grid(True)
     plt.show()
+    '''
+    #------------------------------------------------------------------
+    # 143287
+    #------------------------------------------------------------------
+    # first step: combine blue and red in preparation for vorbin.
+    blue_cube_fits = '143287/age_z/143287_A_cube_blue.fits'
+    red_cube_fits = '143287/age_z/143287_A_cube_red.fits'
+    output_filename = '143287/age_z/143287_A_cube_combined_pre_vorbin.fits'
+    vorbin_pre_cube_combine(blue_cube_fits, red_cube_fits, output_filename)
+
+    #-------------------------------------------------------------------
+    # second step: apply vorbin to reach target s/n.
+    fits_path = '143287/age_z/143287_A_cube_combined_pre_vorbin.fits'
+    output_filename = '143287/age_z/143287_A_cube_combined_vorbin_20.fits'
 
     #-------------------------------------------------------------------
     # 227266
