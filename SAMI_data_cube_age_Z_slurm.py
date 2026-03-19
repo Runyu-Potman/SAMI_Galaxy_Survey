@@ -43,6 +43,8 @@ version_03: 17/04/2025: add high-redshift situation.
 version_04: 20/04/2025: handle NaN and inf in the input flux by replacing with a large value before log_rebin
             by using the newly defined function: safe_log_rebin.
 version_05: 28/10/2025: made a mistake about the template normalization before.
+version_06: 19/03/2026: replace the clip value with a input parameter. Also for high redshift galaxy, directly using 
+                        wave_clip would be fine, no need to use convolve or high_redshift anymore.
 '''
 
 # -------------------------------------------------------------------------------
