@@ -114,6 +114,16 @@ spectrum_age_Z(vel_fits_file = vel_fits_file, sig_fits_file = sig_fits_file, com
 spectrum_fits = output_spectrum
 cube_fits = combined_data_cube
 
+# log_rebib
+goodpixels_nan, specNew, ln_lam, velscale, redshift = ppxf_pre_spectrum(
+cube_fits = cube_fits, spectrum_fits = spectrum_fits, wave_clip = True
+)
+
+age_mean, metallicity_mean, age_std, metallicity_std = ppxf_age_z(
+    specNew = specNew, goodpixels_nan = goodpixels_nan, ln_lam = ln_lam,
+    noise_value = noise_value, redshift = redshift, filename = filename,
+    velscale = velscale, start = start, nrand = nrand, optimal_regul = 100,
+    find_regul = False, plot = True)
 
 
 
