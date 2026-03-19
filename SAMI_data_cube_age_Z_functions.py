@@ -313,7 +313,7 @@ def ppxf_pre_data_cube(
             blue_spectrum = spectrum_template_convolve(flux = blue_spectrum, redshift = redshift, cdelt3 = cdelt3)
 
         if wave_clip:
-            wave_mask = (rest_wavelength >= miles_low + 34) & (rest_wavelength <= miles_high)
+            wave_mask = (rest_wavelength >= miles_low + wave_clip_value) & (rest_wavelength <= miles_high)
             rest_wavelength = rest_wavelength[wave_mask]
             blue_spectrum = blue_spectrum[wave_mask]
 
