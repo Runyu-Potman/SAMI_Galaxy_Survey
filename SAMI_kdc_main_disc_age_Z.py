@@ -79,6 +79,40 @@ def spectrum_age_Z(vel_fits_file, sig_fits_file, combined_data_cube, ellipticity
     plt.show()
 
 #---------------------------------------------------------------------------------
+'''
+import ppxf.sps_util as lib
+from pathlib import Path
+from urllib import request
+
+# emiles.
+sps_name = 'emiles'
+
+ppxf_dir = Path(lib.__file__).parent
+basename = f"spectra_{sps_name}_9.0.npz"
+filename = ppxf_dir / 'sps_models' / basename
+if not filename.is_file():
+    url = "https://raw.githubusercontent.com/micappe/ppxf_data/main/" + basename
+    request.urlretrieve(url, filename)
+'''
+#--------------------------------------------------------------------------------
+# define constant.
+filename = 'miles_ssp_models_basti_ch_baseFe.npz'
+start = [[0., 200.], [0., 200.], [0., 200.]]
+nrand = 100
+#--------------------------------------------------------------------------------
+galaxy_name = 143287
+noise_value = 0.025
+#----------------------------------------------------------------------------------
+vel_fits_file = f'{galaxy_name}/kinematic/{galaxy_name}_A_stellar-velocity_default_two-moment.fits'
+sig_fits_file = f'{galaxy_name}/kinematic/{galaxy_name}_A_stellar-velocity-dispersion_default_two-moment.fits'
+combined_data_cube = f'{galaxy_name}/age_z/{galaxy_name}_A_cube_combined_pre_vorbin.fits'
+output_spectrum = f'{galaxy_name}/age_z/{galaxy_name}_co-added_spectrum_kdc.fits'
+
+spectrum_age_Z(vel_fits_file = vel_fits_file, sig_fits_file = sig_fits_file, combined_data_cube = combined_data_cube,
+               ellipticity = 0.368, a_pixel = 6.4, pa = 43.13, output_spectrum = output_spectrum, kdc = True)
+#--------------------------------------------------------------------------------
+spectrum_fits = output_spectrum
+cube_fits = combined_data_cube
 
 
 
