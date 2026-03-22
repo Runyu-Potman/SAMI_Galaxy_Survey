@@ -283,3 +283,93 @@ def add_psf(ax, psffwhm):
 
     ax.add_patch(circle)
 #-------------------------------------------------------------------------------------
+# spatially resolved maps and gradient plots for three galaxies.
+fig, axs = plt.subplots(5, 4, figsize=(14, 15), constrained_layout = True)
+#-------------------------------------------------------------------------------------
+base_dir = '7969/age_z'
+age_7969, metal_7969, age_7969_array, metal_7969_array, r_all_7969 = slurm_job_combine(base_dir)
+
+plot_age_and_Z(axs_x = 0, age_full = age_7969, metal_full = metal_7969, r_all = r_all_7969, age_array = age_7969_array,
+               metal_array = metal_7969_array, name = 7969, title = True, r_dash = 2.7,
+               vmin_age = 6, vmax_age = 12, vmin_z = -0.1, vmax_z = 0.2)
+
+#-----------------------------------------------
+base_dir = '143287/age_z'
+age_143287, metal_143287, age_143287_array, metal_143287_array, r_all_143287 = slurm_job_combine(base_dir)
+
+plot_age_and_Z(axs_x = 1, age_full = age_143287, metal_full = metal_143287, r_all = r_all_143287, age_array = age_143287_array,
+               metal_array = metal_143287_array, name = 143287, r_dash = 3.2)
+
+#------------------------------------------------
+base_dir = '227266/age_z'
+age_227266, metal_227266, age_227266_array, metal_227266_array, r_all_227266 = slurm_job_combine(base_dir)
+
+plot_age_and_Z(axs_x = 2, age_full = age_227266, metal_full = metal_227266, r_all = r_all_227266, age_array = age_227266_array,
+               metal_array = metal_227266_array, name = 227266, r_dash = 3.8,
+               vmin_age = 3, vmax_age = 11, vmin_z = -0.3, vmax_z = 0.2)
+
+#-----------------------------------------------
+base_dir = '230776/age_z'
+age_230776, metal_230776, age_230776_array, metal_230776_array, r_all_230776 = slurm_job_combine(base_dir)
+
+plot_age_and_Z(axs_x = 3, age_full = age_230776, metal_full = metal_230776, r_all = r_all_230776, age_array = age_230776_array,
+               metal_array = metal_230776_array, name = 230776, r_dash = 5.4,
+               vmin_age = 8, vmax_age = 13, vmin_z = 0.06, vmax_z = 0.2)
+
+#--------------------------------------------------------------------------------------------------
+# add psf.
+add_psf(ax = axs[0, 0], psffwhm = 1.561)
+add_psf(ax = axs[0, 1], psffwhm = 1.561)
+add_psf(ax = axs[2, 0], psffwhm = 2.108)
+add_psf(ax = axs[2, 1], psffwhm = 2.108)
+add_psf(ax = axs[3, 0], psffwhm = 2.144)
+add_psf(ax = axs[3, 1], psffwhm = 2.144)
+#------------------------------------------------------------------------------------------------
+'''
+# kdc radius circle
+def add_circle(ax, r, x = 0, y = 0, edgecolor = 'gray', facecolor = 'none', linestyle = '--', linewidth = 2):
+    circle = patches.Circle((x, y), r, edgecolor = edgecolor, facecolor = facecolor, linestyle = linestyle, linewidth = linewidth)
+    ax.add_patch(circle)
+
+# 7969
+add_circle(axs[0, 0], 2.7)
+add_circle(axs[0, 1], 2.7)
+
+# 227266
+add_circle(axs[1, 0], 3.8)
+add_circle(axs[1, 1], 3.8)
+
+# 230776
+add_circle(axs[2, 0], 5.4)
+add_circle(axs[2, 1], 5.4)
+'''
+
+#-----------------------------------------------------------
+# same axis ratio.
+axs[0, 0].set_box_aspect(1)
+axs[0, 1].set_box_aspect(1)
+axs[0, 2].set_box_aspect(1)
+axs[0, 3].set_box_aspect(1)
+
+axs[1, 0].set_box_aspect(1)
+axs[1, 1].set_box_aspect(1)
+axs[1, 2].set_box_aspect(1)
+axs[1, 3].set_box_aspect(1)
+
+axs[2, 0].set_box_aspect(1)
+axs[2, 1].set_box_aspect(1)
+axs[2, 2].set_box_aspect(1)
+axs[2, 3].set_box_aspect(1)
+
+axs[3, 0].set_box_aspect(1)
+axs[3, 1].set_box_aspect(1)
+axs[3, 2].set_box_aspect(1)
+axs[3, 3].set_box_aspect(1)
+
+axs[4, 0].set_box_aspect(1)
+axs[4, 1].set_box_aspect(1)
+axs[4, 2].set_box_aspect(1)
+axs[4, 3].set_box_aspect(1)
+
+plt.savefig('final/age_z.png', dpi = 1000, bbox_inches = 'tight')
+plt.show()
