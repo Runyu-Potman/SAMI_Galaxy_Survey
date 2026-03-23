@@ -328,6 +328,8 @@ plot_age_and_Z(axs_x = 4, age_full = age_9239900248, metal_full = metal_92399002
 # add psf.
 add_psf(ax = axs[0, 0], psffwhm = 1.561)
 add_psf(ax = axs[0, 1], psffwhm = 1.561)
+add_psf(ax = axs[1, 0], psffwhm = 2.250)
+add_psf(ax = axs[1, 1], psffwhm = 2.250)
 add_psf(ax = axs[2, 0], psffwhm = 2.108)
 add_psf(ax = axs[2, 1], psffwhm = 2.108)
 add_psf(ax = axs[3, 0], psffwhm = 2.144)
