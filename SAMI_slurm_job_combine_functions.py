@@ -335,7 +335,7 @@ add_psf(ax = axs[2, 1], psffwhm = 2.108)
 add_psf(ax = axs[3, 0], psffwhm = 2.144)
 add_psf(ax = axs[3, 1], psffwhm = 2.144)
 add_psf(ax = axs[4, 0], psffwhm = 2.118)
-add_pxf(ax = axs[4, 1], psffwhm = 2.118)
+add_psf(ax = axs[4, 1], psffwhm = 2.118)
 #------------------------------------------------------------------------------------------------
 '''
 # kdc radius circle
