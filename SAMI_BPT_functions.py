@@ -824,3 +824,11 @@ if __name__ == "__main__":
     plt.savefig('final/gas_kinematics.png', dpi = 1000, bbox_inches = 'tight')
     plt.show()
 
+    #----------------------------------------------------------------------------
+    Ha_fits_path = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
+    Hb_fits_path = '227266/emission_line/227266_A_Hbeta_default_recom-comp.fits'
+    OIII_fits_path = '227266/emission_line/227266_A_OIII5007_default_recom-comp.fits'
+    OI_fits_path = '227266/emission_line/227266_A_OI6300_default_recom-comp.fits'
+    SII_6716_fits_path = '227266/emission_line/227266_A_SII6716_default_recom-comp.fits'
+    SII_6731_fits_path = '227266/emission_line/227266_A_SII6731_default_recom-comp.fits'
+    NII_fits_path = '227266/emission_line/227266_A_NII6583_default_recom-comp.fits'
