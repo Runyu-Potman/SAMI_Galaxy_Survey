@@ -705,7 +705,7 @@ def bpt(
     cbar.ax.tick_params(axis = 'y', which = 'both', length = 0)
 
     cbar.ax.text(1.6, 0.5, 'HII', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
-    cbar.ax.text(1.6, 1.5, 'LINER', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
+    cbar.ax.text(1.6, 1.5, 'LINERs', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
     cbar.ax.text(1.6, 2.5, 'AGN', va = 'center', ha = 'left', rotation = 90, fontsize = fontsize, color = 'black')
 
     #############################################################################
