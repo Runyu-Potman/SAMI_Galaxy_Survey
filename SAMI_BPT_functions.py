@@ -791,7 +791,6 @@ if __name__ == "__main__":
     vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.15, 0.85)
     sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.15, 0.6)
 
-    #plot_vel_or_sig(csv_path = gas_output_file_7969_cut, cbar_label = r"$1 \times 10^{-16}$ erg s$^{-1}$ spaxel$^{-1}$ cm$^{-2}$", ax = axs[0], value_type = 'gas', plot_psf = True)
     plot_vel_or_sig(csv_path = gas_output_file_227266_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
                     ax = axs[0], value_type = 'gas', vmin = -2, vmax = 2,
                     plot_psf = True, psffwhm= 2.108)
