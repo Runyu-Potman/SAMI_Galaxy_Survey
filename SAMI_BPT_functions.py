@@ -763,6 +763,51 @@ def bpt(
     '''
 
 #----------------------------------------------------------
+if __name__ == "__main__":
+    # we use recommended component for the distribution because we care about the total flux.
+
+    #gas_Halpha_7969 = '7969/7969_A_Halpha_default_recom-comp.fits'
+    #gas_output_file_7969_cut = '7969/7969_quality_cut_gas_distribution_map.csv'
+    #gas_distribution(gas_Halpha_7969, gas_output_file_7969_cut, threshold = 5)
+    #----------------------------------------------------------------------------
+    # 227266 gas distribution map, we use recommended component.
+    gas_Halpha_227266_distribution = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
+    gas_output_file_227266_distribution = '227266/emission_line/227266_quality_cut_gas_distribution_map.csv'
+    dust_fits = '227266/emission_line/227266_A_extinct-corr_default_recom-comp.fits'
+
+    # Attention! Here we use log_flux for plotting.
+    gas_distribution(gas_Halpha_227266_distribution, gas_output_file_227266_distribution, threshold = 5,
+                     dust_correction = True, dust_fits = dust_fits, log_flux = True)
+
+    #----------------------------------------------------------------------------
+    # 227266 gaseous kinematic files.
+    gas_vel_227266 = '227266/kinematic/227266_A_gas-velocity_default_1-comp.fits'
+    gas_sig_227266 = '227266/kinematic/227266_A_gas-vdisp_default_1-comp.fits'
+    gas_Halpha_227266_kinematics = '227266/emission_line/227266_A_Halpha_default_1-comp.fits'
+    gas_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_gas_velocity_map.csv'
+    # 227266 gaseous quality cut.
+    quality_cut_gaseous_velocity_map_csv(gas_vel_227266, gas_sig_227266, gas_Halpha_227266_kinematics, gas_output_file_227266_kinematics)
+
+    #---------------------------------------------------------------------------
+    #gas_Halpha_230776 = '230776/230776_A_Halpha_default_recom-comp.fits'
+    #gas_output_file_230776_cut = '230776/230776_quality_cut_gas_distribution_map.csv'
+    #gas_distribution(gas_Halpha_230776, gas_output_file_230776_cut, threshold = 5)
+    #--------------------------------------------------------------------------
+    fig, axs = plt.subplots(1, 3, figsize = (10, 3))
+
+    # colormap consistent with DYNAMITE.
+    vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.15, 0.85)
+    sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.15, 0.6)
+
+    #plot_vel_or_sig(csv_path = gas_output_file_7969_cut, cbar_label = r"$1 \times 10^{-16}$ erg s$^{-1}$ spaxel$^{-1}$ cm$^{-2}$", ax = axs[0], value_type = 'gas', plot_psf = True)
+    plot_vel_or_sig(csv_path = gas_output_file_227266_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
+                    ax = axs[0], value_type = 'gas', vmin = -2, vmax = 2,
+                    plot_psf = True, psffwhm= 2.108)
+    #plot_vel_or_sig(csv_path = gas_output_file_230776_cut, cbar_label = r"$1 \times 10^{-16}$ erg s$^{-1}$ spaxel$^{-1}$ cm$^{-2}$", ax = axs[2], value_type = 'gas', plot_psf = True)
+
+    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'vel', ax = axs[1], cmap = vel_cmap, cbar_label = 'Velocity (km/s)', plot_psf = True, vmin=-200, vmax = 200,
+                    PAs= [11], psffwhm= 2.108)
+    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'sig', ax = axs[2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, psffwhm= 2.108, vmin = 50, vmax = 200)
 
 
 
