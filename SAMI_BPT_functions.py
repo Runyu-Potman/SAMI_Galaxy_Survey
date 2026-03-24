@@ -794,7 +794,6 @@ if __name__ == "__main__":
     plot_vel_or_sig(csv_path = gas_output_file_227266_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
                     ax = axs[0], value_type = 'gas', vmin = -2, vmax = 2,
                     plot_psf = True, psffwhm= 2.108)
-    #plot_vel_or_sig(csv_path = gas_output_file_230776_cut, cbar_label = r"$1 \times 10^{-16}$ erg s$^{-1}$ spaxel$^{-1}$ cm$^{-2}$", ax = axs[2], value_type = 'gas', plot_psf = True)
 
     plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'vel', ax = axs[1], cmap = vel_cmap, cbar_label = 'Velocity (km/s)', plot_psf = True, vmin=-200, vmax = 200,
                     PAs= [11], psffwhm= 2.108)
