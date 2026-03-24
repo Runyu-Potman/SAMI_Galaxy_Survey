@@ -814,5 +814,10 @@ if __name__ == "__main__":
     axs[1].text(4.8, 9.5, r'$\mathrm{PA}_\mathrm{\,gas}$ = $191^\circ$', color = 'black', fontsize = 10, ha = 'center')
     axs[2].set_title('Gas Velocity Dispersion', fontsize = 10)
 
+    #---------------------------------------------------------------------------
+    # same axis ratio.
+    axs[0].set_box_aspect(1)
+    axs[1].set_box_aspect(1)
+    axs[2].set_box_aspect(1)
 
 
