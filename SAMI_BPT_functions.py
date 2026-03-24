@@ -12,6 +12,8 @@ from SAMI_kinematcs import plot_vel_or_sig
 from SAMI_stellar_velocity_quality_cut_functions import quality_cut_gaseous_velocity_map_csv
 from matplotlib.ticker import AutoMinorLocator
 from pafit.fit_kinematic_pa import fit_kinematic_pa
+import cmasher as cmr
+from SAMI_slurm_job_combine_functions import add_psf
 #---------------------------------------------------------------------------------------------------------------------
 def gas_distribution(gas_fits_path, output_file = None, threshold = None, dust_correction = False, dust_fits = None,
                      csv = True, x_center = 25, y_center = 25, scale = 0.5, log_flux = False):
