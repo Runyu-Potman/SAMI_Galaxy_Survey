@@ -766,9 +766,6 @@ def bpt(
 if __name__ == "__main__":
     # we use recommended component for the distribution because we care about the total flux.
 
-    #gas_Halpha_7969 = '7969/7969_A_Halpha_default_recom-comp.fits'
-    #gas_output_file_7969_cut = '7969/7969_quality_cut_gas_distribution_map.csv'
-    #gas_distribution(gas_Halpha_7969, gas_output_file_7969_cut, threshold = 5)
     #----------------------------------------------------------------------------
     # 227266 gas distribution map, we use recommended component.
     gas_Halpha_227266_distribution = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
