@@ -784,11 +784,6 @@ if __name__ == "__main__":
     gas_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_gas_velocity_map.csv'
     # 227266 gaseous quality cut.
     quality_cut_gaseous_velocity_map_csv(gas_vel_227266, gas_sig_227266, gas_Halpha_227266_kinematics, gas_output_file_227266_kinematics)
-
-    #---------------------------------------------------------------------------
-    #gas_Halpha_230776 = '230776/230776_A_Halpha_default_recom-comp.fits'
-    #gas_output_file_230776_cut = '230776/230776_quality_cut_gas_distribution_map.csv'
-    #gas_distribution(gas_Halpha_230776, gas_output_file_230776_cut, threshold = 5)
     #--------------------------------------------------------------------------
     fig, axs = plt.subplots(1, 3, figsize = (10, 3))
 
