@@ -832,3 +832,45 @@ if __name__ == "__main__":
     SII_6716_fits_path = '227266/emission_line/227266_A_SII6716_default_recom-comp.fits'
     SII_6731_fits_path = '227266/emission_line/227266_A_SII6731_default_recom-comp.fits'
     NII_fits_path = '227266/emission_line/227266_A_NII6583_default_recom-comp.fits'
+
+    bpt(Ha_fits_path = Ha_fits_path, Hb_fits_path = Hb_fits_path, OIII_fits_path = OIII_fits_path,
+        OI_fits_path = OI_fits_path, SII_6716_fits_path = SII_6716_fits_path,
+        SII_6731_fits_path = SII_6731_fits_path, NII_fits_path = NII_fits_path, threshold = 5)
+
+    plt.tight_layout(h_pad = 0.85, w_pad = 0.85)
+    plt.savefig('final/bpt.png', dpi = 1000, bbox_inches = 'tight')
+    plt.show()
+
+#-----------------------------------------------------------------------------------
+
+    # the pa estimation.
+    data = np.genfromtxt('227266/kinematic/227266_quality_cut_gas_velocity_map.csv', delimiter = ',', skip_header = 1)
+    xbin = data[:,0]
+    ybin = data[:,1]
+    vel = data[:,2]
+    dvel = data[:,3]
+
+    vel_corr = vel - np.median(vel)
+
+    plt.clf()
+
+    fit_kinematic_pa(x = xbin, y = ybin, vel = vel_corr, dvel = dvel, plot = True, quiet = False, debug = False)
+    plt.pause(1)
+
+#-------------------------------------------------------------------------------------------------------
+    '''
+    Ha_fits_path = '230776/emission_line/230776_A_Halpha_default_recom-comp.fits'
+    Hb_fits_path = '230776/emission_line/230776_A_Hbeta_default_recom-comp.fits'
+    OIII_fits_path = '230776/emission_line/230776_A_OIII5007_default_recom-comp.fits'
+    OI_fits_path = '230776/emission_line/230776_A_OI6300_default_recom-comp.fits'
+    SII_6716_fits_path = '230776/emission_line/230776_A_SII6716_default_recom-comp.fits'
+    SII_6731_fits_path = '230776/emission_line/230776_A_SII6731_default_recom-comp.fits'
+    NII_fits_path = '230776/emission_line/230776_A_NII6583_default_recom-comp.fits'
+
+    bpt_integrate(Ha_fits_path = Ha_fits_path, Hb_fits_path = Hb_fits_path, OIII_fits_path = OIII_fits_path,
+        OI_fits_path = OI_fits_path, SII_6716_fits_path = SII_6716_fits_path,
+        SII_6731_fits_path = SII_6731_fits_path, NII_fits_path = NII_fits_path, radius = 15)
+    plt.tight_layout(pad = 0.85, h_pad = 0.85, w_pad = 0.55)
+    plt.savefig('final/bpt_integrate_230776.png', dpi = 300)
+    plt.show()
+    '''
