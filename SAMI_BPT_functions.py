@@ -795,12 +795,6 @@ if __name__ == "__main__":
 
     # 227266 gas distribution output.
     gas_output_file_227266_distribution = '227266/emission_line/227266_quality_cut_gas_distribution_map.csv'
-    dust_fits = '227266/emission_line/227266_A_extinct-corr_default_recom-comp.fits'
-
-    # Attention! Here we use log_flux for plotting.
-    gas_distribution(gas_Halpha_227266_distribution, gas_output_file_227266_distribution, threshold = 5,
-                     dust_correction = True, dust_fits = dust_fits, log_flux = True)
-
     #----------------------------------------------------------------------------
     # 227266 gaseous kinematic files.
     gas_vel_227266 = '227266/kinematic/227266_A_gas-velocity_default_1-comp.fits'
