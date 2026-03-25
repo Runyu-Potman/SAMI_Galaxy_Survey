@@ -800,7 +800,7 @@ if __name__ == "__main__":
     gas_output_file_143287_kinematics = '143287/kinematic/143287_quality_cut_gas_velocity_map.csv'
 
     # 143287 stellar kinematic output.
-    star_output_file_143287_kinematic = '143287/kinematic/143287_quality_cut_stellar_velocity_map.csv'
+    star_output_file_143287_kinematics = '143287/kinematic/143287_quality_cut_stellar_velocity_map.csv'
 
     # 227266 gas kinematic output.
     gas_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_gas_velocity_map.csv'
