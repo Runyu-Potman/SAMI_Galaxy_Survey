@@ -785,9 +785,9 @@ if __name__ == "__main__":
     # gaseous quality cut.
     quality_cut_gaseous_velocity_map_csv(gas_vel, gas_sig, gas_Halpha_kinematics, gas_output_file_kinematics, threshold = 5)
 
-    plot_vel_or_sig(csv_path = gas_output_file_distribution, value_type='gas', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)")
-    plot_vel_or_sig(csv_path = gas_output_file_kinematics, value_type = 'vel', cbar_label = 'Velocity (km/s)')
-    plot_vel_or_sig(csv_path = gas_output_file_kinematics, value_type = 'sig', cbar_label = 'Velocity Dispersion (km/s)')
+    #plot_vel_or_sig(csv_path = gas_output_file_distribution, value_type='gas', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)")
+    #plot_vel_or_sig(csv_path = gas_output_file_kinematics, value_type = 'vel', cbar_label = 'Velocity (km/s)')
+    #plot_vel_or_sig(csv_path = gas_output_file_kinematics, value_type = 'sig', cbar_label = 'Velocity Dispersion (km/s)')
 
     #----------------------------------------------------------------------------
     # 143287 gas distribution output.
