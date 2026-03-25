@@ -764,7 +764,30 @@ def bpt(
 
 #----------------------------------------------------------
 if __name__ == "__main__":
-    # we use recommended component for the distribution because we care about the total flux.
+
+    #---------------------------------------------------------------------------
+    # gas distribution map, we use recommended component.
+    galaxy = '143287'
+    gas_Halpha_distribution = f'{galaxy}/emission_line/{galaxy}_A_Halpha_default_recom-comp.fits'
+    gas_output_file_distribution = f'{galaxy}/emission_line/{galaxy}_quality_cut_gas_distribution_map.csv'
+    dust_fits = f'{galaxy}/emission_line/{galaxy}_A_extinct-corr_default_recom-comp.fits'
+
+    #Attention! Here we use log_flux for plotting.
+    gas_distribution(gas_Halpha_distribution, gas_output_file_distribution, threshold = 5,
+                     dust_correction = True, dust_fits = dust_fits, log_flux = True)
+
+    #----------------------------------------------------------------------------
+    # gaseous kinematic files.
+    gas_vel = f'{galaxy}/kinematic/{galaxy}_A_gas-velocity_default_1-comp.fits'
+    gas_sig = f'{galaxy}/kinematic/{galaxy}_A_gas-vdisp_default_1-comp.fits'
+    gas_Halpha_kinematics = f'{galaxy}/emission_line/{galaxy}_A_Halpha_default_1-comp.fits'
+    gas_output_file_kinematics = f'{galaxy}/kinematic/{galaxy}_quality_cut_gas_velocity_map.csv'
+    # gaseous quality cut.
+    quality_cut_gaseous_velocity_map_csv(gas_vel, gas_sig, gas_Halpha_kinematics, gas_output_file_kinematics, threshold = 5)
+
+    plot_vel_or_sig(csv_path = gas_output_file_distribution, value_type='gas', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)")
+    plot_vel_or_sig(csv_path = gas_output_file_kinematics, value_type = 'vel', cbar_label = 'Velocity (km/s)')
+    plot_vel_or_sig(csv_path = gas_output_file_kinematics, value_type = 'sig', cbar_label = 'Velocity Dispersion (km/s)')
 
     #----------------------------------------------------------------------------
     # 227266 gas distribution map, we use recommended component.
