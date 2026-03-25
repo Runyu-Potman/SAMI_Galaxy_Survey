@@ -804,8 +804,9 @@ if __name__ == "__main__":
 
     # 227266 gas kinematic output.
     gas_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_gas_velocity_map.csv'
-    # 227266 gaseous quality cut.
-    quality_cut_gaseous_velocity_map_csv(gas_vel_227266, gas_sig_227266, gas_Halpha_227266_kinematics, gas_output_file_227266_kinematics)
+
+    # 227266 stellar kinematic output.
+    star_output_file_227266_kinematic = '227266/kinematic/227266_quality_cut_stellar_velocity_map.csv'
     #--------------------------------------------------------------------------
     fig, axs = plt.subplots(1, 3, figsize = (10, 3))
 
