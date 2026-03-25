@@ -790,8 +790,10 @@ if __name__ == "__main__":
     plot_vel_or_sig(csv_path = gas_output_file_kinematics, value_type = 'sig', cbar_label = 'Velocity Dispersion (km/s)')
 
     #----------------------------------------------------------------------------
-    # 227266 gas distribution map, we use recommended component.
-    gas_Halpha_227266_distribution = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
+    # 143287 gas distribution output.
+    gas_output_file_143287_distribution = '143287/emission_line/143287_quality_cut_gas_distribution_map.csv'
+
+    # 227266 gas distribution output.
     gas_output_file_227266_distribution = '227266/emission_line/227266_quality_cut_gas_distribution_map.csv'
     dust_fits = '227266/emission_line/227266_A_extinct-corr_default_recom-comp.fits'
 
