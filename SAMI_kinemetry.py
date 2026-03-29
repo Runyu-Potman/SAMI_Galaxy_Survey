@@ -561,8 +561,8 @@ ybin = csv_file['y_arcsec'].values
 velbin = csv_file['vel'].values
 er_velbin = csv_file['vel_err'].values
 
-k_227266 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = 0, y0 = 0, rangeQ = [0.8, 1],
-                     rangePA = [0, 180], npa = 41, nq = 41, plot = False, scale = 1, ring = 2.2)
+k_227266 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.79, 0.99],
+                     rangePA = [0, 200], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.5)
 
 print('227266 PA:', k_227266.pa)
 print('227266 PA sigma:', k_227266.er_pa)
