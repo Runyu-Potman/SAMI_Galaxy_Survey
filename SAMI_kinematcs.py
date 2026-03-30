@@ -33,6 +33,9 @@ def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = 'km/s', value_type =
     - background_alpha: alpha transparency for background layer.
     - PAs: list of position angles (in degree, counterclockwise from North, 0 to 360).
     - line_length: length of the line to plot, in arcsec.
+    - line_styles: list of line styles to use.
+    - pa_center_x: center x of pa line.
+    - pa_center_y: center y of pa line.
     - plot_psf: whether to plot the PSF or not.
     - psffwhm: psf value in arcsec.
     - text_ul: text to use for PAs.
