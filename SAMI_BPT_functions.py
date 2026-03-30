@@ -816,7 +816,7 @@ if __name__ == "__main__":
     # 227266 stellar kinematic output.
     star_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_stellar_velocity_map.csv'
     #--------------------------------------------------------------------------
-    fig, axs = plt.subplots(1, 3, figsize = (10, 3))
+    fig, axs = plt.subplots(2, 4, figsize = (40/3, 6))
 
     # colormap consistent with DYNAMITE.
     vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
