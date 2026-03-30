@@ -95,7 +95,10 @@ def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = 'km/s', value_type =
     ax.set_yticks(tick_locs)
 
     ax.set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
-    ax.set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = label_pad)
+    if galaxy_name is not None:
+        ax.set_ylabel(f'Galaxy {galaxy_name}\nOffset (arcsec)', fontsize = fontsize, labelpad = label_pad)
+    else:
+        ax.set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = label_pad)
 
     # colorbar.
     if show_colorbar:
