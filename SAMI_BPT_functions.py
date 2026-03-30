@@ -768,6 +768,7 @@ if __name__ == "__main__":
     #---------------------------------------------------------------------------
     # gas distribution map, we use recommended component.
     galaxy = '143287'
+
     gas_Halpha_distribution = f'{galaxy}/emission_line/{galaxy}_A_Halpha_default_recom-comp.fits'
     gas_output_file_distribution = f'{galaxy}/emission_line/{galaxy}_quality_cut_gas_distribution_map.csv'
     dust_fits = f'{galaxy}/emission_line/{galaxy}_A_extinct-corr_default_recom-comp.fits'
