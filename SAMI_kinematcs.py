@@ -36,6 +36,7 @@ def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = 'km/s', value_type =
     - plot_psf: whether to plot the PSF or not.
     - psffwhm: psf value in arcsec.
     - text_ul: text to use for PAs.
+    - galaxy_name: name of the galaxy which would be set as the y label.
 
     Returns:
     - ax: the axis used for plotting
