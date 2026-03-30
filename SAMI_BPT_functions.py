@@ -782,6 +782,7 @@ if __name__ == "__main__":
     gas_sig = f'{galaxy}/kinematic/{galaxy}_A_gas-vdisp_default_1-comp.fits'
     gas_Halpha_kinematics = f'{galaxy}/emission_line/{galaxy}_A_Halpha_default_1-comp.fits'
     gas_output_file_kinematics = f'{galaxy}/kinematic/{galaxy}_quality_cut_gas_velocity_map.csv'
+
     # gaseous quality cut.
     if galaxy == '143287':
         quality_cut_gaseous_velocity_map_csv(gas_vel, gas_sig, gas_Halpha_kinematics, gas_output_file_kinematics,
