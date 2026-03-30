@@ -783,7 +783,13 @@ if __name__ == "__main__":
     gas_Halpha_kinematics = f'{galaxy}/emission_line/{galaxy}_A_Halpha_default_1-comp.fits'
     gas_output_file_kinematics = f'{galaxy}/kinematic/{galaxy}_quality_cut_gas_velocity_map.csv'
     # gaseous quality cut.
-    quality_cut_gaseous_velocity_map_csv(gas_vel, gas_sig, gas_Halpha_kinematics, gas_output_file_kinematics, threshold = 5)
+    if galaxy == '143287':
+        quality_cut_gaseous_velocity_map_csv(gas_vel, gas_sig, gas_Halpha_kinematics, gas_output_file_kinematics,
+                                             threshold = 5)
+    elif galaxy == '227266':
+        # an outlier is present in the gas velocity map, so we manually mask it.
+        quality_cut_gaseous_velocity_map_csv(gas_vel, gas_sig, gas_Halpha_kinematics, gas_output_file_kinematics,
+                                             threshold = 5, manual_mask = [(25, 22)])
 
     #plot_vel_or_sig(csv_path = gas_output_file_distribution, value_type='gas', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)")
     #plot_vel_or_sig(csv_path = gas_output_file_kinematics, value_type = 'vel', cbar_label = 'Velocity (km/s)')
