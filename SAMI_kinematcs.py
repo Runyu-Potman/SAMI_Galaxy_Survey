@@ -11,7 +11,7 @@ def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = 'km/s', value_type =
                     show_colorbar = True, fontsize = 10, bar_fraction = 0.0467, bar_pad = 0.02, label_pad = 0.85,
                     ax = None, vmin = None, vmax = None, title = None, csv_path_uncut = None,
                     background_alpha = 0.3, PAs = None, line_length = 12.5, line_styles = None,
-                    plot_psf = False, psffwhm = 2, text_ul = None):
+                    plot_psf = False, psffwhm = 2, text_ul = None, galaxy_name = None):
     """
     Plot velocity or sigma map from CSV file on a given matplotlib axis.
 
