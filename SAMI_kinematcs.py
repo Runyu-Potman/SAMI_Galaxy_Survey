@@ -145,7 +145,8 @@ def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = 'km/s', value_type =
             PA_rad = np.deg2rad(PA + 90)
 
             # calculate the line coordinates based on the position angle.
-            x0, y0 = 0, 0
+            x0 = pa_center_x
+            y0 = pa_center_y
             x1 = x0 + ll * np.cos(PA_rad)
             y1 = y0 + ll * np.sin(PA_rad)
 
