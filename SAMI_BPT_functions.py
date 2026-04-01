@@ -880,7 +880,6 @@ if __name__ == "__main__":
     plt.tight_layout(h_pad = -3, w_pad = 0.85)
     plt.savefig('final/gas_kinematics.png', dpi = 1000, bbox_inches = 'tight')
     plt.show()
-
     #----------------------------------------------------------------------------
     Ha_fits_path = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
     Hb_fits_path = '227266/emission_line/227266_A_Hbeta_default_recom-comp.fits'
