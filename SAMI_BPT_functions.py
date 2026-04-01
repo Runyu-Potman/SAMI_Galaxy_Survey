@@ -822,6 +822,25 @@ if __name__ == "__main__":
     vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
     sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
 
+    vel_cmap_143287 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.88)
+    # directly copied.
+    vel_cmap_143287_star = cmr.get_sub_cmap('twilight_shifted', 0, 0.93)
+
+    # 143287 plotting.
+    plot_vel_or_sig(csv_path = gas_output_file_143287_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
+                    value_type = 'gas', ax = axs[0, 0], plot_psf = True, psffwhm = 2.250, vmin = -1.8, galaxy_name = '143287')
+
+    plot_vel_or_sig(csv_path = gas_output_file_143287_kinematics, cmap = vel_cmap_143287, cbar_label = 'Velocity (km/s)',
+                    value_type = 'vel', ax = axs[0, 1], PAs = [33.5], line_length = 10, plot_psf = True, psffwhm = 2.250, vmin = -170, vmax = 170)
+
+    plot_vel_or_sig(csv_path = gas_output_file_143287_kinematics, cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)',
+                    value_type = 'sig', ax = axs[0, 2], plot_psf = True, psffwhm = 2.250, vmin = 10, vmax = 130)
+
+    # directly copied from stellar kinematic.
+    plot_vel_or_sig(csv_path = star_output_file_143287_kinematics, value_type = 'vel', ax = axs[0, 3], cmap = vel_cmap_143287_star, cbar_label = 'Velocity (km/s)',
+                    plot_psf = True, fontsize = 10, psffwhm = 2.250, vmin = -85, vmax = 85, PAs = [43.13, -161.73], line_length = [2, 8])
+
+    # 227266 plotting.
     plot_vel_or_sig(csv_path = gas_output_file_227266_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
                     ax = axs[0], value_type = 'gas', vmin = -2, vmax = 2,
                     plot_psf = True, psffwhm= 2.108)
