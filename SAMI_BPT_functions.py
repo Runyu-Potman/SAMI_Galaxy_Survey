@@ -848,9 +848,8 @@ if __name__ == "__main__":
     plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, cmap = vel_cmap, cbar_label = 'Velocity (km/s)',
                     value_type = 'vel', ax = axs[1, 1], PAs = [7], line_length = 9, plot_psf = True, psffwhm = 2.108)
 
-    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'vel', ax = axs[1], cmap = vel_cmap, cbar_label = 'Velocity (km/s)', plot_psf = True, vmin=-200, vmax = 200,
-                    PAs= [11], psffwhm= 2.108)
-    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, value_type = 'sig', ax = axs[2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, psffwhm= 2.108, vmin = 50, vmax = 200)
+    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)',
+                    value_type = 'sig', ax = axs[1, 2], plot_psf = True, psffwhm = 2.108)
 
     axs[0].set_title(r'H$\alpha$ Flux', fontsize = 10)
     axs[1].set_title('Gas Velocity', fontsize = 10)
