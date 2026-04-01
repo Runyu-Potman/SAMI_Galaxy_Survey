@@ -851,10 +851,20 @@ if __name__ == "__main__":
     plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)',
                     value_type = 'sig', ax = axs[1, 2], plot_psf = True, psffwhm = 2.108)
 
-    axs[0].set_title(r'H$\alpha$ Flux', fontsize = 10)
-    axs[1].set_title('Gas Velocity', fontsize = 10)
-    axs[1].text(4.8, 9.5, r'$\mathrm{PA}_\mathrm{\,gas}$ = $191^\circ$', color = 'black', fontsize = 10, ha = 'center')
-    axs[2].set_title('Gas Velocity Dispersion', fontsize = 10)
+    # directly copied from stellar kinematics.
+    plot_vel_or_sig(csv_path = star_output_file_227266_kinematics, value_type = 'vel', ax = axs[1, 3], cmap = vel_cmap, cbar_label = 'Velocity (km/s)',
+                    plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = -55, vmax = 55, PAs = [170.54, 32.43], line_length = [3, 9.5], pa_center_x = 0.5, pa_center_y = 0.5)
+
+    axs[0, 0].set_title(r'H$\alpha$ Flux', fontsize = 10)
+    axs[0, 1].set_title('Gas Velocity', fontsize = 10)
+    axs[0, 2].set_title('Gas Velocity Dispersion', fontsize = 10)
+    axs[0, 3].set_title('Stellar Velocity', fontsize = 10)
+    axs[0, 1].text(-7, 9, r'$\mathrm{PA}_\mathrm{\,gas}$=$-146.5^\circ$', color = 'black', fontsize = 10, ha = 'left')
+    axs[0, 3].text(1, -1, r'$\mathrm{PA}_\bigstar$=$43.13^\circ$', color = 'black', fontsize = 10, ha = 'left')
+    axs[0, 3].text(-4, 8.2, r'$\mathrm{PA}_\bigstar$=$-161.73^\circ$', color = 'black', fontsize = 10, ha = 'left')
+    axs[1, 1].text(-2.5, 9.6, r'$\mathrm{PA}_\mathrm{\,gas}$=$187^\circ$', color = 'black', fontsize = 10, ha = 'left')
+    axs[1, 3].text(-11, -4.5, r'$\mathrm{PA}_\bigstar$=$170.54^\circ$', color = 'black', fontsize = 10, ha = 'left')
+    axs[1, 3].text(-6, 9.1, r'$\mathrm{PA}_\bigstar$=$32.43^\circ$', color = 'black', fontsize = 10, ha = 'left')
 
     #---------------------------------------------------------------------------
     # same axis ratio.
