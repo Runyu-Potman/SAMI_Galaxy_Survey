@@ -860,7 +860,7 @@ if __name__ == "__main__":
     axs[0, 2].set_title('Gas Velocity Dispersion', fontsize = 10)
     axs[0, 3].set_title('Stellar Velocity', fontsize = 10)
     axs[0, 1].text(-7, 9, r'$\mathrm{PA}_\mathrm{\,gas}$=$-146.5^\circ$', color = 'black', fontsize = 10, ha = 'left')
-    axs[0, 3].text(1, -1, r'$\mathrm{PA}_\bigstar$=$43.13^\circ$', color = 'black', fontsize = 10, ha = 'left')
+    axs[0, 3].text(1, -0.9, r'$\mathrm{PA}_\bigstar$=$43.13^\circ$', color = 'black', fontsize = 10, ha = 'left')
     axs[0, 3].text(-4, 8.2, r'$\mathrm{PA}_\bigstar$=$-161.73^\circ$', color = 'black', fontsize = 10, ha = 'left')
     axs[1, 1].text(-2.5, 9.6, r'$\mathrm{PA}_\mathrm{\,gas}$=$187^\circ$', color = 'black', fontsize = 10, ha = 'left')
     axs[1, 3].text(-11, -4.5, r'$\mathrm{PA}_\bigstar$=$170.54^\circ$', color = 'black', fontsize = 10, ha = 'left')
