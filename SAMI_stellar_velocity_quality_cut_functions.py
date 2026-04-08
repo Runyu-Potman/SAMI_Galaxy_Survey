@@ -637,7 +637,9 @@ def quality_cut_stellar_velocity_map_four_moment(
             cleaned_h3_err_data[Q3_mask] += uncertainty_value
             cleaned_h4_err_data[Q3_mask] += uncertainty_value
         else:
-            raise ValueError("please give uncertainty_value when setting Q3_downweight.")
+            # we directly double the error for downweighting.
+            cleaned_h3_err_data[Q3_mask] *= 2.0
+            cleaned_h4_err_data[Q3_mask] *= 2.0
 
     if plot:
         def plot(data, title, label = None):
