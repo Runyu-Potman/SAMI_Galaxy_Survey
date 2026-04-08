@@ -456,6 +456,9 @@ def quality_cut_stellar_velocity_map_four_moment(
     - h4_fits_path: str, path to the kurtosis fits file.
     - output_filename: str, name and path of the output fits file (if dynamite = True).
     - Q3: the Q3 quality cut criteria when considering four moment, default = False.
+    - Q3_downweight: whether to do the downweighting following Santucci 2022 or not.
+    - uncertainty_value: the additional value added on the h3 and h4 for spaxels which do not pass Q3 for downweighting,
+                         if None, then the error in h3 and h4 would be doubled.
     - plot: plot the vel, sig, h3 and h4.
     - dynamite: whether to prepare for dynamite input or not.
     - center_x: the center of the galaxy in pixel unit, default = 25.
