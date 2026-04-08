@@ -114,7 +114,7 @@ def quality_cut_stellar_velocity_map(vel_fits_path, sig_fits_path, vmin = None, 
 
 #----------------------------------------------------------------------------------------------------
 def quality_cut_stellar_velocity_map_csv(vel_fits_path, sig_fits_path, output_file, pixel_to_arc = True,
-                                         center_x = 25, center_y = 25):
+                                         center_x = 24.5, center_y = 24.5):
     '''
     Apply the quality cut criteria and make plot with x_axis and y_axis in arcsec unit, note that the center of
     the galaxy in this function is now shifted to (0, 0), in preparation for e.g., position angle calculation.
