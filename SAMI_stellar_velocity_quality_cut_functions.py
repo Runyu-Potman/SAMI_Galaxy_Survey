@@ -356,6 +356,7 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
     - x_center: float, x-coordinate of the center of the galaxy in pixel.
     - y_center: float, y-coordinate of the center of the galaxy in pixel.
     - scale: float, pixel scale.
+    - manual_mask: list of (y, x) pixels to mask manually.
 
     Returns:
     - None
