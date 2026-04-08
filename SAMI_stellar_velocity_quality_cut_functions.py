@@ -382,6 +382,15 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
     Halpha_data = Halpha_data[0, :, :]
     Halpha_err_data = Halpha_err_data[0, :, :]
 
+    if manual_mask is not None:
+        for y, x in manual_mask:
+            vel_data[y, x] = np.nan
+            vel_err_data[y, x] = np.nan
+            sig_data[y, x] = np.nan
+            sig_err_data[y, x] = np.nan
+            Halpha_data[y, x] = np.nan
+            Halpha_err_data[y, x] = np.nan
+
     # mask NaN values in the initial velocity, velocity error, dispersion, dispersion error, Halpha, Halpha error.
     # if any of the six maps have a NaN value at a specific spaxel, this spaxel should be excluded.
     vel_data = np.ma.masked_invalid(vel_data)
