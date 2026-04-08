@@ -332,7 +332,7 @@ def quality_cut_stellar_velocity_map_global(vel_base_dir, sig_base_dir, output_d
 
 #---------------------------------------------------------------------------------------------------
 def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fits_path, output_file, pixel_to_arc = True,
-                                         threshold = 5, x_center = 25, y_center = 25, scale = 0.5):
+                                         threshold = 5, x_center = 24.5, y_center = 24.5, scale = 0.5, manual_mask = None):
     '''
     Apply the quality cut criteria and prepare csv file with x_axis and y_axis in arcsec unit, note that the center
     of the galaxy in this function is now shifted to (0, 0), in preparation for e.g., position angle calculation.
