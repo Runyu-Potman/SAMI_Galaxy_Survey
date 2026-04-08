@@ -456,7 +456,7 @@ def quality_cut_stellar_velocity_map_four_moment(
         dynamite = False, center_x = 24.5, center_y = 24.5, vmin = None, vmax = None):
     '''
     Apply the quality cut criteria and make plot with x_axis and y_axis in pixel unit,
-    note that the center of the galaxy is located at around (25, 25).If dynamite = True,
+    note that the center of the galaxy is located at around (24.5, 24.5).If dynamite = True,
     then a fits file will be prepared for dynamite input, the center will be shifted to (0, 0).
 
     Parameters:
