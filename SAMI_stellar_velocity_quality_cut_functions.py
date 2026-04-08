@@ -471,8 +471,8 @@ def quality_cut_stellar_velocity_map_four_moment(
                          if None, then the error in h3 and h4 would be doubled.
     - plot: plot the vel, sig, h3 and h4.
     - dynamite: whether to prepare for dynamite input or not.
-    - center_x: the center of the galaxy in pixel unit, default = 25.
-    - center_y: the center of the galaxy in pixel unit, default = 25.
+    - center_x: the center of the galaxy in pixel unit, default = 24.5.
+    - center_y: the center of the galaxy in pixel unit, default = 24.5.
     - vmin: int, minimum value for the color bar.
     - vmax: int, maximum value for the color bar.
 
