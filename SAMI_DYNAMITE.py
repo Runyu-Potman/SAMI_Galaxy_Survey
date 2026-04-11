@@ -613,7 +613,7 @@ if __name__ == '__main__':
     # write aperture.dat and bins.dat files.
     # angle degree is from find_galaxy using the total flux map.
     create_kin_input('143287', in_file, out_dir, expr = '',
-                     fit_PA = False, kin_input = 'SAMI', plot = True, angle_deg = 36.2)
+                     fit_PA = False, kin_input = 'SAMI', plot = True, angle_deg = 35.2)
 
     # add the PSF to the header of the kinematic file.
     gh = dyn.kinematics.GaussHermite()
