@@ -395,6 +395,10 @@ if __name__ == '__main__':
     axs[1, 0].set_box_aspect(1)
     axs[1, 1].set_box_aspect(1)
     axs[1, 2].set_box_aspect(1)
+    axs[1, 3].set_box_aspect(1)
+    axs[1, 4].set_box_aspect(1)
+    axs[1, 5].set_box_aspect(1)
+
     axs[2, 0].set_box_aspect(1)
     axs[2, 1].set_box_aspect(1)
     axs[2, 2].set_box_aspect(1)
