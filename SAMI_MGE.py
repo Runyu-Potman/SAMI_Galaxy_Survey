@@ -453,6 +453,63 @@ if __name__ == '__main__':
 
     fig, axs = plt.subplots(2, 5, figsize = (50/3, 6))
 
+    ######################################################################################
+    # 7969
+    #####################################################################################
+    # usage example for SDSS r band image and sextractor.
+    # step one: cutout the image and estimate PSF (PSF can also be extracted from the catalog).
+    fits_path = '7969/MGE/7969_frame-r.fits'
+
+    ra = 180.03364
+    dec = 0.67385
+
+    scale = 0.396
+
+    cut_size = 50
+
+    output_path = '7969/MGE/7969_cut_image_200_arc.fits'
+
+    cut_data = image_cutout(fits_path = fits_path, ra = ra, dec = dec, scale = scale, cut_size = cut_size,
+                            output_path = output_path, vmin = 0, vmax = 2, rotation = True, align_major = True,
+                            kin_pa = -66.448)
+    # --------------------------------------------------------------------------------
+    # step two: prepare the mask map.
+    fits_path = '7969/MGE/segmentation.fits'
+    mask_map = mask_map_create(fits_path, target_label = 1)
+    # ---------------------------------------------------------------------------------
+    # third step: apply the MGE.
+    apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1,
+              fwhm = 2.836290404, ngauss = 12, Ar = 0.05452766, twist = False,
+              ax = axs[0, 0], tick_lim = 20, loc_min = -20, loc_max = 25, loc_step = 10,
+              title = 'Galaxy 7969', Re = 2.8588330746, psf_label_x = -18, psf_label_y = -18,
+              compass = True, xc = -12.5, yc = 12.5, length = 5, pa = 109.06,
+              N_x_pad = -0.7, N_y_pad = 0.2, E_x_pad = 0.1, E_y_pad = 0)
+
+    # zoom in
+    apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1,
+              fwhm = 2.836290404, ngauss = 12, Ar = 0.05452766, twist = False,
+              ax = axs[1, 0], tick_lim = 7.5, loc_min = -7.5, loc_max = 7.6, loc_step = 2.5,
+              Re = 2.8588330746, psf_label_x = -6.5, psf_label_y = -6.5)
+
+    #-----------------------------------------------------------------------------------
+
+    '''
+    # use the find_galaxy function.
+    vel_fits_path = '7969/dynamite/7969_A_stellar-velocity_default_four-moment.fits'
+
+    with fits.open(vel_fits_path) as vel_map:
+        flux_map = vel_map[2].data
+        flux_map = np.ma.masked_invalid(flux_map)
+
+    plt.clf()
+    f = mge.find_galaxy(img = flux_map, level = 0.005, plot = True)
+    plt.pause(1)
+    '''
+
+
+
+
+
     ###############################################################################################
     # 227266
     ##############################################################################################
