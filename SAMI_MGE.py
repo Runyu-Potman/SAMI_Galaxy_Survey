@@ -40,6 +40,10 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
     - align_major: whether to align the major axis of the image with the horizontal level or not.
     - kin_pa: the kinematic position angle applied when using the align_major option, defined as staring from north,
               counterclockwise.
+    - counterclock: whether to rotate the image counterclockwise with the (90 - kin_pa) value. Default is True, if False,
+                    then the image will be rotated clockwise with the kin_pa value.
+    - IPA: whether to use IPA or not. Default is False, but sometimes there may be error in the header of SDSS image just
+           like galaxy 7969, in which case the SPA value is not reliable and IPA should be used.
 
     Return:
     - rotated_data: the data containing the brightness of all sources.
