@@ -83,6 +83,10 @@ def image_cutout(fits_path, ra, dec, scale, cut_size, output_path, vmin = None, 
             pa = header['SPA']
             print(f'Position angle (SPA) from header: {pa} degrees')
 
+            if IPA is True:
+                pa = header['IPA']
+                print(f'Position angle (IPA) from header: {pa} degrees')
+
             if align_major:
                 if counterclock:
                     rotated_data = rotate(cutout.data, -(pa + (90 - kin_pa)), reshape=True)
