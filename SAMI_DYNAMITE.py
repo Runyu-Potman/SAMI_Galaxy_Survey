@@ -491,7 +491,8 @@ if __name__ == '__main__':
 
     # convert file to ECSV, fit the kinematic PA.
     # write aperture.dat and bins.dat files.
-    # angle degree is from find_galaxy using the total flux map.
+    # angle degree is from find_galaxy using the total flux map (not anymore! See below.).
+    # for this galaxy, because of the dust lane, so we directly use the angle from the sdss r band image.
     create_kin_input('227266', in_file, out_dir, expr = '',
                      fit_PA = False, kin_input = 'SAMI', plot = True, angle_deg = 80.4)
 
