@@ -362,9 +362,10 @@ if __name__ == '__main__':
     # ------------------------------------------------------------------------------------------
     # 230776 optical.
     optical_230776 = Image.open('230776/optical/230776_optical_image.jpg')
-    axs[1, 3].imshow(optical_230776)
-    axs[1, 3].set_ylabel('Galaxy 230776', fontsize = 10, labelpad = 0.85)
-    add_circle(axs[1, 3], optical_230776, linewidth = 1, label = True, E_bar = 6.5)
+    axs[0, 3].imshow(optical_230776)
+    axs[0, 3].set_ylabel('Galaxy 230776', fontsize = 10, labelpad = 0.85)
+    add_circle(axs[0, 3], optical_230776, linewidth = 1, label = True, E_bar = 6.5)
+    axs[0, 3].set_title('SDSS Optical Image', fontsize = 10)
 
     # 230776 kinematics.
     plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'vel', ax = axs[1, 4], cmap = vel_cmap_230776, cbar_label = 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.144, vmin = -35, vmax = 35)
