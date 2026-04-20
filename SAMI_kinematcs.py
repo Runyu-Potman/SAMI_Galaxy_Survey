@@ -379,8 +379,8 @@ if __name__ == '__main__':
     # 230776 kinematics.
     plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'vel', ax = axs[0, 4], cmap = vel_cmap_230776, cbar_label = 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.144, vmin = -35, vmax = 35)
     plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'sig', ax = axs[0, 5], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.144, vmin = 270, vmax = 350)
-    axs[0, 4].set_title('Stellar Velocity', fontsize = 10)
-    axs[0, 5].set_title('Stellar Velocity Dispersion', fontsize = 10)
+    axs[0, 4].set_title('Stellar Velocity', fontsize = 10, pad = 8)
+    axs[0, 5].set_title('Stellar Velocity Dispersion', fontsize = 10, pad = 8)
     # --------------------------------------------------------------------------------------------
     # 300787 optical.
     optical_300787 = Image.open('300787/optical/300787_optical_image.jpg')
