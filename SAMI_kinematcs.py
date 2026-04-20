@@ -362,7 +362,7 @@ if __name__ == '__main__':
     # 227266 optical.
     optical_227266 = Image.open('227266/optical/227266_optical_image.jpg')
     axs[2, 0].imshow(optical_227266)
-    axs[2, 0].set_ylabel('Galaxy 227266', fontsize = 10, labelpad = 0.85)
+    axs[2, 0].set_ylabel('Galaxy 227266', fontsize = 10, labelpad = 8)
     add_circle(axs[2, 0], optical_227266, linewidth = 1, label = True, E_bar = 3.3)
 
     # 227266 kinematics.
