@@ -372,7 +372,7 @@ if __name__ == '__main__':
     # 230776 optical.
     optical_230776 = Image.open('230776/optical/230776_optical_image.jpg')
     axs[0, 3].imshow(optical_230776)
-    axs[0, 3].set_ylabel('Galaxy 230776', fontsize = 10, labelpad = 0.85)
+    axs[0, 3].set_ylabel('Galaxy 230776', fontsize = 10, labelpad = 8)
     add_circle(axs[0, 3], optical_230776, linewidth = 1, label = True, E_bar = 6.5)
     axs[0, 3].set_title('SDSS Optical Image', fontsize = 10)
 
