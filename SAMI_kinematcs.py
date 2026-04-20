@@ -340,7 +340,7 @@ if __name__ == '__main__':
     axs[0, 0].imshow(optical_7969)
     axs[0, 0].set_ylabel('Galaxy 7969', fontsize = 10, labelpad = 8)
     add_circle(axs[0, 0], optical_7969, linewidth = 1, label = True, E_bar = 1.6)
-    axs[0, 0].set_title('SDSS Optical Image', fontsize = 10)
+    axs[0, 0].set_title('SDSS Optical Image', fontsize = 10, pad = 8)
 
     # 7969 kinematics.
     plot_vel_or_sig(csv_path = star_output_file_7969, value_type = 'vel', ax = axs[0, 1], cmap = vel_cmap_7969, cbar_label= 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 1.561, vmin = -80, vmax = 80)
