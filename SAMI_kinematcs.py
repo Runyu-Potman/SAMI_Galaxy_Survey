@@ -322,7 +322,7 @@ if __name__ == '__main__':
     quality_cut_stellar_velocity_map_csv(star_vel_9239900248, star_sig_9239900248, star_output_file_9239900248, pixel_to_arc = True)
     #-------------------------------------------------------------------------------------------------
     # the total plot.
-    fig, axs = plt.subplots(3, 6, figsize = (20, 9))
+    fig, axs = plt.subplots(3, 6, figsize = (20, 10))
     # introduce a new colormap consistent with DYNAMITE.
     vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
     vel_cmap_7969 = cmr.get_sub_cmap('twilight_shifted', 0, 0.85)
