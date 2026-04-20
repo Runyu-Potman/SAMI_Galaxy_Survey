@@ -662,3 +662,4 @@ if __name__ == '__main__':
     gh = dyn.kinematics.GaussHermite()
     gh.add_psf_to_datafile(sigma=[0.8996], weight=[1.0],
                            datafile=f'{out_dir}/gauss_hermite_kins.ecsv')
+    '''
