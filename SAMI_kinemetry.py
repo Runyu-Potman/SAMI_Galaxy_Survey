@@ -515,7 +515,7 @@ velbin = csv_file['vel'].values
 er_velbin = csv_file['vel_err'].values
 
 '''
-mask = inside_radius_mask(xbin, ybin, 6)
+mask = inside_radius_mask(xbin, ybin, 4)
 
 x_mask = xbin[~mask]
 y_mask = ybin[~mask]
