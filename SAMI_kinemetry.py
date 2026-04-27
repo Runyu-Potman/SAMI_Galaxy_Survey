@@ -491,6 +491,23 @@ ybin = csv_file['y_arcsec'].values
 velbin = csv_file['vel'].values
 er_velbin = csv_file['vel_err'].values
 
+'''
+mask = inside_radius_mask(xbin, ybin, 4)
+
+x_mask = xbin[~mask]
+y_mask = ybin[~mask]
+vel_mask = velbin[~mask]
+er_vel_mask = er_velbin[~mask]
+
+vel_corr = vel_mask - np.median(vel_mask)
+
+plt.clf()
+
+fit_kinematic_pa(x = x_mask, y = y_mask, vel = vel_corr, dvel = er_vel_mask, plot = True, quiet = False, debug = False)
+plt.pause(1)
+'''
+
+# by using the fit_kinematic_pa code, we estimate the pa in the CRC to be 139.5 +/- 36.5 degrees and the pa for the main stellar body to be 116.5 +/- 35.5 degrees.
 k_7969 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.73, 1],
                    rangePA = [-180, 180], npa = 41, nq = 41, plot = False, scale = 1, ring = 0, cover = 0.75)
 print('7969 PA:', k_7969.pa)
