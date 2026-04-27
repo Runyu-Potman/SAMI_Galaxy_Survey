@@ -526,9 +526,10 @@ print('7969 PA sigma:', k_7969_extra.er_pa)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_7969_extra)
 #plt.show()
 
-pa_and_k1_plot(k_7969, axs = axs[:, 0], ypa_lim = [-120, 180], ypa_tick = (-120, 185, 60), yk1_lim = [0, 35], yk1_tick = (0, 35, 5),
-               x_lim = [0, 4.5], x_tick = (0, 5, 1), pa1 = 180 + np.mean(k_7969.pa[:3]), pa2 = np.mean(k_7969.pa[-3:]) - 180, counter_rotating = True,
-               label_pad = 0)
+pa_and_k1_plot(k_7969, axs = axs[:, 0], ypa_lim = [-100, 175], ypa_tick = (-100, 175, 50), yk1_lim = [0, 50], yk1_tick = (0, 50, 10),
+               x_lim = [0, 4.5], x_tick = (0, 4.5, 1), pa1 = np.mean(k_7969.pa[:3]), pa2 = np.mean(k_7969_extra.pa[-4:]),
+               label_pad = 0,
+               k_extra = k_7969_extra, r_extra = 4)
 axs[0, 0].set_title('Galaxy 7969', fontsize = 10)
 
 #-------------------------------------------------------------------------------------------------------------------
