@@ -601,6 +601,57 @@ pa_and_k1_plot(k_230776, axs = axs[:, 3], ypa_lim = [-100, 25], ypa_tick = (-100
                x_lim = [0, 8.5], x_tick = (0, 8.5, 1), pa1 = np.mean(k_230776.pa[:7]), pa2 = np.mean(k_230776.pa[-5:]),
                pa1_err = np.std(k_230776.pa[:7]), pa2_err = np.std(k_230776.pa[-5:]), label_pad = 0)
 axs[0, 3].set_title('Galaxy 230776', fontsize = 10)
+'''
+
+# 300787
+csv_file = pd.read_csv('300787/kinematic/300787_quality_cut_stellar_velocity_map.csv')
+
+xbin = csv_file['x_arcsec'].values
+ybin = csv_file['y_arcsec'].values
+velbin = csv_file['vel'].values
+er_velbin = csv_file['vel_err'].values
+
+'''
+mask = inside_radius_mask(xbin, ybin, 4)
+
+x_mask = xbin[~mask]
+y_mask = ybin[~mask]
+vel_mask = velbin[~mask]
+er_vel_mask = er_velbin[~mask]
+
+vel_corr = vel_mask - np.median(vel_mask)
+
+plt.clf()
+
+fit_kinematic_pa(x = x_mask, y = y_mask, vel = vel_corr, dvel = er_vel_mask, plot = True, quiet = False, debug = False)
+plt.pause(1)
+
+'''
+
+# by using the fit_kinematic_pa code, we estimate the pa in the CRC to be 140 +/- 62.3 degrees and the pa for the main stellar body to be 124 +/- 6.8 degrees.
+k_300787 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.64, 0.84],
+                     rangePA = [110, 170], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.6, cover = 0.5)
+print('300787 PA:', k_300787.pa)
+print('300787 PA sigma:', k_300787.er_pa)
+
+#plot_kinemetry_profiles_velocity(k_300787)
+#plot_kinemetry_maps(xbin, ybin, velbin, k_300787)
+#plt.show()
+
+k_300787_extra = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.64, 0.84],
+                     rangePA = [-70, -10], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.6, cover = 0.5)
+print('300787 PA:', k_300787_extra.pa)
+print('300787 PA sigma:', k_300787_extra.er_pa)
+
+#plot_kinemetry_profiles_velocity(k_300787_extra)
+#plot_kinemetry_maps(xbin, ybin, velbin, k_300787_extra)
+#plt.show()
+
+pa_and_k1_plot(k_300787, axs = axs[:, 4], ypa_lim = [-70, 180], ypa_tick = (-70, 185, 50), yk1_lim = [0, 120], yk1_tick = (0, 120, 20),
+               x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = np.mean(k_300787.pa[:4]), pa2 = np.mean(k_300787_extra.pa[-5:]),
+               pa1_err = np.std(k_300787.pa[:4]), pa2_err = np.std(k_300787_extra.pa[-5:]), label_pad = 0,
+               k_extra = k_300787_extra, r_extra = 5.5)
+axs[0, 4].set_title('Galaxy 300787', fontsize = 10)
 
 #-----------------------------------------------------------------------------------------------------------------------
 # 9239900248
