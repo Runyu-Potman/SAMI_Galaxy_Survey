@@ -699,10 +699,11 @@ print('9239900248 PA sigma:', k_9239900248_extra.er_pa)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_9239900248_extra)
 #plt.show()
 
-pa_and_k1_plot(k_9239900248, axs = axs[:, 4], ypa_lim = [-180, 45], ypa_tick = (-180, 46, 50), yk1_lim = [0, 150], yk1_tick = (0, 150, 50),
-               x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = -138.03, pa2 = 25.54, pa1_err = 11.21, pa2_err = 6.09, label_pad = 0,
-               k_extra = k_9239900248_extra, r_extra = 6.2, counter_rotating = True)
-axs[0, 4].set_title('Galaxy 9239900248', fontsize = 10)
+pa_and_k1_plot(k_9239900248, axs = axs[:, 5], ypa_lim = [-180, 60], ypa_tick = (-180, 65, 40), yk1_lim = [0, 120], yk1_tick = (0, 120, 20),
+               x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = np.mean(k_9239900248.pa[:4]), pa2 = np.mean(k_9239900248_extra.pa[-6:]),
+               pa1_err = np.std(k_9239900248.pa[:4]), pa2_err = np.std(k_9239900248_extra.pa[-6:]), label_pad = 0,
+               k_extra = k_9239900248_extra, r_extra = 5)
+axs[0, 5].set_title('Galaxy 9239900248', fontsize = 10)
 
 #-----------------------------------------------------------------------------------------------------------------------
 # same axis ratio.
