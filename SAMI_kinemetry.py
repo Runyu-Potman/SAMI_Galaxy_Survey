@@ -517,6 +517,15 @@ print('7969 PA sigma:', k_7969.er_pa)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_7969)
 #plt.show()
 
+k_7969_extra = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.8, 1],
+                   rangePA = [-50, -30], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.2, cover = 0.5)
+print('7969 PA:', k_7969_extra.pa)
+print('7969 PA sigma:', k_7969_extra.er_pa)
+
+#plot_kinemetry_profiles_velocity(k_7969_extra)
+#plot_kinemetry_maps(xbin, ybin, velbin, k_7969_extra)
+#plt.show()
+
 pa_and_k1_plot(k_7969, axs = axs[:, 0], ypa_lim = [-120, 180], ypa_tick = (-120, 185, 60), yk1_lim = [0, 35], yk1_tick = (0, 35, 5),
                x_lim = [0, 4.5], x_tick = (0, 5, 1), pa1 = 180 + np.mean(k_7969.pa[:3]), pa2 = np.mean(k_7969.pa[-3:]) - 180, counter_rotating = True,
                label_pad = 0)
