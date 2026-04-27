@@ -599,7 +599,7 @@ print('230776 PA sigma:', k_230776.er_pa)
 
 pa_and_k1_plot(k_230776, axs = axs[:, 3], ypa_lim = [-100, 25], ypa_tick = (-100, 25, 50), yk1_lim = [0, 30], yk1_tick = (0, 30, 5),
                x_lim = [0, 8.5], x_tick = (0, 8.5, 1), pa1 = np.mean(k_230776.pa[:7]), pa2 = np.mean(k_230776.pa[-5:]),
-               pa1_err = np.std(k_230776.pa[:7]), pa2_err = np.std(k_230776.pa[-5:]), label_pad = 0)
+               label_pad = 0)
 axs[0, 3].set_title('Galaxy 230776', fontsize = 10)
 
 #-----------------------------------------------------------------------------------------------------------------------
