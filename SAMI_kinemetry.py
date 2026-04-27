@@ -502,7 +502,7 @@ print('7969 PA sigma:', k_7969.er_pa)
 
 pa_and_k1_plot(k_7969, axs = axs[:, 0], ypa_lim = [-120, 180], ypa_tick = (-120, 185, 60), yk1_lim = [0, 35], yk1_tick = (0, 35, 5),
                x_lim = [0, 4.5], x_tick = (0, 5, 1), pa1 = 180 + np.mean(k_7969.pa[:3]), pa2 = np.mean(k_7969.pa[-3:]) - 180, counter_rotating = True,
-               pa1_err = np.std(k_7969.pa[:3]), pa2_err = np.std(k_7969.pa[-3:]), label_pad = 0)
+               label_pad = 0)
 axs[0, 0].set_title('Galaxy 7969', fontsize = 10)
 
 #-------------------------------------------------------------------------------------------------------------------
