@@ -701,7 +701,7 @@ print('9239900248 PA sigma:', k_9239900248_extra.er_pa)
 
 pa_and_k1_plot(k_9239900248, axs = axs[:, 5], ypa_lim = [-180, 60], ypa_tick = (-180, 65, 40), yk1_lim = [0, 120], yk1_tick = (0, 120, 20),
                x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = np.mean(k_9239900248.pa[:4]), pa2 = np.mean(k_9239900248_extra.pa[-6:]),
-               pa1_err = np.std(k_9239900248.pa[:4]), pa2_err = np.std(k_9239900248_extra.pa[-6:]), label_pad = 0,
+               label_pad = 0,
                k_extra = k_9239900248_extra, r_extra = 5)
 axs[0, 5].set_title('Galaxy 9239900248', fontsize = 10)
 
