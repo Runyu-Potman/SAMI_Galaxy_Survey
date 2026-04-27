@@ -678,7 +678,7 @@ fit_kinematic_pa(x = x_mask, y = y_mask, vel = vel_corr, dvel = er_vel_mask, plo
 plt.pause(1)
 '''
 
-# by using the fit_kinematic_pa code, we estimate the pa in the CRC to be 38.0 +/- 18.2 degrees and the pa for the main stellar body to be 32.5 +/- 89.8 degrees.
+# by using the fit_kinematic_pa code, we estimate the pa in the CRC to be 38.0 +/- 15.2 degrees and the pa for the main stellar body to be 34.5 +/- 36.8 degrees.
 k_9239900248 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.47, 0.67],
                          rangePA = [20, 50], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.5, cover = 0.20)
 
