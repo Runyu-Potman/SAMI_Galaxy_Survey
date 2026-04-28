@@ -517,8 +517,6 @@ k_7969 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin,
 
 k_7969_extra = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.8, 1],
                    rangePA = [-50, -30], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.2, cover = 0.5)
-print('7969 PA:', k_7969_extra.pa)
-print('7969 PA sigma:', k_7969_extra.er_pa)
 
 #plot_kinemetry_profiles_velocity(k_7969_extra)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_7969_extra)
