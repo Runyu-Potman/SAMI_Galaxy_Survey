@@ -609,9 +609,6 @@ er_velbin = csv_file['vel_err'].values
 k_230776 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.56, 0.76],
                      rangePA = [-90, 90], npa = 41, nq = 41, plot = False, scale = 1, ring = 1.5)
 
-print('230776 PA:', k_230776.pa)
-print('230776 PA sigma:', k_230776.er_pa)
-
 #plot_kinemetry_profiles_velocity(k_230776)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_230776)
 #plt.show()
