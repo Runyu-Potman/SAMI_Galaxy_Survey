@@ -40,6 +40,8 @@ lambda_227266, ellipticity_227266 = correct_lambda_R(0.052233588, 7.1361637115, 
 
 lambda_230776, ellipticity_230776 = correct_lambda_R(0.1039459258, 23.8104171753, 0.342273891, 3.6609, fwhm = 2.144)
 
+lambda_300787, ellipticity_300787 = correct_lambda_R(0.0879260972, 2.3921091557, 0.2605853081, 1.8324, fwhm = 1.941)
+
 lambda_9239900248, ellipticity_9239900248 = correct_lambda_R(0.1128331125, 2.3038685322, 0.4310766757, 2.59, fwhm = 2.118)
 
 print('intrinsic lambda value:', lambda_7969, lambda_143287, lambda_227266, lambda_230776, lambda_9239900248)
