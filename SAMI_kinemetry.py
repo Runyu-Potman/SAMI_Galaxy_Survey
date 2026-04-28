@@ -571,7 +571,7 @@ k_143287_extra = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er
 pa_and_k1_plot(k_143287, axs = axs[:, 1], ypa_lim = [-200, 75], ypa_tick = (-200, 76, 50), yk1_lim = [0, 120], yk1_tick = (0, 120, 20),
                x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = np.mean(k_143287.pa[:4]), pa2 = np.mean(k_143287_extra.pa[-6:]),
                label_pad = 0,
-               k_extra = k_143287_extra, r_extra = 6)
+               k_extra = k_143287_extra, r_extra = 5)
 axs[0, 1].set_title('Galaxy 143287', fontsize = 10)
 #------------------------------------------------------------------------------------------------------------------
 # 227266.
