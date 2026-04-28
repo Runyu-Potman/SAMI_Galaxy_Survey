@@ -563,8 +563,6 @@ k_143287 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbi
 
 k_143287_extra = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.53, 0.73],
                      rangePA = [-170, -130], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.3, cover = 0.2)
-print('143287 PA:', k_143287_extra.pa)
-print('143287 PA sigma:', k_143287_extra.er_pa)
 
 #plot_kinemetry_profiles_velocity(k_143287_extra)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_143287_extra)
