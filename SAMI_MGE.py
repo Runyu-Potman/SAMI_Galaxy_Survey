@@ -801,5 +801,6 @@ if __name__ == '__main__':
     axs[1, 4].set_box_aspect(1)
     axs[1, 5].set_box_aspect(1)
 
+    plt.tight_layout(h_pad = 0.5, w_pad = -12)
     plt.savefig('final/mge.png', dpi=1000, bbox_inches='tight')
     plt.show()
