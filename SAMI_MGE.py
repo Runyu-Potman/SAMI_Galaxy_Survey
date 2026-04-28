@@ -462,6 +462,59 @@ if __name__ == '__main__':
     fig, axs = plt.subplots(2, 5, figsize = (50/3, 6))
 
     ######################################################################################
+    # 300787
+    #####################################################################################
+    # usage example for SDSS r band image and sextractor.
+    # step one: cutout the image and estimate PSF (PSF can also be extracted from the catalog).
+    fits_path = '300787/MGE/300787_frame-r.fits'
+
+    ra = 130.93496
+    dec = 1.07919
+
+    scale = 0.396
+
+    cut_size = 100
+
+    output_path = '300787/MGE/300787_cut_image_200_arc.fits'
+
+    cut_data = image_cutout(fits_path = fits_path, ra = ra, dec = dec, scale = scale, cut_size = cut_size,
+                            output_path = output_path, vmin = 0, vmax = 2, rotation = True, align_major = True,
+                            kin_pa = 33.32)
+    # --------------------------------------------------------------------------------
+    # step two: prepare the mask map.
+    fits_path = '300787/MGE/segmentation.fits'
+    mask_map = mask_map_create(fits_path, target_label = 10)
+    # ---------------------------------------------------------------------------------
+
+    # third step: apply the MGE.
+    apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1,
+              fwhm = 3.22295202, ngauss = 12, Ar = 0.08618277, twist = False,
+              ax = axs[0, 4], tick_lim = 20, loc_min = -20, loc_max = 21, loc_step = 10,
+              title = 'Galaxy 300787', Re = 2.3921091557, psf_label_x = -18, psf_label_y = -18,
+              compass = True, xc = -12.5, yc = 12.5, length = 5, pa = -33.32,
+              N_x_pad = 0.2, N_y_pad = 0.5, E_x_pad = -0.6, E_y_pad = -0.1)
+
+    # zoom in
+    apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1,
+              fwhm = 3.22295202, ngauss = 12, Ar = 0.08618277, twist = False,
+              ax = axs[1, 4], tick_lim = 7.5, loc_min = -7.5, loc_max = 7.6, loc_step = 2.5,
+              Re = 2.3921091557, psf_label_x = -6.5, psf_label_y = -6.5)
+
+    #-----------------------------------------------------------------------------------
+    '''
+    # use the find_galaxy function.
+    vel_fits_path = '300787/dynamite/300787_A_stellar-velocity_default_four-moment.fits'
+
+    with fits.open(vel_fits_path) as vel_map:
+        flux_map = vel_map[2].data
+        flux_map = np.ma.masked_invalid(flux_map)
+
+    plt.clf()
+    f = mge.find_galaxy(img = flux_map, level = 0.01, plot = True)
+    plt.pause(1)
+    '''
+
+    ######################################################################################
     # 7969
     #####################################################################################
     # usage example for SDSS r band image and sextractor.
