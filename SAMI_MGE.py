@@ -769,7 +769,7 @@ if __name__ == '__main__':
     # zoom in
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1,
               fwhm = 2.643795455, ngauss = 12, Ar = 0.07838505, twist = False,
-              ax = axs[1, 4], tick_lim = 7.5, loc_min = -7.5, loc_max = 7.6, loc_step = 2.5,
+              ax = axs[1, 5], tick_lim = 7.5, loc_min = -7.5, loc_max = 7.6, loc_step = 2.5,
               Re = 2.3038685322, psf_label_x = -6.5, psf_label_y = -6.5)
     #-----------------------------------------------------------------------------------
     '''
