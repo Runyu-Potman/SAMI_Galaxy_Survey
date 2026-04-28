@@ -799,6 +799,7 @@ if __name__ == '__main__':
     axs[1, 2].set_box_aspect(1)
     axs[1, 3].set_box_aspect(1)
     axs[1, 4].set_box_aspect(1)
+    axs[1, 5].set_box_aspect(1)
 
     plt.savefig('final/mge.png', dpi=1000, bbox_inches='tight')
     plt.show()
