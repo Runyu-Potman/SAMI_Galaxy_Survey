@@ -647,8 +647,6 @@ plt.pause(1)
 # by using the fit_kinematic_pa code, we estimate the pa in the CRC to be 140 +/- 62.3 degrees and the pa for the main stellar body to be 124 +/- 6.8 degrees.
 k_300787 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbin, x0 = np.median(xbin), y0 = np.median(ybin), rangeQ = [0.64, 0.84],
                      rangePA = [110, 170], npa = 41, nq = 41, plot = False, scale = 1, ring = 0.6, cover = 0.5)
-print('300787 PA:', k_300787.pa)
-print('300787 PA sigma:', k_300787.er_pa)
 
 #plot_kinemetry_profiles_velocity(k_300787)
 #plot_kinemetry_maps(xbin, ybin, velbin, k_300787)
