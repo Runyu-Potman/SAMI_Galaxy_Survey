@@ -788,7 +788,7 @@ if __name__ == '__main__':
                 specNew = specNew, goodpixels_nan = goodpixels_nan, ln_lam = ln_lam,
                 noise_value = noise_value, redshift = redshift, filename = filename,
                 velscale = velscale, start = start, nrand = nrand, optimal_regul = 100,
-                find_regul = False, high_redshift = False, plot = True)
+                find_regul = False, plot = True)
 
             age_map[x, y] = age_mean
             metallicity_map[x, y] = metallicity_mean
