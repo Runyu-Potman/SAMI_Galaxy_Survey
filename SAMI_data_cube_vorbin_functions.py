@@ -411,8 +411,8 @@ if __name__ == "__main__":
     np.save('9239900248/age_z/y_bar.npy', y_bar)
 
     plt.figure(figsize=(6, 6))
-    plt.scatter(x_gen + 25, y_gen + 25, c = 'black', s = 20, label = 'All spaxels')  # All spaxels
-    plt.scatter(x_bar + 25, y_bar + 25, c = 'red', s = 40, marker = 'x', label = 'Bin centers')  # One per bin
+    plt.scatter(x_gen + 24.5, y_gen + 24.5, c = 'black', s = 20, label = 'All spaxels')  # All spaxels
+    plt.scatter(x_bar + 24.5, y_bar + 24.5, c = 'red', s = 40, marker = 'x', label = 'Bin centers')  # One per bin
 
     plt.xlim(-1, 51)
     plt.ylim(-1, 51)
