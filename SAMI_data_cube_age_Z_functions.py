@@ -734,7 +734,7 @@ if __name__ == '__main__':
         blue_cleaned_data_cube = np.ma.masked_invalid(blue_cube)
 
     #-----------------------------------------------------------------------------------
-    noise_value = 0.022
+    noise_value = 0.025
 
     # here we use the miles ssp model (see the code miles_ssp.py for more details).
     filename = 'miles_ssp_models_ch_padova.npz'
