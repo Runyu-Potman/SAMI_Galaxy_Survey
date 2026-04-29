@@ -766,8 +766,11 @@ if __name__ == '__main__':
     for x in range(50):
         for y in range(50):
 
-            # if a pixel is invalid in the blue cube or in the red cube, skip this pixel.
-            if blue_cleaned_data_cube.mask[:, x, y].all() or red_cleaned_data_cube.mask[:, x, y].all():
+            x = 22
+            y = 22
+
+            # if a pixel is invalid in the combined cube, skip this pixel.
+            if blue_cleaned_data_cube.mask[:, y, x].all():
                 continue
 
             # extract the spectrum for each pixel.
