@@ -737,7 +737,21 @@ if __name__ == '__main__':
     noise_value = 0.025
 
     # here we use the miles ssp model (see the code miles_ssp.py for more details).
-    filename = 'miles_ssp_models_ch_padova.npz'
+    #filename = 'miles_ssp_models_ch_padova.npz'
+
+    '''
+
+    sps_name = 'emiles'
+    ppxf_dir = Path(lib.__file__).parent
+    basename = f"spectra_{sps_name}_9.0.npz"
+    filename = ppxf_dir / 'sps_models' / basename
+    if not filename.is_file():
+        url = "https://raw.githubusercontent.com/micappe/ppxf_data/main/" + basename
+        request.urlretrieve(url, filename)
+        
+    '''
+
+    filename = 'miles_ssp_models_basti_ch_baseFe.npz'
 
     start = [[0., 200.], [0., 200.], [0., 200.]]
     nrand = 100
