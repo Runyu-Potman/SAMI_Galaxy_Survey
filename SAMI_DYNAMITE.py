@@ -663,3 +663,41 @@ if __name__ == '__main__':
     gh.add_psf_to_datafile(sigma=[0.8996], weight=[1.0],
                            datafile=f'{out_dir}/gauss_hermite_kins.ecsv')
     '''
+
+    ##############################################################################################
+    # 300787
+    #############################################################################################
+
+    # Gaussian Hermit maps.
+    vel_fits_path = '300787/dynamite/300787_A_stellar-velocity_default_four-moment.fits'
+    sig_fits_path = '300787/dynamite/300787_A_stellar-velocity-dispersion_default_four-moment.fits'
+    h3_fits_path = '300787/dynamite/300787_A_stellar-velocity-h3_default_four-moment.fits'
+    h4_fits_path = '300787/dynamite/300787_A_stellar-velocity-h4_default_four-moment.fits'
+
+    output_filename = '300787/dynamite/300787_input_for_dynamite.fits'
+
+    quality_cut_stellar_velocity_map_four_moment(
+        vel_fits_path = vel_fits_path, sig_fits_path = sig_fits_path,
+        h3_fits_path = h3_fits_path, h4_fits_path = h4_fits_path,
+        output_filename = output_filename, Q3 = True, Q3_downweight = False, uncertainty_value = 0.1,
+        plot = True, dynamite = True)
+
+    # ----------------------------------------------------------------------------------
+    # the kinematic fits file.
+    in_file = output_filename
+
+    # the output will be placed here.
+    out_dir = '300787/dynamite/dynamite_input/'
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
+    # convert file to ECSV, fit the kinematic PA.
+    # write aperture.dat and bins.dat files.
+    # angle degree is from find_galaxy using the total flux map.
+    create_kin_input('300787', in_file, out_dir, expr = '',
+                     fit_PA = False, kin_input = 'SAMI', plot = True, angle_deg = 123.32)
+
+    # add the PSF to the header of the kinematic file.
+    gh = dyn.kinematics.GaussHermite()
+    gh.add_psf_to_datafile(sigma=[0.8241], weight=[1.0],
+                           datafile=f'{out_dir}/gauss_hermite_kins.ecsv')
