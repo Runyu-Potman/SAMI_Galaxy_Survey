@@ -770,9 +770,8 @@ if __name__ == '__main__':
             if blue_cleaned_data_cube.mask[:, x, y].all() or red_cleaned_data_cube.mask[:, x, y].all():
                 continue
 
-            # extract the blue spectrum and corresponding red spectrum for each pixel.
-            blue_spectrum = blue_cleaned_data_cube[:, x, y]
-            red_spectrum = red_cleaned_data_cube[:, x, y]
+            # extract the spectrum for each pixel.
+            blue_spectrum = blue_cleaned_data_cube[:, y, x]
 
             # set masked regions to be NaN.
             blue_spectrum = blue_spectrum.filled(np.nan)
