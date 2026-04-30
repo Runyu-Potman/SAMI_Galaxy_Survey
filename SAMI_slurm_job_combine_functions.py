@@ -49,6 +49,7 @@ def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
         age_std_map[start_y:end_y, :] = age_std_part
         metal_std_map[start_y:end_y, :] = metal_std_part
 
+    # this is for making the spatially resolved maps.
     age_full = age_map.copy()
     metal_full = metal_map.copy()
 
