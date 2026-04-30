@@ -258,7 +258,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
     axs[axs_x, 3].errorbar(
         r_all, metal_array, yerr = metal_std_array,
         fmt = 'none', ecolor = 'lightgray',
-        alpha = 0.25, elinewidth = 1, capsize = 1, zorder = 1
+        alpha = 0.2, elinewidth = 1, capsize = 1, zorder = 1
     )
 
     im = axs[axs_x, 3].scatter(r_all, metal_array, c = r_all, cmap = cmap_3_4, s = 10, alpha = 0.7, zorder = 2)
