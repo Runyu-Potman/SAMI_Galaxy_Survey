@@ -168,6 +168,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
     axs[axs_x, 0].yaxis.set_minor_locator(AutoMinorLocator())
     axs[axs_x, 0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
+    # color bar setting.
     if vmin_z is None:
         vmin_z = np.nanmin(metal_full)
     if vmax_z is None:
