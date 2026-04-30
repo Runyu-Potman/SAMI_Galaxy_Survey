@@ -18,6 +18,8 @@ def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
     - metal_full: full metal map.
     - age_array: age array for gradient.
     - metal_array: metal array for gradient.
+    - age_std_array: standard deviation of age array.
+    - metal_std_array: standard deviation of metal array.
     - r_all: radius in gradient plot relative to galaxy center.
     '''
 
