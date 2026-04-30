@@ -128,6 +128,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
     - None.
     '''
 
+    # colorbar setting.
     if vmin_age is None:
         vmin_age = np.nanmin(10 ** (age_full - 9))
     if vmax_age is None:
