@@ -96,7 +96,7 @@ def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
 
     return age_full, metal_full, age_array, metal_array, age_std_array, metal_std_array, r_all
 #-----------------------------------------------------------------------------------
-def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array,
+def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, age_std_array, metal_std_array,
                    label_pad = 0.85, bar_fraction = 0.0485, bar_pad = 0.02, fontsize = 10,
                    r_dash = None, vmin_age = None, vmax_age = None, vmin_z = None, vmax_z = None,
                    name = None, title = False, cmap_1_2 = 'RdYlBu_r', cmap_3_4 = 'viridis'):
