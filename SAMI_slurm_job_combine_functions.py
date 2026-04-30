@@ -4,7 +4,7 @@ from matplotlib.ticker import AutoMinorLocator
 import matplotlib.patches as patches
 import cmasher as cmr
 
-def slurm_job_combine(base_dir, center_x = 25, center_y = 25):
+def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
     '''
     combine the slurm jobs, do preparation for plotting.
 
