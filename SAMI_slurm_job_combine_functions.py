@@ -71,6 +71,7 @@ def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
     y_bar = np.rint(y_bar).astype(int)
 
     # radius in gradient plot relative to the galaxy center.
+    # transfer from pixel scale into arcsec scale.
     r_all = np.sqrt((x_bar - center_x)** 2 + (y_bar - center_y) ** 2) * 0.5
 
     age_map = age_map[y_bar, x_bar]
