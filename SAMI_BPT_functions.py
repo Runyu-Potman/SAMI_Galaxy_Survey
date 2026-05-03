@@ -852,7 +852,20 @@ if __name__ == "__main__":
 
     # directly copied from stellar kinematic.
     plot_vel_or_sig(csv_path = star_output_file_143287_kinematics, value_type = 'vel', ax = axs[0, 3], cmap = vel_cmap_143287_star, cbar_label = 'Velocity (km/s)',
-                    plot_psf = True, fontsize = 10, psffwhm = 2.250, vmin = -85, vmax = 85, PAs = [43.13, -161.73], line_length = [2, 8])
+                    plot_psf = True, fontsize = 10, psffwhm = 2.250, vmin = -85, vmax = 85, PAs = [44.72, -160.84], line_length = [2, 8])
+
+    
+
+
+
+
+
+
+
+
+
+
+
 
     # 227266 plotting.
     plot_vel_or_sig(csv_path = gas_output_file_227266_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
