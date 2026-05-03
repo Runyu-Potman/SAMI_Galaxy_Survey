@@ -842,7 +842,7 @@ if __name__ == "__main__":
 
     # 143287 plotting.
     plot_vel_or_sig(csv_path = gas_output_file_143287_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
-                    value_type = 'gas', ax = axs[0, 0], plot_psf = True, psffwhm = 2.250, vmin = -1.8, galaxy_name = '143287')
+                    value_type = 'gas', ax = axs[0, 0], plot_psf = True, psffwhm = 2.250, vmin = -1.85, vmax = -0.4, galaxy_name = '143287')
 
     plot_vel_or_sig(csv_path = gas_output_file_143287_kinematics, cmap = vel_cmap_143287, cbar_label = 'Velocity (km/s)',
                     value_type = 'vel', ax = axs[0, 1], PAs = [33.5], line_length = 10, plot_psf = True, psffwhm = 2.250, vmin = -170, vmax = 170)
