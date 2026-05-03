@@ -806,6 +806,10 @@ if __name__ == "__main__":
 
     # 227266 gas distribution output.
     gas_output_file_227266_distribution = '227266/emission_line/227266_quality_cut_gas_distribution_map.csv'
+
+    # 300787 gas distribution output.
+    gas_output_file_300787_distribution = '300787/emission_line/300787_quality_cut_gas_distribution_map.csv'
+
     #----------------------------------------------------------------------------
     # 143287 gas kinematic output.
     gas_output_file_143287_kinematics = '143287/kinematic/143287_quality_cut_gas_velocity_map.csv'
