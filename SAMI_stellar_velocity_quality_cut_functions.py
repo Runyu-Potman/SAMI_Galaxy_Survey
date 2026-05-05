@@ -776,7 +776,8 @@ def quality_cut_stellar_velocity_map_four_moment(
 def quality_cut_sfr_map_csv(sfr_fits_path, output_file, pixel_to_arc = True,
                             x_center = 24.5, y_center = 24.5, scale = 0.5):
     '''
-    clean the sfr map and only extract those spaxels with sfr value > 0.
+    clean the star formation rate or the star formation rate surface density map
+    and only extract those spaxels with sfr value > 0.
 
     Parameters:
     - sfr_fits_path: str, path to the star formation rate or star formation rate surface density map.
