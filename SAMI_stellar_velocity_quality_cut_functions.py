@@ -442,7 +442,7 @@ def quality_cut_gaseous_velocity_map_csv(vel_fits_path, sig_fits_path, Halpha_fi
     with open(output_file, 'w') as f:
         f.write('x_arcsec,y_arcsec,vel,vel_err,sig\n')
         for entry in data_to_save:
-            f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}, {entry[4]}\n')
+            f.write(f'{entry[0]},{entry[1]},{entry[2]},{entry[3]},{entry[4]}\n')
 
     # close the fits files after use.
     vel_map.close()
