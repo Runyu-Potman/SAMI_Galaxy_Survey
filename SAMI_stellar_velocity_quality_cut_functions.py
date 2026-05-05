@@ -809,7 +809,7 @@ def quality_cut_sfr_map_csv(sfr_fits_path, output_file, pixel_to_arc = True,
     sfr_err_data = np.ma.masked_where(sfr_err_data <= 0, sfr_err_data)
 
 
-    # prepare the csv data for the position angle calculation.
+    # prepare the csv data for plotting.
     ny, nx = sfr_data.shape
 
     data_to_save = []
