@@ -858,6 +858,7 @@ if __name__ == "__main__":
     sfr_143287_fits = '143287/emission_line/143287_A_sfr-dens_default_recom-comp.fits'
     sfr_output_file_143287 = '143287/emission_line/143287_quality_cut_sfr.csv'
 
+    quality_cut_sfr_map_csv(sfr_fits_path = sfr_143287_fits, output_file = sfr_output_file_143287)
 
 
 
