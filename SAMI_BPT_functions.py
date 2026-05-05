@@ -851,7 +851,7 @@ if __name__ == "__main__":
                     value_type = 'sig', ax = axs[0, 2], plot_psf = True, psffwhm = 2.250, vmin = 10, vmax = 130)
 
     # directly copied from stellar kinematic.
-    plot_vel_or_sig(csv_path = star_output_file_143287_kinematics, value_type = 'vel', ax = axs[0, 3], cmap = vel_cmap_143287_star, cbar_label = 'Velocity (km/s)',
+    plot_vel_or_sig(csv_path = star_output_file_143287_kinematics, value_type = 'vel', ax = axs[0, 3], cmap = vel_cmap_143287_star, cbar_label = r'$V_{\bigstar}$ (km/s)',
                     plot_psf = True, fontsize = 10, psffwhm = 2.250, vmin = -85, vmax = 85, PAs = [44.72, -160.84], line_length = [2, 8])
 
     
