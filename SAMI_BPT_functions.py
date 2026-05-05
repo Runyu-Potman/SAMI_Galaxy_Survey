@@ -871,7 +871,7 @@ if __name__ == "__main__":
     plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, cmap = vel_cmap, cbar_label = r'$V_\mathrm{gas}$ (km/s)',
                     value_type = 'vel', ax = axs[1, 1], PAs = [17], line_length = 9, plot_psf = True, psffwhm = 2.108)
 
-    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)',
+    plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, cmap = sig_cmap, cbar_label = r'$\sigma_\mathrm{gas}$ (km/s)',
                     value_type = 'sig', ax = axs[1, 2], plot_psf = True, psffwhm = 2.108)
 
     # directly copied from stellar kinematics.
