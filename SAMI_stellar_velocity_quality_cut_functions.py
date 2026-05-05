@@ -830,7 +830,7 @@ def quality_cut_sfr_map_csv(sfr_fits_path, output_file, pixel_to_arc = True,
     with open(output_file, 'w') as f:
         f.write('x_arcsec,y_arcsec,sfr,sfr_err\n')
         for entry in data_to_save:
-            f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}\n')
+            f.write(f'{entry[0]},{entry[1]},{entry[2]},{entry[3]}\n')
 
 #---------------------------------------------------------------------------------
 
