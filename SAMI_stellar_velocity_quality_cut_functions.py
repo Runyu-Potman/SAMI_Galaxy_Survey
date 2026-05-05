@@ -816,7 +816,7 @@ def quality_cut_sfr_map_csv(sfr_fits_path, output_file, pixel_to_arc = True,
 
     for i in range(ny):
         for j in range(nx):
-            if (not sfr_data.mask[i, j] and not sfr_err_data.mask[i, j]):
+            if not sfr_data.mask[i, j] and not sfr_err_data.mask[i, j]:
 
                 if pixel_to_arc:
                     x_arcsec = (j - x_center) * scale
