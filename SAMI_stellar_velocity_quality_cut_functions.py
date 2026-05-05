@@ -772,6 +772,66 @@ def quality_cut_stellar_velocity_map_four_moment(
 
     return combined_mask, cleaned_vel_data
 
+#--------------------------------------------------------------------------------
+def quality_cut_sfr_map_csv(sfr_fits_path, output_file, pixel_to_arc = True,
+                            x_center = 24.5, y_center = 24.5, scale = 0.5):
+    '''
+    clean the sfr map and only extract those spaxels with sfr value > 0.
+
+    Parameters:
+    - sfr_fits_path: str, path to the star formation rate or star formation rate surface density map.
+    - output_file: str, path to the output csv file.
+    - pixel_to_arc: bool, whether to transfer pixel to arcsec.
+    - x_center: float, x-coordinate of the center of the galaxy in pixel.
+    - y_center: float, y-coordinate of the center of the galaxy in pixel.
+    - scale: float, pixel scale.
+
+    Returns:
+    - None
+    '''
+
+    # read the sfr map.
+    with fits.open(sfr_fits_path) as sfr:
+        sfr_data = sfr[0].data
+        sfr_err_data = sfr[1].data
+
+    # extract the total component.
+    sfr_data = sfr_data[0, :, :]
+    sfr_err_data = sfr_err_data[0, :, :]
+
+    # mask the NaN values in the sfr and sfr_err map.
+    sfr_data = np.ma.masked_invalid(sfr_data)
+    sfr_err_data = np.ma.masked_invalid(sfr_err_data)
+
+    # mask unphysical data.
+    sfr_data = np.ma.masked_where(sfr_data <= 0, sfr_data)
+    sfr_err_data = np.ma.masked_where(sfr_err_data <= 0, sfr_err_data)
+
+
+    # prepare the csv data for the position angle calculation.
+    ny, nx = sfr_data.shape
+
+    data_to_save = []
+
+    for i in range(ny):
+        for j in range(nx):
+            if (not sfr_data.mask[i, j] and not sfr_err_data.mask[i, j]):
+
+                if pixel_to_arc:
+                    x_arcsec = (j - x_center) * scale
+                    y_arcsec = (i - y_center) * scale
+                else:
+                    x_arcsec = j - x_center
+                    y_arcsec = i - y_center
+
+                print(f'{x_arcsec}, {y_arcsec}, {sfr_data[i, j]}, {sfr_err_data[i, j]}')
+                data_to_save.append((x_arcsec, y_arcsec, sfr_data[i, j], sfr_err_data[i, j]))
+
+    with open(output_file, 'w') as f:
+        f.write('x_arcsec,y_arcsec,sfr,sfr_err\n')
+        for entry in data_to_save:
+            f.write(f'{entry[0]}, {entry[1]}, {entry[2]}, {entry[3]}\n')
+
 #---------------------------------------------------------------------------------
 
 
