@@ -941,6 +941,15 @@ if __name__ == "__main__":
     axs[1, 1].set_box_aspect(1)
     axs[1, 2].set_box_aspect(1)
     axs[1, 3].set_box_aspect(1)
+    axs[1, 4].set_box_aspect(1)
+
+    axs[2, 0].set_box_aspect(1)
+    axs[2, 1].set_box_aspect(1)
+    axs[2, 2].set_box_aspect(1)
+    axs[2, 3].set_box_aspect(1)
+    axs[2, 4].set_box_aspect(1)
+
+
 
     plt.tight_layout(h_pad = -3, w_pad = 0.85)
     plt.savefig('final/gas_kinematics.png', dpi = 1000, bbox_inches = 'tight')
