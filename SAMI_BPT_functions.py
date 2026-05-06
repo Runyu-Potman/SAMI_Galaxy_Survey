@@ -911,13 +911,6 @@ if __name__ == "__main__":
     plot_vel_or_sig(csv_path = sfr_output_file_300787, cmap = 'magma', cbar_label = r'$\Sigma_\mathrm{SFR}$ ($M_\odot$ yr$^{-1}$ kpc$^{-2}$)',
                     value_type = 'sfr', ax = axs[2, 4], plot_psf = True, psffwhm = 1.941, vmin = 0.005)
 
-
-
-
-
-
-
-
     axs[0, 0].set_title(r'H$\alpha$ Flux', fontsize = 10)
     axs[0, 1].set_title('Gas Velocity', fontsize = 10)
     axs[0, 2].set_title('Gas Velocity Dispersion', fontsize = 10)
