@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap, BoundaryNorm
 from photutils.aperture import CircularAperture, aperture_photometry
 from SAMI_kinematcs import plot_vel_or_sig
-from SAMI_stellar_velocity_quality_cut_functions import quality_cut_gaseous_velocity_map_csv
+from SAMI_stellar_velocity_quality_cut_functions import quality_cut_gaseous_velocity_map_csv, quality_cut_sfr_map_csv
 from matplotlib.ticker import AutoMinorLocator
 from pafit.fit_kinematic_pa import fit_kinematic_pa
 import cmasher as cmr
