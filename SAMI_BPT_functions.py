@@ -879,6 +879,15 @@ if __name__ == "__main__":
     plot_vel_or_sig(csv_path = star_output_file_227266_kinematics, value_type = 'vel', ax = axs[1, 3], cmap = vel_cmap, cbar_label = r'$V_{\bigstar}$ (km/s)',
                     plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = -55, vmax = 55, PAs = [171.75, 34.53], line_length = [3, 10], pa_center_x = 0.75, pa_center_y = 0.75)
 
+    # we plot the star formation rate surface density map at the end.
+    sfr_227266_fits = '227266/emission_line/227266_A_sfr-dens_default_recom-comp.fits'
+    sfr_output_file_227266 = '227266/emission_line/227266_quality_cut_sfr.csv'
+
+    quality_cut_sfr_map_csv(sfr_fits_path = sfr_227266_fits, output_file = sfr_output_file_227266)
+
+    plot_vel_or_sig(csv_path = sfr_output_file_227266, cmap = 'magma', cbar_label = r'$\Sigma_\mathrm{SFR}$ ($M_\odot$ yr$^{-1}$ kpc$^{-2}$)',
+                    value_type = 'sfr', ax = axs[1, 4], plot_psf = True, psffwhm = 2.108)
+
     # 300787 plotting.
     plot_vel_or_sig(csv_path = gas_output_file_300787_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
                     value_type = 'gas', ax = axs[2, 0], plot_psf = True, psffwhm = 1.941, vmin = -1.7, galaxy_name = '300787')
