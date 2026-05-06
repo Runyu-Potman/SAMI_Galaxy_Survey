@@ -366,8 +366,8 @@ if __name__ == '__main__':
     add_circle(axs[2, 0], optical_227266, linewidth = 1, label = True, E_bar = 3.3)
 
     # 227266 kinematics.
-    plot_vel_or_sig(csv_path = star_output_file_227266, value_type = 'vel', ax = axs[2, 1], cmap = vel_cmap, cbar_label = 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = -55, vmax = 55)
-    plot_vel_or_sig(csv_path = star_output_file_227266, value_type = 'sig', ax = axs[2, 2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = 110, vmax = 230)
+    plot_vel_or_sig(csv_path = star_output_file_227266, value_type = 'vel', ax = axs[2, 1], cmap = vel_cmap, cbar_label = r'$V_{\bigstar}$ (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = -55, vmax = 55)
+    plot_vel_or_sig(csv_path = star_output_file_227266, value_type = 'sig', ax = axs[2, 2], cmap = sig_cmap, cbar_label = r'$\sigma_{\bigstar}$ (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = 110, vmax = 230)
     # ------------------------------------------------------------------------------------------
     # 230776 optical.
     optical_230776 = Image.open('230776/optical/230776_optical_image.jpg')
