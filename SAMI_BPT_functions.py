@@ -879,6 +879,31 @@ if __name__ == "__main__":
     plot_vel_or_sig(csv_path = star_output_file_227266_kinematics, value_type = 'vel', ax = axs[1, 3], cmap = vel_cmap, cbar_label = r'$V_{\bigstar}$ (km/s)',
                     plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = -55, vmax = 55, PAs = [171.75, 34.53], line_length = [3, 10], pa_center_x = 0.75, pa_center_y = 0.75)
 
+    # 300787 plotting.
+    plot_vel_or_sig(csv_path = gas_output_file_300787_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
+                    value_type = 'gas', ax = axs[2, 0], plot_psf = True, psffwhm = 1.941, vmin = -1.7, galaxy_name = '300787')
+
+    plot_vel_or_sig(csv_path = gas_output_file_300787_kinematics, cmap = vel_cmap, cbar_label = r'$V_\mathrm{gas}$ (km/s)',
+                    value_type = 'vel', ax = axs[2, 1], PAs = [127.5], line_length = 10, plot_psf = True, psffwhm = 1.941)
+
+    plot_vel_or_sig(csv_path = gas_output_file_300787_kinematics, cmap = sig_cmap, cbar_label = r'$\sigma_\mathrm{gas}$ (km/s)',
+                    value_type = 'sig', ax = axs[2, 2], plot_psf = True, psffwhm = 1.941)
+
+    # directly copied from stellar kinematic.
+    plot_vel_or_sig(csv_path = star_output_file_300787_kinematics, value_type = 'vel', ax = axs[2, 3], cmap = vel_cmap_300787_star, cbar_label = r'$V_{\bigstar}$ (km/s)',
+                    plot_psf = True, fontsize = 10, psffwhm = 1.941, vmin = -130, PAs = [149.12, -53.95], line_length = [2, 7.5])
+
+    # we plot the star formation rate surface density map at the end.
+    sfr_300787_fits = '300787/emission_line/300787_A_sfr-dens_default_recom-comp.fits'
+    sfr_output_file_300787 = '300787/emission_line/300787_quality_cut_sfr.csv'
+
+    quality_cut_sfr_map_csv(sfr_fits_path = sfr_300787_fits, output_file = sfr_output_file_300787)
+
+    plot_vel_or_sig(csv_path = sfr_output_file_300787, cmap = 'magma', cbar_label = r'$\Sigma_\mathrm{SFR}$ ($M_\odot$ yr$^{-1}$ kpc$^{-2}$)',
+                    value_type = 'sfr', ax = axs[2, 4], plot_psf = True, psffwhm = 1.941, vmin = 0.005)
+
+
+
 
 
 
