@@ -343,8 +343,8 @@ if __name__ == '__main__':
     axs[0, 0].set_title('SDSS Optical Image', fontsize = 10, pad = 8)
 
     # 7969 kinematics.
-    plot_vel_or_sig(csv_path = star_output_file_7969, value_type = 'vel', ax = axs[0, 1], cmap = vel_cmap_7969, cbar_label= 'Velocity (km/s)', plot_psf = True, fontsize = 10, psffwhm = 1.561, vmin = -80, vmax = 80)
-    plot_vel_or_sig(csv_path = star_output_file_7969, value_type = 'sig', ax = axs[0, 2], cmap = sig_cmap, cbar_label = 'Velocity Dispersion (km/s)', plot_psf = True, fontsize = 10, psffwhm = 1.561, vmin = 145, vmax = 305)
+    plot_vel_or_sig(csv_path = star_output_file_7969, value_type = 'vel', ax = axs[0, 1], cmap = vel_cmap_7969, cbar_label= r'$V_{\bigstar}$ (km/s)', plot_psf = True, fontsize = 10, psffwhm = 1.561, vmin = -80, vmax = 80)
+    plot_vel_or_sig(csv_path = star_output_file_7969, value_type = 'sig', ax = axs[0, 2], cmap = sig_cmap, cbar_label = r'$\sigma_{\bigstar}$ (km/s)', plot_psf = True, fontsize = 10, psffwhm = 1.561, vmin = 145, vmax = 305)
     axs[0, 1].set_title('Stellar Velocity', fontsize = 10, pad = 8)
     axs[0, 2].set_title('Stellar Velocity Dispersion', fontsize = 10, pad = 8)
 
