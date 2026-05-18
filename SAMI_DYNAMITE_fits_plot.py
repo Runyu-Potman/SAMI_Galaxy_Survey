@@ -59,3 +59,45 @@ def plot_mass_from_fits(fits_path, ax=None, output_plot_path=None, figtype='.png
     else:
         fig = None
         own_figure = False
+
+    # Plot settings
+    xrange = np.array([0.1, Rmax_arcs])
+    yrange = np.array([1e6, maxmass])
+
+    ax.set_xlim(xrange)
+    ax.set_ylim(yrange)
+    ax.set_xlabel(r'$R$ [arcsec]', fontsize=9)
+    ax.set_ylabel(r'Enclosed Mass [M$_{\odot}$]', fontsize=9)
+    ax.tick_params(labelsize=8)
+
+    # Twin axis for kpc (only works if ax is the original axes)
+    ax2 = ax.twiny()
+    ax2.set_xlim(xrange * arctpc / 1000.0)
+    ax2.set_xlabel(r'$r$ [kpc]', fontsize=9)
+    ax2.tick_params(labelsize=8)
+
+    # Plot lines
+    ax.plot(R_arcsec, total_best, '-', color='k', linewidth=2.0, label='Total')
+    ax.fill_between(R_arcsec, total_min, total_max, facecolor='k', alpha=0.1)
+
+    ax.plot(R_arcsec, stellar_best, '-', color='r', linewidth=2.0, label='Mass-follows-Light')
+    ax.fill_between(R_arcsec, stellar_min, stellar_max, facecolor='r', alpha=0.1)
+
+    if has_dm:
+        ax.plot(R_arcsec, dm_best, '-', color='b', linewidth=2.0, label='Dark Matter')
+        ax.fill_between(R_arcsec, dm_min, dm_max, facecolor='b', alpha=0.1)
+
+    ax.legend(loc='upper left', fontsize=8)
+
+    # Optional saving (only if we created the figure)
+    if own_figure and output_plot_path is None:
+        dirname = os.path.dirname(fits_path) if os.path.dirname(fits_path) else '.'
+        output_plot_path = os.path.join(dirname, 'enclosedmassm_from_fits' + figtype)
+    if own_figure and output_plot_path:
+        fig.savefig(output_plot_path)
+        print(f"Plot saved to {output_plot_path}")
+
+    if own_figure:
+        return fig
+    else:
+        return None
