@@ -51,3 +51,11 @@ def plot_mass_from_fits(fits_path, ax=None, output_plot_path=None, figtype='.png
     max_total_max = np.max(total_max)
     maxmass = (int(max_total_max / 1e10) + 1) * 1e10
 
+    # Create figure/axes if needed
+    if ax is None:
+        fig = plt.figure(figsize=(5, 5))
+        ax = fig.add_subplot(1, 1, 1)
+        own_figure = True
+    else:
+        fig = None
+        own_figure = False
