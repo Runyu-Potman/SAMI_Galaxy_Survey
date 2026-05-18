@@ -1252,6 +1252,50 @@ class Plotter():
         mm = np.sum(mass, axis=2)
         maxmass = (int(np.max(mm/10**10.)) + 1.)*10**10.
 
+        #################################################
+        # starting from here we modify the function so that the result will be saved in fits.
+        total_best = mm[:, 0]
+        total_min = np.min(mm, axis=1)
+        total_max = np.max(mm, axis=1)
+
+        stellar_best = mass[:, 0, 0]
+        stellar_min = np.min(mass[:, :, 0], axis=1)
+        stellar_max = np.max(mass[:, :, 0], axis=1)
+
+        if dh is not None:
+            dm_best = mass[:, 0, 1]
+            dm_min = np.min(mass[:, :, 1], axis=1)
+            dm_max = np.max(mass[:, :, 1], axis=1)
+        else:
+            dm_best = np.zeros_like(total_best)
+            dm_min = np.zeros_like(total_best)
+            dm_max = np.zeros_like(total_best)
+
+        cols = []
+        cols.append(fits.Column(name='R_arcsec', format='D', unit='arcsec', array=R))
+        cols.append(fits.Column(name='R_pc', format='D', unit='pc', array=r_pc))
+
+        cols.append(fits.Column(name='total_best', format='D', unit='Msun', array=total_best))
+        cols.append(fits.Column(name='total_min', format='D', unit='Msun', array=total_min))
+        cols.append(fits.Column(name='total_max', format='D', unit='Msun', array=total_max))
+
+        cols.append(fits.Column(name='stellar_best', format='D', unit='Msun', array=stellar_best))
+        cols.append(fits.Column(name='stellar_min', format='D', unit='Msun', array=stellar_min))
+        cols.append(fits.Column(name='stellar_max', format='D', unit='Msun', array=stellar_max))
+
+        cols.append(fits.Column(name='dm_best', format='D', unit='Msun', array=dm_best))
+        cols.append(fits.Column(name='dm_min', format='D', unit='Msun', array=dm_min))
+        cols.append(fits.Column(name='dm_max', format='D', unit='Msun', array=dm_max))
+
+        hdu = fits.BinTableHDU.from_columns(cols)
+
+        fits_filename = self.plotdir + 'enclosed_mass_profiles.fits'
+        fits.HDUList([fits.PrimaryHDU(), hdu]).writeto(fits_filename, overwrite=True)
+
+        self.logger.info(f'Wrote enclosed-mass FITS to {fits_filename}')
+
+        ##################################################
+
         ## plot in linear scale
         xrange = np.array([0.1, Rmax_arcs])
         yrange = np.array([1.0e6,maxmass])
