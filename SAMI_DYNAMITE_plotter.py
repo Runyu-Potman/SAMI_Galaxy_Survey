@@ -20,6 +20,7 @@ from dynamite import kinematics
 from dynamite import physical_system as physys
 from dynamite import analysis
 import cmasher as cmr
+from astropy.io import fits
 
 
 class ReorderLOSVDError(Exception):
