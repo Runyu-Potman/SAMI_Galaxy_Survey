@@ -324,8 +324,18 @@ def add_psf(ax, psffwhm):
 
     ax.add_patch(circle)
 #-------------------------------------------------------------------------------------
-# spatially resolved maps and gradient plots for three galaxies.
-fig, axs = plt.subplots(5, 4, figsize=(14, 15), constrained_layout = True)
+# spatially resolved maps and gradient plots for six galaxies.
+fig, axs = plt.subplots(6, 4, figsize = (40/3, 18), constrained_layout = True)
+#---------------------------------------------------------------------------------------
+base_dir = '300787/age_z'
+age_300787, metal_300787, age_300787_array, metal_300787_array, age_300787_std, metal_300787_std, r_all_300787 = slurm_job_combine(base_dir)
+
+plot_age_and_Z(axs_x = 4, age_full = age_300787, metal_full = metal_300787, r_all = r_all_300787, age_array = age_300787_array,
+               metal_array = metal_300787_array, age_std_array = age_300787_std, metal_std_array = metal_300787_std,
+               r_dash = 2.5, name = 300787
+               )
+
+'''
 #-------------------------------------------------------------------------------------
 base_dir = '7969/age_z'
 age_7969, metal_7969, age_7969_array, metal_7969_array, r_all_7969 = slurm_job_combine(base_dir)
