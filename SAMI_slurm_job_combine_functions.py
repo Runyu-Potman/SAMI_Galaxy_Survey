@@ -154,7 +154,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
     # set color bar (first column).
     cbar = plt.colorbar(im, ax = axs[axs_x, 0], fraction = bar_fraction, pad = bar_pad)
     cbar.ax.yaxis.set_tick_params(direction = 'in')
-    cbar.set_label('Age(Gyr)', fontsize = fontsize, labelpad = 4)
+    cbar.set_label('Age (Gyr)', fontsize = fontsize, labelpad = 4)
 
     # set titles (first column).
     if title:
