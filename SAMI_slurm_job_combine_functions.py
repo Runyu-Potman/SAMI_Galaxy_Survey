@@ -346,7 +346,7 @@ plot_age_and_Z(axs_x = 0, age_full = age_7969, metal_full = metal_7969, r_all = 
 
 #-----------------------------------------------
 base_dir = '143287/age_z'
-age_143287, metal_143287, age_143287_array, metal_143287_array, r_all_143287 = slurm_job_combine(base_dir)
+age_143287, metal_143287, age_143287_array, metal_143287_array, age_143287_std, metal_143287_std, r_all_143287 = slurm_job_combine(base_dir)
 
 plot_age_and_Z(axs_x = 1, age_full = age_143287, metal_full = metal_143287, r_all = r_all_143287, age_array = age_143287_array,
                metal_array = metal_143287_array, name = 143287, r_dash = 3.2,
