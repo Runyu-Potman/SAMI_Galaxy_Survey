@@ -987,7 +987,7 @@ if __name__ == "__main__":
 
     fit_kinematic_pa(x = xbin, y = ybin, vel = vel_corr, dvel = dvel, plot = True, quiet = False, debug = False)
     plt.pause(1)
-
+    '''
 #-------------------------------------------------------------------------------------------------------
     '''
     Ha_fits_path = '230776/emission_line/230776_A_Halpha_default_recom-comp.fits'
