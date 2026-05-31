@@ -966,7 +966,7 @@ if __name__ == "__main__":
         OI_fits_path = OI_fits_path, SII_6716_fits_path = SII_6716_fits_path,
         SII_6731_fits_path = SII_6731_fits_path, NII_fits_path = NII_fits_path, threshold = 5)
 
-    plt.tight_layout(h_pad = 0.85, w_pad = 0.85)
+    plt.tight_layout(h_pad = 0, w_pad = 0.85)
     plt.savefig('final/bpt.png', dpi = 300, bbox_inches = 'tight')
     plt.show()
 
