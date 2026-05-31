@@ -975,7 +975,7 @@ if __name__ == "__main__":
     galaxy = '300787'
 
     # the pa estimation.
-    data = np.genfromtxt('227266/kinematic/227266_quality_cut_gas_velocity_map.csv', delimiter = ',', skip_header = 1)
+    data = np.genfromtxt(f'{galaxy}/kinematic/{galaxy}_quality_cut_gas_velocity_map.csv', delimiter = ',', skip_header = 1)
     xbin = data[:,0]
     ybin = data[:,1]
     vel = data[:,2]
