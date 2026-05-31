@@ -332,10 +332,11 @@ if __name__ == "__main__":
     age_300787, metal_300787, age_300787_array, metal_300787_array, age_300787_std, metal_300787_std, r_all_300787 = slurm_job_combine(
         base_dir)
 
-plot_age_and_Z(axs_x = 4, age_full = age_300787, metal_full = metal_300787, r_all = r_all_300787, age_array = age_300787_array,
-               metal_array = metal_300787_array, age_std_array = age_300787_std, metal_std_array = metal_300787_std,
-               r_dash = 2.5, name = 300787
-               )
+    plot_age_and_Z(axs_x = 4, age_full = age_300787, metal_full = metal_300787, r_all = r_all_300787,
+                   age_array = age_300787_array,
+                   metal_array = metal_300787_array, age_std_array = age_300787_std, metal_std_array = metal_300787_std,
+                   r_dash = 2.5, name = 300787
+                   )
 
 #-------------------------------------------------------------------------------------
 base_dir = '7969/age_z'
