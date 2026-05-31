@@ -971,6 +971,8 @@ if __name__ == "__main__":
     plt.show()
 
 #-----------------------------------------------------------------------------------
+    '''
+    galaxy = '300787'
 
     # the pa estimation.
     data = np.genfromtxt('227266/kinematic/227266_quality_cut_gas_velocity_map.csv', delimiter = ',', skip_header = 1)
