@@ -368,7 +368,7 @@ if __name__ == "__main__":
                    age_array=age_227266_array,
                    metal_array=metal_227266_array, age_std_array=age_227266_std, metal_std_array=metal_227266_std,
                    name=227266, r_dash=3.0)
-    '''
+
     #-----------------------------------------------
     base_dir = '230776/age_z'
     age_230776, metal_230776, age_230776_array, metal_230776_array, age_230776_std, metal_230776_std, r_all_230776 = slurm_job_combine(base_dir)
