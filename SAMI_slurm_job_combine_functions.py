@@ -381,9 +381,9 @@ if __name__ == "__main__":
     base_dir = '9239900248/age_z'
     age_9239900248, metal_9239900248, age_9239900248_array, metal_9239900248_array, age_9239900248_std, metal_9239900248_std, r_all_9239900248 = slurm_job_combine(base_dir)
 
-plot_age_and_Z(axs_x = 4, age_full = age_9239900248, metal_full = metal_9239900248, r_all = r_all_9239900248, age_array = age_9239900248_array,
-               metal_array = metal_9239900248_array, name = 9239900248, r_dash = 3.55,
-               vmin_age = 4, vmax_age = 11, vmin_z = -0.56)
+    plot_age_and_Z(axs_x = 5, age_full = age_9239900248, metal_full = metal_9239900248, r_all = r_all_9239900248, age_array = age_9239900248_array,
+                   metal_array = metal_9239900248_array, age_std_array = age_9239900248_std, metal_std_array = metal_9239900248_std,
+                   name = 9239900248, r_dash = 3.4)
 
 #--------------------------------------------------------------------------------------------------
 # add psf.
