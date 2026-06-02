@@ -406,9 +406,9 @@ if __name__ == "__main__":
         circle = patches.Circle((x, y), r, edgecolor = edgecolor, facecolor = facecolor, linestyle = linestyle, linewidth = linewidth)
         ax.add_patch(circle)
 
-# 7969
-add_circle(axs[0, 0], 2.7)
-add_circle(axs[0, 1], 2.7)
+    # 7969
+    add_circle(axs[0, 0], 2.7)
+    add_circle(axs[0, 1], 2.7)
 
 # 227266
 add_circle(axs[1, 0], 3.8)
