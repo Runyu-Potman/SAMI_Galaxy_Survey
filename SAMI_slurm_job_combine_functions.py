@@ -414,10 +414,10 @@ if __name__ == "__main__":
     add_circle(axs[1, 0], 3.8)
     add_circle(axs[1, 1], 3.8)
 
-# 230776
-add_circle(axs[2, 0], 5.4)
-add_circle(axs[2, 1], 5.4)
-'''
+    # 230776
+    add_circle(axs[2, 0], 5.4)
+    add_circle(axs[2, 1], 5.4)
+    '''
 
 #-----------------------------------------------------------
 # same axis ratio.
