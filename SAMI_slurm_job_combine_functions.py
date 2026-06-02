@@ -441,10 +441,10 @@ if __name__ == "__main__":
     axs[3, 2].set_box_aspect(1)
     axs[3, 3].set_box_aspect(1)
 
-axs[4, 0].set_box_aspect(1)
-axs[4, 1].set_box_aspect(1)
-axs[4, 2].set_box_aspect(1)
-axs[4, 3].set_box_aspect(1)
+    axs[4, 0].set_box_aspect(1)
+    axs[4, 1].set_box_aspect(1)
+    axs[4, 2].set_box_aspect(1)
+    axs[4, 3].set_box_aspect(1)
 
 plt.savefig('final/age_z.png', dpi = 1000, bbox_inches = 'tight')
 plt.show()
