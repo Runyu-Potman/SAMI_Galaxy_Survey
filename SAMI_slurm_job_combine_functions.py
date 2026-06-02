@@ -385,24 +385,26 @@ if __name__ == "__main__":
                    metal_array = metal_9239900248_array, age_std_array = age_9239900248_std, metal_std_array = metal_9239900248_std,
                    name = 9239900248, r_dash = 3.4)
 
-#--------------------------------------------------------------------------------------------------
-# add psf.
-add_psf(ax = axs[0, 0], psffwhm = 1.561)
-add_psf(ax = axs[0, 1], psffwhm = 1.561)
-add_psf(ax = axs[1, 0], psffwhm = 2.250)
-add_psf(ax = axs[1, 1], psffwhm = 2.250)
-add_psf(ax = axs[2, 0], psffwhm = 2.108)
-add_psf(ax = axs[2, 1], psffwhm = 2.108)
-add_psf(ax = axs[3, 0], psffwhm = 2.144)
-add_psf(ax = axs[3, 1], psffwhm = 2.144)
-add_psf(ax = axs[4, 0], psffwhm = 2.118)
-add_psf(ax = axs[4, 1], psffwhm = 2.118)
-#------------------------------------------------------------------------------------------------
-'''
-# kdc radius circle
-def add_circle(ax, r, x = 0, y = 0, edgecolor = 'gray', facecolor = 'none', linestyle = '--', linewidth = 2):
-    circle = patches.Circle((x, y), r, edgecolor = edgecolor, facecolor = facecolor, linestyle = linestyle, linewidth = linewidth)
-    ax.add_patch(circle)
+    # --------------------------------------------------------------------------------------------------
+    # add psf.
+    add_psf(ax=axs[0, 0], psffwhm=1.561)
+    add_psf(ax=axs[0, 1], psffwhm=1.561)
+    add_psf(ax=axs[1, 0], psffwhm=2.250)
+    add_psf(ax=axs[1, 1], psffwhm=2.250)
+    add_psf(ax=axs[2, 0], psffwhm=2.108)
+    add_psf(ax=axs[2, 1], psffwhm=2.108)
+    add_psf(ax=axs[3, 0], psffwhm=2.144)
+    add_psf(ax=axs[3, 1], psffwhm=2.144)
+    add_psf(ax=axs[4, 0], psffwhm=1.941)
+    add_psf(ax=axs[4, 1], psffwhm=1.941)
+    add_psf(ax=axs[5, 0], psffwhm=2.118)
+    add_psf(ax=axs[5, 1], psffwhm=2.118)
+    # ------------------------------------------------------------------------------------------------
+    '''
+    # kdc radius circle
+    def add_circle(ax, r, x = 0, y = 0, edgecolor = 'gray', facecolor = 'none', linestyle = '--', linewidth = 2):
+        circle = patches.Circle((x, y), r, edgecolor = edgecolor, facecolor = facecolor, linestyle = linestyle, linewidth = linewidth)
+        ax.add_patch(circle)
 
 # 7969
 add_circle(axs[0, 0], 2.7)
