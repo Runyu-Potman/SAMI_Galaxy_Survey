@@ -453,10 +453,3 @@ if __name__ == "__main__":
 
     plt.savefig('final/age_z.png', dpi=300, bbox_inches='tight')
     plt.show()
-
-
-
-
-
-
-
