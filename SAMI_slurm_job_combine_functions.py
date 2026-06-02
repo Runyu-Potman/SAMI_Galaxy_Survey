@@ -436,10 +436,10 @@ if __name__ == "__main__":
     axs[2, 2].set_box_aspect(1)
     axs[2, 3].set_box_aspect(1)
 
-axs[3, 0].set_box_aspect(1)
-axs[3, 1].set_box_aspect(1)
-axs[3, 2].set_box_aspect(1)
-axs[3, 3].set_box_aspect(1)
+    axs[3, 0].set_box_aspect(1)
+    axs[3, 1].set_box_aspect(1)
+    axs[3, 2].set_box_aspect(1)
+    axs[3, 3].set_box_aspect(1)
 
 axs[4, 0].set_box_aspect(1)
 axs[4, 1].set_box_aspect(1)
