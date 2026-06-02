@@ -431,10 +431,10 @@ if __name__ == "__main__":
     axs[1, 2].set_box_aspect(1)
     axs[1, 3].set_box_aspect(1)
 
-axs[2, 0].set_box_aspect(1)
-axs[2, 1].set_box_aspect(1)
-axs[2, 2].set_box_aspect(1)
-axs[2, 3].set_box_aspect(1)
+    axs[2, 0].set_box_aspect(1)
+    axs[2, 1].set_box_aspect(1)
+    axs[2, 2].set_box_aspect(1)
+    axs[2, 3].set_box_aspect(1)
 
 axs[3, 0].set_box_aspect(1)
 axs[3, 1].set_box_aspect(1)
