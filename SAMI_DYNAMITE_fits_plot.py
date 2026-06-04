@@ -88,16 +88,3 @@ def plot_mass_from_fits(fits_path, ax=None, output_plot_path=None, figtype='.png
         ax.fill_between(R_arcsec, dm_min, dm_max, facecolor='b', alpha=0.1)
 
     ax.legend(loc='upper left', fontsize=8)
-
-    # Optional saving (only if we created the figure)
-    if own_figure and output_plot_path is None:
-        dirname = os.path.dirname(fits_path) if os.path.dirname(fits_path) else '.'
-        output_plot_path = os.path.join(dirname, 'enclosedmassm_from_fits' + figtype)
-    if own_figure and output_plot_path:
-        fig.savefig(output_plot_path)
-        print(f"Plot saved to {output_plot_path}")
-
-    if own_figure:
-        return fig
-    else:
-        return None
