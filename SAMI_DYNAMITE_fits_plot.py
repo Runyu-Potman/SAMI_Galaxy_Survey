@@ -13,8 +13,9 @@ def reproduce_mass_plot(fits_filename, output_plot=None):
     Returns:
     - fig: matplotlib.figure.Figure
         The generated figure.
-    """
-    # Read the FITS file (table extension is index 1)
+    '''
+
+    # Read the FITS file (table extension is index 1).
     with fits.open(fits_filename) as hdul:
         hdu = hdul[1]  # BinTableHDU
         data = hdu.data
