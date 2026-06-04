@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from astropy.io import fits
 
 def reproduce_mass_plot(fits_filename, output_plot=None):
-    """
+    '''
     Reproduce the cumulative mass plot from the FITS file saved by mass_plot().
 
     Parameters
