@@ -10,9 +10,8 @@ def reproduce_mass_plot(fits_filename, output_plot=None):
     - fits_filename: str. Path to the FITS file (e.g., 'enclosed_mass_profiles.fits')
     - output_plot: str, optional. Output filename for the plot.
 
-    Returns
-    -------
-    fig : matplotlib.figure.Figure
+    Returns:
+    - fig: matplotlib.figure.Figure
         The generated figure.
     """
     # Read the FITS file (table extension is index 1)
