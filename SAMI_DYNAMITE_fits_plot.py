@@ -1,0 +1,49 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from astropy.io import fits
+
+def reproduce_mass_plot(fits_filename, output_plot=None):
+    """
+    Reproduce the cumulative mass plot from the FITS file saved by mass_plot().
+
+    Parameters
+    ----------
+    fits_filename : str
+        Path to the FITS file (e.g., 'enclosed_mass_profiles.fits')
+    output_plot : str, optional
+        Output filename for the plot. If None, the plot is displayed but not saved.
+
+    Returns
+    -------
+    fig : matplotlib.figure.Figure
+        The generated figure.
+    """
+    # Read the FITS file (table extension is index 1)
+    with fits.open(fits_filename) as hdul:
+        hdu = hdul[1]  # BinTableHDU
+        data = hdu.data
+        header = hdu.header
+
+    # Extract data columns
+    R_arcsec = data['R_arcsec']
+    R_pc = data['R_pc']
+    total_best = data['total_best']
+    total_min = data['total_min']
+    total_max = data['total_max']
+    stellar_best = data['stellar_best']
+    stellar_min = data['stellar_min']
+    stellar_max = data['stellar_max']
+    dm_best = data['dm_best']
+    dm_min = data['dm_min']
+    dm_max = data['dm_max']
+
+    # Get header values for plot limits
+    arctpc = header['ARCTPC']
+    Rmax_arcs = header['RMAXARC']
+
+    # Determine if dark matter exists (all dm_best zero -> no DM)
+    has_dm = np.any(dm_best != 0)
+
+    # Compute y-axis upper limit (same as original: round to next 10^10)
+    max_mass = np.max(total_max)
+    ymax = (int(max_mass / 1e10) + 1) * 1e10
