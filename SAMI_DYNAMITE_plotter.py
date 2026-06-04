@@ -1290,6 +1290,10 @@ class Plotter():
 
         hdu = fits.BinTableHDU.from_columns(cols)
 
+        # save useful headers.
+        hdu.header['ARCTPC'] = (arctpc, 'Arcsec to pc conversion factor')
+        hdu.header['RMAXARC'] = (Rmax_arcs, 'Upper x-axis limit in arcsec')
+
         fits_filename = self.plotdir + 'enclosed_mass_profiles.fits'
         fits.HDUList([fits.PrimaryHDU(), hdu]).writeto(fits_filename, overwrite=True)
 
