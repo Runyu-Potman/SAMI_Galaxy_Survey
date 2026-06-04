@@ -6,12 +6,9 @@ def reproduce_mass_plot(fits_filename, output_plot=None):
     '''
     Reproduce the cumulative mass plot from the FITS file saved by mass_plot().
 
-    Parameters
-    ----------
-    fits_filename : str
-        Path to the FITS file (e.g., 'enclosed_mass_profiles.fits')
-    output_plot : str, optional
-        Output filename for the plot. If None, the plot is displayed but not saved.
+    Parameters:
+    - fits_filename: str. Path to the FITS file (e.g., 'enclosed_mass_profiles.fits')
+    - output_plot: str, optional. Output filename for the plot.
 
     Returns
     -------
