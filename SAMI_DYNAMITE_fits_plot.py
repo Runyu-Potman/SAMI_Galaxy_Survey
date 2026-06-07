@@ -115,7 +115,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
 
     # a dashed line to represent the radius of the kinematically distinct component.
     if r_kdc is not None:
-        ax.axvline(r_kdc, color = 'orange', linestyle = 'dotted', linewidth = 1.5)
+        ax.axvline(r_kdc, color = 'orange', linestyle = 'dotted', linewidth = 2.0)
 
     # the shaded region to represent the extrapolated region.
     if extrap_start is not None:
