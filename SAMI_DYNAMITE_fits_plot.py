@@ -86,9 +86,13 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     ax2.tick_params(labelsize = 9, direction = 'in')
     ax2.set_axisbelow(False)
 
-    # Plot total mass (black)
-    ax.plot(R_arcsec, total_best, '-', color='k', linewidth=2.0, label='Total')
-    ax.fill_between(R_arcsec, total_min, total_max, facecolor='k', alpha=0.1)
+    # Plot total mass (black).
+    if label is True:
+       ax.plot(R_arcsec, total_best, '-', color = 'k', linewidth = 2.0, label = 'Total')
+    else:
+       ax.plot(R_arcsec, total_best, '-', color = 'k', linewidth = 2.0)
+
+    ax.fill_between(R_arcsec, total_min, total_max, facecolor = 'k', alpha = 0.1)
 
     # Plot stellar (red) and dark matter (blue) if DM exists
     if has_dm:
