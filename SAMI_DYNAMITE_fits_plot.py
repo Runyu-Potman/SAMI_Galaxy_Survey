@@ -115,7 +115,19 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
 
     plt.tight_layout()
 
-    if output_plot:
+    # a dashed line to represent the radius of the kinematically distinct component.
+    if r_kdc is not None:
+        ax.axvline(r_kdc, color = 'orange', linestyle = 'dotted', linewidth = 1.5)
+
+    # the shaded region to represent the extrapolated region.
+    if extrap_start is not None:
+        # get current x_limits.
+        xlim = ax.get_xlim()
+        # shade from extrap_start to the right limit.
+        ax.axvspan(extrap_start, xlim[1], facecolor = 'None', hatch = '\\\\',
+                   edgecolor = 'gray', alpha = 0.15)
+
+    if output_plot and created_fig:
         plt.savefig(output_plot)
         print(f"Plot saved to {output_plot}")
 
