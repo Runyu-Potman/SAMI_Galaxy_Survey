@@ -67,7 +67,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     if name is not None:
        ax.set_ylabel(f'Galaxy {name}\nEnclosed Mass ($M_{{\odot}}$)', fontsize = 15)
     else:
-       ax.set_ylabel(r'Enclosed Mass ($M_{\odot}$)', fontsize = 10)
+       ax.set_ylabel(r'Enclosed Mass ($M_{\odot}$)', fontsize = 15)
 
     # position of the y axis offset text.
     offset_text = ax.yaxis.get_offset_text()
