@@ -82,8 +82,9 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     # Twin axis for kpc
     ax2 = ax.twiny()
     ax2.set_xlim(xrange * arctpc / 1000.0)
-    ax2.set_xlabel(r'$r$ [kpc]', fontsize=9)
-    ax2.tick_params(labelsize=8)
+    ax2.set_xlabel(r'$r$ (kpc)', fontsize = 10)
+    ax2.tick_params(labelsize = 9, direction = 'in')
+    ax2.set_axisbelow(False)
 
     # Plot total mass (black)
     ax.plot(R_arcsec, total_best, '-', color='k', linewidth=2.0, label='Total')
