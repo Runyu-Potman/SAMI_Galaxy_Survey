@@ -146,7 +146,7 @@ fits_filename_230776 = '230776/dynamite/dynamite_fits/enclosed_mass_profiles.fit
 fits_filename_300787 = '300787/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
 fits_filename_9239900248 = '9239900248/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
 
-fig, ax = plt.subplots(2, 3, figsize = (15, 10))
+fig, ax = plt.subplots(2, 3, figsize = (12, 8))
 
 reproduce_mass_plot(fits_filename_7969, ax = ax[0, 0], name = '7969', r_kdc = 1.7, extrap_start = 3.99, label = True)
 reproduce_mass_plot(fits_filename_143287, ax = ax[0, 1], name = '143287', r_kdc = 2.9, extrap_start = 5.83)
