@@ -110,7 +110,9 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
 
         ax.fill_between(R_arcsec, dm_min, dm_max, facecolor = 'b', alpha = 0.1)
 
-    ax.legend(loc='upper left', fontsize=8)
+    if label is True:
+       ax.legend(loc = 'best', fontsize = 9)
+
     plt.tight_layout()
 
     if output_plot:
