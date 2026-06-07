@@ -79,7 +79,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     # make the tick to have the highest zorder.
     ax.set_axisbelow(False)
 
-    # Twin axis for kpc
+    # Twin axis for kpc.
     ax2 = ax.twiny()
     ax2.set_xlim(xrange * arctpc / 1000.0)
     ax2.set_xlabel(r'$r$ (kpc)', fontsize = 10)
