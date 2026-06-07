@@ -27,7 +27,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
 
     # Extract data columns
     R_arcsec = data['R_arcsec']
-    R_pc = data['R_pc']
+    #R_pc = data['R_pc']
     total_best = data['total_best']
     total_min = data['total_min']
     total_max = data['total_max']
