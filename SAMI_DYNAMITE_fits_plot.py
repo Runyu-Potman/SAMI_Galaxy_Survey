@@ -16,8 +16,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     - label: bool, optional. Label the plot.
 
     Returns:
-    - fig: matplotlib.figure.Figure
-        The generated figure.
+    - fig: matplotlib.figure.Figure.
     '''
 
     # Read the FITS file (table extension is index 1).
