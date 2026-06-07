@@ -154,6 +154,8 @@ reproduce_mass_plot(fits_filename_230776, ax = ax[1, 0], name = '230776', r_kdc 
 reproduce_mass_plot(fits_filename_300787, ax = ax[1, 1], name = '300787', r_kdc = 2.5, extrap_start = 7.5)
 reproduce_mass_plot(fits_filename_9239900248, ax = ax[1, 2], name = '9239900248', r_kdc = 3.4, extrap_start = 7.5)
 
+plt.tight_layout()
+
 plt.savefig('final\enclosed_mass_profiles.png', dpi = 300, bbox_inches = 'tight')
 
 plt.show()
