@@ -7,7 +7,11 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     Reproduce the cumulative mass plot from the FITS file saved by mass_plot().
 
     Parameters:
-    - fits_filename: str. Path to the FITS file (e.g., 'enclosed_mass_profiles.fits')
+    - fits_filename: str. Path to the FITS file (e.g., 'enclosed_mass_profiles.fits').
+    - ax: matplotlib.axes.Axes.
+    - name: str. Name of the galaxy.
+    - r_kdc: a vertical dotted line to represent the radius of the kinematically distinct component.
+    - extrap_start: start radius for the shaded region representing the extrapolated zone.
     - output_plot: str, optional. Output filename for the plot.
 
     Returns:
