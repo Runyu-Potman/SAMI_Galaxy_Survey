@@ -69,7 +69,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     else:
        ax.set_ylabel(r'Enclosed Mass (M$_{\odot}$)', fontsize = 10)
 
-    # position of the y axis offset test.
+    # position of the y axis offset text.
     offset_text = ax.yaxis.get_offset_text()
     offset_text.set_position((-0.02, 0.95))
 
