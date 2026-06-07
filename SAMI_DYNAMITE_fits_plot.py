@@ -75,7 +75,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     offset_text.set_fontsize(15)
 
     # x and y axis tick settings.
-    ax.tick_params(labelsize = 12, direction = 'in', top = True)
+    ax.tick_params(labelsize = 15, direction = 'in', top = True)
     # make the tick to have the highest zorder.
     ax.set_axisbelow(False)
 
