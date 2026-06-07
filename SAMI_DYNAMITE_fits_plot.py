@@ -64,9 +64,20 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
 
     ax.set_xlim(xrange)
     ax.set_ylim(yrange)
-    ax.set_xlabel(r'$R$ [arcsec]', fontsize=9)
-    ax.set_ylabel(r'Enclosed Mass [M$_{\odot}$]', fontsize=9)
-    ax.tick_params(labelsize=8)
+    ax.set_xlabel(r'$R$ (arcsec)', fontsize = 10)
+    if name is not None:
+       ax.set_ylabel(f'Galaxy {name}\nEnclosed Mass (M$_{{\odot}}$)', fontsize = 10)
+    else:
+       ax.set_ylabel(r'Enclosed Mass (M$_{\odot}$)', fontsize = 10)
+
+    # position of the y axis offset test.
+    offset_text = ax.yaxis.get_offset_text()
+    offset_text.set_position((-0.02, 0.95))
+
+    # x and y axis tick settings.
+    ax.tick_params(labelsize = 9, direction = 'in', top = True)
+    # make the tick to have the highest zorder.
+    ax.set_axisbelow(False)
 
     # Twin axis for kpc
     ax2 = ax.twiny()
