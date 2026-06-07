@@ -110,7 +110,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
         ax.fill_between(R_arcsec, dm_min, dm_max, facecolor = 'b', alpha = 0.1)
 
     if label is True:
-       ax.legend(loc = 'upper left', bbox_to_anchor = (0.01, 0.99), fontsize = 8)
+       ax.legend(loc = 'upper left', bbox_to_anchor = (0.01, 0.99), fontsize = 12)
 
     # a dashed line to represent the radius of the kinematically distinct component.
     if r_kdc is not None:
