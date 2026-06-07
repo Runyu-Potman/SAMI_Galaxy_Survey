@@ -112,8 +112,6 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     if label is True:
        ax.legend(loc = 'upper right', bbox_to_anchor = (0.99, 0.99), fontsize = 8)
 
-    plt.tight_layout()
-
     # a dashed line to represent the radius of the kinematically distinct component.
     if r_kdc is not None:
         ax.axvline(r_kdc, color = 'orange', linestyle = 'dotted', linewidth = 1.5)
