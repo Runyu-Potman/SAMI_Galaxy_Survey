@@ -55,8 +55,13 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     yrange = np.array([1e6, ymax])
 
     # Create the plot
-    fig = plt.figure(figsize=(5, 5))
-    ax = fig.add_subplot(1, 1, 1)
+    if ax is None:
+       fig, ax = plt.subplots(figsize = (5, 5))
+       created_fig = True
+    else:
+       fig = ax.figure
+       created_fig = False
+
     ax.set_xlim(xrange)
     ax.set_ylim(yrange)
     ax.set_xlabel(r'$R$ [arcsec]', fontsize=9)
