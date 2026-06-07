@@ -103,8 +103,12 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
 
         ax.fill_between(R_arcsec, stellar_min, stellar_max, facecolor = 'r', alpha = 0.1)
 
-        ax.plot(R_arcsec, dm_best, '-', color='b', linewidth=2.0, label='Dark Matter')
-        ax.fill_between(R_arcsec, dm_min, dm_max, facecolor='b', alpha=0.1)
+        if label is True:
+           ax.plot(R_arcsec, dm_best, '-', color = 'b', linewidth = 2.0, label = 'Dark Matter')
+        else:
+           ax.plot(R_arcsec, dm_best, '-', color = 'b', linewidth = 2.0)
+
+        ax.fill_between(R_arcsec, dm_min, dm_max, facecolor = 'b', alpha = 0.1)
 
     ax.legend(loc='upper left', fontsize=8)
     plt.tight_layout()
