@@ -123,7 +123,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
         xlim = ax.get_xlim()
         # shade from extrap_start to the right limit.
         ax.axvspan(extrap_start, xlim[1], facecolor = 'none', hatch = '\\\\',
-                   edgecolor = 'gray', alpha = 0.2)
+                   edgecolor = 'gray', alpha = 0.3)
 
     if output_plot and created_fig:
         plt.savefig(output_plot)
