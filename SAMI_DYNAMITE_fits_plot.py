@@ -13,6 +13,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     - r_kdc: a vertical dotted line to represent the radius of the kinematically distinct component.
     - extrap_start: start radius for the shaded region representing the extrapolated zone.
     - output_plot: str, optional. Output filename for the plot.
+    - label: bool, optional. Label the plot.
 
     Returns:
     - fig: matplotlib.figure.Figure
