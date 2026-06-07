@@ -96,8 +96,12 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
 
     # Plot stellar (red) and dark matter (blue) if DM exists
     if has_dm:
-        ax.plot(R_arcsec, stellar_best, '-', color='r', linewidth=2.0, label='Mass-follows-Light')
-        ax.fill_between(R_arcsec, stellar_min, stellar_max, facecolor='r', alpha=0.1)
+        if label is True:
+           ax.plot(R_arcsec, stellar_best, '-', color = 'r', linewidth = 2.0, label = 'Mass-follows-Light')
+        else:
+           ax.plot(R_arcsec, stellar_best, '-', color = 'r', linewidth = 2.0)
+
+        ax.fill_between(R_arcsec, stellar_min, stellar_max, facecolor = 'r', alpha = 0.1)
 
         ax.plot(R_arcsec, dm_best, '-', color='b', linewidth=2.0, label='Dark Matter')
         ax.fill_between(R_arcsec, dm_min, dm_max, facecolor='b', alpha=0.1)
