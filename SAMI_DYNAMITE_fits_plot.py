@@ -72,7 +72,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     # position of the y axis offset text.
     offset_text = ax.yaxis.get_offset_text()
     offset_text.set_position((-0.0095, 0.95))
-    offset_text.set_fontsize(12)
+    offset_text.set_fontsize(15)
 
     # x and y axis tick settings.
     ax.tick_params(labelsize = 12, direction = 'in', top = True)
