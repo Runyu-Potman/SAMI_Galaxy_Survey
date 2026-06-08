@@ -139,6 +139,69 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     print(f'Galaxy {name}: kdc to total stellar mass ratio:', stellar_best[idx_kdc] / stellar_best[idx_max])
 
     return fig
+#------------------------------------------------------------------------------------
+def reproduce_orbit_plot(fits_file, ax=None, cbar=True):
+    """
+    Reproduce the orbit density plot from the FITS file saved by orbit_plot().
+    Colorbar is placed at the top of the axis (horizontal).
+
+    Parameters
+    ----------
+    fits_file : str
+        Path to the FITS file.
+    ax : matplotlib.axes.Axes, optional
+        If provided, plot on this axes. Otherwise, a new figure is created.
+    cbar : bool, optional
+        If True, add a horizontal colorbar at the top of the axis (default True).
+        For a new figure, colorbar is always added regardless of this flag.
+
+    Returns
+    -------
+    fig : matplotlib.figure.Figure
+        Figure object.
+    """
+    with fits.open(fits_file) as hdul:
+        data = hdul[0].data          # already R.T (transposed)
+        hdr = hdul[0].header
+
+    extent = [hdr['EX0'], hdr['EX1'], hdr['EY0'], hdr['EY1']]
+    vmin, vmax = hdr['VMIN'], hdr['VMAX']
+    interp = hdr.get('INTERP', 'spline16')
+    n_ocut = hdr['OCUTN']
+    ocut = [hdr[f'OCUT{i}'] for i in range(1, n_ocut + 1)]
+
+    # Create axes if needed
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(6, 5))
+        created_fig = True
+        add_cbar = True
+    else:
+        fig = ax.figure
+        created_fig = False
+        add_cbar = cbar
+
+    # Display the density map
+    im = ax.imshow(data, origin='lower', extent=extent, cmap='terrain_r',
+                   interpolation=interp, vmin=vmin, vmax=vmax, aspect='auto')
+
+    ax.set_xlabel('r [arcsec]', fontsize=10)
+    ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize=10)
+    ax.set_yticks([-1, -0.5, 0, 0.5, 1])
+
+    # Add horizontal colorbar at the top of the axis
+    if add_cbar:
+        cb = fig.colorbar(im, ax=ax, orientation='horizontal', location='top',
+                          pad=0.03, aspect=30, shrink=1.0)
+        cb.set_label('Relative orbit density', labelpad=5, fontsize=10)
+
+    # Draw dashed lines for ocut values
+    for cut in ocut:
+        ax.axhline(cut, color='black', linestyle='--', linewidth=1, xmin=0, xmax=1)
+
+    if created_fig:
+        plt.tight_layout()
+
+    return fig
 
 #---------------------------------------------------------------------------------
 if __name__ == '__main__':
