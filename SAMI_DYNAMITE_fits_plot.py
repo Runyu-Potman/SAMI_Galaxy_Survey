@@ -160,6 +160,6 @@ if __name__ == '__main__':
 
     plt.tight_layout()
 
-plt.savefig('final\enclosed_mass_profiles.png', dpi = 300, bbox_inches = 'tight')
+    plt.savefig('final\enclosed_mass_profiles.png', dpi=300, bbox_inches='tight')
 
 plt.show()
