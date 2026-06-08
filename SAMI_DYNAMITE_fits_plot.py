@@ -141,12 +141,13 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     return fig
 
 #---------------------------------------------------------------------------------
-fits_filename_7969 = '7969/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
-fits_filename_143287 = '143287/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
-fits_filename_227266 = '227266/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
-fits_filename_230776 = '230776/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
-fits_filename_300787 = '300787/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
-fits_filename_9239900248 = '9239900248/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
+if __name__ == '__main__':
+    fits_filename_7969 = '7969/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
+    fits_filename_143287 = '143287/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
+    fits_filename_227266 = '227266/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
+    fits_filename_230776 = '230776/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
+    fits_filename_300787 = '300787/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
+    fits_filename_9239900248 = '9239900248/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
 
 fig, ax = plt.subplots(2, 3, figsize = (12, 8))
 
