@@ -1505,6 +1505,29 @@ class Plotter():
         imgyrange = ybinned
         extent = [imgxrange[0], imgxrange[1], imgyrange[0], imgyrange[1]]
 
+        ##################################################################
+        # here we save the fits for latter reproduction.
+        fits_path = os.path.join(self.plotdir, 'orbit_density.fits')
+        hdu = fits.PrimaryHDU(data = R.T.astype(np.float32))
+        hdr = hdu.header
+        # extent = [xmin, xmax, ymin, ymax]
+        hdr['EX0'] = (float(extent[0]), 'x min (arcsec)')
+        hdr['EX1'] = (float(extent[1]), 'x max (arcsec)')
+        hdr['EY0'] = (float(extent[2]), 'y min (lambda_z)')
+        hdr['EY1'] = (float(extent[3]), 'y max (lambda_z)')
+        hdr['VMIN'] = (float(minmaxdens[0]), 'colorbar min')
+        hdr['VMAX'] = (float(minmaxdens[1]), 'colorbar max')
+        hdr['NXBIN'] = (int(nxbin), 'x bins used')
+        hdr['NYBIN'] = (int(nybin), 'y bins used')
+        hdr['OCUTN'] = (len(ocut), 'number of ocut values')
+        hdr['INTERP'] = ('spline16', 'interpolation used')
+
+        for i, val in enumerate(ocut, start = 1):
+            hdr[f'OCUT{i}'] = (float(val), f'ocut value #{i}')
+        hdu.writeto(fits_path, overwrite = True)
+        self.logger.info(f'Orbit density and metadata saved to {fits_path}')
+        ##################################################################
+
         fig = plt.figure(figsize=(6,5))
 
         ax = fig.add_subplot(1, 1, 1)
