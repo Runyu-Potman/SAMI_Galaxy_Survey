@@ -1181,7 +1181,7 @@ class Plotter():
 
         ## Calulate mass profiles
         nm = 200
-        R = np.logspace(np.log10(0.01),np.log10(Rmax_arcs*1.2),num = nm)
+        R = np.logspace(np.log10(0.01),np.log10(Rmax_arcs*1.0),num = nm)
 
         ## Setup stellar mass profile calculation
         mgepar = stars.mge_pot.data #sabine: should this not be mge_lum?
