@@ -210,6 +210,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
 
 #---------------------------------------------------------------------------------
 if __name__ == '__main__':
+    '''
     fits_filename_7969 = '7969/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
     fits_filename_143287 = '143287/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
     fits_filename_227266 = '227266/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
