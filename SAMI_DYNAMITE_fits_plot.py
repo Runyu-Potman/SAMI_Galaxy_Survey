@@ -196,7 +196,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None):
 
     # Draw dashed lines for ocut values.
     for cut in ocut:
-        ax.axhline(cut, color='black', linestyle='--', linewidth=1, xmin=0, xmax=1)
+        ax.axhline(cut, color = 'black', linestyle = '--', linewidth = 1.5, xmin = 0, xmax = 1)
 
     if created_fig:
         plt.tight_layout()
