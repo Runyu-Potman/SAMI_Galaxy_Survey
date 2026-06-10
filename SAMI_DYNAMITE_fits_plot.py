@@ -187,7 +187,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None):
         ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize = 10)
     ax.set_yticks([-1, -0.5, 0, 0.5, 1])
 
-    # Add horizontal colorbar at the top of the axis
+    # Add horizontal colorbar at the top of the axis.
     if add_cbar:
         cb = fig.colorbar(im, ax=ax, orientation='horizontal', location='top',
                           pad=0.03, aspect=30, shrink=1.0)
