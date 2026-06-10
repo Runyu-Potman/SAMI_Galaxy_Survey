@@ -144,21 +144,17 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None):
     '''
     Reproduce the orbit density plot from the FITS file saved by orbit_plot().
 
-    Parameters
-    ----------
-    fits_file : str
-        Path to the FITS file.
-    ax : matplotlib.axes.Axes, optional
-        If provided, plot on this axes. Otherwise, a new figure is created.
-    cbar : bool, optional
-        If True, add a horizontal colorbar at the top of the axis (default True).
-        For a new figure, colorbar is always added regardless of this flag.
+    Parameters:
+    - fits_file : str. Path to the FITS file.
+    - ax : matplotlib.axes.Axes.
+    - cbar : bool, optional. If True, add a horizontal colorbar at the top of the axis (default True).
+             For a new figure, colorbar is always added regardless of this flag.
+    - name: galaxy name added in the y axis label.
 
-    Returns
-    -------
-    fig : matplotlib.figure.Figure
-        Figure object.
-    """
+    Returns:
+    - fig : matplotlib.figure.Figure.
+    '''
+
     with fits.open(fits_file) as hdul:
         data = hdul[0].data          # already R.T (transposed)
         hdr = hdul[0].header
