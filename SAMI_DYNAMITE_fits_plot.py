@@ -64,7 +64,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     ax.set_xlim(xrange)
     ax.set_ylim(yrange)
     ax.xaxis.set_major_locator(plt.MaxNLocator(nbins = 4))
-    ax.set_xlabel(r'$R$ (arcsec)', fontsize = 15)
+    ax.set_xlabel(r'Radius (arcsec)', fontsize = 15)
     if name is not None:
        ax.set_ylabel(f'Galaxy {name}\nEnclosed Mass ($M_{{\odot}}$)', fontsize = 15)
     else:
