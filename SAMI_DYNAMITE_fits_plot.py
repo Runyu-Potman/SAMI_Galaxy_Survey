@@ -175,9 +175,9 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None):
         created_fig = False
         add_cbar = cbar
 
-    # Display the density map
-    im = ax.imshow(data, origin='lower', extent=extent, cmap='terrain_r',
-                   interpolation=interp, vmin=vmin, vmax=vmax, aspect='auto')
+    # Display the density map.
+    im = ax.imshow(data, origin = 'lower', extent = extent, cmap = 'terrain_r',
+                   interpolation = interp, vmin = vmin, vmax = vmax, aspect = 'auto')
 
     ax.set_xlabel('r [arcsec]', fontsize=10)
     ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize=10)
