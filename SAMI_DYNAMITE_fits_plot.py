@@ -150,6 +150,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     - cbar : bool, optional. If True, add a horizontal colorbar at the top of the axis (default True).
              For a new figure, colorbar is always added regardless of this flag.
     - name: galaxy name added in the y axis label.
+    - r_kdc: add a vertical dotted line to represent the radius of the kinematically distinct component.
 
     Returns:
     - fig : matplotlib.figure.Figure.
