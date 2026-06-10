@@ -156,8 +156,8 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None):
     '''
 
     with fits.open(fits_file) as hdul:
-        data = hdul[0].data          # already R.T (transposed)
-        hdr = hdul[0].header
+         data = hdul[0].data # already R.T (transposed)
+         hdr = hdul[0].header
 
     extent = [hdr['EX0'], hdr['EX1'], hdr['EY0'], hdr['EY1']]
     vmin, vmax = hdr['VMIN'], hdr['VMAX']
