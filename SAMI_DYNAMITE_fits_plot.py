@@ -165,7 +165,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None):
     n_ocut = hdr['OCUTN']
     ocut = [hdr[f'OCUT{i}'] for i in range(1, n_ocut + 1)]
 
-    # Create axes if needed
+    # Create axes if needed.
     if ax is None:
         fig, ax = plt.subplots(figsize=(6, 5))
         created_fig = True
