@@ -185,9 +185,6 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None):
         ax.set_ylabel(f'Galaxy {name}\nCircularity $\lambda_{{z}}$', fontsize = 10)
     else:
         ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize = 10)
-
-
-
     ax.set_yticks([-1, -0.5, 0, 0.5, 1])
 
     # Add horizontal colorbar at the top of the axis
