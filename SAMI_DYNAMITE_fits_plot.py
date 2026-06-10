@@ -189,9 +189,10 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None):
 
     # Add horizontal colorbar at the top of the axis.
     if add_cbar:
-        cb = fig.colorbar(im, ax=ax, orientation='horizontal', location='top',
-                          pad=0.03, aspect=30, shrink=1.0)
-        cb.set_label('Relative orbit density', labelpad=5, fontsize=10)
+        cb = fig.colorbar(im, ax = ax, orientation = 'horizontal', location = 'top',
+                          pad = 0.03, aspect = 30, shrink = 1.0)
+        cb.ax.tick_params(direction = 'in')
+        cb.set_label('Relative Orbit Density', labelpad = 5, fontsize = 10)
 
     # Draw dashed lines for ocut values
     for cut in ocut:
