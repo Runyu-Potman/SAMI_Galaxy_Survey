@@ -167,7 +167,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None):
 
     # Create axes if needed.
     if ax is None:
-        fig, ax = plt.subplots(figsize=(6, 5))
+        fig, ax = plt.subplots(figsize = (6, 5))
         created_fig = True
         add_cbar = True
     else:
