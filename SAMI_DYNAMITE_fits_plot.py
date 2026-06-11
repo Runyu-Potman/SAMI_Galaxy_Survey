@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from astropy.io import fits
-
+import matplotlib.patheffects as pe
 def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, extrap_start = None, output_plot = None, label = False):
     '''
     Reproduce the cumulative mass plot from the FITS file saved by mass_plot().
