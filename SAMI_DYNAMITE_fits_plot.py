@@ -253,7 +253,7 @@ if __name__ == '__main__':
     fits_orbit_9239900248 = '9239900248/dynamite/dynamite_fits/orbit_density.fits'
 
     fig, ax = plt.subplots(2, 3, figsize = (12, 8))
-    reproduce_orbit_plot(fits_orbit_7969, ax = ax[0, 0], name = '7969', r_kdc = 1.7)
+    reproduce_orbit_plot(fits_orbit_7969, ax = ax[0, 0], name = '7969', r_kdc = 1.7, text = True)
     reproduce_orbit_plot(fits_orbit_143287, ax = ax[0, 1], name = '143287', r_kdc = 2.9)
     reproduce_orbit_plot(fits_orbit_227266, ax = ax[0, 2], name = '227266', r_kdc = 3.0)
     reproduce_orbit_plot(fits_orbit_230776, ax = ax[1, 0], name = '230776', r_kdc = 4.6)
