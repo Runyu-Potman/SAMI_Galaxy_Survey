@@ -199,6 +199,17 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     for cut in ocut:
         ax.axhline(cut, color = 'black', linestyle = '--', linewidth = 1, xmin = 0, xmax = 1)
 
+    if text:
+        boundaries = [1.0, ocut[0], ocut[1], ocut[2], ocut[3], -1.0]
+        labels = ['Cold', 'Warm', 'Hot', 'CR-warm', 'CR-cold']
+        x_text = extent[0] + 0.05 * (extent[1] - extent[0])
+        for i in range(len(labels)):
+            y_center = (boundaries[i] + boundaries[i + 1]) / 2
+            txt = ax.text(x_text, y_center, labels[i], ha = 'left', va = 'center',
+                          fontsize = 12, color = 'black')
+            # Add white outline.
+            txt.set_path_effects([pe.withStroke(linewidth = 3, foreground = 'white')])
+
     # a dotted line to represent the radius of the kinematically distinct component.
     if r_kdc is not None:
        ax.axvline(r_kdc, color = 'gray', linestyle = 'dotted', linewidth = 1.5)
