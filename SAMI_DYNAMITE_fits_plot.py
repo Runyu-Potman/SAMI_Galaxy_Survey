@@ -140,7 +140,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
 
     return fig
 #------------------------------------------------------------------------------------
-def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc = None):
+def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc = None, text = False):
     '''
     Reproduce the orbit density plot from the FITS file saved by orbit_plot().
 
