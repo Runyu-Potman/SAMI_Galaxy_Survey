@@ -1030,7 +1030,7 @@ class Plotter():
 
         # Write to file
         fits_path = os.path.join(self.plotdir, 'kinematics.fits')
-        fits.HDUList(hdu_list).writeto(fits_path, overwrite=True)
+        fits.HDUList(hdu_list).writeto(fits_path, overwrite = True)
         self.logger.info(f"Saved kinematic maps to {fits_path}")
         ##########################################################
         #---------------------------------------------------------------------------------------------------
