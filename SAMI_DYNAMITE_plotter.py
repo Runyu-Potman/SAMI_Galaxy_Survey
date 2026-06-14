@@ -1033,7 +1033,7 @@ class Plotter():
             add_map(hdu_list, create_2d_map(res_h),
                     f'RES_H{i}', -10, 10, map2.name)
 
-        # Write the FITS file
+        # Write the FITS file.
         fits_path = os.path.join(self.plotdir, 'kinematic_maps.fits')
         fits.HDUList(hdu_list).writeto(fits_path, overwrite = True)
         self.logger.info(f'Saved kinematic maps to {fits_path}')
