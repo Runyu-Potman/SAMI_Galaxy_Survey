@@ -978,7 +978,7 @@ class Plotter():
                 map2d[j, i] = bin_values[bin_idx]
             return map2d
 
-        # Prepare FITS HDU list
+        # Prepare FITS HDU list.
         hdu_list = [fits.PrimaryHDU()]
         hdu_list[0].header['DX'] = dx
         hdu_list[0].header['ANGLE'] = angle_deg
