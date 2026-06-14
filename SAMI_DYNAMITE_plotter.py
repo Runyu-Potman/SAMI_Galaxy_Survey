@@ -962,7 +962,7 @@ class Plotter():
 
         #--------------------------------------------------------
         # save the results into a fits file.
-        # Build regular grid coordinates
+        # Build regular grid coordinates.
         xs = np.unique(x)
         ys = np.unique(y)
         nx, ny = len(xs), len(ys)
