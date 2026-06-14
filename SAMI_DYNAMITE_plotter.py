@@ -962,7 +962,40 @@ class Plotter():
 
         #--------------------------------------------------------
         ########################################################
-        
+        # Build the regular grid from the pixel coordinates
+        xs = np.unique(x)
+        ys = np.unique(y)
+        nx, ny = len(xs), len(ys)
+
+        # Map each pixel coordinate to its grid index
+        x_to_idx = {xval: i for i, xval in enumerate(xs)}
+        y_to_idx = {yval: j for j, yval in enumerate(ys)}
+
+        def create_2d_map(bin_values, default=np.nan):
+            map2d = np.full((ny, nx), default, dtype=np.float64)
+            for p in s:                     # pixels belonging to a bin
+                bin_idx = grid[p]
+                i = x_to_idx[x[p]]
+                j = y_to_idx[y[p]]
+                map2d[j, i] = bin_values[bin_idx]
+            return map2d
+
+        # Collect all maps in a dictionary
+        maps = {}
+
+        # ---- Data row ----
+        maps['data_sb']   = create_2d_map(np.log10(flux / max(flux)))
+        maps['data_vel']  = create_2d_map(vel)
+        maps['data_sig']  = create_2d_map(sig)
+        for i in gh_plot:
+            maps[f'data_h{i}'] = create_2d_map(h[i])
+
+        # ---- Model row ----
+        maps['model_sb']   = create_2d_map(np.log10(fluxm / max(fluxm)))
+        maps['model_vel']  = create_2d_map(velm)
+        maps['model_sig']  = create_2d_map(sigm)
+        for i in gh_plot:
+            maps[f'model_h{i}'] = create_2d_map(hm[i])
 
 
 
