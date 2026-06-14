@@ -990,7 +990,7 @@ class Plotter():
         for i in gh_plot:
             maps[f'data_h{i}'] = create_2d_map(h[i])
 
-        # ---- Model row ----
+        # Model row.
         maps['model_sb']   = create_2d_map(np.log10(fluxm / max(fluxm)))
         maps['model_vel']  = create_2d_map(velm)
         maps['model_sig']  = create_2d_map(sigm)
