@@ -997,7 +997,7 @@ class Plotter():
         for i in gh_plot:
             maps[f'model_h{i}'] = create_2d_map(hm[i])
 
-        # ---- Residual row ----
+        # Residual row.
         res_sb = (fluxm - flux) / flux
         maps['residual_sb'] = create_2d_map(res_sb)
 
