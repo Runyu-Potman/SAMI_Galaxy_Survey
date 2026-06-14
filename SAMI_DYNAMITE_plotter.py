@@ -1007,6 +1007,12 @@ class Plotter():
         res_sig = (sigm - sig) / dsig
         maps['residual_sig'] = create_2d_map(res_sig)
 
+        for i in gh_plot:
+            res_h = (hm[i] - h[i]) / dh[i]
+            # Clip infinities as done for display_pixels
+            res_h[res_h == np.inf] = np.finfo(float).max
+            res_h[res_h == -np.inf] = np.finfo(float).min
+            maps[f'residual_h{i}'] = create_2d_map(res_h)
 
 
         ##########################################################
