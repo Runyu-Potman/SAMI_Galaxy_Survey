@@ -993,7 +993,7 @@ class Plotter():
             hdu.header['CMAP'] = cmap_name
             hdu_list.append(hdu)
 
-        # ---- Data maps ----
+        # Data maps.
         add_map(hdu_list, create_2d_map(np.log10(flux / max(flux))),
                 'DATA_SB', minsb, maxsb, map1.name)
         add_map(hdu_list, create_2d_map(vel),
