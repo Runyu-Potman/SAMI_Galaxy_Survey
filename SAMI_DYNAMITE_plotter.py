@@ -1025,7 +1025,7 @@ class Plotter():
         hdu_list[0].header['ANGLE'] = angle_deg
 
         for name, array in maps.items():
-            hdu = fits.ImageHDU(array, name=name)
+            hdu = fits.ImageHDU(array, name = name)
             hdu_list.append(hdu)
 
         # Write to file
