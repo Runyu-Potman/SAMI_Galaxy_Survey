@@ -1004,7 +1004,7 @@ class Plotter():
             add_map(hdu_list, create_2d_map(h[i]),
                     f'DATA_H{i}', hmin[i], hmax[i], map2.name)
 
-        # ---- Model maps ----
+        # Model maps.
         add_map(hdu_list, create_2d_map(np.log10(fluxm / max(fluxm))),
                 'MODEL_SB', minsb, maxsb, map1.name)
         add_map(hdu_list, create_2d_map(velm),
