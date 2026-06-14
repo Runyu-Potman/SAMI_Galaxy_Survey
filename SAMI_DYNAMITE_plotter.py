@@ -980,7 +980,7 @@ class Plotter():
                 map2d[j, i] = bin_values[bin_idx]
             return map2d
 
-        # Collect all maps in a dictionary
+        # Collect all maps in a dictionary.
         maps = {}
 
         # Data row.
