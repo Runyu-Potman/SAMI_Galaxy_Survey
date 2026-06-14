@@ -1004,6 +1004,8 @@ class Plotter():
         res_vel = (velm - vel) / dvel
         maps['residual_vel'] = create_2d_map(res_vel)
 
+        res_sig = (sigm - sig) / dsig
+        maps['residual_sig'] = create_2d_map(res_sig)
 
 
 
