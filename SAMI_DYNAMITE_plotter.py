@@ -1014,6 +1014,9 @@ class Plotter():
             res_h[res_h == -np.inf] = np.finfo(float).min
             maps[f'residual_h{i}'] = create_2d_map(res_h)
 
+        # ---- Geometry ----
+        maps['x_coords'] = xs   # 1D array of unique x positions
+        maps['y_coords'] = ys   # 1D array of unique y positions
 
         ##########################################################
         #---------------------------------------------------------------------------------------------------
