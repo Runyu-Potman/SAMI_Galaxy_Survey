@@ -1015,7 +1015,7 @@ class Plotter():
             add_map(hdu_list, create_2d_map(hm[i]),
                     f'MODEL_H{i}', hmin[i], hmax[i], map2.name)
 
-        # ---- Residual maps ----
+        # Residual maps.
         res_sb = (fluxm - flux) / flux
         add_map(hdu_list, create_2d_map(res_sb),
                 'RES_SB', -0.05, 0.05, map2.name)
