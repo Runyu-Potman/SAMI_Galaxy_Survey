@@ -985,7 +985,7 @@ class Plotter():
         hdu_list[0].header['KIN_SET'] = kin_set
         hdu_list[0].header['CBAR_LIMS'] = str(cbar_lims)
 
-        # Helper to add image HDU with metadata
+        # Helper to add image HDU with metadata.
         def add_map(hdu_list, data, name, vmin, vmax, cmap_name):
             hdu = fits.ImageHDU(data, name = name)
             hdu.header['VMIN'] = vmin
