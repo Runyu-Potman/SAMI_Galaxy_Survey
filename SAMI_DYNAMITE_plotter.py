@@ -1001,6 +1001,8 @@ class Plotter():
         res_sb = (fluxm - flux) / flux
         maps['residual_sb'] = create_2d_map(res_sb)
 
+        res_vel = (velm - vel) / dvel
+        maps['residual_vel'] = create_2d_map(res_vel)
 
 
 
