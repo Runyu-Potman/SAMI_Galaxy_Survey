@@ -1018,7 +1018,7 @@ class Plotter():
         maps['x_coords'] = xs   # 1D array of unique x positions
         maps['y_coords'] = ys   # 1D array of unique y positions
 
-        # Build FITS HDU list
+        # Build FITS HDU list.
         hdu_list = [fits.PrimaryHDU()]               # empty primary HDU
         # Add header keywords for pixel size and rotation
         hdu_list[0].header['DX'] = dx
