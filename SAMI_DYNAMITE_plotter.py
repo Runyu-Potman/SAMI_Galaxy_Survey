@@ -971,8 +971,8 @@ class Plotter():
         x_to_idx = {xval: i for i, xval in enumerate(xs)}
         y_to_idx = {yval: j for j, yval in enumerate(ys)}
 
-        def create_2d_map(bin_values, default=np.nan):
-            map2d = np.full((ny, nx), default, dtype=np.float64)
+        def create_2d_map(bin_values, default = np.nan):
+            map2d = np.full((ny, nx), default, dtype = np.float64)
             for p in s:                     # pixels belonging to a bin
                 bin_idx = grid[p]
                 i = x_to_idx[x[p]]
