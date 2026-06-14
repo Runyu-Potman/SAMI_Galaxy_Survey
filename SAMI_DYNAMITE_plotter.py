@@ -960,6 +960,84 @@ class Plotter():
                                           vmin=-10, vmax=10,
                                           **kw_display_pixels)
 
+        #--------------------------------------------------------
+        # save the results into a fits file.
+        # Build regular grid coordinates
+        xs = np.unique(x)
+        ys = np.unique(y)
+        nx, ny = len(xs), len(ys)
+        x_to_idx = {xval: i for i, xval in enumerate(xs)}
+        y_to_idx = {yval: j for j, yval in enumerate(ys)}
+
+        def create_2d_map(bin_values, default = np.nan):
+            map2d = np.full((ny, nx), default, dtype = np.float64)
+            for p in s:
+                bin_idx = grid[p]
+                i = x_to_idx[x[p]]
+                j = y_to_idx[y[p]]
+                map2d[j, i] = bin_values[bin_idx]
+            return map2d
+
+        # Prepare FITS HDU list
+        hdu_list = [fits.PrimaryHDU()]
+        hdu_list[0].header['DX'] = dx
+        hdu_list[0].header['ANGLE'] = angle_deg
+        hdu_list[0].header['KIN_SET'] = kin_set
+        hdu_list[0].header['CBAR_LIMS'] = str(cbar_lims)
+
+        # Helper to add image HDU with metadata
+        def add_map(hdu_list, data, name, vmin, vmax, cmap_name):
+            hdu = fits.ImageHDU(data, name = name)
+            hdu.header['VMIN'] = vmin
+            hdu.header['VMAX'] = vmax
+            hdu.header['CMAP'] = cmap_name
+            hdu_list.append(hdu)
+
+        # ---- Data maps ----
+        add_map(hdu_list, create_2d_map(np.log10(flux / max(flux))),
+                'DATA_SB', minsb, maxsb, map1.name)
+        add_map(hdu_list, create_2d_map(vel),
+                'DATA_VEL', -vmax, vmax, map2.name)
+        add_map(hdu_list, create_2d_map(sig),
+                'DATA_SIG', smin, smax, map1.name)
+        for i in gh_plot:
+            add_map(hdu_list, create_2d_map(h[i]),
+                    f'DATA_H{i}', hmin[i], hmax[i], map2.name)
+
+        # ---- Model maps ----
+        add_map(hdu_list, create_2d_map(np.log10(fluxm / max(fluxm))),
+                'MODEL_SB', minsb, maxsb, map1.name)
+        add_map(hdu_list, create_2d_map(velm),
+                'MODEL_VEL', -vmax, vmax, map2.name)
+        add_map(hdu_list, create_2d_map(sigm),
+                'MODEL_SIG', smin, smax, map1.name)
+        for i in gh_plot:
+            add_map(hdu_list, create_2d_map(hm[i]),
+                    f'MODEL_H{i}', hmin[i], hmax[i], map2.name)
+
+        # ---- Residual maps ----
+        res_sb = (fluxm - flux) / flux
+        add_map(hdu_list, create_2d_map(res_sb),
+                'RES_SB', -0.05, 0.05, map2.name)
+        res_vel = (velm - vel) / dvel
+        add_map(hdu_list, create_2d_map(res_vel),
+                'RES_VEL', -10, 10, map2.name)
+        res_sig = (sigm - sig) / dsig
+        add_map(hdu_list, create_2d_map(res_sig),
+                'RES_SIG', -10, 10, map2.name)
+        for i in gh_plot:
+            res_h = (hm[i] - h[i]) / dh[i]
+            # Clip infinities as done for display_pixels
+            res_h[res_h == np.inf] = np.finfo(float).max
+            res_h[res_h == -np.inf] = np.finfo(float).min
+            add_map(hdu_list, create_2d_map(res_h),
+                    f'RES_H{i}', -10, 10, map2.name)
+
+        # Write the FITS file
+        fits_path = os.path.join(self.plotdir, 'kinematic_maps.fits')
+        fits.HDUList(hdu_list).writeto(fits_path, overwrite = True)
+        self.logger.info(f'Saved kinematic maps to {fits_path}')
+        #---------------------------------------------------------------------------------------------------
         return fig
 
 #############################################################################
