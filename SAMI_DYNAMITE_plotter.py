@@ -962,7 +962,7 @@ class Plotter():
 
         #--------------------------------------------------------
         ########################################################
-        # Build the regular grid from the pixel coordinates
+        # Build the regular grid from the pixel coordinates.
         xs = np.unique(x)
         ys = np.unique(y)
         nx, ny = len(xs), len(ys)
