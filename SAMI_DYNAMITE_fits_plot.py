@@ -270,7 +270,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
 
         fig = plt.figure(figsize=(fig_width, 12))
         kwtext = dict(size=20, ha='center', va='center', rotation=90.)
-        fig.text(text_x, 0.83, 'data_test', **kwtext)
+        fig.text(text_x, 0.83, 'data', **kwtext)
         fig.text(text_x, 0.53, 'model', **kwtext)
         fig.text(text_x, 0.2, 'residual', **kwtext)
 
