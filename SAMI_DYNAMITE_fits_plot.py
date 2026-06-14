@@ -220,6 +220,165 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
 
     return fig
 
+#--------------------------------------------------------------------------------
+import cmasher as cmr
+from astropy.io import fits
+from plotbin import display_pixels   # adjust import if needed
+
+def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
+    """
+    Recreate the 3‑row kinematic maps plot from a previously saved FITS file.
+
+    Parameters
+    ----------
+    fits_path : str
+        Path to the FITS file produced by `_plot_kinematic_maps_gaussherm`.
+    number_gh : int
+        Number of Gauss‑Hermite moments (h3, h4, ...). Must match the saved data.
+
+    Returns
+    -------
+    fig : matplotlib.figure.Figure
+        The generated figure.
+    """
+    with fits.open(fits_path) as hdul:
+        # ----- geometry -----
+        dx = hdul[0].header['DX']
+        angle_deg = hdul[0].header['ANGLE']
+        xs = hdul['x_coords'].data      # 1D array of unique x positions
+        ys = hdul['y_coords'].data      # 1D array of unique y positions
+
+        # display_pixels expects 1D arrays of every pixel centre
+        X, Y = np.meshgrid(xs, ys)
+        x_flat = X.ravel()
+        y_flat = Y.ravel()
+
+        # helper to flatten a 2D map
+        def get_flat(extname):
+            return hdul[extname].data.ravel()
+
+        # ----- column layout -----
+        n_col = number_gh + 1                     # sb, vel, sig, h3, h4, ...
+        gh_indices = list(range(3, number_gh + 1))
+
+        # ----- figure geometry (same as original) -----
+        left_margin = 27 * 0.04
+        right_margin = 27 * 0.03
+        col_width = (27 - left_margin - right_margin) / 5
+        fig_width = left_margin + col_width * n_col + right_margin
+        text_x = 0.015 * 27 / fig_width
+
+        fig = plt.figure(figsize=(fig_width, 12))
+        kwtext = dict(size=20, ha='center', va='center', rotation=90.)
+        fig.text(text_x, 0.83, 'data_test', **kwtext)
+        fig.text(text_x, 0.53, 'model', **kwtext)
+        fig.text(text_x, 0.2, 'residual', **kwtext)
+
+        fig.subplots_adjust(hspace=0.01, wspace=0.3,
+                            left=left_margin/fig_width,
+                            bottom=0.05, top=0.99,
+                            right=1 - right_margin/fig_width)
+
+        # ----- colormaps -----
+        map1 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
+        map2 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
+
+        kw_display_pixels1 = dict(pixelsize=dx, angle=angle_deg,
+                                  colorbar=True, nticks=7, cmap=map1)
+        kw_display_pixels = dict(pixelsize=dx, angle=angle_deg,
+                                 colorbar=True, nticks=7, cmap=map2)
+
+        # ----- DATA row -----
+        # surface brightness
+        ax = plt.subplot(3, n_col, 1)
+        c = get_flat('data_sb')
+        display_pixels.display_pixels(x_flat, y_flat, c,
+                                      vmin=np.nanmin(c), vmax=np.nanmax(c),
+                                      **kw_display_pixels1)
+        ax.set_title('surface brightness (log)', fontsize=20, pad=20)
+
+        # velocity
+        ax = plt.subplot(3, n_col, 2)
+        c = get_flat('data_vel')
+        vmax = np.nanmax(np.abs(c))
+        display_pixels.display_pixels(x_flat, y_flat, c,
+                                      vmin=-vmax, vmax=vmax,
+                                      **kw_display_pixels)
+        ax.set_title('velocity', fontsize=20, pad=20)
+
+        # sigma
+        ax = plt.subplot(3, n_col, 3)
+        c = get_flat('data_sig')
+        smin, smax = np.nanmin(c), np.nanmax(c)
+        display_pixels.display_pixels(x_flat, y_flat, c,
+                                      vmin=smin, vmax=smax,
+                                      **kw_display_pixels1)
+        ax.set_title('velocity dispersion', fontsize=20, pad=20)
+
+        # GH moments
+        for idx, i in enumerate(gh_indices):
+            ax = plt.subplot(3, n_col, 4 + idx)
+            c = get_flat(f'data_h{i}')
+            hlim = max(abs(np.nanmin(c)), abs(np.nanmax(c)))
+            display_pixels.display_pixels(x_flat, y_flat, c,
+                                          vmin=-hlim, vmax=hlim,
+                                          **kw_display_pixels)
+            ax.set_title(f'$h_{{{i}}}$ moment', fontsize=20, pad=20)
+
+        # ----- MODEL row -----
+        plt.subplot(3, n_col, n_col + 1)
+        c = get_flat('model_sb')
+        display_pixels.display_pixels(x_flat, y_flat, c,
+                                      vmin=np.nanmin(c), vmax=np.nanmax(c),
+                                      **kw_display_pixels1)
+
+        plt.subplot(3, n_col, n_col + 2)
+        c = get_flat('model_vel')
+        display_pixels.display_pixels(x_flat, y_flat, c,
+                                      vmin=-vmax, vmax=vmax,
+                                      **kw_display_pixels)
+
+        plt.subplot(3, n_col, n_col + 3)
+        c = get_flat('model_sig')
+        display_pixels.display_pixels(x_flat, y_flat, c,
+                                      vmin=smin, vmax=smax,
+                                      **kw_display_pixels1)
+
+        for idx, i in enumerate(gh_indices):
+            plt.subplot(3, n_col, n_col + 4 + idx)
+            c = get_flat(f'model_h{i}')
+            display_pixels.display_pixels(x_flat, y_flat, c,
+                                          vmin=-hlim, vmax=hlim,
+                                          **kw_display_pixels)
+
+        # ----- RESIDUAL row -----
+        plt.subplot(3, n_col, 2*n_col + 1)
+        c = get_flat('residual_sb')
+        display_pixels.display_pixels(x_flat, y_flat, c,
+                                      vmin=-0.05, vmax=0.05,
+                                      **kw_display_pixels)
+
+        plt.subplot(3, n_col, 2*n_col + 2)
+        c = get_flat('residual_vel')
+        display_pixels.display_pixels(x_flat, y_flat, c,
+                                      vmin=-10, vmax=10,
+                                      **kw_display_pixels)
+
+        plt.subplot(3, n_col, 2*n_col + 3)
+        c = get_flat('residual_sig')
+        display_pixels.display_pixels(x_flat, y_flat, c,
+                                      vmin=-10, vmax=10,
+                                      **kw_display_pixels)
+
+        for idx, i in enumerate(gh_indices):
+            plt.subplot(3, n_col, 2*n_col + 4 + idx)
+            c = get_flat(f'residual_h{i}')
+            display_pixels.display_pixels(x_flat, y_flat, c,
+                                          vmin=-10, vmax=10,
+                                          **kw_display_pixels)
+
+    return fig
+
 #---------------------------------------------------------------------------------
 if __name__ == '__main__':
     '''
