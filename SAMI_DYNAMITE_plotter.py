@@ -966,6 +966,8 @@ class Plotter():
         xs = np.unique(x)
         ys = np.unique(y)
         nx, ny = len(xs), len(ys)
+
+        # map each pixel coordinate to its grid index.
         x_to_idx = {xval: i for i, xval in enumerate(xs)}
         y_to_idx = {yval: j for j, yval in enumerate(ys)}
 
