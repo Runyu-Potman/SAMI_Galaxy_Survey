@@ -983,7 +983,7 @@ class Plotter():
         # Collect all maps in a dictionary
         maps = {}
 
-        # ---- Data row ----
+        # Data row.
         maps['data_sb']   = create_2d_map(np.log10(flux / max(flux)))
         maps['data_vel']  = create_2d_map(vel)
         maps['data_sig']  = create_2d_map(sig)
