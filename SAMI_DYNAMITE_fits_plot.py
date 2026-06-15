@@ -265,10 +265,10 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         fig.text(text_x, 0.53, 'Model', **kwtext)
         fig.text(text_x, 0.2, 'Residual', **kwtext)
 
-        fig.subplots_adjust(hspace=0.01, wspace=0.3,
-                            left=left_margin/fig_width,
-                            bottom=0.05, top=0.99,
-                            right=1 - right_margin/fig_width)
+        fig.subplots_adjust(hspace = 0.01, wspace = 0.3,
+                            left = left_margin/fig_width,
+                            bottom = 0.05, top = 0.99,
+                            right = 1 - right_margin/fig_width)
 
         # ----- colormaps -----
         map1 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
