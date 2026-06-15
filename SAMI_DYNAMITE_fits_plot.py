@@ -279,8 +279,8 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         kw_display_pixels = dict(pixelsize = dx, angle = angle_deg,
                                  colorbar = True, nticks = 7, cmap = map2)
 
-        # ----- DATA row -----
-        # surface brightness
+        # DATA row.
+        # surface brightness.
         ax = plt.subplot(3, n_col, 1)
         c = get_flat('data_sb')
         display_pixels.display_pixels(x_flat, y_flat, c,
