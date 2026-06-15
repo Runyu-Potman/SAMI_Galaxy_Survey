@@ -302,7 +302,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         c = get_flat('data_sig')
         smin, smax = np.nanmin(c), np.nanmax(c)
         display_pixels.display_pixels(x_flat, y_flat, c,
-                                      vmin=smin, vmax=smax,
+                                      vmin = smin, vmax = smax,
                                       **kw_display_pixels1)
         ax.set_title('velocity dispersion', fontsize=20, pad=20)
 
