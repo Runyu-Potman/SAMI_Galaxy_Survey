@@ -338,7 +338,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
             plt.subplot(3, n_col, n_col + 4 + idx)
             c = get_flat(f'model_h{i}')
             display_pixels.display_pixels(x_flat, y_flat, c,
-                                          vmin=-0.15, vmax=0.15,
+                                          vmin = -0.15, vmax = 0.15,
                                           **kw_display_pixels)
 
         # ----- RESIDUAL row -----
