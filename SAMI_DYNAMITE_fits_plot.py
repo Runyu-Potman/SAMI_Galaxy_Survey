@@ -274,10 +274,10 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         map1 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
         map2 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
 
-        kw_display_pixels1 = dict(pixelsize=dx, angle=angle_deg,
-                                  colorbar=True, nticks=7, cmap=map1)
-        kw_display_pixels = dict(pixelsize=dx, angle=angle_deg,
-                                 colorbar=True, nticks=7, cmap=map2)
+        kw_display_pixels1 = dict(pixelsize = dx, angle = angle_deg,
+                                  colorbar = True, nticks = 7, cmap = map1)
+        kw_display_pixels = dict(pixelsize = dx, angle = angle_deg,
+                                 colorbar = True, nticks = 7, cmap = map2)
 
         # ----- DATA row -----
         # surface brightness
