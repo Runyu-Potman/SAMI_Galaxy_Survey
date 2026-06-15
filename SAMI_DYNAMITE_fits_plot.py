@@ -293,7 +293,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         c = get_flat('data_vel')
         vmax = np.nanmax(np.abs(c))
         display_pixels.display_pixels(x_flat, y_flat, c,
-                                      vmin=-vmax, vmax=vmax,
+                                      vmin = -vmax, vmax = vmax,
                                       **kw_display_pixels)
         ax.set_title('velocity', fontsize=20, pad=20)
 
