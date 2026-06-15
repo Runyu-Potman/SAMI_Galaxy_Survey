@@ -259,11 +259,11 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         fig_width = left_margin + col_width * n_col + right_margin
         text_x = 0.015 * 27 / fig_width
 
-        fig = plt.figure(figsize=(fig_width, 12))
-        kwtext = dict(size=20, ha='center', va='center', rotation=90.)
-        fig.text(text_x, 0.83, 'data', **kwtext)
-        fig.text(text_x, 0.53, 'model', **kwtext)
-        fig.text(text_x, 0.2, 'residual', **kwtext)
+        fig = plt.figure(figsize = (fig_width, 12))
+        kwtext = dict(size = 20, ha = 'center', va = 'center', rotation = 90.)
+        fig.text(text_x, 0.83, 'Data', **kwtext)
+        fig.text(text_x, 0.53, 'Model', **kwtext)
+        fig.text(text_x, 0.2, 'Residual', **kwtext)
 
         fig.subplots_adjust(hspace=0.01, wspace=0.3,
                             left=left_margin/fig_width,
