@@ -244,7 +244,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         x_flat = X.ravel()
         y_flat = Y.ravel()
 
-        # helper to flatten a 2D map
+        # helper to flatten a 2D map.
         def get_flat(extname):
             return hdul[extname].data.ravel()
 
