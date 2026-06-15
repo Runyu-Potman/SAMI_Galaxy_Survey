@@ -252,7 +252,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         n_col = number_gh + 1 # sb, vel, sig, h3, h4, ...
         gh_indices = list(range(3, number_gh + 1))
 
-        # ----- figure geometry (same as original) -----
+        # figure geometry (same as original).
         left_margin = 27 * 0.04
         right_margin = 27 * 0.03
         col_width = (27 - left_margin - right_margin) / 5
