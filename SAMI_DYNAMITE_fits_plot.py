@@ -222,45 +222,6 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
 
 #--------------------------------------------------------------------------------
 
-        # RESIDUAL row.
-        plt.subplot(3, n_col, 2*n_col + 1)
-        c = get_flat('residual_sb')
-        display_pixels.display_pixels(x_flat, y_flat, c,
-                                      vmin = -0.05, vmax = 0.05,
-                                      **kw_display_pixels)
-
-        cb_ax = plt.gcf().axes[-1]
-        cb_ax.tick_params(direction = 'in')
-
-        plt.subplot(3, n_col, 2*n_col + 2)
-        c = get_flat('residual_vel')
-        display_pixels.display_pixels(x_flat, y_flat, c,
-                                      vmin = -10, vmax = 10,
-                                      **kw_display_pixels)
-
-        cb_ax = plt.gcf().axes[-1]
-        cb_ax.tick_params(direction = 'in')
-
-        plt.subplot(3, n_col, 2*n_col + 3)
-        c = get_flat('residual_sig')
-        display_pixels.display_pixels(x_flat, y_flat, c,
-                                      vmin = -10, vmax = 10,
-                                      **kw_display_pixels)
-
-        cb_ax = plt.gcf().axes[-1]
-        cb_ax.tick_params(direction = 'in')
-
-        for idx, i in enumerate(gh_indices):
-            plt.subplot(3, n_col, 2*n_col + 4 + idx)
-            c = get_flat(f'residual_h{i}')
-            display_pixels.display_pixels(x_flat, y_flat, c,
-                                          vmin = -10, vmax = 10,
-                                          **kw_display_pixels)
-
-            cb_ax = plt.gcf().axes[-1]
-            cb_ax.tick_params(direction = 'in')
-
-    return fig
 
 #---------------------------------------------------------------------------------
 if __name__ == '__main__':
