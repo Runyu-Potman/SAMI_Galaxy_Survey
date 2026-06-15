@@ -270,7 +270,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
                             bottom = 0.05, top = 0.99,
                             right = 1 - right_margin/fig_width)
 
-        # ----- colormaps -----
+        # colormaps.
         map1 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
         map2 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
 
