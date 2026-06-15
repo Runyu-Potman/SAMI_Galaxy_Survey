@@ -284,7 +284,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         ax = plt.subplot(3, n_col, 1)
         c = get_flat('data_sb')
         display_pixels.display_pixels(x_flat, y_flat, c,
-                                      vmin=np.nanmin(c), vmax=np.nanmax(c),
+                                      vmin = np.nanmin(c), vmax = np.nanmax(c),
                                       **kw_display_pixels1)
         ax.set_title('surface brightness (log)', fontsize=20, pad=20)
 
