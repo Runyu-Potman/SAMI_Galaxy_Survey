@@ -345,6 +345,9 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh = 4):
                                       vmin = -vmax, vmax = vmax,
                                       **kw_display_pixels)
 
+        cb_ax = plt.gcf().axes[-1]
+        cb_ax.tick_params(direction = 'in')
+
         plt.subplot(3, n_col, n_col + 3)
         c = get_flat('model_sig')
         display_pixels.display_pixels(x_flat, y_flat, c,
