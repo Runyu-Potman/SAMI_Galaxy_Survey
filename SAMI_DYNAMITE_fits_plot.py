@@ -221,10 +221,6 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     return fig
 
 #--------------------------------------------------------------------------------
-import cmasher as cmr
-from astropy.io import fits
-from plotbin import display_pixels   # adjust import if needed
-
 def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
     """
     Recreate the 3‑row kinematic maps plot from a previously saved FITS file.
