@@ -236,8 +236,8 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         # geometry:
         dx = hdul[0].header['DX']
         angle_deg = hdul[0].header['ANGLE']
-        xs = hdul['x_coords'].data      # 1D array of unique x positions
-        ys = hdul['y_coords'].data      # 1D array of unique y positions
+        xs = hdul['x_coords'].data # 1D array of unique x positions
+        ys = hdul['y_coords'].data # 1D array of unique y positions
 
         # display_pixels expects 1D arrays of every pixel centre
         X, Y = np.meshgrid(xs, ys)
