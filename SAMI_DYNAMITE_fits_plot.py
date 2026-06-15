@@ -304,7 +304,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         display_pixels.display_pixels(x_flat, y_flat, c,
                                       vmin = smin, vmax = smax,
                                       **kw_display_pixels1)
-        ax.set_title('velocity dispersion', fontsize=20, pad=20)
+        ax.set_title('Velocity Dispersion', fontsize = 20, pad = 20)
 
         # GH moments
         for idx, i in enumerate(gh_indices):
