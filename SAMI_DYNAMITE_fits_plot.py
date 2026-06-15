@@ -298,6 +298,9 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh = 4):
         display_pixels.display_pixels(x_flat, y_flat, c,
                                       vmin = -vmax, vmax = vmax,
                                       **kw_display_pixels)
+        cb_ax = plt.gcf().axes[-1]
+        cb_ax.tick_params(direction = 'in')
+
         ax.set_title('Velocity', fontsize = 20, pad = 20)
 
         # sigma.
