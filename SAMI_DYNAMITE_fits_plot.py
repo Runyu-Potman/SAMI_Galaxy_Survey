@@ -310,6 +310,10 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh = 4):
         display_pixels.display_pixels(x_flat, y_flat, c,
                                       vmin = smin, vmax = smax,
                                       **kw_display_pixels1)
+
+        cb_ax = plt.gcf().axes[-1]
+        cb_ax.tick_params(direction = 'in')
+
         ax.set_title('Velocity Dispersion', fontsize = 20, pad = 20)
 
         # GH moments.
