@@ -221,7 +221,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     return fig
 
 #--------------------------------------------------------------------------------
-def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
+def plot_kinematic_maps_from_fits(fits_path, number_gh = 4):
     '''
     Recreate the 3‑row kinematic maps plot from a previously saved FITS file.
 
