@@ -233,7 +233,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
     - fig : matplotlib.figure.Figure.
     '''
     with fits.open(fits_path) as hdul:
-        # ----- geometry -----
+        # geometry:
         dx = hdul[0].header['DX']
         angle_deg = hdul[0].header['ANGLE']
         xs = hdul['x_coords'].data      # 1D array of unique x positions
