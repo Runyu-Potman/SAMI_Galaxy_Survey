@@ -331,7 +331,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         plt.subplot(3, n_col, n_col + 3)
         c = get_flat('model_sig')
         display_pixels.display_pixels(x_flat, y_flat, c,
-                                      vmin=smin, vmax=smax,
+                                      vmin = smin, vmax = smax,
                                       **kw_display_pixels1)
 
         for idx, i in enumerate(gh_indices):
