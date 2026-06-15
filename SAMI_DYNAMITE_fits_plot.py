@@ -315,7 +315,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
                                           **kw_display_pixels)
             ax.set_title(f'$h_{{{i}}}$ moment', fontsize = 20, pad = 20)
 
-        # ----- MODEL row -----
+        # MODEL row.
         plt.subplot(3, n_col, n_col + 1)
         c = get_flat('model_sb')
         display_pixels.display_pixels(x_flat, y_flat, c,
