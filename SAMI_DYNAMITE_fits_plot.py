@@ -306,7 +306,7 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
                                       **kw_display_pixels1)
         ax.set_title('Velocity Dispersion', fontsize = 20, pad = 20)
 
-        # GH moments
+        # GH moments.
         for idx, i in enumerate(gh_indices):
             ax = plt.subplot(3, n_col, 4 + idx)
             c = get_flat(f'data_h{i}')
