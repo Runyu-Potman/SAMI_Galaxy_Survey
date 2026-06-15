@@ -229,11 +229,9 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
     - fits_path : str. Path to the FITS file produced by `_plot_kinematic_maps_gaussherm`.
     - number_gh : int. Number of Gauss‑Hermite moments (h3, h4, ...). Must match the saved data.
 
-    Returns
-    -------
-    fig : matplotlib.figure.Figure
-        The generated figure.
-    """
+    Returns:
+    - fig : matplotlib.figure.Figure.
+    '''
     with fits.open(fits_path) as hdul:
         # ----- geometry -----
         dx = hdul[0].header['DX']
