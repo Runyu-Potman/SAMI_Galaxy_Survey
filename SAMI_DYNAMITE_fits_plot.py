@@ -225,12 +225,9 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
     '''
     Recreate the 3‑row kinematic maps plot from a previously saved FITS file.
 
-    Parameters
-    ----------
-    fits_path : str
-        Path to the FITS file produced by `_plot_kinematic_maps_gaussherm`.
-    number_gh : int
-        Number of Gauss‑Hermite moments (h3, h4, ...). Must match the saved data.
+    Parameters:
+    - fits_path : str. Path to the FITS file produced by `_plot_kinematic_maps_gaussherm`.
+    - number_gh : int. Number of Gauss‑Hermite moments (h3, h4, ...). Must match the saved data.
 
     Returns
     -------
