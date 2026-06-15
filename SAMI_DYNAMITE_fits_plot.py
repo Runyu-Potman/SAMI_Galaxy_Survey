@@ -248,8 +248,8 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh=4):
         def get_flat(extname):
             return hdul[extname].data.ravel()
 
-        # ----- column layout -----
-        n_col = number_gh + 1                     # sb, vel, sig, h3, h4, ...
+        # column layout.
+        n_col = number_gh + 1 # sb, vel, sig, h3, h4, ...
         gh_indices = list(range(3, number_gh + 1))
 
         # ----- figure geometry (same as original) -----
