@@ -402,6 +402,9 @@ def plot_kinematic_maps_from_fits(fits_path, number_gh = 4):
                                           vmin = -10, vmax = 10,
                                           **kw_display_pixels)
 
+            cb_ax = plt.gcf().axes[-1]
+            cb_ax.tick_params(direction = 'in')
+
     return fig
 
 #---------------------------------------------------------------------------------
