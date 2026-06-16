@@ -184,6 +184,55 @@ def plot_nii_spatial(ax, Ha_fits_path, Hb_fits_path, OIII_fits_path, NII_fits_pa
 
 
 #####################################################################################
+def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
+    '''
+    combine the slurm jobs, do preparation for plotting.
+
+    Parameters:
+    - base_dir: slurm jon result directory.
+    - center_x: center of galaxy.
+    - center_y: center of galaxy.
+
+    Returns:
+    - age_full: full age map.
+    - metal_full: full metal map.
+    - age_array: age array for gradient.
+    - metal_array: metal array for gradient.
+    - age_std_array: standard deviation of age array.
+    - metal_std_array: standard deviation of metal array.
+    - r_all: radius in gradient plot relative to galaxy center.
+    '''
+
+    # initialize the full maps for mean and standard deviation.
+    age_map = np.full((50, 50), np.nan)
+    metal_map = np.full_like(age_map, np.nan)
+
+    age_std_map = np.full_like(age_map, np.nan)
+    metal_std_map = np.full_like(age_map, np.nan)
+
+    # loop over the tasks (job_id: 0 - 24).
+    for job_id in range(25):
+        # load the partial maps (mean and standard deviation).
+        age_part = np.load(f'{base_dir}/output/age_map_part_{job_id}.npy')
+        metal_part = np.load(f'{base_dir}/output/metal_map_part_{job_id}.npy')
+
+        age_std_part = np.load(f'{base_dir}/output/age_std_part_{job_id}.npy')
+        metal_std_part = np.load(f'{base_dir}/output/metal_std_part_{job_id}.npy')
+
+        # calculate the slice indices for inserting the data.
+        start_y = job_id * 2
+        end_y = start_y + age_part.shape[0]
+
+        # insert the partial maps into full maps.
+        age_map[start_y:end_y, :] = age_part
+        metal_map[start_y:end_y, :] = metal_part
+
+        age_std_map[start_y:end_y, :] = age_std_part
+        metal_std_map[start_y:end_y, :] = metal_std_part
+
+    # this is for making the spatially resolved maps.
+    age_full = age_map.copy()
+    metal_full = metal_map.copy()
 
 
 
