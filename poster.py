@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from SAMI_kinematcs import plot_vel_or_sig
 import cmasher as cmr
 from matplotlib.colors import ListedColormap, BoundaryNorm
-from matplotlib.ticker import AutoMinorLocator
 from astropy.io import fits
 from matplotlib.ticker import AutoMinorLocator
 import matplotlib.patches as patches
