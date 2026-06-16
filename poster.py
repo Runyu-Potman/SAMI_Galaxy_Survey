@@ -6,7 +6,7 @@ from matplotlib.colors import ListedColormap, BoundaryNorm
 from astropy.io import fits
 from matplotlib.ticker import AutoMinorLocator
 import matplotlib.patches as patches
-
+import matplotlib.patheffects as pe
 ################################################################################
 def plot_nii_spatial(ax, Ha_fits_path, Hb_fits_path, OIII_fits_path, NII_fits_path,
                      threshold, scale=0.5, fontsize=10, cbar_pad=0.02,
