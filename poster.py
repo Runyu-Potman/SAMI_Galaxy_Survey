@@ -243,6 +243,9 @@ def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
     x_bar = np.load(f'{base_dir}/x_bar.npy')
     y_bar = np.load(f'{base_dir}/y_bar.npy')
 
+    # shift the center back.
+    x_bar = x_bar + center_x
+    y_bar = y_bar + center_y
 
 
 
