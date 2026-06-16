@@ -284,6 +284,140 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
     '''
     Plot the spatially resolved age and metal maps and gradient plots for three galaxies.
 
+    Paramters:
+    - axs_x: column of plot.
+    - age_full: full age map from slurm_job_combine function.
+    - metal_full: full metal map from slurm_job_combine function.
+    - r_all: radius in gradient plot relative to galaxy center from slurm_job_combine function.
+    - age_array: age array for gradient from slurm_job_combine function.
+    - metal_array: metal array from slurm_job_combine function.
+    - label_pad: label pad.
+    - bar_fraction: bar fraction for colorbar.
+    - bar_pad: bar pad for colorbar.
+    - fontsize: font size.
+    - r_dash: a vertical dash line indicating the radius of the KDC.
+    - vmin_age: age map vmin.
+    - vmax_age: age map vmax.
+    - vmin_z: metal map vmin.
+    - vmax_z: metal map vmax.
+    - name: galaxy name.
+    - title: plot title.
+    - cmap_1_2: color map for spatially resolved maps.
+    - cmap_3_4: color map for gradient plots.
+
+    Returns:
+    - None.
+    '''
+
+    # colorbar setting.
+    if vmin_age is None:
+        vmin_age = np.nanmin(10 ** (age_full - 9))
+    if vmax_age is None:
+        vmax_age = np.nanmax(10 ** (age_full - 9))
+
+    # age map (the first column).
+    im = axs[axs_x, 0].imshow(10 ** (age_full - 9), origin = 'lower', aspect = 'equal',
+                          cmap = cmap_1_2, extent = [-12.5, 12.5, -12.5, 12.5],
+                          vmin = vmin_age, vmax = vmax_age)
+
+    # set ticks (first column).
+    axs[axs_x, 0].set_xlim([-12.5, 12.5])
+    axs[axs_x, 0].set_ylim([-12.5, 12.5])
+
+    tick_locs = np.arange(-10, 11, 5)
+    axs[axs_x, 0].set_xticks(tick_locs)
+    axs[axs_x, 0].set_yticks(tick_locs)
+
+    # set labels (first column).
+    axs[axs_x, 0].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
+    axs[axs_x, 0].set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = label_pad)
+
+    # set color bar (first column).
+    cbar = plt.colorbar(im, ax = axs[axs_x, 0], fraction = bar_fraction, pad = bar_pad)
+    cbar.ax.yaxis.set_tick_params(direction = 'in')
+    cbar.set_label('Age (Gyr)', fontsize = fontsize, labelpad = 4)
+
+    # set titles (first column).
+    if title:
+        axs[axs_x, 0].set_title('Resolved Stellar Age', fontsize = fontsize)
+
+    # make these (major) ticks longer.
+    axs[axs_x, 0].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+
+    # add minor ticks (shorter, no labels).
+    axs[axs_x, 0].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 0].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 0].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+    # color bar setting.
+    if vmin_z is None:
+        vmin_z = np.nanmin(metal_full)
+    if vmax_z is None:
+        vmax_z = np.nanmax(metal_full)
+
+    # [M/H] map (second column).
+    im = axs[axs_x, 1].imshow(metal_full, origin = 'lower', aspect = 'equal',
+                          cmap = cmap_1_2, extent = [-12.5, 12.5, -12.5, 12.5], vmin = vmin_z, vmax = vmax_z)
+
+    # set ticks.
+    axs[axs_x, 1].set_xlim([-12.5, 12.5])
+    axs[axs_x, 1].set_ylim([-12.5, 12.5])
+
+    tick_locs = np.arange(-10, 11, 5)
+    axs[axs_x, 1].set_xticks(tick_locs)
+    axs[axs_x, 1].set_yticks(tick_locs)
+
+    # set labels.
+    axs[axs_x, 1].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
+    axs[axs_x, 1].set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = label_pad)
+
+    # set color bar.
+    cbar = plt.colorbar(im, ax = axs[axs_x, 1], fraction = bar_fraction, pad = bar_pad)
+    cbar.ax.yaxis.set_tick_params(direction = 'in')
+    cbar.set_label('[M/H]', fontsize = fontsize, labelpad = 4)
+
+    if title:
+        # set titles.
+        axs[axs_x, 1].set_title('Resolved Stellar Metallicity', fontsize = fontsize)
+
+    # make these (major) ticks longer.
+    axs[axs_x, 1].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
+
+    # add minor ticks (shorter, no labels).
+    axs[axs_x, 1].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 1].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x, 1].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+
+
+#-------------------------------------------------------------------------
+def add_psf(ax, psffwhm):
+    '''
+    Add a psf circle in the left corner.
+
+    Parameters:
+    - ax: matplotlib axes.
+    - psffwhm: psf_fwhm in arcsec.
+
+    Returns:
+    - None
+
+    '''
+
+    # radius in arcsec.
+    radius = psffwhm / 2
+
+    # add a circle showing PSF.
+    circle = patches.Circle(
+        (-10, -10),  # position of the circle in arcsec
+        radius,
+        edgecolor = 'black',  # color of the circle's border
+        facecolor = 'none',  # no fill color
+        linewidth = 1.5,  # thickness of the circle's edge
+        linestyle = '-'
+    )
+
+    ax.add_patch(circle)
+#####################################################################################
 
 
 galaxy = '300787'
