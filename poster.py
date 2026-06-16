@@ -615,6 +615,14 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
             # Add white outline.
             txt.set_path_effects([pe.withStroke(linewidth = 3, foreground = 'white')])
 
+    # a dotted line to represent the radius of the kinematically distinct component.
+    if r_kdc is not None:
+       ax.axvline(r_kdc, color = 'orange', linestyle = 'dotted', linewidth = 2.0)
+
+    if created_fig:
+        plt.tight_layout()
+
+    return fig
 
 ######################################################################################
 
