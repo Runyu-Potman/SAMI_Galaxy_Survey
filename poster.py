@@ -247,6 +247,9 @@ def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
     x_bar = x_bar + center_x
     y_bar = y_bar + center_y
 
+    # find the nearest pixel.
+    x_bar = np.rint(x_bar).astype(int)
+    y_bar = np.rint(y_bar).astype(int)
 
 
 
