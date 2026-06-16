@@ -239,6 +239,9 @@ def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
     np.save(f'{base_dir}/age_std_map_full.npy', age_std_map)
     np.save(f'{base_dir}/metal_std_map_full.npy', metal_std_map)
 
+    # begin making gradient plots.
+    x_bar = np.load(f'{base_dir}/x_bar.npy')
+    y_bar = np.load(f'{base_dir}/y_bar.npy')
 
 
 
