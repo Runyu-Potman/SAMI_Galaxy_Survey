@@ -10,7 +10,9 @@ from pafit.fit_kinematic_pa import fit_kinematic_pa
 import cmasher as cmr
 from SAMI_slurm_job_combine_functions import add_psf
 from SAMI_BPT_functions import bpt
-
+from matplotlib.colors import ListedColormap, BoundaryNorm
+from matplotlib.ticker import AutoMinorLocator
+from astropy.io import fits
 
 ################################################################################
 def plot_nii_spatial(ax, Ha_fits_path, Hb_fits_path, OIII_fits_path, NII_fits_path,
