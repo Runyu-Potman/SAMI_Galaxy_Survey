@@ -1,5 +1,4 @@
 import numpy as np
-import astropy.io.fits as fits
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap, BoundaryNorm
 from photutils.aperture import CircularAperture, aperture_photometry
