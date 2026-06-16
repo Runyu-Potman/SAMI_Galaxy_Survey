@@ -13,10 +13,6 @@ from SAMI_BPT_functions import bpt
 
 
 ################################################################################
-from matplotlib.colors import ListedColormap, BoundaryNorm
-from matplotlib.ticker import AutoMinorLocator
-from astropy.io import fits
-
 def plot_nii_spatial(ax, Ha_fits_path, Hb_fits_path, OIII_fits_path, NII_fits_path,
                      threshold, scale=0.5, fontsize=10, cbar_pad=0.02,
                      bar_fraction=0.0467, labelpad_x=8, labelpad_y=0.85):
