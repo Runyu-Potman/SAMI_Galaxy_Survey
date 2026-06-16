@@ -268,6 +268,7 @@ def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
     age_std_map = age_std_map[valid]
     metal_std_map = metal_std_map[valid]
 
+    print('data point in the gradient plot:', np.sum(valid))
 
 
 
