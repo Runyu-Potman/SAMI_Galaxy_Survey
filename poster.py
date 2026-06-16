@@ -607,7 +607,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     if text:
         boundaries = [1.0, ocut[0], ocut[1], ocut[2], ocut[3], -1.0]
         labels = ['Cold', 'Warm', 'Hot', 'CR-warm', 'CR-cold']
-        x_text = extent[0] + 0.7 * (extent[1] - extent[0])
+        x_text = extent[0] + 0.68 * (extent[1] - extent[0])
         for i in range(len(labels)):
             y_center = (boundaries[i] + boundaries[i + 1]) / 2
             txt = ax.text(x_text, y_center, labels[i], ha = 'left', va = 'center',
