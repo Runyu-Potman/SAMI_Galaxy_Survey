@@ -537,6 +537,15 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     idx_kdc = np.argmin(np.abs(R_arcsec - r_kdc))
     print(f'Galaxy {name}: Enclosed stellar mass at r = {r_kdc} arcsec: {stellar_best[idx_kdc]:.3e} M_sun')
 
+    idx_max = np.argmin(np.abs(R_arcsec - Rmax_arcs))
+    print(f'Galaxy {name}: Enclosed stellar mass at r = {Rmax_arcs} arcsec: {stellar_best[idx_max]:.3e} M_sun')
+
+    print(f'Galaxy {name}: kdc to total stellar mass ratio:', stellar_best[idx_kdc] / stellar_best[idx_max])
+
+    return fig
+
+
+######################################################################################
 
 galaxy = '300787'
 # ----------------------------------------------------------------------------
