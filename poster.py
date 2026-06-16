@@ -741,6 +741,17 @@ plot_age_and_Z(axs_x = 1, age_full = age_300787, metal_full = metal_300787, r_al
                    r_dash = 2.5, title = True
                    )
 ############################################################
+fits_filename_300787 = '300787/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
+reproduce_mass_plot(fits_filename_300787, ax=axs[1, 2], name='300787', r_kdc=2.5, extrap_start=5.37, label=True)
+
+axs[1, 2].set_title('Mass Profile', fontsize=10)
+
+fits_orbit_300787 = '300787/dynamite/dynamite_fits/orbit_density.fits'
+reproduce_orbit_plot(fits_orbit_300787, ax = axs[1, 3], name = '300787', r_kdc = 2.5, text = True)
+
+axs[1, 3].set_title('Orbit Distribution', fontsize=10)
+
+#############################################################
 add_psf(ax = axs[0, 3], psffwhm = 1.941)
 add_psf(ax = axs[1, 0], psffwhm = 1.941)
 add_psf(ax = axs[1, 1], psffwhm = 1.941)
