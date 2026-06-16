@@ -1,9 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from SAMI_kinematcs import plot_vel_or_sig
-from SAMI_stellar_velocity_quality_cut_functions import quality_cut_gaseous_velocity_map_csv, quality_cut_sfr_map_csv
-from matplotlib.ticker import AutoMinorLocator
-from pafit.fit_kinematic_pa import fit_kinematic_pa
 import cmasher as cmr
 from SAMI_slurm_job_combine_functions import add_psf
 from SAMI_BPT_functions import bpt
