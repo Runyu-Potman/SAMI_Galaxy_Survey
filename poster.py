@@ -625,9 +625,6 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     return fig
 
 ######################################################################################
-
-galaxy = '300787'
-# ----------------------------------------------------------------------------
 # 227266 gas kinematic output.
 gas_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_gas_velocity_map.csv'
 
