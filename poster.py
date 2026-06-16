@@ -19,7 +19,7 @@ from astropy.io import fits
 
 def plot_nii_spatial(ax, Ha_fits_path, Hb_fits_path, OIII_fits_path, NII_fits_path,
                      threshold, scale=0.5, fontsize=10, cbar_pad=0.02,
-                     bar_fraction=0.0466, labelpad_x=8, labelpad_y=0.85):
+                     bar_fraction=0.0467, labelpad_x=8, labelpad_y=0.85):
     """
     Load the Hα, Hβ, [OIII] and [NII] maps, apply quality cuts,
     compute the [NII]-BPT classification, and plot the spatial classification
