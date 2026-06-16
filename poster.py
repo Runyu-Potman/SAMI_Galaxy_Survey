@@ -543,6 +543,77 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     print(f'Galaxy {name}: kdc to total stellar mass ratio:', stellar_best[idx_kdc] / stellar_best[idx_max])
 
     return fig
+#####################################################################################
+def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc = None, text = False):
+    '''
+    Reproduce the orbit density plot from the FITS file saved by orbit_plot().
+
+    Parameters:
+    - fits_file : str. Path to the FITS file.
+    - ax : matplotlib.axes.Axes.
+    - cbar : bool, optional. If True, add a horizontal colorbar at the top of the axis (default True).
+             For a new figure, colorbar is always added regardless of this flag.
+    - name: galaxy name added in the y axis label.
+    - r_kdc: add a vertical dotted line to represent the radius of the kinematically distinct component.
+    - text: if True, add text about each orbit type.
+
+    Returns:
+    - fig : matplotlib.figure.Figure.
+    '''
+
+    with fits.open(fits_file) as hdul:
+         data = hdul[0].data # already R.T (transposed)
+         hdr = hdul[0].header
+
+    extent = [hdr['EX0'], hdr['EX1'], hdr['EY0'], hdr['EY1']]
+    vmin, vmax = hdr['VMIN'], hdr['VMAX']
+    interp = hdr.get('INTERP', 'spline16')
+    n_ocut = hdr['OCUTN']
+    ocut = [hdr[f'OCUT{i}'] for i in range(1, n_ocut + 1)]
+
+    # Create axes if needed.
+    if ax is None:
+        fig, ax = plt.subplots(figsize = (6, 5))
+        created_fig = True
+        add_cbar = True
+    else:
+        fig = ax.figure
+        created_fig = False
+        add_cbar = cbar
+
+    # Display the density map.
+    im = ax.imshow(data, origin = 'lower', extent = extent, cmap = 'terrain_r',
+                   interpolation = interp, vmin = vmin, vmax = vmax, aspect = 'auto')
+
+    ax.tick_params(direction = 'in', labelsize = 10)
+    ax.set_xlabel('Radius (arcsec)', fontsize = 10, labelpad = 8)
+    if name is not None:
+        ax.set_ylabel(f'Circularity $\lambda_{{z}}$', fontsize = 10, labelpad = 0.85)
+    else:
+        ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize = 10, labelpad = 0.85)
+    ax.set_yticks([-1, -0.5, 0, 0.5, 1])
+
+    # Add horizontal colorbar at the top of the axis.
+    if add_cbar:
+        cb = fig.colorbar(im, ax = ax,
+                          pad = 0.02, fraction = 0.0467)
+        cb.ax.tick_params(direction = 'in', labelsize = 10)
+        cb.set_label('Relative Orbit Density', labelpad = 5, fontsize = 10)
+
+    # Draw dashed lines for ocut values.
+    for cut in ocut:
+        ax.axhline(cut, color = 'black', linestyle = '--', linewidth = 1, xmin = 0, xmax = 1)
+
+    if text:
+        boundaries = [1.0, ocut[0], ocut[1], ocut[2], ocut[3], -1.0]
+        labels = ['Cold', 'Warm', 'Hot', 'CR-warm', 'CR-cold']
+        x_text = extent[0] + 0.7 * (extent[1] - extent[0])
+        for i in range(len(labels)):
+            y_center = (boundaries[i] + boundaries[i + 1]) / 2
+            txt = ax.text(x_text, y_center, labels[i], ha = 'left', va = 'center',
+                          fontsize = 9, color = 'black')
+            # Add white outline.
+            txt.set_path_effects([pe.withStroke(linewidth = 3, foreground = 'white')])
 
 
 ######################################################################################
