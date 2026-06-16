@@ -170,19 +170,6 @@ def plot_nii_spatial(ax, Ha_fits_path, Hb_fits_path, OIII_fits_path, NII_fits_pa
 
     return classification, x_coords, y_coords
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #####################################################################################
 def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
     '''
