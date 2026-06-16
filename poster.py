@@ -255,6 +255,10 @@ def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
     # transfer from pixel scale into arcsec scale.
     r_all = np.sqrt((x_bar - center_x)** 2 + (y_bar - center_y) ** 2) * 0.5
 
+    age_map = age_map[y_bar, x_bar]
+    metal_map = metal_map[y_bar, x_bar]
+    age_std_map = age_std_map[y_bar, x_bar]
+    metal_std_map = metal_std_map[y_bar, x_bar]
 
 
 
