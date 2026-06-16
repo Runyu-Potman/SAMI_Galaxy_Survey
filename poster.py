@@ -260,6 +260,13 @@ def slurm_job_combine(base_dir, center_x = 24.5, center_y = 24.5):
     age_std_map = age_std_map[y_bar, x_bar]
     metal_std_map = metal_std_map[y_bar, x_bar]
 
+    # mask invalid data.
+    valid = ~np.isnan(age_map) & ~np.isnan(metal_map) & ~np.isnan(age_std_map) & ~np.isnan(metal_std_map)
+    r_all = r_all[valid]
+    age_map = age_map[valid]
+    metal_map = metal_map[valid]
+    age_std_map = age_std_map[valid]
+    metal_std_map = metal_std_map[valid]
 
 
 
