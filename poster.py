@@ -531,16 +531,10 @@ classification, x_coords, y_coords = plot_nii_spatial(
 
 
 
-
-
-
-
-
-
-
-
-
-
+############################################################
+add_psf(ax = axs[0, 3], psffwhm = 1.941)
+add_psf(ax = axs[1, 0], psffwhm = 1.941)
+add_psf(ax = axs[1, 1], psffwhm = 1.941)
 # ---------------------------------------------------------------------------
 # same axis ratio.
 axs[0, 0].set_box_aspect(1)
