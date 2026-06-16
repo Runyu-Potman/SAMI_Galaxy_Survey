@@ -2,8 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from SAMI_kinematcs import plot_vel_or_sig
 import cmasher as cmr
-from SAMI_slurm_job_combine_functions import add_psf
-from SAMI_BPT_functions import bpt
 from matplotlib.colors import ListedColormap, BoundaryNorm
 from matplotlib.ticker import AutoMinorLocator
 from astropy.io import fits
