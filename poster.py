@@ -524,10 +524,10 @@ classification, x_coords, y_coords = plot_nii_spatial(
     scale=0.5
 )
 
-
-
-
-
+#########################################################
+base_dir = '300787/age_z'
+age_300787, metal_300787, age_300787_array, metal_300787_array, age_300787_std, metal_300787_std, r_all_300787 = slurm_job_combine(
+        base_dir)
 
 
 
