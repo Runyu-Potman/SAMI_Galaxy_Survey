@@ -675,9 +675,6 @@ plot_vel_or_sig(csv_path=star_output_file_300787_kinematics, value_type='vel', a
 plot_vel_or_sig(csv_path = star_output_file_300787_kinematics, value_type = 'sig', ax = axs[0, 1], cmap = sig_cmap,
                 cbar_label = r'$\sigma_{\bigstar}$ (km/s)', plot_psf = True, fontsize = 10, psffwhm = 1.941)
 
-
-axs[0, 2].set_title('Ionized Gas Velocity', fontsize=10)
-
 axs[0, 0].set_title('Stellar Velocity', fontsize=10)
 axs[0, 1].set_title('Stellar Velocity Dispersion', fontsize=10)
 
