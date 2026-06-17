@@ -170,7 +170,11 @@ def plot_nii_spatial(ax, Ha_fits_path, Hb_fits_path, OIII_fits_path, NII_fits_pa
     cbar.ax.tick_params(axis='y', which='both', length=0)
     cbar.ax.text(1.6, 1.5, 'Comp', va='center', ha='left', rotation=90,
                  fontsize=fontsize, color='black')
-    cbar.ax.text(1.6, 2.5, 'AGN', va='center', ha='left', rotation=90,
+    if bpt_AGN:
+        cbar.ax.text(1.6, 2.5, 'AGN', va='center', ha='left', rotation=90,
+                     fontsize=fontsize, color='black')
+    else:
+        cbar.ax.text(1.6, 0.5, 'SF', va='center', ha='left', rotation=90,
                  fontsize=fontsize, color='black')
 
     return classification, x_coords, y_coords
