@@ -729,10 +729,6 @@ axs[1, 3].set_title('Orbit Distribution', fontsize=10)
 add_psf(ax = axs[0, 3], psffwhm = 1.941)
 add_psf(ax = axs[1, 0], psffwhm = 1.941)
 add_psf(ax = axs[1, 1], psffwhm = 1.941)
-
-add_psf(ax = axs[2, 3], psffwhm = 2.108)
-add_psf(ax = axs[3, 0], psffwhm = 2.108)
-add_psf(ax = axs[3, 1], psffwhm = 2.108)
 # ---------------------------------------------------------------------------
 # same axis ratio.
 axs[0, 0].set_box_aspect(1)
