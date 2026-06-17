@@ -138,8 +138,13 @@ def plot_nii_spatial(ax, Ha_fits_path, Hb_fits_path, OIII_fits_path, NII_fits_pa
     x_coords = (np.arange(Ha_masked.shape[1]) - center_x) * scale
 
     # -------------------- Plot on the given axis --------------------
-    cmap = ListedColormap(['salmon', 'purple'])   # Comp=1, AGN=2 (SF=0 not shown)
-    bounds = [1, 2, 3]                            # only colours for Comp and AGN
+    if bpt_AGN:
+        cmap = ListedColormap(['salmon', 'purple'])  # Comp=1, AGN=2 (SF=0 not shown)
+        bounds = [1, 2, 3]  # only colours for Comp and AGN
+    else:
+        cmap = ListedColormap(['gray', 'salmon'])   # Comp=1, AGN=2 (SF=0 not shown)
+        bounds = [0, 1, 2]                            # only colours for Comp and AGN
+
     norm = BoundaryNorm(bounds, cmap.N)
 
     im = ax.imshow(classification, origin='lower', cmap=cmap, norm=norm,
