@@ -658,7 +658,10 @@ plot_vel_or_sig(csv_path=star_output_file_227266_kinematics, value_type='vel', a
                 cbar_label=r'$V_{\bigstar}$ (km/s)',
                 plot_psf=True, fontsize=10, psffwhm=2.108, vmin=-55, vmax=55, PAs=[171.75, 34.53], line_length=[3, 10],
                 pa_center_x=0.75, pa_center_y=0.75)
-'''
+
+plot_vel_or_sig(csv_path = star_output_file_227266_kinematics, value_type = 'sig', ax = axs[2, 1], cmap = sig_cmap,
+                cbar_label = r'$\sigma_{\bigstar}$ (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = 110, vmax = 230)
+
 # 300787 plotting.
 
 plot_vel_or_sig(csv_path=gas_output_file_300787_kinematics, cmap=vel_cmap, cbar_label=r'$V_\mathrm{gas}$ (km/s)',
