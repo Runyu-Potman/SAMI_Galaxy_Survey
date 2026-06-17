@@ -764,7 +764,6 @@ axs[3, 2].set_title('Mass Profile', fontsize=10)
 
 fits_orbit_300787 = '300787/dynamite/dynamite_fits/orbit_density.fits'
 reproduce_orbit_plot(fits_orbit_300787, ax = axs[1, 3], name = '300787', r_kdc = 2.5, text = True)
-
 axs[1, 3].set_title('Orbit Distribution', fontsize=10)
 
 #############################################################
