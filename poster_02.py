@@ -642,7 +642,7 @@ star_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_stella
 
 # --------------------------------------------------------------------------
 fig, axs = plt.subplots(2, 4, figsize=(40/3, 6))
-fig.suptitle('Galaxy Hosting a Counter-rotating Disk', fontsize = 15)
+fig.suptitle('Galaxy Hosting a Kinematically Distinct Core', fontsize = 15)
 
 # colormap consistent with DYNAMITE.
 vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
