@@ -712,7 +712,7 @@ classification, x_coords, y_coords = plot_nii_spatial(
     OIII_fits_path=OIII_fits_path,
     NII_fits_path=NII_fits_path,
     threshold=5.0,
-    scale=0.5
+    scale=0.5, bpt_AGN = True
 )
 
 '''
