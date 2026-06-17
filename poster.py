@@ -676,20 +676,6 @@ axs[0, 0].text(-1.5, -3.8, r'$\mathrm{PA}_\bigstar$=$149.12^\circ$', color='blac
 axs[0, 0].text(-2, 5.5, r'$\mathrm{PA}_\bigstar$=$-53.95^\circ$', color='black', fontsize=10, ha='left')
 
 ##########################################################################################
-Ha_fits_path = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
-Hb_fits_path = '227266/emission_line/227266_A_Hbeta_default_recom-comp.fits'
-OIII_fits_path = '227266/emission_line/227266_A_OIII5007_default_recom-comp.fits'
-NII_fits_path = '227266/emission_line/227266_A_NII6583_default_recom-comp.fits'
-classification, x_coords, y_coords = plot_nii_spatial(
-    ax = axs[2, 3],
-    Ha_fits_path=Ha_fits_path,
-    Hb_fits_path=Hb_fits_path,
-    OIII_fits_path=OIII_fits_path,
-    NII_fits_path=NII_fits_path,
-    threshold=5.0,
-    scale=0.5, bpt_AGN = True
-)
-
 Ha_fits_path = '300787/emission_line/300787_A_Halpha_default_recom-comp.fits'
 Hb_fits_path = '300787/emission_line/300787_A_Hbeta_default_recom-comp.fits'
 OIII_fits_path = '300787/emission_line/300787_A_OIII5007_default_recom-comp.fits'
