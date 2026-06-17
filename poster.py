@@ -715,7 +715,6 @@ classification, x_coords, y_coords = plot_nii_spatial(
     scale=0.5, bpt_AGN = True
 )
 
-'''
 Ha_fits_path = '300787/emission_line/300787_A_Halpha_default_recom-comp.fits'
 Hb_fits_path = '300787/emission_line/300787_A_Hbeta_default_recom-comp.fits'
 OIII_fits_path = '300787/emission_line/300787_A_OIII5007_default_recom-comp.fits'
