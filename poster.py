@@ -679,7 +679,9 @@ axs[0, 0].set_title('Stellar Velocity', fontsize=10)
 axs[0, 1].set_title('Stellar Velocity Dispersion', fontsize=10)
 axs[0, 2].set_title('Ionized Gas Velocity', fontsize=10)
 
-
+axs[2, 0].set_title('Stellar Velocity', fontsize=10)
+axs[2, 1].set_title('Stellar Velocity Dispersion', fontsize=10)
+axs[2, 2].set_title('Ionized Gas Velocity', fontsize=10)
 
 '''
 axs[1, 1].text(-4, 9.4, r'$\mathrm{PA}_\mathrm{\,gas}$=$-163^\circ$', color='black', fontsize=10, ha='left')
