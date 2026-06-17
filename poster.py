@@ -766,6 +766,10 @@ fits_orbit_300787 = '300787/dynamite/dynamite_fits/orbit_density.fits'
 reproduce_orbit_plot(fits_orbit_300787, ax = axs[1, 3], name = '300787', r_kdc = 2.5, text = True)
 axs[1, 3].set_title('Orbit Distribution', fontsize=10)
 
+fits_orbit_227266 = '227266/dynamite/dynamite_fits/orbit_density.fits'
+reproduce_orbit_plot(fits_orbit_227266, ax = axs[3, 3], name = '227266', r_kdc = 3.0, text = True)
+axs[3, 3].set_title('Orbit Distribution', fontsize=10)
+
 #############################################################
 add_psf(ax = axs[0, 3], psffwhm = 1.941)
 add_psf(ax = axs[1, 0], psffwhm = 1.941)
