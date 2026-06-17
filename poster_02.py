@@ -648,9 +648,6 @@ fig.suptitle('Galaxy Hosting a Kinematically Distinct Core', fontsize = 15)
 vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
 sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
 
-# directly copied.
-vel_cmap_300787_star = cmr.get_sub_cmap('twilight_shifted', 0.1, 1.0)
-
 # 227266 plotting.
 # we should mask the particular spaxel!
 
