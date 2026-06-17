@@ -651,7 +651,7 @@ vel_cmap_300787_star = cmr.get_sub_cmap('twilight_shifted', 0.1, 1.0)
 # we should mask the particular spaxel!
 
 plot_vel_or_sig(csv_path=gas_output_file_227266_kinematics, cmap=vel_cmap, cbar_label=r'$V_\mathrm{gas}$ (km/s)',
-                value_type='vel', ax=axs[1, 1], PAs=[17], line_length=9, plot_psf=True, psffwhm=2.108)
+                value_type='vel', ax=axs[2, 2], PAs=[17], line_length=9, plot_psf=True, psffwhm=2.108)
 
 # directly copied from stellar kinematics.
 plot_vel_or_sig(csv_path=star_output_file_227266_kinematics, value_type='vel', ax=axs[1, 3], cmap=vel_cmap,
