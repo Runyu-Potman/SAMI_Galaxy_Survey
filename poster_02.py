@@ -686,20 +686,6 @@ classification, x_coords, y_coords = plot_nii_spatial(
     scale=0.5, bpt_AGN = True
 )
 
-Ha_fits_path = '300787/emission_line/300787_A_Halpha_default_recom-comp.fits'
-Hb_fits_path = '300787/emission_line/300787_A_Hbeta_default_recom-comp.fits'
-OIII_fits_path = '300787/emission_line/300787_A_OIII5007_default_recom-comp.fits'
-NII_fits_path = '300787/emission_line/300787_A_NII6583_default_recom-comp.fits'
-classification, x_coords, y_coords = plot_nii_spatial(
-    ax = axs[0, 3],
-    Ha_fits_path=Ha_fits_path,
-    Hb_fits_path=Hb_fits_path,
-    OIII_fits_path=OIII_fits_path,
-    NII_fits_path=NII_fits_path,
-    threshold=5.0,
-    scale=0.5
-)
-
 #########################################################
 base_dir = '300787/age_z'
 age_300787, metal_300787, age_300787_array, metal_300787_array, age_300787_std, metal_300787_std, r_all_300787 = slurm_job_combine(
