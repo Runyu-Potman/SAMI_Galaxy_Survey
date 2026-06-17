@@ -663,19 +663,6 @@ plot_vel_or_sig(csv_path=star_output_file_227266_kinematics, value_type='vel', a
 plot_vel_or_sig(csv_path = star_output_file_227266_kinematics, value_type = 'sig', ax = axs[0, 1], cmap = sig_cmap,
                 cbar_label = r'$\sigma_{\bigstar}$ (km/s)', plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = 110, vmax = 230)
 
-# 300787 plotting.
-
-plot_vel_or_sig(csv_path=gas_output_file_300787_kinematics, cmap=vel_cmap, cbar_label=r'$V_\mathrm{gas}$ (km/s)',
-                value_type='vel', ax=axs[0, 2], PAs=[127.5], line_length=10, plot_psf=True, psffwhm=1.941)
-
-# directly copied from stellar kinematic.
-plot_vel_or_sig(csv_path=star_output_file_300787_kinematics, value_type='vel', ax=axs[0, 0], cmap=vel_cmap_300787_star,
-                cbar_label=r'$V_{\bigstar}$ (km/s)',
-                plot_psf=True, fontsize=10, psffwhm=1.941, vmin=-130, PAs=[149.12, -53.95], line_length=[2, 7.5])
-
-plot_vel_or_sig(csv_path = star_output_file_300787_kinematics, value_type = 'sig', ax = axs[0, 1], cmap = sig_cmap,
-                cbar_label = r'$\sigma_{\bigstar}$ (km/s)', plot_psf = True, fontsize = 10, psffwhm = 1.941)
-
 axs[0, 0].set_title('Stellar Velocity', fontsize=10)
 axs[0, 1].set_title('Stellar Velocity Dispersion', fontsize=10)
 axs[0, 2].set_title('Ionized Gas Velocity', fontsize=10)
