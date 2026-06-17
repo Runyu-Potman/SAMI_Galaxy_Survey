@@ -634,12 +634,6 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     return fig
 
 ######################################################################################
-# 227266 gas kinematic output.
-gas_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_gas_velocity_map.csv'
-
-# 227266 stellar kinematic output.
-star_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_stellar_velocity_map.csv'
-
 # 300787 gas kinematic output.
 gas_output_file_300787_kinematics = '300787/kinematic/300787_quality_cut_gas_velocity_map.csv'
 
