@@ -206,6 +206,8 @@ fits_paths = [
 labels = ["Galaxy 7969", "Galaxy 143287", "Galaxy 227266", "Galaxy 230776", "Galaxy 300787", "Galaxy 9239900248"]
 
 fig = plot_6x2_velocity_grid(fits_paths, labels=labels)
+plt.tight_layout(h_pad=0, w_pad=0)
+plt.savefig('final/poster_all.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 
