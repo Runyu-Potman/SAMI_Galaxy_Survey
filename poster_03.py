@@ -163,6 +163,38 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(20, 
             extent=extent
         )
 
+        style_map_axis(axs[1, i])
+
+        if i == 0:
+            axs[0, i].set_ylabel('data vel', fontsize=16)
+            axs[1, i].set_ylabel('model vel', fontsize=16)
+
+        cbar1 = fig.colorbar(
+            im_data,
+            ax=axs[0, i],
+            fraction=0.106,
+            pad=0,
+            aspect=9
+        )
+
+        style_colorbar(cbar1, vmax)
+
+        cbar2 = fig.colorbar(
+            im_model,
+            ax=axs[1, i],
+            fraction=0.106,
+            pad=0,
+            aspect=9
+        )
+
+        style_colorbar(cbar2, vmax)
+
+    # Same aspect ratio for all panels
+    for row in range(2):
+        for col in range(n_gal):
+            axs[row, col].set_box_aspect(1)
+
+    return fig
 
 #------------------------------------------------------------------------
 fits_paths = [
