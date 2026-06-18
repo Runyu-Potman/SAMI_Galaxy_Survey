@@ -1,3 +1,167 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from astropy.io import fits
+import matplotlib.patheffects as pe
+
+def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(20, 6)):
+
+    n_gal = len(fits_paths)
+
+    if labels is None:
+        labels = [f'Galaxy {i+1}' for i in range(n_gal)]
+
+    if len(labels) != n_gal:
+        raise ValueError("labels must have the same length as fits_paths")
+
+    data_maps = []
+    model_maps = []
+    extents = []
+    vlims = []
+
+    for fp in fits_paths:
+
+        with fits.open(fp) as hdul:
+
+            data_vel = hdul['data_vel'].data.astype(float)
+            model_vel = hdul['model_vel'].data.astype(float)
+
+            data_maps.append(data_vel)
+            model_maps.append(model_vel)
+
+            if 'x_coords' in hdul and 'y_coords' in hdul:
+
+                x_coords = hdul['x_coords'].data.astype(float)
+                y_coords = hdul['y_coords'].data.astype(float)
+
+                if len(x_coords) > 1:
+                    dx = np.median(np.diff(np.sort(x_coords)))
+                else:
+                    dx = 1.0
+
+                if len(y_coords) > 1:
+                    dy = np.median(np.diff(np.sort(y_coords)))
+                else:
+                    dy = dx
+
+                extent = [
+                    np.min(x_coords) - dx/2,
+                    np.max(x_coords) + dx/2,
+                    np.min(y_coords) - dy/2,
+                    np.max(y_coords) + dy/2
+                ]
+
+            else:
+                extent = None
+
+            extents.append(extent)
+
+            vmax_i = np.nanmax(np.abs(data_vel))
+
+            if not np.isfinite(vmax_i) or vmax_i == 0:
+                vmax_i = 1.0
+
+            vlims.append(vmax_i)
+
+    fig, axs = plt.subplots(2, n_gal, figsize=figsize)
+
+    if n_gal == 1:
+        axs = np.array(axs).reshape(2, 1)
+
+    def style_map_axis(ax):
+
+        ax.set_xlim(-9, 9)
+        ax.set_ylim(-9, 9)
+
+        ax.set_xticks([-5, 0, 5])
+        ax.set_yticks([-5, 0, 5])
+
+        ax.tick_params(
+            direction='in',
+            length=5,
+            labelbottom=False,
+            labelleft=False
+        )
+
+    def style_colorbar(cbar, vmax_val):
+
+        cbar.set_ticks([])
+        cbar.ax.tick_params(
+            length=0,
+            labelleft=False,
+            labelright=False
+        )
+
+        cbar.outline.set_linewidth(1.0)
+
+        vmax_int = int(np.rint(0.98 * vmax_val))
+        vmin_int = -vmax_int
+
+        cbar.ax.text(
+            0.5,
+            0.97,
+            f'{vmax_int:d}',
+            transform=cbar.ax.transAxes,
+            ha='center',
+            va='top',
+            fontsize=8,
+            color='white',
+            fontweight='bold',
+            path_effects=[
+                pe.withStroke(
+                    linewidth=2.5,
+                    foreground='black'
+                )
+            ]
+        )
+
+        cbar.ax.text(
+            0.5,
+            0.03,
+            f'{vmin_int:d}',
+            transform=cbar.ax.transAxes,
+            ha='center',
+            va='bottom',
+            fontsize=8,
+            color='white',
+            fontweight='bold',
+            path_effects=[
+                pe.withStroke(
+                    linewidth=2.5,
+                    foreground='black'
+                )
+            ]
+        )
+
+    for i in range(n_gal):
+
+        extent = extents[i]
+        vmax = vlims[i]
+
+        vmax_plot = 0.98 * vmax
+        vmin_plot = -vmax_plot
+
+        im_data = axs[0, i].imshow(
+            data_maps[i],
+            origin='lower',
+            cmap=cmap,
+            vmin=vmin_plot,
+            vmax=vmax_plot,
+            aspect='equal',
+            extent=extent
+        )
+
+        axs[0, i].set_title(labels[i], fontsize=16)
+        style_map_axis(axs[0, i])
+
+        im_model = axs[1, i].imshow(
+            model_maps[i],
+            origin='lower',
+            cmap=cmap,
+            vmin=vmin_plot,
+            vmax=vmax_plot,
+            aspect='equal',
+            extent=extent
+        )
 
 
 #------------------------------------------------------------------------
