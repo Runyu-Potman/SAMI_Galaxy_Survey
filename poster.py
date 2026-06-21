@@ -496,7 +496,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     ax2 = ax.twiny()
     ax2.set_xlim(xrange * arctpc / 1000.0)
     ax2.xaxis.set_major_locator(plt.MaxNLocator(nbins = 4))
-    ax2.set_xlabel(r'$r$ (kpc)', fontsize = 10)
+    ax2.set_xlabel(r'$r$ (kpc)', fontsize = 12)
     ax2.tick_params(labelsize = 10, direction = 'in')
     ax2.set_axisbelow(False)
     '''
