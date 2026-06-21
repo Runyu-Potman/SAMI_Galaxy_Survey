@@ -641,9 +641,9 @@ if '__main__' == __name__:
     # 300787 stellar kinematic output.
     star_output_file_300787_kinematics = '300787/kinematic/300787_quality_cut_stellar_velocity_map.csv'
 
-# --------------------------------------------------------------------------
-fig, axs = plt.subplots(2, 3, figsize=(10, 6))
-fig.suptitle('Galaxy 300787 Which Hosts a Counter-rotating Disk', fontsize = 18)
+    # --------------------------------------------------------------------------
+    fig, axs = plt.subplots(2, 3, figsize=(10, 6))
+    fig.suptitle('Galaxy 300787 Which Hosts a Counter-rotating Disk', fontsize=18)
 
 # colormap consistent with DYNAMITE.
 vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
