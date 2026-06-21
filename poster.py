@@ -595,7 +595,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
                    interpolation = interp, vmin = vmin, vmax = vmax, aspect = 'auto')
 
     ax.tick_params(direction = 'in', labelsize = 10)
-    ax.set_xlabel('Radius (arcsec)', fontsize = 10, labelpad = 8)
+    ax.set_xlabel('Radius (arcsec)', fontsize = 12, labelpad = 8)
     if name is not None:
         ax.set_ylabel(f'Circularity $\lambda_{{z}}$', fontsize = 10, labelpad = 0.85)
     else:
