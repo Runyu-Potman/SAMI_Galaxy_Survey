@@ -174,8 +174,8 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
         axs[1, i].set_xlabel('arcsec', fontsize=12)
 
         if i == 0:
-            axs[0, i].set_ylabel('data vel', fontsize=16)
-            axs[1, i].set_ylabel('model vel', fontsize=16)
+            axs[0, i].set_ylabel('Data', fontsize=12)
+            axs[1, i].set_ylabel('Model', fontsize=12)
 
         cbar1 = fig.colorbar(
             im_data,
