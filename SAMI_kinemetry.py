@@ -622,7 +622,10 @@ k_230776 = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_velbi
 pa_and_k1_plot(k_230776, axs = axs[:, 3], ypa_lim = [-100, 25], ypa_tick = (-100, 25, 50), yk1_lim = [0, 35], yk1_tick = (0, 35, 5),
                x_lim = [0, 8.5], x_tick = (0, 8.5, 1), pa1 = np.mean(k_230776.pa[:7]), pa2 = np.mean(k_230776.pa[-5:]),
                label_pad = 0)
-axs[0, 3].set_title('Galaxy 230776', fontsize = 10)
+
+print('230776 pa:', np.mean(k_230776.pa[:7]), np.mean(k_230776.pa[-5:]))
+
+axs[0, 3].set_title('Galaxy 230776', fontsize = 12)
 
 #-----------------------------------------------------------------------------------------------------------------------
 # 300787
