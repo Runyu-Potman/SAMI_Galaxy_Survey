@@ -69,8 +69,8 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
 
     def style_map_axis(ax, show_xlabel=False):
 
-        ax.set_xlim(-9, 9)
-        ax.set_ylim(-9, 9)
+        ax.set_xlim(-12.5, 12.5)
+        ax.set_ylim(-12.5, 12.5)
 
         ax.set_xticks([-5, 0, 5])
         ax.set_yticks([-5, 0, 5])
