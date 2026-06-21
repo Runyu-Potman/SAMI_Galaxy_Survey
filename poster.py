@@ -9,7 +9,7 @@ import matplotlib.patches as patches
 import matplotlib.patheffects as pe
 ################################################################################
 def plot_nii_spatial(ax, Ha_fits_path, Hb_fits_path, OIII_fits_path, NII_fits_path,
-                     threshold, scale=0.5, fontsize=10, cbar_pad=0.02,
+                     threshold, scale=0.5, fontsize=12, cbar_pad=0.02,
                      bar_fraction=0.0467, labelpad_x=8, labelpad_y=0.85, bpt_AGN = False):
     """
     Load the Hα, Hβ, [OIII] and [NII] maps, apply quality cuts,
