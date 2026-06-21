@@ -62,7 +62,7 @@ plot_age_and_Z(axs, axs_x = 0, age_full=age_227266, metal_full=metal_227266, r_a
                age_array=age_227266_array,
                metal_array=metal_227266_array, age_std_array=age_227266_std, metal_std_array=metal_227266_std,
                r_dash=3.0, title = True)
-
+'''
 ############################################################
 fits_filename_227266 = '227266/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
 reproduce_mass_plot(fits_filename_227266, ax=axs[1, 2], name='227266', r_kdc=3.0, extrap_start=7.5, label = True)
