@@ -73,8 +73,7 @@ reproduce_orbit_plot(fits_orbit_227266, ax = axs[1, 2], name = '227266', r_kdc =
 axs[1, 2].set_title('Orbit Distribution', fontsize=12)
 
 #############################################################
-add_psf(ax = axs[0, 3], psffwhm = 2.108)
-add_psf(ax = axs[1, 0], psffwhm = 2.108)
+add_psf(ax = axs[0, 2], psffwhm = 2.108)
 add_psf(ax = axs[1, 1], psffwhm = 2.108)
 # ---------------------------------------------------------------------------
 # same axis ratio.
