@@ -607,7 +607,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
         cb = fig.colorbar(im, ax = ax,
                           pad = 0.02, fraction = 0.0467)
         cb.ax.tick_params(direction = 'in', labelsize = 10)
-        cb.set_label('Relative Orbit Density', labelpad = 5, fontsize = 10)
+        cb.set_label('Relative Orbit Density', labelpad = 5, fontsize = 12)
 
     # Draw dashed lines for ocut values.
     for cut in ocut:
