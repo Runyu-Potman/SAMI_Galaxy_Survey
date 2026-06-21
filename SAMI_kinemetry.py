@@ -721,7 +721,10 @@ pa_and_k1_plot(k_9239900248, axs = axs[:, 5], ypa_lim = [-180, 60], ypa_tick = (
                x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = np.mean(k_9239900248.pa[:4]), pa2 = np.mean(k_9239900248_extra.pa[-6:]),
                label_pad = 0,
                k_extra = k_9239900248_extra, r_extra = 5)
-axs[0, 5].set_title('Galaxy 9239900248', fontsize = 10)
+
+print('9239900248 pa:', np.mean(k_9239900248.pa[:4]), np.mean(k_9239900248_extra.pa[-6:]))
+
+axs[0, 5].set_title('Galaxy 9239900248', fontsize = 12)
 
 #-----------------------------------------------------------------------------------------------------------------------
 # same axis ratio.
