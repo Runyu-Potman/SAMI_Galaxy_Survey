@@ -156,7 +156,7 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
             extent=extent
         )
 
-        axs[0, i].set_title(labels[i], fontsize=16)
+        axs[0, i].set_title(labels[i], fontsize=12)
         style_map_axis(axs[0, i])
 
         im_model = axs[1, i].imshow(
