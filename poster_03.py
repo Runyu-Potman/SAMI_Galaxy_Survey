@@ -79,8 +79,13 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
             which='both',
             direction='in',
             length=5,
-            labelbottom=False,
-            labelleft=False
+            width=1,
+            bottom=True,
+            top=False,
+            left=True,
+            right=False,
+            labelleft=True,  # <-- SHOW y tick values always
+            labelbottom=show_xlabel  # <-- only bottom row shows x labels
         )
 
     def style_colorbar(cbar, vmax_val):
