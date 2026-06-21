@@ -654,7 +654,8 @@ vel_cmap_300787_star = cmr.get_sub_cmap('twilight_shifted', 0.1, 1.0)
 # 300787 plotting.
 
 plot_vel_or_sig(csv_path=gas_output_file_300787_kinematics, cmap=vel_cmap, cbar_label=r'$V_\mathrm{gas}$ (km/s)',
-                value_type='vel', ax=axs[0, 2], PAs=[127.5], line_length=10, plot_psf=True, psffwhm=1.941)
+                value_type='vel', ax=axs[0, 1], PAs=[127.5], line_length=10, plot_psf=True, psffwhm=1.941)
+
 
 # directly copied from stellar kinematic.
 plot_vel_or_sig(csv_path=star_output_file_300787_kinematics, value_type='vel', ax=axs[0, 0], cmap=vel_cmap_300787_star,
