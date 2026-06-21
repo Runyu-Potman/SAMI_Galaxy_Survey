@@ -649,8 +649,8 @@ if '__main__' == __name__:
     vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
     sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
 
-# directly copied.
-vel_cmap_300787_star = cmr.get_sub_cmap('twilight_shifted', 0.1, 1.0)
+    # directly copied.
+    vel_cmap_300787_star = cmr.get_sub_cmap('twilight_shifted', 0.1, 1.0)
 
 # 300787 plotting.
 
