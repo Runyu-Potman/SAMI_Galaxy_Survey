@@ -702,10 +702,10 @@ if '__main__' == __name__:
                    metal_array=metal_300787_array, age_std_array=age_300787_std, metal_std_array=metal_300787_std,
                    r_dash=2.5, title=True
                    )
-'''
-############################################################
-fits_filename_300787 = '300787/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
-reproduce_mass_plot(fits_filename_300787, ax=axs[1, 2], name='300787', r_kdc=2.5, extrap_start=5.37, label=True)
+    '''
+    ############################################################
+    fits_filename_300787 = '300787/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
+    reproduce_mass_plot(fits_filename_300787, ax=axs[1, 2], name='300787', r_kdc=2.5, extrap_start=5.37, label=True)
 
 axs[1, 2].set_title('Mass Profile', fontsize=10)
 '''
