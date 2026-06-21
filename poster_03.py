@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from astropy.io import fits
 import matplotlib.patheffects as pe
 
-def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(20, 6)):
+def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 6)):
 
     n_gal = len(fits_paths)
 
