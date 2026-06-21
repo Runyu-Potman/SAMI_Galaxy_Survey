@@ -672,7 +672,10 @@ pa_and_k1_plot(k_300787, axs = axs[:, 4], ypa_lim = [-90, 180], ypa_tick = (-90,
                x_lim = [0, 6.5], x_tick = (0, 6.5, 1), pa1 = np.mean(k_300787.pa[:4]), pa2 = np.mean(k_300787_extra.pa[-5:]),
                label_pad = 0,
                k_extra = k_300787_extra, r_extra = 5.5)
-axs[0, 4].set_title('Galaxy 300787', fontsize = 10)
+
+print('300787 pa:', np.mean(k_300787.pa[:4]), np.mean(k_300787_extra.pa[-5:]))
+
+axs[0, 4].set_title('Galaxy 300787', fontsize = 12)
 
 #-----------------------------------------------------------------------------------------------------------------------
 # 9239900248
