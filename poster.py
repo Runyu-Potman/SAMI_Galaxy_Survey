@@ -638,8 +638,8 @@ if '__main__' == __name__:
     # 300787 gas kinematic output.
     gas_output_file_300787_kinematics = '300787/kinematic/300787_quality_cut_gas_velocity_map.csv'
 
-# 300787 stellar kinematic output.
-star_output_file_300787_kinematics = '300787/kinematic/300787_quality_cut_stellar_velocity_map.csv'
+    # 300787 stellar kinematic output.
+    star_output_file_300787_kinematics = '300787/kinematic/300787_quality_cut_stellar_velocity_map.csv'
 
 # --------------------------------------------------------------------------
 fig, axs = plt.subplots(2, 3, figsize=(10, 6))
