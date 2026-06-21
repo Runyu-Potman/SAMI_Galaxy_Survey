@@ -654,8 +654,8 @@ if '__main__' == __name__:
 
     # 300787 plotting.
 
-plot_vel_or_sig(csv_path=gas_output_file_300787_kinematics, cmap=vel_cmap, cbar_label=r'$V_\mathrm{gas}$ (km/s)',
-                value_type='vel', ax=axs[0, 1], PAs=[127.5], line_length=10, plot_psf=True, psffwhm=1.941)
+    plot_vel_or_sig(csv_path=gas_output_file_300787_kinematics, cmap=vel_cmap, cbar_label=r'$V_\mathrm{gas}$ (km/s)',
+                    value_type='vel', ax=axs[0, 1], PAs=[127.5], line_length=10, plot_psf=True, psffwhm=1.941)
 
 
 # directly copied from stellar kinematic.
