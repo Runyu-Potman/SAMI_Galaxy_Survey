@@ -69,8 +69,8 @@ reproduce_mass_plot(fits_filename_227266, ax=axs[1, 2], name='227266', r_kdc=3.0
 axs[1, 2].set_title('Mass Profile', fontsize=10)
 '''
 fits_orbit_227266 = '227266/dynamite/dynamite_fits/orbit_density.fits'
-reproduce_orbit_plot(fits_orbit_227266, ax = axs[1, 3], name = '227266', r_kdc = 3.0, text = True)
-axs[1, 3].set_title('Orbit Distribution', fontsize=10)
+reproduce_orbit_plot(fits_orbit_227266, ax = axs[1, 2], name = '227266', r_kdc = 3.0, text = True)
+axs[1, 2].set_title('Orbit Distribution', fontsize=12)
 
 #############################################################
 add_psf(ax = axs[0, 3], psffwhm = 2.108)
