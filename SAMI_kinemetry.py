@@ -526,7 +526,10 @@ pa_and_k1_plot(k_7969, axs = axs[:, 0], ypa_lim = [-100, 175], ypa_tick = (-100,
                x_lim = [0, 4.5], x_tick = (0, 4.5, 1), pa1 = np.mean(k_7969.pa[:3]), pa2 = np.mean(k_7969_extra.pa[-4:]),
                label_pad = 0,
                k_extra = k_7969_extra, r_extra = 4)
-axs[0, 0].set_title('Galaxy 7969', fontsize = 10)
+
+print('7969 pa:', np.mean(k_7969.pa[:3]), np.mean(k_7969_extra.pa[-4:]))
+
+axs[0, 0].set_title('Galaxy 7969', fontsize = 12)
 
 #-------------------------------------------------------------------------------------------------------------------
 # 143287
