@@ -84,7 +84,6 @@ axs[0, 2].set_box_aspect(1)
 axs[1, 0].set_box_aspect(1)
 axs[1, 1].set_box_aspect(1)
 axs[1, 2].set_box_aspect(1)
-axs[1, 3].set_box_aspect(1)
 #-------------------------------------------------------------------------
 plt.tight_layout(h_pad=0, w_pad=0)
 plt.savefig('final/poster_227266.png', dpi=300, bbox_inches='tight')
