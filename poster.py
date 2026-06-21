@@ -665,9 +665,9 @@ plot_vel_or_sig(csv_path=star_output_file_300787_kinematics, value_type='vel', a
 plot_vel_or_sig(csv_path = star_output_file_300787_kinematics, value_type = 'sig', ax = axs[1, 0], cmap = sig_cmap,
                 cbar_label = r'$\sigma_{\bigstar}$ (km/s)', plot_psf = True, fontsize = 12, psffwhm = 1.941)
 
-axs[0, 0].set_title('Stellar Velocity', fontsize=10)
-axs[0, 1].set_title('Stellar Velocity Dispersion', fontsize=10)
-axs[0, 2].set_title('Ionized Gas Velocity', fontsize=10)
+axs[0, 0].set_title('Stellar Velocity', fontsize=12)
+axs[1, 0].set_title('Stellar Velocity Dispersion', fontsize=12)
+axs[0, 1].set_title('Ionized Gas Velocity', fontsize=12)
 
 # 300787 gas pa.
 axs[0, 2].text(-1, 7.8, r'$\mathrm{PA}_\mathrm{\,gas}$=$127.5^\circ$', color='black', fontsize=10, ha='left')
