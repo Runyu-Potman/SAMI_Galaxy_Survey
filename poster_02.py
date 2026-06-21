@@ -8,8 +8,8 @@ gas_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_gas_vel
 star_output_file_227266_kinematics = '227266/kinematic/227266_quality_cut_stellar_velocity_map.csv'
 
 # --------------------------------------------------------------------------
-fig, axs = plt.subplots(2, 4, figsize=(40/3, 6))
-fig.suptitle('Galaxy Hosting a Kinematically Distinct Core', fontsize = 15)
+fig, axs = plt.subplots(2, 3, figsize=(10, 6))
+fig.suptitle('Galaxy 227266 Which Hosts a Kinematically Distinct Core', fontsize = 15)
 
 # colormap consistent with DYNAMITE.
 vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
