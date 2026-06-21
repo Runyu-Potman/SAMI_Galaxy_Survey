@@ -707,11 +707,11 @@ if '__main__' == __name__:
     fits_filename_300787 = '300787/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
     reproduce_mass_plot(fits_filename_300787, ax=axs[1, 2], name='300787', r_kdc=2.5, extrap_start=5.37, label=True)
 
-axs[1, 2].set_title('Mass Profile', fontsize=10)
-'''
-fits_orbit_300787 = '300787/dynamite/dynamite_fits/orbit_density.fits'
-reproduce_orbit_plot(fits_orbit_300787, ax = axs[1, 2], name = '300787', r_kdc = 2.5, text = True)
-axs[1, 2].set_title('Orbit Distribution', fontsize=12)
+    axs[1, 2].set_title('Mass Profile', fontsize=10)
+    '''
+    fits_orbit_300787 = '300787/dynamite/dynamite_fits/orbit_density.fits'
+    reproduce_orbit_plot(fits_orbit_300787, ax=axs[1, 2], name='300787', r_kdc=2.5, text=True)
+    axs[1, 2].set_title('Orbit Distribution', fontsize=12)
 
 #############################################################
 add_psf(ax = axs[0, 2], psffwhm = 1.941)
