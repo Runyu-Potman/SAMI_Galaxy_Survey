@@ -670,8 +670,8 @@ if '__main__' == __name__:
     axs[1, 0].set_title('Stellar Velocity Dispersion', fontsize=12)
     axs[0, 1].set_title('Ionized Gas Velocity', fontsize=12)
 
-# 300787 gas pa.
-axs[0, 1].text(-1, 7.8, r'$\mathrm{PA}_\mathrm{\,gas}$=$127.5^\circ$', color='black', fontsize=10, ha='left')
+    # 300787 gas pa.
+    axs[0, 1].text(-1, 7.8, r'$\mathrm{PA}_\mathrm{\,gas}$=$127.5^\circ$', color='black', fontsize=10, ha='left')
 
 # 300787 stellar pa.
 axs[0, 0].text(-1.5, -3.8, r'$\mathrm{PA}_\bigstar$=$149.12^\circ$', color='black', fontsize=10, ha='left')
