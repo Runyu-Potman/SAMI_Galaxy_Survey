@@ -104,7 +104,7 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
 
         cbar.ax.text(
             0.5,
-            0.97,
+            0.9,
             f'{vmax_int:d}',
             transform=cbar.ax.transAxes,
             ha='center',
