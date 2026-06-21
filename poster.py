@@ -312,7 +312,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
         vmax_age = np.nanmax(10 ** (age_full - 9))
 
     # age map (the first column).
-    im = axs[axs_x, 0].imshow(10 ** (age_full - 9), origin = 'lower', aspect = 'equal',
+    im = axs[axs_x, 2].imshow(10 ** (age_full - 9), origin = 'lower', aspect = 'equal',
                           cmap = cmap_1_2, extent = [-12.5, 12.5, -12.5, 12.5],
                           vmin = vmin_age, vmax = vmax_age)
 
