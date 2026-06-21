@@ -645,9 +645,9 @@ if '__main__' == __name__:
     fig, axs = plt.subplots(2, 3, figsize=(10, 6))
     fig.suptitle('Galaxy 300787 Which Hosts a Counter-rotating Disk', fontsize=18)
 
-# colormap consistent with DYNAMITE.
-vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
-sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
+    # colormap consistent with DYNAMITE.
+    vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
+    sig_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
 
 # directly copied.
 vel_cmap_300787_star = cmr.get_sub_cmap('twilight_shifted', 0.1, 1.0)
