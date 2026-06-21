@@ -202,6 +202,8 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
         for col in range(n_gal):
             axs[row, col].set_box_aspect(1)
 
+    fig.suptitle('Stellar Velocity Maps (km/s) of Six Galaxies Hosting Kinematically Distinct Components', fontsize=15)
+
     return fig
 
 #------------------------------------------------------------------------
