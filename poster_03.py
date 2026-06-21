@@ -190,7 +190,7 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
         cbar2 = fig.colorbar(
             im_model,
             ax=axs[1, i],
-            fraction=0.106,
+            fraction=0.1,
             pad=0,
             aspect=9
         )
