@@ -722,11 +722,11 @@ if '__main__' == __name__:
     axs[0, 1].set_box_aspect(1)
     axs[0, 2].set_box_aspect(1)
 
-axs[1, 0].set_box_aspect(1)
-axs[1, 1].set_box_aspect(1)
-axs[1, 2].set_box_aspect(1)
-#-------------------------------------------------------------------------
-plt.tight_layout(h_pad=0, w_pad=0)
-plt.savefig('final/poster_300787.png', dpi=300, bbox_inches='tight')
+    axs[1, 0].set_box_aspect(1)
+    axs[1, 1].set_box_aspect(1)
+    axs[1, 2].set_box_aspect(1)
+    # -------------------------------------------------------------------------
+    plt.tight_layout(h_pad=0, w_pad=0)
+    plt.savefig('final/poster_300787.png', dpi=300, bbox_inches='tight')
 
 plt.show()
