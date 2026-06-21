@@ -67,7 +67,7 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
     if n_gal == 1:
         axs = np.array(axs).reshape(2, 1)
 
-    def style_map_axis(ax):
+    def style_map_axis(ax, show_xlabel=False):
 
         ax.set_xlim(-9, 9)
         ax.set_ylim(-9, 9)
