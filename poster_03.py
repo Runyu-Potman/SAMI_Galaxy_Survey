@@ -76,6 +76,7 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
         ax.set_yticks([-10, -5, 0, 5, 10])
 
         ax.tick_params(
+            which='both',
             direction='in',
             length=5,
             labelbottom=False,
