@@ -426,5 +426,5 @@ if __name__ == '__main__':
     #---------------------------------------------------
     plt.tight_layout(h_pad = -11, w_pad = 0.1)
     #fig.subplots_adjust(wspace = 0.4, hspace = 0.3)
-    plt.savefig('final/stellar_kinematic_image.png', dpi = 1000, bbox_inches = 'tight')
+    plt.savefig('final/stellar_kinematic_image.png', dpi = 300, bbox_inches = 'tight')
     plt.show()
