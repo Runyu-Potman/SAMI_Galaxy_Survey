@@ -352,7 +352,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
         vmax_z = np.nanmax(metal_full)
 
     # [M/H] map (second column).
-    im = axs[axs_x, 1].imshow(metal_full, origin = 'lower', aspect = 'equal',
+    im = axs[axs_x + 1].imshow(metal_full, origin = 'lower', aspect = 'equal',
                           cmap = cmap_1_2, extent = [-12.5, 12.5, -12.5, 12.5], vmin = vmin_z, vmax = vmax_z)
 
     # set ticks.
