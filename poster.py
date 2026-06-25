@@ -321,8 +321,8 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
     axs[axs_x].set_ylim([-12.5, 12.5])
 
     tick_locs = np.arange(-10, 11, 5)
-    axs[axs_x, 2].set_xticks(tick_locs)
-    axs[axs_x, 2].set_yticks(tick_locs)
+    axs[axs_x].set_xticks(tick_locs)
+    axs[axs_x].set_yticks(tick_locs)
 
     # set labels (first column).
     axs[axs_x, 2].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
