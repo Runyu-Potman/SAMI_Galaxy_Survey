@@ -450,9 +450,9 @@ fits_paths = [
     '9239900248/dynamite/dynamite_fits/kinematics.fits'
 ]
 
-labels = [
-    "Galaxy 7969", "Galaxy 143287", "Galaxy 227266",
-    "Galaxy 230776", "Galaxy 300787", "Galaxy 9239900248"
+labels = ["Galaxy 227266 (KDC)",
+    "Galaxy 230776 (KDC)",
+    "Galaxy 7969 (CRD)", "Galaxy 143287 (CRD)", "Galaxy 300787 (CRD)", "Galaxy 9239900248 (CRD)"
 ]
 
 fig = plot_6x2_velocity_grid(fits_paths, labels=labels, figsize=(19, 3.5))
