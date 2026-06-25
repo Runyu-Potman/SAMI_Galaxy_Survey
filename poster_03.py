@@ -455,7 +455,10 @@ labels = ["Galaxy 227266 (KDC)",
     "Galaxy 7969 (CRD)", "Galaxy 143287 (CRD)", "Galaxy 300787 (CRD)", "Galaxy 9239900248 (CRD)"
 ]
 
-fig = plot_6x2_velocity_grid(fits_paths, labels=labels, figsize=(19, 3.5))
+# colormap consistent with DYNAMITE.
+vel_cmap = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
+
+fig = plot_6x2_velocity_grid(fits_paths, labels=labels, figsize=(19, 3.5), cmap = vel_cmap)
 plt.tight_layout(h_pad=0, w_pad=0)
 plt.savefig('final/poster_all.png', dpi=300, bbox_inches='tight')
 plt.show()
