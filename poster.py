@@ -356,8 +356,8 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
                           cmap = cmap_1_2, extent = [-12.5, 12.5, -12.5, 12.5], vmin = vmin_z, vmax = vmax_z)
 
     # set ticks.
-    axs[axs_x, 1].set_xlim([-12.5, 12.5])
-    axs[axs_x, 1].set_ylim([-12.5, 12.5])
+    axs[axs_x + 1].set_xlim([-12.5, 12.5])
+    axs[axs_x + 1].set_ylim([-12.5, 12.5])
 
     tick_locs = np.arange(-10, 11, 5)
     axs[axs_x, 1].set_xticks(tick_locs)
