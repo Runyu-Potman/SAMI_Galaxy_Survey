@@ -341,9 +341,9 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
     axs[axs_x].tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
 
     # add minor ticks (shorter, no labels).
-    axs[axs_x, 2].xaxis.set_minor_locator(AutoMinorLocator())
-    axs[axs_x, 2].yaxis.set_minor_locator(AutoMinorLocator())
-    axs[axs_x, 2].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
+    axs[axs_x].xaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x].yaxis.set_minor_locator(AutoMinorLocator())
+    axs[axs_x].tick_params(axis = 'both', which = 'minor', length = 2, width = 1, direction = 'in')
 
     # color bar setting.
     if vmin_z is None:
