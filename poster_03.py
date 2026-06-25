@@ -440,6 +440,9 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
 
 # ------------------------------------------------------------------------
 fits_paths = [
+    '227266/dynamite/dynamite_fits/kinematics.fits',
+    '230776/dynamite/dynamite_fits/kinematics.fits',
+
     '7969/dynamite/dynamite_fits/kinematics.fits',
     '143287/dynamite/dynamite_fits/kinematics.fits',
     '227266/dynamite/dynamite_fits/kinematics.fits',
