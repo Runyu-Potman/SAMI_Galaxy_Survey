@@ -445,8 +445,7 @@ fits_paths = [
 
     '7969/dynamite/dynamite_fits/kinematics.fits',
     '143287/dynamite/dynamite_fits/kinematics.fits',
-    '227266/dynamite/dynamite_fits/kinematics.fits',
-    '230776/dynamite/dynamite_fits/kinematics.fits',
+
     '300787/dynamite/dynamite_fits/kinematics.fits',
     '9239900248/dynamite/dynamite_fits/kinematics.fits'
 ]
