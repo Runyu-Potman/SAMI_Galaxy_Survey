@@ -425,6 +425,17 @@ def plot_6x2_velocity_grid(fits_paths, labels=None, cmap='RdBu_r', figsize=(19, 
         'Stellar Velocity Maps of Six Galaxies Hosting Kinematically Distinct Components',
         fontsize=15
     )
+    '''
+    # add psf.
+    add_psf(ax=axs[0], psffwhm=2.108)
+    add_psf(ax=axs[1], psffwhm=2.144)
+
+    add_psf(ax=axs[2], psffwhm=1.561)
+    add_psf(ax=axs[3], psffwhm=2.250)
+
+    add_psf(ax=axs[4], psffwhm=1.941)
+    add_psf(ax=axs[5], psffwhm=2.118)
+
     return fig
 
 # ------------------------------------------------------------------------
