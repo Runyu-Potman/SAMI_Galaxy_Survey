@@ -224,6 +224,68 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     return fig
 
 #--------------------------------------------------------------------------------
+def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh=4, labels=None):
+    """
+    Plot 6 galaxies in a 3x2 grid of galaxy blocks:
+
+        Galaxy 1 (3×N maps) | Galaxy 2 (3×N maps)
+        Galaxy 3 (3×N maps) | Galaxy 4 (3×N maps)
+        Galaxy 5 (3×N maps) | Galaxy 6 (3×N maps)
+
+    where each galaxy block contains:
+        Data
+        Model
+        Residual
+
+    Parameters
+    ----------
+    fits_paths : list of str
+        Exactly 6 FITS files, one per galaxy.
+    number_gh : int
+        Highest GH moment number included. For example:
+        number_gh=4 -> h3, h4
+        number_gh=5 -> h3, h4, h5
+    labels : list of str or None
+        Optional labels for the 6 galaxies.
+    """
+
+    if len(fits_paths) != 6:
+        raise ValueError("Please provide exactly 6 FITS files in fits_paths.")
+
+    if labels is None:
+        labels = [f"Galaxy {i+1}" for i in range(6)]
+    if len(labels) != 6:
+        raise ValueError("Please provide exactly 6 labels, or leave labels=None.")
+
+    n_col = number_gh + 1
+    gh_indices = list(range(3, number_gh + 1))
+
+    # Figure size tuned for 3x2 blocks
+    fig = plt.figure(figsize=(25, 20))
+
+    # Outer layout: 3 rows x 2 columns of galaxy blocks
+    outer = fig.add_gridspec(
+        3, 2,
+        left=0.08,
+        right=0.99,
+        bottom=0.03,
+        top=0.94,
+        hspace=0.18,
+        wspace=0.08
+    )
+
+    # Colormaps
+    map1 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
+    map2 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
+
+    def add_cbar(im, ax, bottom_label, top_label):
+        cb = fig.colorbar(im, ax=ax, pad=0, fraction=0.1, aspect=9)
+        cb.set_ticks([])
+        cb.ax.text(0.5, 0.05, bottom_label, transform=cb.ax.transAxes,
+                   ha='center', va='center', fontsize=10, color='black')
+        cb.ax.text(0.5, 0.95, top_label, transform=cb.ax.transAxes,
+                   ha='center', va='center', fontsize=10, color='black')
+        return cb
 
     def format_axis(ax):
         ax.minorticks_on()
