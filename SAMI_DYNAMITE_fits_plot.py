@@ -336,7 +336,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
             vel_data = get_flat('data_vel')
             vel_model = get_flat('model_vel')
             vel_abs = max(np.nanmax(np.abs(vel_data)), np.nanmax(np.abs(vel_model)))
-            vel_val = int(round(0.98 * vel_abs))
+            vel_val = int(round(1.0 * vel_abs))
             vel_up_label = f'{vel_val}'
             vel_low_label = f'{-vel_val}'
 
