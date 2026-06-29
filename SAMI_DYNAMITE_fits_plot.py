@@ -301,7 +301,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
     def draw_block(fits_path, block_spec, block_label, add_row_labels = False):
         '''
         Draw one galaxy block inside a 3 x n_col sub-grid.
-        """
+        '''
         inner = block_spec.subgridspec(3, n_col, hspace=0.0, wspace=0.0)
 
         with fits.open(fits_path) as hdul:
