@@ -500,7 +500,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
         # Add Data / Model / Residual labels.
         if add_row_labels:
             row_names = ['Data', 'Model', 'Residual']
-            x_text = max(0.015, block_bbox.x0 - 0.02)
+            x_text = block_bbox.x0 - 0.01
 
             for name, ax0 in zip(row_names, row_first_axes):
                 bbox = ax0.get_position()
