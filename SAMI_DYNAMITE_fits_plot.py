@@ -515,7 +515,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                     rotation = 90.
                 )
 
-    # Draw the 6 galaxy blocks
+    # Draw the 6 galaxy blocks.
     for i, (fits_path, label) in enumerate(zip(fits_paths, labels)):
         r = i // 2
         c = i % 2
