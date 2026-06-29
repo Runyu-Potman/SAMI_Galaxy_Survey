@@ -490,7 +490,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
         block_bbox = block_spec.get_position(fig)
         fig.text(
             0.5 * (block_bbox.x0 + block_bbox.x1),
-            min(0.995, block_bbox.y1 + 0.03),
+            (block_bbox.y1 + 0.02),
             block_label,
             ha='center',
             va='bottom',
