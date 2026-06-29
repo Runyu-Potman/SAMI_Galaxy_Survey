@@ -509,10 +509,10 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                     x_text,
                     y,
                     name,
-                    size=20,
-                    ha='center',
-                    va='center',
-                    rotation=90.
+                    size = 20,
+                    ha = 'center',
+                    va = 'center',
+                    rotation = 90.
                 )
 
     # Draw the 6 galaxy blocks
