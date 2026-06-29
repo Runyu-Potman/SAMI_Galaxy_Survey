@@ -225,6 +225,249 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
 
 #--------------------------------------------------------------------------------
 
+    def format_axis(ax):
+        ax.minorticks_on()
+        ax.tick_params(direction='in', which='both',
+                       bottom=True, left=True, top=False, right=False)
+        ax.set_xticklabels([])
+        ax.set_yticklabels([])
+        ax.set_xlim(-8, 8)
+        ax.set_ylim(-8, 8)
+        ax.set_xticks([-5, 0, 5])
+        ax.set_yticks([-5, 0, 5])
+        ax.set_aspect('equal', adjustable='box')
+
+    def draw_block(fits_path, block_spec, block_label, add_row_labels=False):
+        """
+        Draw one galaxy block inside a 3 x n_col sub-grid.
+        """
+        inner = block_spec.subgridspec(3, n_col, hspace=0.0, wspace=0.0)
+
+        with fits.open(fits_path) as hdul:
+            dx = hdul[0].header['DX']
+            angle_deg = hdul[0].header['ANGLE']
+            xs = hdul['x_coords'].data
+            ys = hdul['y_coords'].data
+
+            X, Y = np.meshgrid(xs, ys)
+            x_flat = X.ravel()
+            y_flat = Y.ravel()
+
+            def get_flat(extname):
+                return hdul[extname].data.ravel()
+
+            kw_display_pixels1 = dict(
+                pixelsize=dx,
+                angle=angle_deg,
+                colorbar=False,
+                nticks=7,
+                cmap=map1
+            )
+            kw_display_pixels = dict(
+                pixelsize=dx,
+                angle=angle_deg,
+                colorbar=False,
+                nticks=7,
+                cmap=map2
+            )
+
+            # Global labels for this galaxy
+            vel_data = get_flat('data_vel')
+            vel_model = get_flat('model_vel')
+            vel_abs = max(np.nanmax(np.abs(vel_data)), np.nanmax(np.abs(vel_model)))
+            vel_val = int(round(0.98 * vel_abs))
+            vel_up_label = f'{vel_val}'
+            vel_low_label = f'{-vel_val}'
+
+            sig_data = get_flat('data_sig')
+            sig_model = get_flat('model_sig')
+            sig_min = min(np.nanmin(sig_data), np.nanmin(sig_model))
+            sig_max = max(np.nanmax(sig_data), np.nanmax(sig_model))
+            sig_bottom_val = int(round(1.02 * sig_min))
+            sig_top_val = int(round(0.98 * sig_max))
+            sig_low_label = f'{sig_bottom_val}'
+            sig_up_label = f'{sig_top_val}'
+
+            row_first_axes = [None, None, None]
+
+            # ---------- DATA row ----------
+            ax = fig.add_subplot(inner[0, 0])
+            row_first_axes[0] = ax
+            c = get_flat('data_sb')
+            vmin, vmax = np.nanmin(c), np.nanmax(c)
+            im = display_pixels.display_pixels(
+                x_flat, y_flat, c,
+                vmin=vmin, vmax=vmax,
+                **kw_display_pixels1
+            )
+            format_axis(ax)
+            add_cbar(im, ax, '-1', '0')
+            ax.set_title('Surface Brightness (log)', fontsize=20, pad=20)
+
+            ax = fig.add_subplot(inner[0, 1])
+            c = get_flat('data_vel')
+            im = display_pixels.display_pixels(
+                x_flat, y_flat, c,
+                vmin=-vel_abs, vmax=vel_abs,
+                **kw_display_pixels
+            )
+            format_axis(ax)
+            add_cbar(im, ax, vel_low_label, vel_up_label)
+            ax.set_title('Velocity', fontsize=20, pad=20)
+
+            ax = fig.add_subplot(inner[0, 2])
+            c = get_flat('data_sig')
+            im = display_pixels.display_pixels(
+                x_flat, y_flat, c,
+                vmin=sig_min, vmax=sig_max,
+                **kw_display_pixels1
+            )
+            format_axis(ax)
+            add_cbar(im, ax, sig_low_label, sig_up_label)
+            ax.set_title('Velocity Dispersion', fontsize=20, pad=20)
+
+            for idx, i in enumerate(gh_indices):
+                ax = fig.add_subplot(inner[0, 3 + idx])
+                c = get_flat(f'data_h{i}')
+                im = display_pixels.display_pixels(
+                    x_flat, y_flat, c,
+                    vmin=-0.15, vmax=0.15,
+                    **kw_display_pixels
+                )
+                format_axis(ax)
+                add_cbar(im, ax, '-0.1', '0.1')
+                ax.set_title(f'$h_{{{i}}}$ Moment', fontsize=20, pad=20)
+
+            # ---------- MODEL row ----------
+            ax = fig.add_subplot(inner[1, 0])
+            row_first_axes[1] = ax
+            c = get_flat('model_sb')
+            vmin, vmax = np.nanmin(c), np.nanmax(c)
+            im = display_pixels.display_pixels(
+                x_flat, y_flat, c,
+                vmin=vmin, vmax=vmax,
+                **kw_display_pixels1
+            )
+            format_axis(ax)
+            add_cbar(im, ax, '-1', '0')
+
+            ax = fig.add_subplot(inner[1, 1])
+            c = get_flat('model_vel')
+            im = display_pixels.display_pixels(
+                x_flat, y_flat, c,
+                vmin=-vel_abs, vmax=vel_abs,
+                **kw_display_pixels
+            )
+            format_axis(ax)
+            add_cbar(im, ax, vel_low_label, vel_up_label)
+
+            ax = fig.add_subplot(inner[1, 2])
+            c = get_flat('model_sig')
+            im = display_pixels.display_pixels(
+                x_flat, y_flat, c,
+                vmin=sig_min, vmax=sig_max,
+                **kw_display_pixels1
+            )
+            format_axis(ax)
+            add_cbar(im, ax, sig_low_label, sig_up_label)
+
+            for idx, i in enumerate(gh_indices):
+                ax = fig.add_subplot(inner[1, 3 + idx])
+                c = get_flat(f'model_h{i}')
+                im = display_pixels.display_pixels(
+                    x_flat, y_flat, c,
+                    vmin=-0.15, vmax=0.15,
+                    **kw_display_pixels
+                )
+                format_axis(ax)
+                add_cbar(im, ax, '-0.1', '0.1')
+
+            # ---------- RESIDUAL row ----------
+            ax = fig.add_subplot(inner[2, 0])
+            row_first_axes[2] = ax
+            c = get_flat('residual_sb')
+            im = display_pixels.display_pixels(
+                x_flat, y_flat, c,
+                vmin=-0.05, vmax=0.05,
+                **kw_display_pixels
+            )
+            format_axis(ax)
+            add_cbar(im, ax, '-0.1', '0.1')
+
+            ax = fig.add_subplot(inner[2, 1])
+            c = get_flat('residual_vel')
+            im = display_pixels.display_pixels(
+                x_flat, y_flat, c,
+                vmin=-10, vmax=10,
+                **kw_display_pixels
+            )
+            format_axis(ax)
+            add_cbar(im, ax, '-10', '10')
+
+            ax = fig.add_subplot(inner[2, 2])
+            c = get_flat('residual_sig')
+            im = display_pixels.display_pixels(
+                x_flat, y_flat, c,
+                vmin=-10, vmax=10,
+                **kw_display_pixels
+            )
+            format_axis(ax)
+            add_cbar(im, ax, '-10', '10')
+
+            for idx, i in enumerate(gh_indices):
+                ax = fig.add_subplot(inner[2, 3 + idx])
+                c = get_flat(f'residual_h{i}')
+                im = display_pixels.display_pixels(
+                    x_flat, y_flat, c,
+                    vmin=-10, vmax=10,
+                    **kw_display_pixels
+                )
+                format_axis(ax)
+                add_cbar(im, ax, '-10', '10')
+
+        # Add galaxy title above this block
+        block_bbox = block_spec.get_position(fig)
+        fig.text(
+            0.5 * (block_bbox.x0 + block_bbox.x1),
+            min(0.995, block_bbox.y1 + 0.03),
+            block_label,
+            ha='center',
+            va='bottom',
+            fontsize=20,
+            fontweight='bold'
+        )
+
+        # Add Data / Model / Residual labels only for the left column blocks
+        # so they serve the whole row of galaxies.
+        if add_row_labels:
+            row_names = ['Data', 'Model', 'Residual']
+            x_text = max(0.015, block_bbox.x0 - 0.02)
+
+            for name, ax0 in zip(row_names, row_first_axes):
+                bbox = ax0.get_position()
+                y = 0.5 * (bbox.y0 + bbox.y1)
+                fig.text(
+                    x_text,
+                    y,
+                    name,
+                    size=20,
+                    ha='center',
+                    va='center',
+                    rotation=90.
+                )
+
+    # Draw the 6 galaxy blocks
+    for i, (fits_path, label) in enumerate(zip(fits_paths, labels)):
+        r = i // 2
+        c = i % 2
+        draw_block(
+            fits_path=fits_path,
+            block_spec=outer[r, c],
+            block_label=label,
+            add_row_labels=(c == 0)   # labels only on the left block of each row
+        )
+
+    return fig
 
 #---------------------------------------------------------------------------------
 if __name__ == '__main__':
