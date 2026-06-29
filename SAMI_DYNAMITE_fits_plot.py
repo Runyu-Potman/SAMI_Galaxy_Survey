@@ -268,7 +268,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
         wspace=0.08
     )
 
-    # Colormaps
+    # Colormaps.
     map1 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.6)
     map2 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
 
