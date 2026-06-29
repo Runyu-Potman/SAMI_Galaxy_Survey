@@ -453,7 +453,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                 **kw_display_pixels
             )
             format_axis(ax)
-            add_cbar(im, ax, '-0.1', '0.1')
+            add_cbar(im, ax, '-0.05', '0.05')
 
             ax = fig.add_subplot(inner[2, 1])
             c = get_flat('residual_vel')
