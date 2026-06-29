@@ -369,7 +369,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             c = get_flat('data_vel')
             im = display_pixels.display_pixels(
                 x_flat, y_flat, c,
-                vmin=-vel_abs, vmax=vel_abs,
+                vmin = -vel_abs, vmax = vel_abs,
                 **kw_display_pixels
             )
             format_axis(ax)
