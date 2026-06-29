@@ -520,10 +520,10 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
         r = i // 2
         c = i % 2
         draw_block(
-            fits_path=fits_path,
-            block_spec=outer[r, c],
-            block_label=label,
-            add_row_labels=(c == 0)   # labels only on the left block of each row
+            fits_path = fits_path,
+            block_spec = outer[r, c],
+            block_label = label,
+            add_row_labels = True
         )
 
     return fig
