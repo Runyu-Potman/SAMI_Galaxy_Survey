@@ -249,7 +249,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
     if labels is None:
         labels = [f'Galaxy {i+1}' for i in range(6)]
     if len(labels) != 6:
-        raise ValueError("Please provide exactly 6 labels, or leave labels=None.")
+        raise ValueError('Please provide exactly 6 labels, or leave labels=None.')
 
     n_col = number_gh + 1
     gh_indices = list(range(3, number_gh + 1))
