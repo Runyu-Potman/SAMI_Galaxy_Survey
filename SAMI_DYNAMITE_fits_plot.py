@@ -344,8 +344,8 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
             sig_model = get_flat('model_sig')
             sig_min = min(np.nanmin(sig_data), np.nanmin(sig_model))
             sig_max = max(np.nanmax(sig_data), np.nanmax(sig_model))
-            sig_bottom_val = int(round(1.02 * sig_min))
-            sig_top_val = int(round(0.98 * sig_max))
+            sig_bottom_val = int(round(1.0 * sig_min))
+            sig_top_val = int(round(1.0 * sig_max))
             sig_low_label = f'{sig_bottom_val}'
             sig_up_label = f'{sig_top_val}'
 
