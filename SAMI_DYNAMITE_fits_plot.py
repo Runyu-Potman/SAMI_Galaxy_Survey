@@ -449,7 +449,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             c = get_flat('residual_sb')
             im = display_pixels.display_pixels(
                 x_flat, y_flat, c,
-                vmin=-0.05, vmax=0.05,
+                vmin = -0.05, vmax = 0.05,
                 **kw_display_pixels
             )
             format_axis(ax)
