@@ -260,7 +260,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
     # Outer layout: 3 rows x 2 columns of galaxy blocks.
     outer = fig.add_gridspec(
         3, 2,
-        left=0.08,
+        left=0.092,
         right=0.99,
         bottom=0.03,
         top=0.94,
