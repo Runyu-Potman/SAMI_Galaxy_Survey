@@ -257,7 +257,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
     # Figure size tuned for 3x2 blocks.
     fig = plt.figure(figsize = figsize)
 
-    # Outer layout: 3 rows x 2 columns of galaxy blocks
+    # Outer layout: 3 rows x 2 columns of galaxy blocks.
     outer = fig.add_gridspec(
         3, 2,
         left=0.08,
