@@ -4,6 +4,7 @@ from astropy.io import fits
 import matplotlib.patheffects as pe
 import cmasher as cmr
 from plotbin import display_pixels
+from matplotlib.ticker import AutoMinorLocator
 
 def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, extrap_start = None, output_plot = None, label = False):
     '''
