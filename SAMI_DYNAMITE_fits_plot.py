@@ -237,17 +237,11 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
         Model
         Residual
 
-    Parameters
-    ----------
-    fits_paths : list of str
-        Exactly 6 FITS files, one per galaxy.
-    number_gh : int
-        Highest GH moment number included. For example:
-        number_gh=4 -> h3, h4
-        number_gh=5 -> h3, h4, h5
-    labels : list of str or None
-        Optional labels for the 6 galaxies.
-    """
+    Parameters:
+    - fits_paths: Exactly 6 FITS files, one per galaxy.
+    - number_gh: Highest GH moment number included.
+    - labels: Optional labels for the 6 galaxies.
+    '''
 
     if len(fits_paths) != 6:
         raise ValueError("Please provide exactly 6 FITS files in fits_paths.")
