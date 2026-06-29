@@ -497,8 +497,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             fontsize = 20
         )
 
-        # Add Data / Model / Residual labels only for the left column blocks
-        # so they serve the whole row of galaxies.
+        # Add Data / Model / Residual labels.
         if add_row_labels:
             row_names = ['Data', 'Model', 'Residual']
             x_text = max(0.015, block_bbox.x0 - 0.02)
