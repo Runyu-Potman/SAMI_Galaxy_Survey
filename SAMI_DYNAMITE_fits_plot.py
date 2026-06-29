@@ -262,7 +262,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
         3, 2,
         left=0.092,
         right=0.99,
-        bottom=0.032,
+        bottom=0.033,
         top=0.939,
         hspace=0.18,
         wspace=0.08
