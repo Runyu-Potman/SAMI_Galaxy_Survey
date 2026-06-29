@@ -292,11 +292,11 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
         ax.tick_params(direction = 'in', which = 'minor', axis = 'both', length = 2, width = 1)
         ax.set_xticklabels([])
         ax.set_yticklabels([])
-        ax.set_xlim(-8, 8)
-        ax.set_ylim(-8, 8)
-        ax.set_xticks([-5, 0, 5])
-        ax.set_yticks([-5, 0, 5])
-        ax.set_aspect('equal', adjustable='box')
+        ax.set_xlim(-10, 10)
+        ax.set_ylim(-10, 10)
+        ax.set_xticks([-10, -5, 0, 5, 10])
+        ax.set_yticks([-10, -5, 0, 5, 10])
+        ax.set_aspect('equal', adjustable = 'box')
 
     def draw_block(fits_path, block_spec, block_label, add_row_labels=False):
         """
