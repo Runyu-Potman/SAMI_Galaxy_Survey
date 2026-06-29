@@ -275,10 +275,12 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
     def add_cbar(im, ax, bottom_label, top_label):
         cb = fig.colorbar(im, ax = ax, pad = 0, fraction = 0.1668, aspect = 5)
         cb.set_ticks([])
-        cb.ax.text(0.5, 0.05, bottom_label, transform=cb.ax.transAxes,
-                   ha='center', va='center', fontsize=10, color='black')
-        cb.ax.text(0.5, 0.95, top_label, transform=cb.ax.transAxes,
-                   ha='center', va='center', fontsize=10, color='black')
+        cb.ax.text(0.5, 0.05, bottom_label, transform = cb.ax.transAxes,
+                   ha = 'center', va = 'bottom', fontsize = 10, color = 'white', fontweight = 'bold',
+                   path_effects = [pe.withStroke(linewidth = 2.5, foreground = 'black')])
+        cb.ax.text(0.5, 0.95, top_label, transform = cb.ax.transAxes,
+                   ha = 'center', va = 'top', fontsize = 10, color = 'white', fontweight = 'bold',
+                   path_effects = [pe.withStroke(linewidth = 2.5, foreground = 'black')])
         return cb
 
     def format_axis(ax):
