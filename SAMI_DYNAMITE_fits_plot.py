@@ -362,8 +362,8 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                 **kw_display_pixels1
             )
             format_axis(ax)
-            add_cbar(im, ax, '-1', '0')
-            ax.set_title('Surface Brightness (log)', fontsize=20, pad=20)
+            add_cbar(im, ax, int(round(vmin)), int(round(vmax)))
+            ax.set_title(r'$\log_{10}(\mu)$', fontsize = 20, pad = 10)
 
             ax = fig.add_subplot(inner[0, 1])
             c = get_flat('data_vel')
