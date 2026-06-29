@@ -486,7 +486,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                 format_axis(ax)
                 add_cbar(im, ax, '-10', '10')
 
-        # Add galaxy title above this block
+        # Add galaxy title above this block.
         block_bbox = block_spec.get_position(fig)
         fig.text(
             0.5 * (block_bbox.x0 + block_bbox.x1),
