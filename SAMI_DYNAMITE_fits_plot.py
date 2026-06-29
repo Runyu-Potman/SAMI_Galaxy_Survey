@@ -285,8 +285,11 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
 
     def format_axis(ax):
         ax.minorticks_on()
-        ax.tick_params(direction='in', which='both',
-                       bottom=True, left=True, top=False, right=False)
+        ax.tick_params(direction = 'in', which = 'major', axis = 'both', length = 4, width = 1)
+        # add minor ticks (shorter, no labels).
+        ax.xaxis.set_minor_locator(AutoMinorLocator())
+        ax.yaxis.set_minor_locator(AutoMinorLocator())
+        ax.tick_params(direction = 'in', which = 'minor', axis = 'both', length = 2, width = 1)
         ax.set_xticklabels([])
         ax.set_yticklabels([])
         ax.set_xlim(-8, 8)
