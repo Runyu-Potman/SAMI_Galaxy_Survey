@@ -492,10 +492,9 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             0.5 * (block_bbox.x0 + block_bbox.x1),
             (block_bbox.y1 + 0.02),
             block_label,
-            ha='center',
-            va='bottom',
-            fontsize=20,
-            fontweight='bold'
+            ha = 'center',
+            va = 'bottom',
+            fontsize = 20
         )
 
         # Add Data / Model / Residual labels only for the left column blocks
