@@ -244,7 +244,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None)
     '''
 
     if len(fits_paths) != 6:
-        raise ValueError("Please provide exactly 6 FITS files in fits_paths.")
+        raise ValueError('Please provide exactly 6 FITS files in fits_paths.')
 
     if labels is None:
         labels = [f"Galaxy {i+1}" for i in range(6)]
