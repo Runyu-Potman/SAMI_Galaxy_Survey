@@ -590,3 +590,25 @@ if __name__ == '__main__':
     plt.tight_layout()
     plt.savefig('final\orbit_density.png', dpi = 300, bbox_inches = 'tight')
     plt.show()
+    '''
+
+    fits_files = [
+        '7969/dynamite/dynamite_fits/kinematics.fits', '230776/dynamite/dynamite_fits/kinematics.fits',
+        '143287/dynamite/dynamite_fits/kinematics.fits', '300787/dynamite/dynamite_fits/kinematics.fits',
+        '227266/dynamite/dynamite_fits/kinematics.fits', '9239900248/dynamite/dynamite_fits/kinematics.fits'
+    ]
+
+    labels = ["Galaxy 7969", "Galaxy 230776", "Galaxy 143287", "Galaxy 300787", "Galaxy 227266", "Galaxy 9239900248"]
+
+    my_pads = [
+        (0, 0, -0.32, -0.1),  # galaxy 7969
+        (0.05, 0.1, -0.1, -0.18),  # galaxy 230776
+        (-0.05, 0.2, 0.08, 0),  # galaxy 143287
+        (0, 0, -0.14, -0.15),  # galaxy 300787
+        (0.01, 0.25, 0.03, -0.05),  # galaxy 227266
+        (-0.02, 0.25, 0.05, 0),  # galaxy 6
+    ]
+
+    fig = plot_kinematic_maps_from_fits_grid(fits_files, number_gh = 4, labels = labels, compass_pads_list = my_pads)
+    plt.savefig('final\kinematic.png', dpi = 300, bbox_inches = 'tight')
+    plt.show()
