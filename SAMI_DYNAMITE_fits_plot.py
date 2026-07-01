@@ -374,8 +374,8 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             if compass_pads is None:
                 compass_pads = (0.5, 0.5, 0.5, 0.5)
             N_x_pad, N_y_pad, E_x_pad, E_y_pad = compass_pads
-            add_NE_compass(ax, xc = -7, yc = 7, pa_deg = angle_deg,
-                           length = 4, fontsize = 10,
+            add_NE_compass(ax, xc = -6.5, yc = 6.5, pa_deg = angle_deg,
+                           length = 2.5, fontsize = 10,
                            N_x_pad = N_x_pad, N_y_pad = N_y_pad,
                            E_x_pad = E_x_pad, E_y_pad = E_y_pad)
 
