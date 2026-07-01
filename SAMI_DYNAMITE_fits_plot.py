@@ -369,6 +369,15 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             add_cbar(im, ax, int(round(vmin)), int(round(vmax)))
             ax.set_title(r'$\log_{10}(\mu)$', fontsize = 20, pad = 10)
 
+            # add compass.
+            if compass_pads is None:
+                compass_pads = (0.5, 0.5, 0.5, 0.5)
+            N_x_pad, N_y_pad, E_x_pad, E_y_pad = compass_pads
+            add_NE_compass(ax, xc = -7, yc = 7, pa_deg = angle_deg,
+                           length = 4, fontsize = 10,
+                           N_x_pad = N_x_pad, N_y_pad = N_y_pad,
+                           E_x_pad = E_x_pad, E_y_pad = E_y_pad)
+
             ax = fig.add_subplot(inner[0, 1])
             c = get_flat('data_vel')
             im = display_pixels.display_pixels(
