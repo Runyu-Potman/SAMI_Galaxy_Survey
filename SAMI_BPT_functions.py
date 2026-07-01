@@ -900,7 +900,7 @@ if __name__ == "__main__":
 
     # directly copied from stellar kinematic.
     plot_vel_or_sig(csv_path = star_output_file_300787_kinematics, value_type = 'vel', ax = axs[2, 3], cmap = vel_cmap_300787_star, cbar_label = r'$V_{\bigstar}$ (km/s)',
-                    plot_psf = True, fontsize = 10, psffwhm = 1.941, vmin = -130, PAs = [149.12, -53.95], line_length = [2, 7.5])
+                    plot_psf = True, fontsize = 10, psffwhm = 1.941, vmin = -120, vmax = 120, PAs = [149.12, -53.95], line_length = [2, 7.5])
 
     # we plot the star formation rate surface density map at the end.
     sfr_300787_fits = '300787/emission_line/300787_A_sfr-dens_default_recom-comp.fits'
