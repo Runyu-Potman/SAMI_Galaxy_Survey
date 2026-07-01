@@ -842,7 +842,7 @@ if __name__ == "__main__":
     vel_cmap_300787_star = cmr.get_sub_cmap('twilight_shifted', 0.1, 1.0)
 
     # 143287 plotting.
-    plot_vel_or_sig(csv_path = gas_output_file_143287_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
+    plot_vel_or_sig(csv_path = gas_output_file_143287_distribution, cmap = 'magma', cbar_label = r"log(Flux/$10^{-16}$erg s$^{-1}$cm$^{-2}$)",
                     value_type = 'gas', ax = axs[0, 0], plot_psf = True, psffwhm = 2.250, vmin = -1.85, vmax = -0.4, galaxy_name = '143287')
 
     plot_vel_or_sig(csv_path = gas_output_file_143287_kinematics, cmap = vel_cmap_143287, cbar_label = r'$V_\mathrm{gas}$ (km s$^{-1}$)',
