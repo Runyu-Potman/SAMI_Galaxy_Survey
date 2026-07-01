@@ -5,6 +5,7 @@ import matplotlib.patheffects as pe
 import cmasher as cmr
 from plotbin import display_pixels
 from matplotlib.ticker import AutoMinorLocator
+from SAMI_MGE import add_NE_compass
 
 def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, extrap_start = None, output_plot = None, label = False):
     '''
