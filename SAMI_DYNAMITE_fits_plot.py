@@ -532,6 +532,9 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
     for i, (fits_path, label) in enumerate(zip(fits_paths, labels)):
         r = i // 2
         c = i % 2
+
+        pads = compass_pads_list[i] if compass_pads_list is not None else None
+
         draw_block(
             fits_path = fits_path,
             block_spec = outer[r, c],
