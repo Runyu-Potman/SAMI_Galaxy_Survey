@@ -278,7 +278,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
     map2 = cmr.get_sub_cmap('twilight_shifted', 0.05, 0.95)
 
     def add_cbar(im, ax, bottom_label, top_label):
-        cb = fig.colorbar(im, ax = ax, pad = 0, fraction = 0.1668, aspect = 5)
+        cb = fig.colorbar(im, ax = ax, pad = 0, fraction = 0.1667, aspect = 5)
         cb.set_ticks([])
         cb.ax.text(0.5, 0.05, bottom_label, transform = cb.ax.transAxes,
                    ha = 'center', va = 'bottom', fontsize = 8, color = 'white', fontweight = 'bold',
