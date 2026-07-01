@@ -610,5 +610,5 @@ if __name__ == '__main__':
     ]
 
     fig = plot_kinematic_maps_from_fits_grid(fits_files, number_gh = 4, labels = labels, compass_pads_list = my_pads)
-    plt.savefig('final\kinematic.png', dpi = 300, bbox_inches = 'tight')
+    plt.savefig('final\kinematic_model.png', dpi = 300, bbox_inches = 'tight')
     plt.show()
