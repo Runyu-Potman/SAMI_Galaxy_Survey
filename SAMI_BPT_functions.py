@@ -876,8 +876,8 @@ if __name__ == "__main__":
                     value_type = 'sig', ax = axs[1, 2], plot_psf = True, psffwhm = 2.108)
 
     # directly copied from stellar kinematics.
-    plot_vel_or_sig(csv_path = star_output_file_227266_kinematics, value_type = 'vel', ax = axs[1, 3], cmap = vel_cmap, cbar_label = r'$V_{\bigstar}$ (km/s)',
-                    plot_psf = True, fontsize = 10, psffwhm = 2.108, vmin = -55, vmax = 55, PAs = [171.75, 34.53], line_length = [3, 10], pa_center_x = 0.75, pa_center_y = 0.75)
+    plot_vel_or_sig(csv_path = star_output_file_227266_kinematics, value_type = 'vel', ax = axs[1, 3], cmap = vel_cmap, cbar_label = r'$V_{\bigstar}$ (km s$^{-1}$)',
+                    plot_psf = True, fontsize = 12, psffwhm = 2.108, vmin = -55, vmax = 55, PAs = [171.75, 34.53], line_length = [3, 10], pa_center_x = 0.75, pa_center_y = 0.75)
 
     # we plot the star formation rate surface density map at the end.
     sfr_227266_fits = '227266/emission_line/227266_A_sfr-dens_default_recom-comp.fits'
