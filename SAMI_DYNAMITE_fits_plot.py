@@ -225,7 +225,8 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     return fig
 
 #--------------------------------------------------------------------------------
-def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None, figsize = (25, 20)):
+def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
+                                       figsize = (25, 20), compass_pads_list = None):
     '''
     Plot 6 galaxies in a 3x2 grid of galaxy blocks (N = 5):
 
