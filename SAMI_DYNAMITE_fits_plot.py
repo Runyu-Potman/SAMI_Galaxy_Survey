@@ -539,7 +539,8 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             fits_path = fits_path,
             block_spec = outer[r, c],
             block_label = label,
-            add_row_labels = True
+            add_row_labels = True,
+            compass_pads = pads
         )
 
     return fig
