@@ -598,7 +598,7 @@ if __name__ == '__main__':
         '227266/dynamite/dynamite_fits/kinematics.fits', '9239900248/dynamite/dynamite_fits/kinematics.fits'
     ]
 
-    labels = ["Galaxy 7969", "Galaxy 230776", "Galaxy 143287", "Galaxy 300787", "Galaxy 227266", "Galaxy 9239900248"]
+    labels = [r'Galaxy 7969 ($\chi^2$/DOF = 1.02)', 'Galaxy 230776 ($\chi^2$/DOF = 1.93)', 'Galaxy 143287 ($\chi^2$/DOF = 0.91)', 'Galaxy 300787 ($\chi^2$/DOF = 1.37)', 'Galaxy 227266 ($\chi^2$/DOF = 1.66)', 'Galaxy 9239900248 ($\chi^2$/DOF = 1.14)']
 
     my_pads = [
         (0, 0, -0.32, -0.1),  # galaxy 7969
