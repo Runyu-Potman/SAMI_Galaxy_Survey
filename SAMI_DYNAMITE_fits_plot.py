@@ -243,6 +243,8 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
     - fits_paths: Exactly 6 FITS files, one per galaxy.
     - number_gh: Highest GH moment number included.
     - labels: Optional labels for the 6 galaxies.
+    - figsize: Figure size.
+    - compass_pads_list: Optional list of compass pads.
     '''
 
     if len(fits_paths) != 6:
