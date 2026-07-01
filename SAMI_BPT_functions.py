@@ -889,7 +889,7 @@ if __name__ == "__main__":
                     value_type = 'sfr', ax = axs[1, 4], plot_psf = True, psffwhm = 2.108)
 
     # 300787 plotting.
-    plot_vel_or_sig(csv_path = gas_output_file_300787_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
+    plot_vel_or_sig(csv_path = gas_output_file_300787_distribution, cmap = 'magma', cbar_label = r"log(Flux/$10^{-16}$erg s$^{-1}$cm$^{-2}$)",
                     value_type = 'gas', ax = axs[2, 0], plot_psf = True, psffwhm = 1.941, vmin = -1.7, galaxy_name = '300787')
 
     plot_vel_or_sig(csv_path = gas_output_file_300787_kinematics, cmap = vel_cmap, cbar_label = r'$V_\mathrm{gas}$ (km s$^{-1}$)',
