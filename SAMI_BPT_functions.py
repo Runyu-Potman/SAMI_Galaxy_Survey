@@ -865,7 +865,7 @@ if __name__ == "__main__":
                     value_type = 'sfr', ax = axs[0, 4], plot_psf = True, psffwhm = 2.250, vmin = 0.0005)
 
     # 227266 plotting.
-    plot_vel_or_sig(csv_path = gas_output_file_227266_distribution, cmap = 'magma', cbar_label = r"log$_{10}$(Flux / $10^{-16}$ erg s$^{-1}$ cm$^{-2}$)",
+    plot_vel_or_sig(csv_path = gas_output_file_227266_distribution, cmap = 'magma', cbar_label = r"log(Flux/$10^{-16}$erg s$^{-1}$cm$^{-2}$)",
                     value_type = 'gas', ax = axs[1, 0], plot_psf = True, psffwhm = 2.108, galaxy_name = '227266')
 
     # we should mask the particular spaxel!
