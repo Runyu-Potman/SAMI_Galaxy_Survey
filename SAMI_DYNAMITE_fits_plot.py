@@ -605,9 +605,9 @@ if __name__ == '__main__':
         (0, 0, -0.32, -0.1),  # galaxy 7969
         (0.05, 0.1, -0.1, -0.18),  # galaxy 230776
         (-0.05, 0.2, 0.08, 0),  # galaxy 143287
-        (0, 0, -0.14, -0.15),  # galaxy 300787
-        (0.01, 0.25, 0.03, -0.05),  # galaxy 227266
-        (-0.02, 0.25, 0.05, 0),  # galaxy 9239900248
+        (0, 0, -0.14, -0.18),  # galaxy 300787
+        (-0.1, 0.25, 0.03, -0.05),  # galaxy 227266
+        (-0.1, 0.25, 0.05, 0),  # galaxy 9239900248
     ]
 
     fig = plot_kinematic_maps_from_fits_grid(fits_files, number_gh = 4, labels = labels, compass_pads_list = my_pads)
