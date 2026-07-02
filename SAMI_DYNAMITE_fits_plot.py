@@ -399,7 +399,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             )
             format_axis(ax)
             add_cbar(im, ax, sig_low_label, sig_up_label)
-            ax.set_title(r'$\sigma_{\bigstar}$ (km/s)', fontsize = 20, pad = 10)
+            ax.set_title(r'$\sigma_{\bigstar}$ (km s$^{-1}$)', fontsize = 20, pad = 10)
 
             for idx, i in enumerate(gh_indices):
                 ax = fig.add_subplot(inner[0, 3 + idx])
