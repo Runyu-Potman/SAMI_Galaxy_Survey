@@ -1645,7 +1645,7 @@ class Plotter():
         Generates an orbit plot for the selected model
 
         This plot shows the stellar orbit distribution, described
-        as probability density of orbits; circularity (lambda_z) is
+        as probability density of orbits; circularity (lambda_x) is
         represented here as a function of the distance from the
         galactic centre r (in arcsec).
 
