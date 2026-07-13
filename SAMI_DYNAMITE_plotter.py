@@ -1800,8 +1800,8 @@ class Plotter():
         # extent = [xmin, xmax, ymin, ymax]
         hdr['EX0'] = (float(extent[0]), 'x min (arcsec)')
         hdr['EX1'] = (float(extent[1]), 'x max (arcsec)')
-        hdr['EY0'] = (float(extent[2]), 'y min (lambda_z)')
-        hdr['EY1'] = (float(extent[3]), 'y max (lambda_z)')
+        hdr['EY0'] = (float(extent[2]), 'y min (lambda_x)')
+        hdr['EY1'] = (float(extent[3]), 'y max (lambda_x)')
         hdr['VMIN'] = (float(minmaxdens[0]), 'colorbar min')
         hdr['VMAX'] = (float(minmaxdens[1]), 'colorbar max')
         hdr['NXBIN'] = (int(nxbin), 'x bins used')
