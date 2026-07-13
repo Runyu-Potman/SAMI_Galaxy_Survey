@@ -1787,7 +1787,7 @@ class Plotter():
 
         ### plot the orbit distribution on lambda_x vs. r ###
 
-        filename5 = self.plotdir + 'orbit_linear_only' + figtype
+        filename5 = self.plotdir + 'orbit_linear_only_lx' + figtype
         imgxrange = xbinned
         imgyrange = ybinned
         extent = [imgxrange[0], imgxrange[1], imgyrange[0], imgyrange[1]]
