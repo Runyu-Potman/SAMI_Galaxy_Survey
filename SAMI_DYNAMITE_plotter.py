@@ -1794,7 +1794,7 @@ class Plotter():
 
         ##################################################################
         # here we save the fits for latter reproduction.
-        fits_path = os.path.join(self.plotdir, 'orbit_density.fits')
+        fits_path = os.path.join(self.plotdir, 'orbit_density_lx.fits')
         hdu = fits.PrimaryHDU(data = R.T.astype(np.float32))
         hdr = hdu.header
         # extent = [xmin, xmax, ymin, ymax]
