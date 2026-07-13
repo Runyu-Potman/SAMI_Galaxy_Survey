@@ -1824,7 +1824,7 @@ class Plotter():
 
         ax.set_yticks([-1,-0.5,0,0.5,1])
         ax.set_xlabel(r'$r$ [arcsec]', fontsize=9)
-        ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize=9)
+        ax.set_ylabel(r'Circularity $\lambda_{x}$', fontsize=9)
 
         cb = fig.colorbar(cax, orientation='vertical', pad=0.05)
         cb.set_label('Relative orbit density', labelpad=10)
