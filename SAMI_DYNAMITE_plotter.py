@@ -1635,6 +1635,221 @@ class Plotter():
 
         return fig
 
+    #######################################################################################
+    def orbit_plot_lx(self,
+                   model=None,
+                   Rmax_arcs=None,
+                   ocut=(0.8, 0.25, -0.25, -0.8),
+                   figtype=None):
+        """
+        Generates an orbit plot for the selected model
+
+        This plot shows the stellar orbit distribution, described
+        as probability density of orbits; circularity (lambda_z) is
+        represented here as a function of the distance from the
+        galactic centre r (in arcsec).
+
+        Parameters
+        ----------
+        model : model, optional
+            Determines which model is used for the plot.
+            If model = None, the model corresponding to the minimum
+            chisquare (so far) is used; the setting in the configuration
+            file's parameter settings is used to determine which chisquare
+            to consider. The default is None.
+        Rmax_arcs : numerical value
+            upper radial limit for orbit selection, in arcsec i.e only orbits
+            extending up to Rmax_arcs are plotted
+        ocut : iterable of numerical values, optional
+            The orbit cuts in lambda_z. The plot will include horizontal
+            dashed lines at the lambda_z levels in ocut.
+            Per default, ocut will have four levels (0.8, 0.25, -0.25, -0.8),
+            interpreted as (lim_cold, lim_warm, lim_hot, lim_cr_warm),
+            decomposing the plot into five regions:
+            cold (lambda_z > lim_cold>),
+            warm (lim_cold >= lambda_z > lim_warm),
+            hot (lim_warm >= lambda_z > lim_hot),
+            counter-rotating warm (lim_hot >= lambda_z > lim_cr_warm),
+            and counter-rotating cold (lim_cr_warm >= lambda_z) orbits.
+        figtype : STR, optional
+            Determines the file extension to use when saving the figure.
+            If None, the default setting is used ('.png').
+
+        Raises
+        ------
+        ValueError
+            If Rmax_arcs is not set to a numerical value.
+
+        Returns
+        -------
+        fig : matplotlib.pyplot.figure
+            Figure instance.
+
+        """
+
+        if figtype is None:
+            figtype = '.png'
+
+        if Rmax_arcs is None:
+            text = 'Rmax_arcs is a mandatory argument and must be a number.'
+            self.logger.error(text)
+            raise ValueError(text)
+
+        self.logger.debug(f'Orbit plot parameters: {ocut=}, {Rmax_arcs=}')
+
+        if model is None:
+            which_chi2 = \
+                self.settings.parameter_space_settings['which_chi2']
+            models_done = np.where(self.all_models.table['all_done'])
+            min_chi2 = min(m[which_chi2]
+                           for m in self.all_models.table[models_done])
+            t = self.all_models.table.copy(copy_data=True) # deep copy!
+            t.add_index(which_chi2)
+            model_id = t.loc_indices[min_chi2]
+            model = self.all_models.get_model_from_row(model_id)
+            self.logger.debug(f'Using model {model_id} in {model.directory}.')
+
+        orblib = model.get_orblib()
+        _ = model.get_weights(orblib)
+        orbw = model.weights
+
+        file2 = model.directory_noml + 'datfil/orblib.dat_orbclass.out'
+        file3 = model.directory_noml + 'datfil/orblibbox.dat_orbclass.out'
+        file3_test = os.path.isfile(file3)
+        if not file3_test:
+            file3= '%s' % file2
+
+        xrange=[0.0,Rmax_arcs]
+
+        distance = self.all_models.system.distMPc
+        conversion_factor = distance*1.0e6*1.49598e8
+        nre = self.settings.orblib_settings['nE']
+        nrth = self.settings.orblib_settings['nI2']
+        nrrad = self.settings.orblib_settings['nI3']
+        ndither = self.settings.orblib_settings['dithering']
+
+        norb = int(nre*nrth*nrrad)
+        ncol=int(ndither**3)
+        orbclass1 = orblib.read_orbit_property_file_base(file2, ncol, norb)
+        orbclass2 = orblib.read_orbit_property_file_base(file3, ncol, norb)
+
+        orbclass=np.dstack((orbclass1,orbclass1,orbclass2))
+        orbclass1a=np.copy(orbclass1)
+        orbclass1a[0:3,:,:] *= -1     # the reverse rotating orbits of orbclass
+
+        for i in range(0, norb):
+            orbclass[:,:,i*2]=orbclass1[:, :, i]
+            orbclass[:,:,i*2 + 1]=orbclass1a[:, :, i]
+
+        ## define circularity of each orbit [nditcher^3, norb]
+        lz = (orbclass[2,:,:]/orbclass[3,:,:]/np.sqrt(orbclass[4,:,:]))   # lambda_z = lz/(r * Vrms)
+        # lx = (orbclass[0,:,:]/orbclass[3,:,:]/np.sqrt(orbclass[4,:,:])) # lambda_x = lx/(r * Vrms)
+        # l=(np.sqrt(np.sum(orbclass[0:3,:,:]**2, axis=0))/orbclass[3,:,:]/np.sqrt(orbclass[4,:,:]))
+        r = (orbclass[3,:,:]/conversion_factor)   # from km to kpc
+
+        # average values for the orbits in the same bundle (ndither^3).
+        # Only include the orbits within Rmax_arcs
+        rm=np.sum(orbclass[3,:,:] / conversion_factor, axis=0)/ndither**3
+        s=np.ravel(np.where((rm > xrange[0]) & (rm < xrange[1])))
+
+        # flip the sign of lz to confirm total(lz) > 0
+        t=np.ravel(np.argsort(rm))
+        yy=np.max(np.ravel(np.where(np.cumsum(orbw[t]) <= 0.5)))
+        k = t[0:yy]
+        if np.sum(np.sum(lz[:,k], axis=0)/(ndither**3)*orbw[k]) < 0:
+            lz *= -1.
+
+        # Make the figure
+        nxbin = 7
+        nybin = 21
+
+        f1=r[:,s]
+        f2=lz[:,s]
+        xnbin=nxbin
+        ynbin=nybin
+        xbinned = [np.min(f1), np.max(f1)]
+        # ybinned = [np.min(f2), np.max(f2)]
+        ybinned = [-1., 1.]
+        nbins = np.array([xnbin, ynbin])
+        range_bin=[[np.min(f1),np.max(f1)],[np.min(f2),np.max(f2)]]
+        R = np.zeros((xnbin, ynbin))
+
+        weight=orbw[s]
+
+        for i in range(0, len(f1[0, :])):
+            # RIL, xedges, yedges = np.histogram2d(f1[:,i], f2[:,i], bins=nbins, range=range_bin)
+            RIL = np.histogram2d(f1[:,i], f2[:,i], bins=nbins,
+                                 range=range_bin)[0]
+            R += weight[i]*RIL
+
+        R = R/np.sum(R)
+        minmaxdens = [np.min(R), np.max(R)]
+
+        ### plot the orbit distribution on lambda_z vs. r ###
+
+        filename5 = self.plotdir + 'orbit_linear_only' + figtype
+        imgxrange = xbinned
+        imgyrange = ybinned
+        extent = [imgxrange[0], imgxrange[1], imgyrange[0], imgyrange[1]]
+
+        ##################################################################
+        # here we save the fits for latter reproduction.
+        fits_path = os.path.join(self.plotdir, 'orbit_density.fits')
+        hdu = fits.PrimaryHDU(data = R.T.astype(np.float32))
+        hdr = hdu.header
+        # extent = [xmin, xmax, ymin, ymax]
+        hdr['EX0'] = (float(extent[0]), 'x min (arcsec)')
+        hdr['EX1'] = (float(extent[1]), 'x max (arcsec)')
+        hdr['EY0'] = (float(extent[2]), 'y min (lambda_z)')
+        hdr['EY1'] = (float(extent[3]), 'y max (lambda_z)')
+        hdr['VMIN'] = (float(minmaxdens[0]), 'colorbar min')
+        hdr['VMAX'] = (float(minmaxdens[1]), 'colorbar max')
+        hdr['NXBIN'] = (int(nxbin), 'x bins used')
+        hdr['NYBIN'] = (int(nybin), 'y bins used')
+        hdr['OCUTN'] = (len(ocut), 'number of ocut values')
+        hdr['INTERP'] = ('spline16', 'interpolation used')
+
+        for i, val in enumerate(ocut, start = 1):
+            hdr[f'OCUT{i}'] = (float(val), f'ocut value #{i}')
+        hdu.writeto(fits_path, overwrite = True)
+        self.logger.info(f'Orbit density and metadata saved to {fits_path}')
+        ##################################################################
+
+        fig = plt.figure(figsize=(6,5))
+
+        ax = fig.add_subplot(1, 1, 1)
+        cax = ax.imshow(R.T, cmap='terrain_r', interpolation='spline16',
+                        extent=extent, origin='lower', vmax=minmaxdens[1],
+                        vmin=minmaxdens[0], aspect='auto')
+
+        ax.set_yticks([-1,-0.5,0,0.5,1])
+        ax.set_xlabel(r'$r$ [arcsec]', fontsize=9)
+        ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize=9)
+
+        cb = fig.colorbar(cax, orientation='vertical', pad=0.05)
+        cb.set_label('Relative orbit density', labelpad=10)
+
+        for cut in ocut:
+            ax.plot(imgxrange,
+                    np.array([1,1])*cut,
+                    '--',
+                    color='black',
+                    linewidth=1)
+
+        plt.tight_layout()
+        plt.savefig(filename5)
+
+        self.logger.info(f'Plot {filename5} saved in {self.plotdir}')
+
+        # compute total angular momentum
+        #angular= np.abs(np.sum((lzm[t[0:y+1]])*orbw[t[0:y+1]])/np.sum(orbw[t[0:y+1]]))
+        #lzm = np.sum((lz), axis=0)/ndither **3
+        #angular2= np.abs(np.sum((lzm[t[0:y+1]])*orbw[t[0:y+1]])/np.sum(orbw[t[0:y+1]]))
+
+        return fig
+
+    ########################################################################################
+
     def shiftedColorMap(self,
                         cmap,
                         start=0,
