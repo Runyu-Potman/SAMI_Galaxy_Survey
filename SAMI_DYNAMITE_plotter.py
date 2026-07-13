@@ -1764,7 +1764,7 @@ class Plotter():
         nybin = 21
 
         f1=r[:,s]
-        f2=lz[:,s]
+        f2=lx[:,s]
         xnbin=nxbin
         ynbin=nybin
         xbinned = [np.min(f1), np.max(f1)]
