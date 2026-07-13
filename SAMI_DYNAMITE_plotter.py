@@ -1785,7 +1785,7 @@ class Plotter():
         R = R/np.sum(R)
         minmaxdens = [np.min(R), np.max(R)]
 
-        ### plot the orbit distribution on lambda_z vs. r ###
+        ### plot the orbit distribution on lambda_x vs. r ###
 
         filename5 = self.plotdir + 'orbit_linear_only' + figtype
         imgxrange = xbinned
