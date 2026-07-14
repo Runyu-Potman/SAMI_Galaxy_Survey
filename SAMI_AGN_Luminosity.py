@@ -261,7 +261,7 @@ def HII_mass(Ha_data, redshift, xc = 24.5, yc = 24.5, factor = 10 ** (-16), H0 =
 #---------------------------------------------------------------------------------------------
 def molecular_mass(Ha_fits_path, Hb_fits_path, threshold = 5, scale = 0.5,
                  xc = 24.5, yc = 24.5, factor = 10 ** (-16), radius = 24.5,
-                 K_Ha = 2.53, K_Hb = 3.61, pc_scale = 504
+                 K_Ha = 2.53, K_Hb = 3.61, pc_scale = None
                  ):
     '''
     Calculate the molecular gas mass based on Barrera et al. 2020.
