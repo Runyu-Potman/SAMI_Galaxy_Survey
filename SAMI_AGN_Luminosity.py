@@ -212,8 +212,8 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
             raise ValueError('No Bolometric correction will be applied, set Bolometric to be False.')
 
 #__________________________________________________________________________________________________________________
-def HII_mass(Ha_data, redshift, xc = 25, yc = 25, factor = 10 ** (-16), H0 = 70, om0 = 0.3,
-             radius = None, Ha_err_data = None, mask = None, ne = 1000):
+def HII_mass(Ha_data, redshift, xc = 24.5, yc = 24.5, factor = 10 ** (-16), H0 = 70, om0 = 0.3,
+             radius = 24.5, Ha_err_data = None, mask = None, ne = 1000):
     '''
     Calculate the HII mass and estimate the sfr.
 
