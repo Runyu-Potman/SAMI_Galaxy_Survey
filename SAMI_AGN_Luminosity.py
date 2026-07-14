@@ -373,3 +373,72 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold = 5, scale = 0.5,
     print(f'Integrated melocular mass = {mass} Msolar')
 
 #------------------------------------------------------------------------
+if __name__ == '__main__':
+    '''
+    #--------------------------------------------------------------------------------
+    # example for calculating agn_luminosity.
+    OIII_fits_path = '227266/emission_line/227266_A_OIII5007_default_recom-comp.fits'
+    Ha_fits_path = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
+    Hb_fits_path = '227266/emission_line/227266_A_Hbeta_default_recom-comp.fits'
+    dust_fits_path = '227266/emission_line/227266_A_extinct-corr_default_recom-comp.fits'
+
+    threshold = 5
+
+
+    agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fwhm = 2.108, redshift = 0.025,
+                   dust_correction = True, Bassani = True, dust_fits_path = None, Bolometric = True)
+    '''
+    '''
+    #------------------------------------------------------------------------------------
+    # example for calculating HII mass.
+    gas_fits_path = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
+    dust_fits = '227266/emission_line/227266_A_extinct-corr_default_recom-comp.fits'
+
+    Ha_data, Ha_err_data, mask = gas_distribution(
+        gas_fits_path = gas_fits_path, threshold = 5, dust_correction = True,
+        dust_fits = dust_fits, csv = False)
+
+    HII_mass(Ha_data = Ha_data, redshift = 0.025, Ha_err_data = Ha_err_data, mask = mask)
+
+    #-------------------------------------------------------------------------------------
+    Ha_fits_path = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
+    Hb_fits_path = '227266/emission_line/227266_A_Hbeta_default_recom-comp.fits'
+    molecular_mass(Ha_fits_path, Hb_fits_path, pc_scale = 504)
+    '''
+
+    '''
+    #143287
+    #------------------------------------------------------------------------------------
+    # example for calculating HII mass.
+    gas_fits_path = '143287/emission_line/143287_A_Halpha_default_recom-comp.fits'
+    dust_fits = '143287/emission_line/143287_A_extinct-corr_default_recom-comp.fits'
+
+    Ha_data, Ha_err_data, mask = gas_distribution(
+        gas_fits_path = gas_fits_path, threshold = 5, dust_correction = True,
+        dust_fits = dust_fits, csv = False)
+
+    HII_mass(Ha_data = Ha_data, redshift = 0.046, Ha_err_data = Ha_err_data, mask = mask)
+
+    #-------------------------------------------------------------------------------------
+    Ha_fits_path = '143287/emission_line/143287_A_Halpha_default_recom-comp.fits'
+    Hb_fits_path = '143287/emission_line/143287_A_Hbeta_default_recom-comp.fits'
+    molecular_mass(Ha_fits_path, Hb_fits_path, pc_scale = 904)
+    '''
+    '''
+    #300787
+    #------------------------------------------------------------------------------------
+    # example for calculating HII mass.
+    gas_fits_path = '300787/emission_line/300787_A_Halpha_default_recom-comp.fits'
+    dust_fits = '300787/emission_line/300787_A_extinct-corr_default_recom-comp.fits'
+
+    Ha_data, Ha_err_data, mask = gas_distribution(
+        gas_fits_path = gas_fits_path, threshold = 5, dust_correction = True,
+        dust_fits = dust_fits, csv = False)
+
+    HII_mass(Ha_data = Ha_data, redshift = 0.044, Ha_err_data = Ha_err_data, mask = mask)
+
+    #-------------------------------------------------------------------------------------
+    Ha_fits_path = '300787/emission_line/300787_A_Halpha_default_recom-comp.fits'
+    Hb_fits_path = '300787/emission_line/300787_A_Hbeta_default_recom-comp.fits'
+    molecular_mass(Ha_fits_path, Hb_fits_path, pc_scale = 866)
+    '''
