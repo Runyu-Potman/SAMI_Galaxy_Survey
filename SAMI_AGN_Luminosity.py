@@ -384,7 +384,7 @@ if __name__ == '__main__':
 
     agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold = 5, psf_fwhm = 2.108, redshift = 0.025,
                    dust_correction = True, Bassani = True, dust_fits_path = None, Bolometric = True)
-    '''
+
     '''
     #------------------------------------------------------------------------------------
     # example for calculating HII mass.
