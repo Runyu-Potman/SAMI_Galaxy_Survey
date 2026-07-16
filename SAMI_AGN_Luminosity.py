@@ -96,9 +96,9 @@ def agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fw
     print(f'Hb_SNR: min = {np.min(Hb_SNR)}, max = {np.max(Hb_SNR)}.')
 
     # mask data points where SNR is below a specific threshold.
-    OIII_map = np.ma.masked_where(OIII_SNR < threshold, OIII_map)
-    Ha_map = np.ma.masked_where(Ha_SNR < threshold, Ha_map)
-    Hb_map = np.ma.masked_where(Hb_SNR < threshold, Hb_map)
+    OIII_map = np.ma.masked_where(OIII_SNR <= threshold, OIII_map)
+    Ha_map = np.ma.masked_where(Ha_SNR <= threshold, Ha_map)
+    Hb_map = np.ma.masked_where(Hb_SNR <= threshold, Hb_map)
 
     # if a spaxel is invalid in any map, it would be excluded entirely.
     combined_mask = np.ma.getmask(OIII_map)
