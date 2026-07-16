@@ -380,9 +380,7 @@ if __name__ == '__main__':
     OIII_fits_path = '227266/emission_line/227266_A_OIII5007_default_recom-comp.fits'
     Ha_fits_path = '227266/emission_line/227266_A_Halpha_default_recom-comp.fits'
     Hb_fits_path = '227266/emission_line/227266_A_Hbeta_default_recom-comp.fits'
-    dust_fits_path = '227266/emission_line/227266_A_extinct-corr_default_recom-comp.fits'
-
-    threshold = 5
+    #dust_fits_path = '227266/emission_line/227266_A_extinct-corr_default_recom-comp.fits'
 
 
     agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fwhm = 2.108, redshift = 0.025,
