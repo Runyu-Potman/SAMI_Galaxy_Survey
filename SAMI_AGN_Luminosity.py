@@ -382,8 +382,7 @@ if __name__ == '__main__':
     Hb_fits_path = '227266/emission_line/227266_A_Hbeta_default_recom-comp.fits'
     #dust_fits_path = '227266/emission_line/227266_A_extinct-corr_default_recom-comp.fits'
 
-
-    agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold, psf_fwhm = 2.108, redshift = 0.025,
+    agn_luminosity(OIII_fits_path, Ha_fits_path, Hb_fits_path, threshold = 5, psf_fwhm = 2.108, redshift = 0.025,
                    dust_correction = True, Bassani = True, dust_fits_path = None, Bolometric = True)
     '''
     '''
