@@ -374,7 +374,7 @@ def molecular_mass(Ha_fits_path, Hb_fits_path, threshold = 5, scale = 0.5,
 
 #------------------------------------------------------------------------
 if __name__ == '__main__':
-    '''
+
     #--------------------------------------------------------------------------------
     # example for calculating agn_luminosity.
     OIII_fits_path = '227266/emission_line/227266_A_OIII5007_default_recom-comp.fits'
