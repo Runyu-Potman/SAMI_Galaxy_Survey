@@ -24,6 +24,19 @@ def add_psf(ax, psffwhm):
     # radius in arcsec.
     radius = psffwhm / 2
 
+    # add a circle showing PSF.
+    circle = patches.Circle(
+        (-6.5, -6.5),  # position of the circle in arcsec
+        radius,
+        edgecolor = 'black',  # color of the circle's border
+        facecolor = 'none',  # no fill color
+        linewidth = 1.5,  # thickness of the circle's edge
+        linestyle = '-'
+    )
+
+    ax.add_patch(circle)
+
+############################################################
 def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, extrap_start = None, output_plot = None, label = False):
     '''
     Reproduce the cumulative mass plot from the FITS file saved by mass_plot().
