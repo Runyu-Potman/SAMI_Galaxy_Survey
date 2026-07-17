@@ -6,6 +6,23 @@ import cmasher as cmr
 from plotbin import display_pixels
 from matplotlib.ticker import AutoMinorLocator
 from SAMI_MGE import add_NE_compass
+import matplotlib.patches as patches
+############################################################
+def add_psf(ax, psffwhm):
+    '''
+    Add a psf circle in the left corner.
+
+    Parameters:
+    - ax: matplotlib axes.
+    - psffwhm: psf_fwhm in arcsec.
+
+    Returns:
+    - None
+
+    '''
+
+    # radius in arcsec.
+    radius = psffwhm / 2
 
 def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, extrap_start = None, output_plot = None, label = False):
     '''
