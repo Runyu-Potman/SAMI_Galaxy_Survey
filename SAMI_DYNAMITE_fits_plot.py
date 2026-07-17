@@ -286,6 +286,9 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
     if len(labels) != 6:
         raise ValueError('Please provide exactly 6 labels, or leave labels=None.')
 
+    if psf_fwhms is not None and len(psf_fwhms) != 6:
+        raise ValueError('Please provide exactly 6 PSF FWHM values.')
+
     n_col = number_gh + 1
     gh_indices = list(range(3, number_gh + 1))
 
