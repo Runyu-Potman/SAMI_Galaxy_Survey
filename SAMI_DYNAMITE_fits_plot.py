@@ -400,6 +400,9 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             add_cbar(im, ax, int(round(vmin)), int(round(vmax)))
             ax.set_title(r'$\log_{10}(\mu)$', fontsize = 20, pad = 10)
 
+            if psf_fwhm is not None:
+                add_psf(ax, psf_fwhm)
+
             # add compass.
             if compass_pads is None:
                 compass_pads = (0.5, 0.5, 0.5, 0.5)
