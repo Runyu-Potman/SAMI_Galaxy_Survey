@@ -26,7 +26,7 @@ def add_psf(ax, psffwhm):
 
     # add a circle showing PSF.
     circle = patches.Circle(
-        (-6.5, -6.5),  # position of the circle in arcsec
+        (-8, -8),  # position of the circle in arcsec
         radius,
         edgecolor = 'black',  # color of the circle's border
         facecolor = 'none',  # no fill color
