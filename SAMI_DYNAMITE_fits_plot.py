@@ -253,6 +253,21 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     if created_fig:
         plt.tight_layout()
 
+    # calculate the fraction of CR-warm + CR-cold.
+    ny = hdr['NYBIN']  # bin number in y direction.
+    y_min, y_max = extent[2], extent[3]  # [-1, 1]
+    y_edges = np.linspace(y_min, y_max, ny + 1)
+    y_centers = (y_edges[:-1] + y_edges[1:]) / 2
+
+    lim_hot = ocut[2]  # -0.25
+
+    # choose bins with lambda_z <= lim_hot
+    mask = y_centers <= lim_hot
+    # fraction.
+    fraction = np.sum(data[mask, :])
+
+    print(f"CR_WARM + CR_COLD fraction = {fraction:.4f}")
+
     return fig
 
 #--------------------------------------------------------------------------------
