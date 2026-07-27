@@ -236,6 +236,17 @@ class Decomposition:
                 totalf = np.sum(tt)  # tt here refers to the 'all' comp
 
         t = t/totalf
+
+        # ---------------------------------------------------------
+        # added: compute counter-rotating luminosity fraction within the plotted region.
+        # Only the main counter-rotating disk component (union of cr_thin and cr_thick)
+        cr_disk_idx = comps.index('cr_disk')  # or find by name
+        cr_flux_region = np.sum(t[cr_disk_idx][s])
+        total_region = np.sum(t[last_comps_idx][s])  # sum of 'all' component in region
+        cr_fraction_region = cr_flux_region / total_region
+        print(f"Counter-rotating luminosity fraction within xlim={xlim}, ylim={ylim}: {cr_fraction_region:.3f}")
+        # -----------------------------------------------------------
+
         for comp in comps:
             if not individual_colorbars['sb']:
                 min_flux[comp] = min(min_flux[c] for c in comps)
