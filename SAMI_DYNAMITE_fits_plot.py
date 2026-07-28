@@ -230,7 +230,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
         add_cbar = cbar
 
     # Display the density map.
-    im = ax.imshow(data, origin = 'lower', extent = extent, cmap = 'terrain_r',
+    im = ax.imshow(data, origin = 'lower', extent = extent, cmap = cmap,
                    interpolation = interp, vmin = vmin, vmax = vmax, aspect = 'auto')
 
     ax.tick_params(direction = 'in', labelsize = 15)
