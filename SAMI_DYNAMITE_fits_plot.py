@@ -15,7 +15,7 @@ cmap = LinearSegmentedColormap.from_list(
     [
         (0.00, "#ffffff"),
         (0.02, "#e9e4f7"),
-        (0.18, "#8c7fd4"),
+        (0.16, "#8c7fd4"),
         (0.35, "#2f55c5"),
         (0.50, "#55d0ff"),
         (0.63, "#2fbf71"),
