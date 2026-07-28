@@ -8,6 +8,23 @@ from matplotlib.ticker import AutoMinorLocator
 from SAMI_MGE import add_NE_compass
 import matplotlib.patches as patches
 ############################################################
+from matplotlib.colors import LinearSegmentedColormap
+
+cmap = LinearSegmentedColormap.from_list(
+    "orbitmap",
+    [
+        (0.00, "#ffffff"),
+        (0.02, "#e9e4f7"),
+        (0.18, "#8c7fd4"),
+        (0.35, "#2f55c5"),
+        (0.50, "#55d0ff"),
+        (0.63, "#2fbf71"),
+        (0.78, "#ffe100"),
+        (0.90, "#ff7f00"),
+        (1.00, "#d40000"),
+    ]
+)
+###########################################################
 def add_psf(ax, psffwhm):
     '''
     Add a psf circle in the left corner.
