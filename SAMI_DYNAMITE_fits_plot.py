@@ -13,15 +13,18 @@ from matplotlib.colors import LinearSegmentedColormap
 cmap = LinearSegmentedColormap.from_list(
     "orbitmap",
     [
-        (0.00, "#ffffff"),
-        (0.02, "#e9e4f7"),
-        (0.16, "#8c7fd4"),
-        (0.35, "#2f55c5"),
-        (0.50, "#55d0ff"),
-        (0.63, "#2fbf71"),
-        (0.78, "#ffe100"),
-        (0.90, "#ff7f00"),
-        (1.00, "#d40000"),
+        (0.00, "#ffffff"),  # white
+        (0.02, "#e9e4f7"),  # light lavender
+        (0.10, "#8c7fd4"),  # purple
+        (0.20, "#2f55c5"),  # blue
+        (0.30, "#55d0ff"),  # cyan
+        (0.40, "#2fbf71"),  # green
+        (0.50, "#b7e000"),  # yellow-green
+        (0.60, "#ffe100"),  # yellow
+        (0.70, "#ffb000"),  # amber
+        (0.80, "#ff7f00"),  # orange
+        (0.90, "#ff2a00"),  # bright red
+        (1.00, "#8b0000"),  # dark red
     ]
 )
 ###########################################################
