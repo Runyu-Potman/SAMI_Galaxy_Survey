@@ -1752,7 +1752,7 @@ class Plotter():
         rm=np.sum(orbclass[3,:,:] / conversion_factor, axis=0)/ndither**3
         s=np.ravel(np.where((rm > xrange[0]) & (rm < xrange[1])))
 
-        # flip the sign of lx to confirm total(lx) > 0
+        # flip the sign of lx if lz has been flipped.
         t=np.ravel(np.argsort(rm))
         yy=np.max(np.ravel(np.where(np.cumsum(orbw[t]) <= 0.5)))
         k = t[0:yy]
