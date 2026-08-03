@@ -2427,6 +2427,14 @@ class Plotter():
             else:
                 p_m[i] = -1.
 
+        # Print best-fitting values at Rmax_arcs (last radial bin).
+        if p_m[-1] >= 0:
+            self.logger.info(f"Best fitting p at Rmax: {p_m[-1]:.3f} +/- {p_var[-1]:.3f}")
+            self.logger.info(f"Best fitting q at Rmax: {q_m[-1]:.3f} +/- {q_var[-1]:.3f}")
+            self.logger.info(f"Best fitting T at Rmax: {T_m[-1]:.3f} +/- {T_var[-1]:.3f}")
+        else:
+            self.logger.warning("No valid p values at Rmax; skipping print.")
+
         cc = (p_m >= 0)
 
         filename1 = self.plotdir + 'triaxial_qpt' + figtype
