@@ -1742,7 +1742,7 @@ class Plotter():
             orbclass[:,:,i*2 + 1]=orbclass1a[:, :, i]
 
         ## define circularity of each orbit [nditcher^3, norb]
-        #lz = (orbclass[2,:,:]/orbclass[3,:,:]/np.sqrt(orbclass[4,:,:]))   # lambda_z = lz/(r * Vrms)
+        lz = (orbclass[2,:,:]/orbclass[3,:,:]/np.sqrt(orbclass[4,:,:]))   # lambda_z = lz/(r * Vrms)
         lx = (orbclass[0,:,:]/orbclass[3,:,:]/np.sqrt(orbclass[4,:,:])) # lambda_x = lx/(r * Vrms)
         # l=(np.sqrt(np.sum(orbclass[0:3,:,:]**2, axis=0))/orbclass[3,:,:]/np.sqrt(orbclass[4,:,:]))
         r = (orbclass[3,:,:]/conversion_factor)   # from km to kpc
