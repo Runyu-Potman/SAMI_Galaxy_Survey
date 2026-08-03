@@ -1756,7 +1756,8 @@ class Plotter():
         t=np.ravel(np.argsort(rm))
         yy=np.max(np.ravel(np.where(np.cumsum(orbw[t]) <= 0.5)))
         k = t[0:yy]
-        if np.sum(np.sum(lx[:,k], axis=0)/(ndither**3)*orbw[k]) < 0:
+        if np.sum(np.sum(lz[:,k], axis=0)/(ndither**3)*orbw[k]) < 0:
+            lz *= -1.
             lx *= -1.
 
         # Make the figure
