@@ -97,7 +97,8 @@ def plot_vel_or_sig(csv_path, cmap = 'RdBu_r', cbar_label = r'km s$^{-1}$', valu
     ax.set_xticks(tick_locs)
     ax.set_yticks(tick_locs)
 
-    ax.set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
+    if x_label == True:
+        ax.set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
     if galaxy_name is not None:
         ax.set_ylabel(f'Galaxy {galaxy_name}\nOffset (arcsec)', fontsize = fontsize, labelpad = label_pad)
     else:
