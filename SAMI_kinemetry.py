@@ -578,7 +578,7 @@ pa_and_k1_plot(k_143287, axs = axs[:, 1], ypa_lim = [-200, 75], ypa_tick = (-200
 
 print('143287 pa:', np.mean(k_143287.pa[:4]), np.mean(k_143287_extra.pa[-6:]))
 
-axs[0, 1].set_title('Galaxy 143287', fontsize = 12)
+axs[0, 1].set_title('Galaxy 143287', fontsize = 14)
 #------------------------------------------------------------------------------------------------------------------
 # 227266.
 csv_file = pd.read_csv('227266/kinematic/227266_quality_cut_stellar_velocity_map.csv')
