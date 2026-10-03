@@ -376,10 +376,8 @@ if __name__ == '__main__':
     add_circle(axs[3, 0], optical_230776, linewidth = 1, label = True, E_bar = 6.5)
 
     # 230776 kinematics.
-    plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'vel', ax = axs[0, 4], cmap = vel_cmap_230776, cbar_label = r'$V_{\bigstar}$ (km s$^{-1}$)', plot_psf = True, fontsize = 12, psffwhm = 2.144, vmin = -35, vmax = 35)
-    plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'sig', ax = axs[0, 5], cmap = sig_cmap, cbar_label = r'$\sigma_{\bigstar}$ (km s$^{-1}$)', plot_psf = True, fontsize = 12, psffwhm = 2.144, vmin = 270, vmax = 350)
-    axs[0, 4].set_title('Stellar Velocity', fontsize = 12, pad = 8)
-    axs[0, 5].set_title('Stellar Velocity Dispersion', fontsize = 12, pad = 8)
+    plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'vel', ax = axs[3, 1], cmap = vel_cmap_230776, cbar_label = r'$V_{\bigstar}$ (km s$^{-1}$)', plot_psf = True, fontsize = 12, psffwhm = 2.144, vmin = -35, vmax = 35)
+    plot_vel_or_sig(csv_path = star_output_file_230776, value_type = 'sig', ax = axs[3, 2], cmap = sig_cmap, cbar_label = r'$\sigma_{\bigstar}$ (km s$^{-1}$)', plot_psf = True, fontsize = 12, psffwhm = 2.144, vmin = 270, vmax = 350)
     # --------------------------------------------------------------------------------------------
     # 300787 optical.
     optical_300787 = Image.open('300787/optical/300787_optical_image.jpg')
