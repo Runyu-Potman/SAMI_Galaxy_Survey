@@ -527,7 +527,7 @@ k_7969_extra = kinemetry(xbin = xbin, ybin = ybin, moment = velbin, error = er_v
 pa_and_k1_plot(k_7969, axs = axs[:, 0], ypa_lim = [-100, 175], ypa_tick = (-100, 175, 50), yk1_lim = [0, 50], yk1_tick = (0, 50, 10),
                x_lim = [0, 4.5], x_tick = (0, 4.5, 1), pa1 = np.mean(k_7969.pa[:3]), pa2 = np.mean(k_7969_extra.pa[-4:]),
                label_pad = 0,
-               k_extra = k_7969_extra, r_extra = 4)
+               k_extra = k_7969_extra, r_extra = 4, y_label=True)
 
 print('7969 pa:', np.mean(k_7969.pa[:3]), np.mean(k_7969_extra.pa[-4:]))
 
