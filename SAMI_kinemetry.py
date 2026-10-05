@@ -744,7 +744,7 @@ axs[1, 4].set_box_aspect(1)
 axs[1, 5].set_box_aspect(1)
 
 for ax in axs.flat:
-    ax.tick_params(axis='both', which='major', labelsize=12)
+    ax.tick_params(axis='both', which='major', labelsize=14)
 
 plt.savefig('final/kdc_size.png', dpi = 300, bbox_inches = 'tight')
 plt.show()
