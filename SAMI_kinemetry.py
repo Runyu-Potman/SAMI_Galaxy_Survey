@@ -418,7 +418,8 @@ def pa_and_k1_plot(k, axs, ypa_lim, ypa_tick, yk1_lim, yk1_tick, x_lim, x_tick,
                     capsize = 2, markersize = 2)
     axs[1].plot(k.rad * 0.5, k1, color = 'grey', linewidth = 1)
     axs[1].set_xlabel('Radius (arcsec)', fontsize = 14)
-    axs[1].set_ylabel(r'$k_1$ (km s$^{-1}$)', fontsize = 14)
+    if y_label == True:
+          axs[1].set_ylabel(r'$k_1$ (km s$^{-1}$)', fontsize = 14, labelpad = 21)
     axs[1].set_xlim(x_lim)
     axs[1].set_xticks(np.arange(*x_tick))
     axs[1].set_ylim(yk1_lim)
