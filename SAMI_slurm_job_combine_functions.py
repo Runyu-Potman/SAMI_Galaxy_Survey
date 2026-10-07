@@ -367,7 +367,7 @@ if __name__ == "__main__":
     plot_age_and_Z(axs_x=2, age_full=age_227266, metal_full=metal_227266, r_all=r_all_227266,
                    age_array=age_227266_array,
                    metal_array=metal_227266_array, age_std_array=age_227266_std, metal_std_array=metal_227266_std,
-                   name=227266, r_dash=3.0)
+                   name='KDC1', r_dash=3.0)
 
     #-----------------------------------------------
     base_dir = '230776/age_z'
