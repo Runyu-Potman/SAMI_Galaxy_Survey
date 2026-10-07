@@ -218,7 +218,7 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
         alpha = 0.7, elinewidth = 1, capsize = 1, zorder = 1
     )
 
-    im = axs[axs_x, 2].scatter(r_all, age_y, c = r_all, cmap = cmap_3_4, s = 10, alpha = 0.7, zorder = 2)
+    im = axs[axs_x, 2].scatter(r_all, age_y, color = '#888888', edgecolor = '#333333', linewidth = 0.3, s = 10, alpha = 0.7, zorder = 2)
 
     '''
     age_linear = 10 ** (np.nanmedian(age_array) - 9)
