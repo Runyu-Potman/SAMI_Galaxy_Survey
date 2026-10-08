@@ -349,7 +349,7 @@ if __name__ == "__main__":
 
     plot_age_and_Z(axs_x=0, age_full=age_7969, metal_full=metal_7969, r_all=r_all_7969, age_array=age_7969_array,
                    metal_array=metal_7969_array, age_std_array=age_7969_std, metal_std_array=metal_7969_std,
-                   name='CRD1', title=True, r_dash=1.7
+                   name='CRD1', title=True, r_dash=1.7, vmax_age = 11.9
                    )
 
     # -----------------------------------------------
