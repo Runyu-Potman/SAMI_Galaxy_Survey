@@ -458,6 +458,6 @@ if __name__ == "__main__":
     for ax in axs.flat:
         ax.tick_params(axis = 'both', which = 'major', labelsize = 13)
 
-    fig.get_layout_engine().set(hspace=0.0, wspace=0.02)
+    fig.get_layout_engine().set(hspace=0.0, wspace=0.0)
     plt.savefig('final/age_z.png', dpi=300, bbox_inches='tight')
     plt.show()
