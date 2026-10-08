@@ -326,7 +326,7 @@ def add_psf(ax, psffwhm):
 #-------------------------------------------------------------------------------------
 if __name__ == "__main__":
     # spatially resolved maps and gradient plots for six galaxies.
-    fig, axs = plt.subplots(6, 4, figsize=(40 / 3, 18), constrained_layout=True)
+    fig, axs = plt.subplots(6, 4, figsize=(14, 16), constrained_layout=True)
     # ---------------------------------------------------------------------------------------
     base_dir = '300787/age_z'
     age_300787, metal_300787, age_300787_array, metal_300787_array, age_300787_std, metal_300787_std, r_all_300787 = slurm_job_combine(
