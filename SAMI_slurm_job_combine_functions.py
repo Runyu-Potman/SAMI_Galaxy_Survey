@@ -238,7 +238,8 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
     axs[axs_x, 2].set_yticks([0, 2, 4, 6, 8, 10, 12, 14])
 
     # set labels.
-    axs[axs_x, 2].set_xlabel('Radius (arcsec)', fontsize = fontsize, labelpad = 8)
+    if x_label is True:
+       axs[axs_x, 2].set_xlabel('Radius (arcsec)', fontsize = fontsize, labelpad = 8)
     axs[axs_x, 2].set_ylabel('Age (Gyr)', fontsize = fontsize, labelpad = label_pad)
 
     if r_dash is not None:
