@@ -188,7 +188,8 @@ def plot_age_and_Z(axs_x, age_full, metal_full, r_all, age_array, metal_array, a
     axs[axs_x, 1].set_yticks(tick_locs)
 
     # set labels.
-    axs[axs_x, 1].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
+    if x_label is True:
+       axs[axs_x, 1].set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 8)
     axs[axs_x, 1].set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = label_pad)
 
     # set color bar.
