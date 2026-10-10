@@ -917,7 +917,7 @@ if __name__ == "__main__":
     axs[0, 3].set_title('Stellar Velocity', fontsize = 20)
     axs[0, 4].set_title('SFR Surface Density', fontsize = 20)
 
-    axs[0, 1].text(-8.6, 9, r'$\mathrm{PA}_\mathrm{\,gas}$=$-145^\circ$', color = 'black', fontsize = 18, ha = 'left')
+    axs[0, 1].text(-8.8, 9, r'$\mathrm{PA}_\mathrm{\,gas}$=$-145^\circ$', color = 'black', fontsize = 18, ha = 'left')
     axs[0, 3].text(0.3, -0.3, r'$\mathrm{PA}_\bigstar$=$45^\circ$', color = 'black', fontsize = 18, ha = 'left')
     axs[0, 3].text(-5.7, 8.8, r'$\mathrm{PA}_\bigstar$=$-161^\circ$', color = 'black', fontsize = 18, ha = 'left')
 
