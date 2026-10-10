@@ -422,6 +422,9 @@ if __name__ == '__main__':
     axs[5, 1].set_box_aspect(1)
     axs[5, 2].set_box_aspect(1)
     #---------------------------------------------------
+    for ax in axs.flat:
+        ax.tick_params(axis='both', which='major', labelsize=12)
+
     plt.tight_layout(h_pad = -28, w_pad = 1.5)
     #fig.subplots_adjust(wspace = 0.4, hspace = 0.3)
     plt.savefig('final/stellar_kinematic_image.png', dpi = 300, bbox_inches = 'tight')
