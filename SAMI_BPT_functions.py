@@ -921,9 +921,9 @@ if __name__ == "__main__":
     axs[0, 3].text(0.6, -0.5, r'$\mathrm{PA}_\bigstar$=$45^\circ$', color = 'black', fontsize = 18, ha = 'left')
     axs[0, 3].text(-5.4, 8.8, r'$\mathrm{PA}_\bigstar$=$-161^\circ$', color = 'black', fontsize = 18, ha = 'left')
 
-    axs[1, 1].text(-4, 9.4, r'$\mathrm{PA}_\mathrm{\,gas}$=$-163^\circ$', color = 'black', fontsize = 10, ha = 'left')
-    axs[1, 3].text(-11, -4.4, r'$\mathrm{PA}_\bigstar$=$171.75^\circ$', color = 'black', fontsize = 10, ha = 'left')
-    axs[1, 3].text(-6.4, 9.8, r'$\mathrm{PA}_\bigstar$=$34.53^\circ$', color = 'black', fontsize = 10, ha = 'left')
+    axs[1, 1].text(-5.2, 9.4, r'$\mathrm{PA}_\mathrm{\,gas}$=$-163^\circ$', color = 'black', fontsize = 18, ha = 'left')
+    axs[1, 3].text(-11, -4.4, r'$\mathrm{PA}_\bigstar$=$172^\circ$', color = 'black', fontsize = 18, ha = 'left')
+    axs[1, 3].text(-7.5, 9.8, r'$\mathrm{PA}_\bigstar$=$35^\circ$', color = 'black', fontsize = 18, ha = 'left')
 
     axs[2, 1].text(-1, 7.8, r'$\mathrm{PA}_\mathrm{\,gas}$=$127.5^\circ$', color = 'black', fontsize = 10, ha = 'left')
     axs[2, 3].text(-1.5, -3.8, r'$\mathrm{PA}_\bigstar$=$149.12^\circ$', color = 'black', fontsize = 10, ha = 'left')
