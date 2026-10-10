@@ -861,8 +861,8 @@ if __name__ == "__main__":
 
     quality_cut_sfr_map_csv(sfr_fits_path = sfr_143287_fits, output_file = sfr_output_file_143287)
 
-    plot_vel_or_sig(csv_path = sfr_output_file_143287, cmap = 'magma', cbar_label = r'$\Sigma_\mathrm{SFR}$ ($M_\odot$ yr$^{-1}$ kpc$^{-2}$)',
-                    value_type = 'sfr', ax = axs[0, 4], plot_psf = True, psffwhm = 2.250, vmin = 0.0005)
+    plot_vel_or_sig(csv_path = sfr_output_file_143287, cmap = 'magma', cbar_label = r'$\Sigma_\mathrm{SFR}$ ($M_\odot$yr$^{-1}$kpc$^{-2}$)',
+                    value_type = 'sfr', ax = axs[0, 4], plot_psf = True, psffwhm = 2.250, vmin = 0.0005, x_label = False)
 
     # 227266 plotting.
     plot_vel_or_sig(csv_path = gas_output_file_227266_distribution, cmap = 'magma', cbar_label = r"log(Flux/$10^{-16}$erg s$^{-1}$cm$^{-2}$)",
