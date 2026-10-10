@@ -949,7 +949,10 @@ if __name__ == "__main__":
     axs[2, 3].set_box_aspect(1)
     axs[2, 4].set_box_aspect(1)
 
-    plt.tight_layout(h_pad = -10, w_pad = 0)
+    for ax in axs.flat:
+        ax.tick_params(axis='both', which='major', labelsize=14)
+
+    plt.tight_layout(h_pad = -2, w_pad = 3.6)
     plt.savefig('final/gas_kinematics.png', dpi = 300, bbox_inches = 'tight')
     plt.show()
     #----------------------------------------------------------------------------
