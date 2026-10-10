@@ -873,7 +873,7 @@ if __name__ == "__main__":
                     value_type = 'vel', ax = axs[1, 1], PAs = [17], line_length = 9, plot_psf = True, psffwhm = 2.108, x_label = False)
 
     plot_vel_or_sig(csv_path = gas_output_file_227266_kinematics, cmap = sig_cmap, cbar_label = r'$\sigma_\mathrm{gas}$ (km s$^{-1}$)',
-                    value_type = 'sig', ax = axs[1, 2], plot_psf = True, psffwhm = 2.108)
+                    value_type = 'sig', ax = axs[1, 2], plot_psf = True, psffwhm = 2.108, x_label = False)
 
     # directly copied from stellar kinematics.
     plot_vel_or_sig(csv_path = star_output_file_227266_kinematics, value_type = 'vel', ax = axs[1, 3], cmap = vel_cmap, cbar_label = r'$V_{\bigstar}$ (km s$^{-1}$)',
