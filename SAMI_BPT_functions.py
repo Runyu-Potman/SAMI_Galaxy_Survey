@@ -921,7 +921,7 @@ if __name__ == "__main__":
     axs[0, 3].text(0.3, -0.3, r'$\mathrm{PA}_\bigstar$=$45^\circ$', color = 'black', fontsize = 18, ha = 'left')
     axs[0, 3].text(-5.7, 8.8, r'$\mathrm{PA}_\bigstar$=$-161^\circ$', color = 'black', fontsize = 18, ha = 'left')
 
-    axs[1, 1].text(-5.2, 9.4, r'$\mathrm{PA}_\mathrm{\,gas}$=$-163^\circ$', color = 'black', fontsize = 18, ha = 'left')
+    axs[1, 1].text(-5.5, 9.4, r'$\mathrm{PA}_\mathrm{\,gas}$=$-163^\circ$', color = 'black', fontsize = 18, ha = 'left')
     axs[1, 3].text(-11, -4.4, r'$\mathrm{PA}_\bigstar$=$172^\circ$', color = 'black', fontsize = 18, ha = 'left')
     axs[1, 3].text(-7.5, 9.8, r'$\mathrm{PA}_\bigstar$=$35^\circ$', color = 'black', fontsize = 18, ha = 'left')
 
