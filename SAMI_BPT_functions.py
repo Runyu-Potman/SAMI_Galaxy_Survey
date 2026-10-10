@@ -917,9 +917,9 @@ if __name__ == "__main__":
     axs[0, 3].set_title('Stellar Velocity', fontsize = 20)
     axs[0, 4].set_title('SFR Surface Density', fontsize = 20)
 
-    axs[0, 1].text(-7.2, 9, r'$\mathrm{PA}_\mathrm{\,gas}$=$-145^\circ$', color = 'black', fontsize = 10, ha = 'left')
-    axs[0, 3].text(0.7, -0.5, r'$\mathrm{PA}_\bigstar$=$44.72^\circ$', color = 'black', fontsize = 10, ha = 'left')
-    axs[0, 3].text(-4.2, 8.8, r'$\mathrm{PA}_\bigstar$=$-160.84^\circ$', color = 'black', fontsize = 10, ha = 'left')
+    axs[0, 1].text(-8.5, 9, r'$\mathrm{PA}_\mathrm{\,gas}$=$-145^\circ$', color = 'black', fontsize = 18, ha = 'left')
+    axs[0, 3].text(0.6, -0.5, r'$\mathrm{PA}_\bigstar$=$45^\circ$', color = 'black', fontsize = 18, ha = 'left')
+    axs[0, 3].text(-5.4, 8.8, r'$\mathrm{PA}_\bigstar$=$-161^\circ$', color = 'black', fontsize = 18, ha = 'left')
 
     axs[1, 1].text(-4, 9.4, r'$\mathrm{PA}_\mathrm{\,gas}$=$-163^\circ$', color = 'black', fontsize = 10, ha = 'left')
     axs[1, 3].text(-11, -4.4, r'$\mathrm{PA}_\bigstar$=$171.75^\circ$', color = 'black', fontsize = 10, ha = 'left')
