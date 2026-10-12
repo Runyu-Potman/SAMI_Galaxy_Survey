@@ -443,7 +443,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             )
             format_axis(ax, *axis_range)
             add_cbar(im, ax, int(round(vmin)), int(round(vmax)))
-            ax.set_title(r'$\log_{10}(\mu)$', fontsize = 20, pad = 10)
+            ax.set_title(r'$\log_{10}(\mu)$', fontsize = 25, pad = 10)
 
             if psf_fwhm is not None:
                 add_psf(ax, psf_fwhm)
