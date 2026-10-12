@@ -365,20 +365,10 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                    path_effects = [pe.withStroke(linewidth = 2.5, foreground = 'black')])
         return cb
 
-    def format_axis(ax):
-        ax.minorticks_on()
-        ax.tick_params(direction = 'in', which = 'major', axis = 'both', length = 4, width = 1)
-        # add minor ticks (shorter, no labels).
-        ax.xaxis.set_minor_locator(AutoMinorLocator())
-        ax.yaxis.set_minor_locator(AutoMinorLocator())
-        ax.tick_params(direction = 'in', which = 'minor', axis = 'both', length = 2, width = 1)
-        ax.set_xticklabels([])
-        ax.set_yticklabels([])
-        ax.set_xlim(-10, 10)
-        ax.set_ylim(-10, 10)
-        ax.set_xticks([-10, -5, 0, 5, 10])
-        ax.set_yticks([-10, -5, 0, 5, 10])
-        ax.set_aspect('equal', adjustable = 'box')
+    def format_axis(ax, xmin, xmax, ymin, ymax):
+        ax.set_xlim(xmin, xmax)
+        ax.set_ylim(ymin, ymax)
+        ax.set_aspect('equal', adjustable='box')
 
     def draw_block(fits_path, block_spec, block_label, add_row_labels = False, compass_pads = None, psf_fwhm = None):
         '''
