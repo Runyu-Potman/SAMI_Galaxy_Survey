@@ -489,7 +489,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                 )
                 format_axis(ax, *axis_range)
                 add_cbar(im, ax, '-0.15', '0.15')
-                ax.set_title(f'$h_{{{i}}}$', fontsize = 20, pad = 10)
+                ax.set_title(f'$h_{{{i}}}$', fontsize = 25, pad = 10)
 
             # ---------- MODEL row ----------
             ax = fig.add_subplot(inner[1, 0])
