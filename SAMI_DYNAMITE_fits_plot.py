@@ -327,6 +327,15 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
     n_col = number_gh + 1
     gh_indices = list(range(3, number_gh + 1))
 
+    axis_ranges = [
+        (-4.83, 4.73, -5, 5),
+        (-7.92, 8.405, -9, 9),
+        (-6.20, 6.1, -6, 6),
+        (-5.88, 5.26, -6, 6),
+        (-8.22, 8.1, -9, 10),
+        (-7.72, 6.66, -7.5, 7),
+    ]
+
     # Figure size tuned for 3x2 blocks.
     fig = plt.figure(figsize = figsize)
 
