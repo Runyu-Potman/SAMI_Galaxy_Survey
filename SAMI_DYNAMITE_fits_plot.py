@@ -475,7 +475,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                 vmin = sig_min, vmax = sig_max,
                 **kw_display_pixels1
             )
-            format_axis(ax)
+            format_axis(ax, *axis_range)
             add_cbar(im, ax, sig_low_label, sig_up_label)
             ax.set_title(r'$\sigma_{\bigstar}$ (km s$^{-1}$)', fontsize = 20, pad = 10)
 
