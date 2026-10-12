@@ -441,7 +441,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                 vmin = vmin, vmax = vmax,
                 **kw_display_pixels1
             )
-            format_axis(ax)
+            format_axis(ax, *axis_range)
             add_cbar(im, ax, int(round(vmin)), int(round(vmax)))
             ax.set_title(r'$\log_{10}(\mu)$', fontsize = 20, pad = 10)
 
