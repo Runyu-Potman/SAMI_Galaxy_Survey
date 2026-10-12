@@ -601,7 +601,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                     x_text,
                     y,
                     name,
-                    size = 20,
+                    size = 25,
                     ha = 'center',
                     va = 'center',
                     rotation = 90.
