@@ -620,7 +620,8 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             block_label = label,
             add_row_labels = True,
             compass_pads = pads,
-            psf_fwhm = psf_fwhms[i] if psf_fwhms is not None else None
+            psf_fwhm = psf_fwhms[i] if psf_fwhms is not None else None,
+            axis_range = axis_ranges[i]
         )
 
     return fig
