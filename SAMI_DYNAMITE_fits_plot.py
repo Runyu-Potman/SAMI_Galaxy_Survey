@@ -679,8 +679,8 @@ if __name__ == '__main__':
         '227266/dynamite/dynamite_fits/kinematics.fits', '9239900248/dynamite/dynamite_fits/kinematics.fits'
     ]
 
-    labels = [r'Galaxy 7969 ($\chi^2$/DOF = 1.02)', r'Galaxy 230776 ($\chi^2$/DOF = 1.93)', r'Galaxy 143287 ($\chi^2$/DOF = 0.91)',
-              r'Galaxy 300787 ($\chi^2$/DOF = 1.37)', r'Galaxy 227266 ($\chi^2$/DOF = 1.66)', r'Galaxy 9239900248 ($\chi^2$/DOF = 1.14)']
+    labels = [r'CRD1 ($\chi^2$/DOF = 1.02)', r'KDC2 ($\chi^2$/DOF = 1.93)', r'CRD2 ($\chi^2$/DOF = 0.91)',
+              r'CRD3 ($\chi^2$/DOF = 1.37)', r'KDC1 ($\chi^2$/DOF = 1.66)', r'CRD4 ($\chi^2$/DOF = 1.14)']
 
     my_pads = [
         (-3.40, 3.60, 1.30, 0, 0, -0.15, -0.05),   # galaxy 7969       range (-4.83, 4.73,  -5,  5)
