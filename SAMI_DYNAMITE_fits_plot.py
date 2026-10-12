@@ -564,7 +564,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                 vmin = -10, vmax = 10,
                 **kw_display_pixels
             )
-            format_axis(ax)
+            format_axis(ax, *axis_range)
             add_cbar(im, ax, '-10', '10')
 
             for idx, i in enumerate(gh_indices):
