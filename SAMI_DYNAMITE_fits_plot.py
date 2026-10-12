@@ -586,7 +586,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
             block_label,
             ha = 'center',
             va = 'bottom',
-            fontsize = 20
+            fontsize = 25
         )
 
         # Add Data / Model / Residual labels.
