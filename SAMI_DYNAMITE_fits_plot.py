@@ -532,7 +532,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
                     vmin = -0.15, vmax = 0.15,
                     **kw_display_pixels
                 )
-                format_axis(ax)
+                format_axis(ax, *axis_range)
                 add_cbar(im, ax, '-0.15', '0.15')
 
             # ---------- RESIDUAL row ----------
