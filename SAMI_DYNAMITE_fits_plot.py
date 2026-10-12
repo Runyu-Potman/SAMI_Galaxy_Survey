@@ -693,7 +693,7 @@ if __name__ == '__main__':
 
     psf_values = [1.561, 2.144, 2.250, 1.941, 2.108, 2.118]
 
-    fig = plot_kinematic_maps_from_fits_grid(fits_files, number_gh = 4, labels = labels, compass_pads_list = my_pads, psf_fwhms = psf_values)
+    fig = plot_kinematic_maps_from_fits_grid(fits_files, number_gh = 4, labels = labels, compass_pads_list = my_pads)
     plt.savefig('final\kinematic_model.png', dpi = 300, bbox_inches = 'tight')
     plt.show()
     '''
