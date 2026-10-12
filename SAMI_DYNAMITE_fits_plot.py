@@ -370,7 +370,15 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
         ax.set_ylim(ymin, ymax)
         ax.set_aspect('equal', adjustable='box')
 
-    def draw_block(fits_path, block_spec, block_label, add_row_labels = False, compass_pads = None, psf_fwhm = None):
+        # hide ticks and tick labels
+        ax.set_xticks([])
+        ax.set_yticks([])
+
+        # hide the spines (the axis lines/borders)
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+
+    def draw_block(fits_path, block_spec, block_label, add_row_labels = False, compass_pads = None, psf_fwhm = None, axis_range = (-10, 10, -10, 10)):
         '''
         Draw one galaxy block inside a 3 x n_col sub-grid.
         '''
