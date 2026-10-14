@@ -967,7 +967,7 @@ if __name__ == "__main__":
 
     bpt(Ha_fits_path = Ha_fits_path, Hb_fits_path = Hb_fits_path, OIII_fits_path = OIII_fits_path,
         OI_fits_path = OI_fits_path, SII_6716_fits_path = SII_6716_fits_path,
-        SII_6731_fits_path = SII_6731_fits_path, NII_fits_path = NII_fits_path, threshold = 5)
+        SII_6731_fits_path = SII_6731_fits_path, NII_fits_path = NII_fits_path, threshold = 5, fontsize = 13)
 
     plt.tight_layout(h_pad = 0, w_pad = 0.85)
     plt.savefig('final/bpt.png', dpi = 300, bbox_inches = 'tight')
