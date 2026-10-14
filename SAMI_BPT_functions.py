@@ -519,7 +519,7 @@ def bpt(
     axs[1, 1].set_title(r'[SII]-BPT', fontsize = fontsize)
 
     # add legend
-    axs[1, 1].legend(loc = 'upper left', fontsize = fontsize)
+    axs[1, 1].legend(loc = 'upper left', fontsize = fontsize-3)
 
     axs[1, 1].set_xlim(-1.4, 0.6)
     axs[1, 1].set_ylim(-1.4, 1.4)
