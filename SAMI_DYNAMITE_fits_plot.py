@@ -262,7 +262,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
         #cb.set_label('Relative Orbit Density', labelpad = 5, fontsize = 20)
         cb.ax.text(1.02, 0.5, r'$\omega$',
                    transform = cb.ax.transAxes,
-                   ha = 'left', va = 'center', fontsize = 20)
+                   ha = 'left', va = 'center', fontsize = 22)
 
     # Draw dashed lines for ocut values.
     for cut in ocut:
