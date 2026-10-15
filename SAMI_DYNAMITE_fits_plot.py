@@ -264,7 +264,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
         for i in range(len(labels)):
             y_center = (boundaries[i] + boundaries[i + 1]) / 2
             txt = ax.text(x_text, y_center, labels[i], ha = 'left', va = 'center',
-                          fontsize = 12, color = 'black')
+                          fontsize = 16, color = 'black')
             # Add white outline.
             txt.set_path_effects([pe.withStroke(linewidth = 3, foreground = 'white')])
 
