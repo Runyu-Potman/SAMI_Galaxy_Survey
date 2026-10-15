@@ -145,7 +145,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     ax2.text(0.5, 1.2, name,
              transform = ax2.transAxes,
              ha = 'center', va = 'bottom',
-             fontsize = 22, fontweight = 'bold')
+             fontsize = 24, fontweight = 'bold')
 
     ax2.tick_params(labelsize = 18, direction = 'in')
     ax2.set_axisbelow(False)
