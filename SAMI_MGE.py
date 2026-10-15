@@ -182,7 +182,7 @@ def make_circular_extra_mask(image_shape, x, y, radius):
     return mask.astype(bool)
 
 #----------------------------------------------------------------------------------
-def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 10, N_x_pad = 1, N_y_pad = 1, E_x_pad = 1, E_y_pad = 1):
+def add_NE_compass(ax, xc, yc, pa_deg, length = 2.0, fontsize = 12, N_x_pad = 1, N_y_pad = 1, E_x_pad = 1, E_y_pad = 1):
     '''
     Add a compass label in the plot.
 
