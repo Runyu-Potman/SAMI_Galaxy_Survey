@@ -384,8 +384,14 @@ def apply_mge(cut_data, level, minlevel, fwhm, Ar, skylev = 0, scale = 0.396, ng
     ax.set_yticks(tick_locs)
 
     # label settins.
-    ax.set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 4)
-    ax.set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = label_pad)
+    if x_label is True:
+       ax.set_xlabel('Offset (arcsec)', fontsize = fontsize, labelpad = 4)
+    else:
+       ax.set_xlabel('')
+    if y_label is True:
+       ax.set_ylabel('Offset (arcsec)', fontsize = fontsize, labelpad = label_pad)
+    else:
+       ax.set_ylabel('')
 
     # make these (major) ticks longer.
     ax.tick_params(axis = 'both', which = 'major', length = 4, width = 1, direction = 'in')
