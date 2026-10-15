@@ -504,7 +504,7 @@ if __name__ == '__main__':
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1,
               fwhm = 3.22295202, ngauss = 12, Ar = 0.08618277, twist = False,
               ax = axs[1, 4], tick_lim = 7.5, loc_min = -7.5, loc_max = 7.6, loc_step = 2.5,
-              Re = 2.3921091557, psf_label_x = -6.5, psf_label_y = -6.5)
+              Re = 2.3921091557, psf_label_x = -6.5, psf_label_y = -6.5, x_label = True)
 
     #-----------------------------------------------------------------------------------
     '''
