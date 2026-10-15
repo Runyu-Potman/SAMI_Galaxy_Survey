@@ -810,6 +810,6 @@ if __name__ == '__main__':
     for ax in axs.flat:
         ax.tick_params(axis = 'both', which = 'major', labelsize = 15)
 
-    plt.tight_layout(h_pad = 0.5, w_pad = -12)
+    plt.tight_layout(h_pad = 1, w_pad = -12)
     plt.savefig('final/mge.png', dpi=300, bbox_inches='tight')
     plt.show()
