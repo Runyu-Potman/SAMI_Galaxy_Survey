@@ -139,7 +139,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     ax2.set_xlim(xrange * arctpc / 1000.0)
     ax2.xaxis.set_major_locator(plt.MaxNLocator(nbins = 4))
     #ax2.set_xlabel(f'{name}\n' + r'$r$ (kpc)', fontsize = 20, labelpad = 8)
-    ax2.set_xlabel(r'$r$ (kpc)', fontsize = 20, labelpad = 8)
+    ax2.set_xlabel(r'$r$ (kpc)', fontsize = 22, labelpad = 8)
 
     # separate, bold, larger galaxy name above the axis label
     ax2.text(0.5, 1.2, name,
