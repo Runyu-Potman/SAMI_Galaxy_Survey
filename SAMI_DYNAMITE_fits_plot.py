@@ -57,7 +57,7 @@ def add_psf(ax, psffwhm):
     ax.add_patch(circle)
 
 ############################################################
-def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, extrap_start = None, output_plot = None, label = False):
+def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, extrap_start = None, output_plot = None, label = False, y_label = False):
     '''
     Reproduce the cumulative mass plot from the FITS file saved by mass_plot().
 
