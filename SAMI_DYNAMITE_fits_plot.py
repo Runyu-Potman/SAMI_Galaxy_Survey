@@ -244,7 +244,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
                    interpolation = interp, vmin = vmin, vmax = vmax, aspect = 'auto')
 
     ax.tick_params(direction = 'in', labelsize = 18)
-    ax.set_xlabel('Radius (arcsec)', fontsize = 20)
+    ax.set_xlabel('Radius (arcsec)', fontsize = 22)
 
     if y_label is True:
         if z_orbit:
