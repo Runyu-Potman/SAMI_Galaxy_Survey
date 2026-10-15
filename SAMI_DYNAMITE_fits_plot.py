@@ -122,7 +122,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     ax.set_xlabel(r'Radius (arcsec)', fontsize = 22)
 
     if y_label is True:
-         ax.set_ylabel(r'Enclosed Mass ($M_{\odot}$)', fontsize = 20)
+         ax.set_ylabel(r'Enclosed Mass ($M_{\odot}$)', fontsize = 22)
 
     # position of the y axis offset text.
     offset_text = ax.yaxis.get_offset_text()
