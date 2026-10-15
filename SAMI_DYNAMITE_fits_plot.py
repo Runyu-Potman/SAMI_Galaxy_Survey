@@ -257,7 +257,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
     # Add horizontal colorbar at the top of the axis.
     if add_cbar:
         cb = fig.colorbar(im, ax = ax, orientation = 'horizontal', location = 'top',
-                          pad = 0, aspect = 30, shrink = 0.84)
+                          pad = 0, aspect = 30, shrink = 0.83)
         cb.ax.tick_params(direction = 'in', labelsize = 18)
         #cb.set_label('Relative Orbit Density', labelpad = 5, fontsize = 20)
         cb.ax.text(1.02, 0.5, r'$\omega$',
