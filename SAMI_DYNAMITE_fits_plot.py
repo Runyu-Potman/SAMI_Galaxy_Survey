@@ -641,7 +641,10 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
 
 #---------------------------------------------------------------------------------
 if __name__ == '__main__':
-    '''
+
+    fig, ax = plt.subplots(3, 6, figsize = (25, 15), constrained_layout = True)
+
+    # first panel
     fits_filename_7969 = '7969/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
     fits_filename_143287 = '143287/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
     fits_filename_227266 = '227266/dynamite/dynamite_fits/enclosed_mass_profiles.fits'
