@@ -713,7 +713,7 @@ if __name__ == '__main__':
     ax[2, 4].set_box_aspect(1)
     ax[2, 5].set_box_aspect(1)
 
-    fig.get_layout_engine().set(w_pad=0.01, h_pad=0.01, wspace=0.01, hspace=0.1)
+    fig.get_layout_engine().set(w_pad=0, h_pad=0, wspace=0.02, hspace=0.06)
 
     plt.savefig('final\dynamite_result.png', dpi = 300, bbox_inches = 'tight')
     plt.show()
