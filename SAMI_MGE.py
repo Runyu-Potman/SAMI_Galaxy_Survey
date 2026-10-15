@@ -496,7 +496,7 @@ if __name__ == '__main__':
     apply_mge(cut_data = cut_data, mask_map = mask_map, level = 0.1, minlevel = 0.1,
               fwhm = 3.22295202, ngauss = 12, Ar = 0.08618277, twist = False,
               ax = axs[0, 4], tick_lim = 20, loc_min = -20, loc_max = 21, loc_step = 10,
-              title = 'Galaxy 300787', Re = 2.3921091557, psf_label_x = -18, psf_label_y = -18,
+              title = 'CRD3', Re = 2.3921091557, psf_label_x = -18, psf_label_y = -18,
               compass = True, xc = -12.5, yc = 12.5, length = 5, pa = -33.32,
               N_x_pad = 0.2, N_y_pad = 0.5, E_x_pad = -0.5, E_y_pad = -0.1)
 
