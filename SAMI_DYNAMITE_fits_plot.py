@@ -281,7 +281,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
 
     # a dotted line to represent the radius of the kinematically distinct component.
     if r_kdc is not None:
-       ax.axvline(r_kdc, color = 'gray', linestyle = 'dotted', linewidth = 1.5)
+       ax.axvline(r_kdc, color = 'orange', linestyle = 'dotted', linewidth = 2.5)
 
     if created_fig:
         plt.tight_layout()
