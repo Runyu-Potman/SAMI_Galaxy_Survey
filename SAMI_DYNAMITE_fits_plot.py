@@ -653,13 +653,44 @@ if __name__ == '__main__':
     fits_orbit_300787 = '300787/dynamite/dynamite_fits/orbit_density.fits'
     fits_orbit_9239900248 = '9239900248/dynamite/dynamite_fits/orbit_density.fits'
 
-    fig, ax = plt.subplots(2, 3, figsize = (12, 8))
-    reproduce_orbit_plot(fits_orbit_7969, ax = ax[0, 0], name = '7969', r_kdc = 1.7, text = True)
-    reproduce_orbit_plot(fits_orbit_143287, ax = ax[0, 1], name = '143287', r_kdc = 2.9)
-    reproduce_orbit_plot(fits_orbit_227266, ax = ax[0, 2], name = '227266', r_kdc = 3.0)
-    reproduce_orbit_plot(fits_orbit_230776, ax = ax[1, 0], name = '230776', r_kdc = 4.6)
-    reproduce_orbit_plot(fits_orbit_300787, ax = ax[1, 1], name = '300787', r_kdc = 2.5)
-    reproduce_orbit_plot(fits_orbit_9239900248, ax = ax[1, 2], name = '9239900248', r_kdc = 3.4)
+    reproduce_orbit_plot(fits_orbit_7969, ax = ax[1, 0], name = '7969', r_kdc = 1.7, text = True, y_label = True)
+    reproduce_orbit_plot(fits_orbit_143287, ax = ax[1, 1], name = '143287', r_kdc = 2.9)
+    reproduce_orbit_plot(fits_orbit_227266, ax = ax[1, 2], name = '227266', r_kdc = 3.0)
+    reproduce_orbit_plot(fits_orbit_230776, ax = ax[1, 3], name = '230776', r_kdc = 4.6)
+    reproduce_orbit_plot(fits_orbit_300787, ax = ax[1, 4], name = '300787', r_kdc = 2.5)
+    reproduce_orbit_plot(fits_orbit_9239900248, ax = ax[1, 5], name = '9239900248', r_kdc = 3.4)
+
+    # third panel
+    ##################################################
+    # the circularity with respect to x.
+    fits_orbit_7969 = '7969/dynamite/dynamite_fits/orbit_density_lx.fits'
+    fits_orbit_143287 = '143287/dynamite/dynamite_fits/orbit_density_lx.fits'
+    fits_orbit_227266 = '227266/dynamite/dynamite_fits/orbit_density_lx.fits'
+    fits_orbit_230776 = '230776/dynamite/dynamite_fits/orbit_density_lx.fits'
+    fits_orbit_300787 = '300787/dynamite/dynamite_fits/orbit_density_lx.fits'
+    fits_orbit_9239900248 = '9239900248/dynamite/dynamite_fits/orbit_density_lx.fits'
+
+    reproduce_orbit_plot(fits_orbit_7969, ax = ax[2, 0], name = '7969', r_kdc = 1.7, text = True, y_label = True, z_orbit = False)
+    reproduce_orbit_plot(fits_orbit_143287, ax = ax[2, 1], name = '143287', r_kdc = 2.9)
+    reproduce_orbit_plot(fits_orbit_227266, ax = ax[2, 2], name = '227266', r_kdc = 3.0)
+    reproduce_orbit_plot(fits_orbit_230776, ax = ax[2, 3], name = '230776', r_kdc = 4.6)
+    reproduce_orbit_plot(fits_orbit_300787, ax = ax[2, 4], name = '300787', r_kdc = 2.5)
+    reproduce_orbit_plot(fits_orbit_9239900248, ax = ax[2, 5], name = '9239900248', r_kdc = 3.4)
+
+    # same axis ratio.
+    ax[0, 0].set_box_aspect(1)
+    ax[0, 1].set_box_aspect(1)
+    ax[0, 2].set_box_aspect(1)
+    ax[0, 3].set_box_aspect(1)
+    ax[0, 4].set_box_aspect(1)
+    ax[0, 5].set_box_aspect(1)
+
+    ax[1, 0].set_box_aspect(1)
+    ax[1, 1].set_box_aspect(1)
+    ax[1, 2].set_box_aspect(1)
+    ax[1, 3].set_box_aspect(1)
+    ax[1, 4].set_box_aspect(1)
+    ax[1, 5].set_box_aspect(1)
 
     plt.tight_layout()
     plt.savefig('final\orbit_density.png', dpi = 300, bbox_inches = 'tight')
