@@ -119,7 +119,7 @@ def reproduce_mass_plot(fits_filename, ax = None, name = None, r_kdc = None, ext
     ax.set_xlim(xrange)
     ax.set_ylim(yrange)
     ax.xaxis.set_major_locator(plt.MaxNLocator(nbins = 4))
-    ax.set_xlabel(r'Radius (arcsec)', fontsize = 20)
+    ax.set_xlabel(r'Radius (arcsec)', fontsize = 22)
 
     if y_label is True:
          ax.set_ylabel(r'Enclosed Mass ($M_{\odot}$)', fontsize = 20)
