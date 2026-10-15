@@ -645,9 +645,7 @@ if __name__ == '__main__':
     reproduce_mass_plot(fits_filename_300787, ax=ax[0, 4], name='CRD3', r_kdc=2.5, extrap_start=5.37)
     reproduce_mass_plot(fits_filename_9239900248, ax=ax[0, 5], name='CRD4', r_kdc=3.4, extrap_start=5.78)
 
-    plt.show()
-    '''
-
+    # second panel
     fits_orbit_7969 = '7969/dynamite/dynamite_fits/orbit_density.fits'
     fits_orbit_143287 = '143287/dynamite/dynamite_fits/orbit_density.fits'
     fits_orbit_227266 = '227266/dynamite/dynamite_fits/orbit_density.fits'
