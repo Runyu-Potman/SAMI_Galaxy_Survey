@@ -237,10 +237,13 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
 
     ax.tick_params(direction = 'in', labelsize = 15)
     ax.set_xlabel('Radius (arcsec)', fontsize = 15)
-    if name is not None:
-        ax.set_ylabel(f'Galaxy {name}\nCircularity $\lambda_{{z}}$', fontsize = 15)
-    else:
-        ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize = 15)
+
+    if y_label is True:
+        if z_orbit:
+          ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize = 15)
+        else:
+          ax.set_ylabel(r'Circularity $\lambda_{x}$', fontsize = 15)
+
     ax.set_yticks([-1, -0.5, 0, 0.5, 1])
 
     # Add horizontal colorbar at the top of the axis.
