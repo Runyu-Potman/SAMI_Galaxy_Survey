@@ -248,7 +248,7 @@ def reproduce_orbit_plot(fits_file, ax = None, cbar = True, name = None, r_kdc =
 
     if y_label is True:
         if z_orbit:
-          ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize = 20)
+          ax.set_ylabel(r'Circularity $\lambda_{z}$', fontsize = 22)
         else:
           ax.set_ylabel(r'Circularity $\lambda_{x}$', fontsize = 20)
 
