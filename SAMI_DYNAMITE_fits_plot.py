@@ -372,7 +372,7 @@ def plot_kinematic_maps_from_fits_grid(fits_paths, number_gh = 4, labels = None,
         cb.set_ticks([])
         cb.ax.text(0.5, 0.05, bottom_label, transform = cb.ax.transAxes,
                    ha = 'center', va = 'bottom', fontsize = 9.3, color = 'white', fontweight = 'bold',
-                   path_effects = [pe.withStroke(linewidth = 0.5, foreground = 'black')])
+                   path_effects = [pe.withStroke(linewidth = 0.7, foreground = 'black')])
         cb.ax.text(0.5, 0.95, top_label, transform = cb.ax.transAxes,
                    ha = 'center', va = 'top', fontsize = 9.3, color = 'white', fontweight = 'bold',
                    path_effects = [pe.withStroke(linewidth = 0.5, foreground = 'black')])
